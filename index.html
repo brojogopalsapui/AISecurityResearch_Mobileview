@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brojogopal Sapui | AI Security Research</title>
+  <meta
+    name="description"
+    content="Personal research portal for AI security across software, hardware, cloud, edge, generative, agentic, predictive, and physical AI."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f6f9ff;
+      --bg-soft: #eef4ff;
+      --bg-alt: #f8fbff;
+      --surface: rgba(255, 255, 255, 0.9);
+      --surface-strong: rgba(255, 255, 255, 0.96);
+      --text: #0f172a;
+      --muted: #475569;
+      --muted-2: #64748b;
+      --border: rgba(15, 23, 42, 0.08);
+      --border-strong: rgba(37, 99, 235, 0.2);
+      --primary: #2563eb;
+      --primary-2: #1d4ed8;
+      --teal: #0f766e;
+      --violet: #7c3aed;
+      --amber: #f59e0b;
+      --shadow: 0 18px 44px rgba(15, 23, 42, 0.1);
+      --shadow-hover: 0 24px 54px rgba(15, 23, 42, 0.16);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: clip;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 24%),
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.1), transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(15, 118, 110, 0.08), transparent 25%),
+        linear-gradient(180deg, #f7faff 0%, #f8fbff 45%, #f3f8ff 100%);
+      overflow-x: clip;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.8);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .nav-wrap {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--violet));
+      box-shadow: 0 14px 34px rgba(37, 99, 235, 0.24);
+      flex-shrink: 0;
+    }
+
+    .brand span {
+      color: #dbeafe;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-left: auto;
+    }
+
+    .nav a {
+      position: relative;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: #1e293b;
+      transition: 0.25s ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--primary);
+      background: rgba(37, 99, 235, 0.08);
+      outline: none;
+    }
+
+    .nav a.active {
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--teal));
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.22);
+    }
+
+    .menu-btn {
+      display: none;
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      border: 1px solid rgba(37, 99, 235, 0.16);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.94);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      flex-shrink: 0;
+    }
+
+    .menu-btn span {
+      display: block;
+      width: 22px;
+      height: 2.5px;
+      border-radius: 999px;
+      background: #1e293b;
+      transition: 0.25s ease;
+    }
+
+    .menu-btn.active span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+
+    .menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-btn.active span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    .floating-notif {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: min(640px, calc(100vw - 1rem));
+      padding: 0.75rem 0.9rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(37, 99, 235, 0.14);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+      backdrop-filter: blur(16px);
+      animation: floatCard 4.5s ease-in-out infinite;
+    }
+
+    .floating-notif.hide-notif {
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      transition: 0.35s ease;
+    }
+
+    .notif-badge {
+      flex-shrink: 0;
+      padding: 0.35rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--violet));
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
+    }
+
+    .notif-text {
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: #1e293b;
+    }
+
+    .notif-text a {
+      margin-left: 0.3rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .hero {
+      position: relative;
+      padding: 5.2rem 0 4.2rem;
+      overflow: clip;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(12px);
+      z-index: 0;
+    }
+
+    .hero::before {
+      width: 360px;
+      height: 360px;
+      top: -100px;
+      left: -110px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.16), transparent 68%);
+      animation: drift 9s ease-in-out infinite;
+    }
+
+    .hero::after {
+      width: 340px;
+      height: 340px;
+      right: -90px;
+      bottom: -90px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.14), transparent 68%);
+      animation: drift 11s ease-in-out infinite reverse;
+    }
+
+    .hero-grid,
+    .section .container,
+    .footer-grid {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.52rem 0.9rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(37, 99, 235, 0.14);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1,
+    .section-head h2,
+    .content-card h2,
+    .cta h2,
+    .post-card h3,
+    .topic-card h3,
+    .section-card h3 {
+      margin-top: 0;
+      color: #0f172a;
+    }
+
+    .hero h1 {
+      max-width: 13ch;
+      font-size: clamp(2.25rem, 4vw, 4.3rem);
+      line-height: 1.03;
+      letter-spacing: -0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .lead {
+      max-width: 68ch;
+      font-size: 1.04rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .hero-actions,
+    .cta-actions,
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 1.5rem;
+    }
+
+    .hero-mini-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.35rem;
+    }
+
+    .hero-mini-points span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.72rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .hero-mini-points span::before {
+      content: "✦";
+      color: var(--primary);
+      font-size: 0.84rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.88)),
+        linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(15, 118, 110, 0.08));
+      border: 1px solid rgba(37, 99, 235, 0.12);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+      overflow: hidden;
+      transform: perspective(1200px) rotateY(-4deg);
+      transition: 0.4s ease;
+    }
+
+    .hero-visual:hover {
+      transform: perspective(1200px) rotateY(0deg) translateY(-4px);
+      box-shadow: 0 28px 72px rgba(15, 23, 42, 0.18);
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.4) 48%,
+        transparent 72%
+      );
+      transform: translateX(-120%);
+      animation: sheen 5.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .hero-visual img {
+      border-radius: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      padding: 4.2rem 0;
+    }
+
+    .section.alt {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(239, 246, 255, 0.85));
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.9rem, 3vw, 3rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 0.7rem;
+    }
+
+    .section-head p {
+      margin: 0;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .card-grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card-grid.four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .post-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+
+    .content-card,
+    .post-card,
+    .topic-card,
+    .section-card,
+    .cta {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      border: 1px solid rgba(15, 23, 42, 0.07);
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      transition: 0.35s ease;
+    }
+
+    .content-card:hover,
+    .post-card:hover,
+    .topic-card:hover,
+    .section-card:hover,
+    .cta:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(37, 99, 235, 0.18);
+    }
+
+    .content-card::before,
+    .post-card::before,
+    .topic-card::before,
+    .section-card::before,
+    .cta::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--violet), var(--teal));
+      opacity: 0.95;
+    }
+
+    .landscape-card {
+      padding: 1rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.88)),
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.08), transparent 35%);
+    }
+
+    .zoom-img,
+    .zoomable-thumb {
+      width: 100%;
+      border-radius: 18px;
+    }
+
+    .zoomable-thumb {
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .post-card:hover .zoomable-thumb {
+      transform: scale(1.04);
+      filter: saturate(1.05) contrast(1.02);
+    }
+
+    .card-caption {
+      padding: 0.95rem 0.35rem 0.3rem;
+    }
+
+    .card-caption p,
+    .post-card p,
+    .topic-card p,
+    .section-card p,
+    .content-card p,
+    .cta p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .img-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .img-expand-btn {
+      position: absolute;
+      top: 0.85rem;
+      right: 0.85rem;
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.72);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.24);
+      transition: 0.25s ease;
+      z-index: 3;
+    }
+
+    .img-expand-btn:hover {
+      transform: scale(1.08);
+      background: linear-gradient(135deg, var(--primary), var(--violet));
+    }
+
+    .post-card,
+    .topic-card,
+    .section-card {
+      display: block;
+      text-decoration: none;
+    }
+
+    .post-card {
+      padding: 1rem;
+    }
+
+    .topic-card,
+    .section-card {
+      padding: 1.35rem 1.25rem;
+    }
+
+    .tag,
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      width: fit-content;
+      padding: 0.44rem 0.78rem;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: rgba(15, 118, 110, 0.08);
+      border: 1px solid rgba(15, 118, 110, 0.14);
+      margin-bottom: 0.8rem;
+    }
+
+    .content-card {
+      padding: 1.55rem;
+    }
+
+    .check-list {
+      margin: 1rem 0 0;
+      padding-left: 1.15rem;
+    }
+
+    .check-list li {
+      margin-bottom: 0.72rem;
+      color: #334155;
+      line-height: 1.65;
+    }
+
+    .lifecycle-fig {
+      margin: 0 0 2rem;
+    }
+
+    .lifecycle-fig .img-frame {
+      padding: 1rem;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9)),
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.08), transparent 32%);
+      border: 1px solid rgba(15, 23, 42, 0.07);
+      box-shadow: var(--shadow);
+    }
+
+    .lifecycle-fig figcaption {
+      max-width: 900px;
+      margin: 1rem auto 0;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      min-height: 50px;
+      padding: 0.9rem 1.2rem;
+      border-radius: 14px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--violet));
+      box-shadow: 0 14px 28px rgba(37, 99, 235, 0.22);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      box-shadow: 0 18px 34px rgba(37, 99, 235, 0.28);
+      outline: none;
+    }
+
+    .btn-secondary {
+      color: var(--primary);
+      background: rgba(255, 255, 255, 0.92);
+      border-color: rgba(37, 99, 235, 0.16);
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--primary-2);
+      outline: none;
+    }
+
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      padding: 1.7rem 1.8rem;
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(124, 58, 237, 0.08), rgba(15, 118, 110, 0.08)),
+        rgba(255, 255, 255, 0.9);
+    }
+
+    .cta h2 {
+      margin-bottom: 0.45rem;
+      letter-spacing: -0.03em;
+    }
+
+    .cta p {
+      margin: 0;
+      max-width: 720px;
+    }
+
+    .site-footer {
+      position: relative;
+      overflow: hidden;
+      margin-top: 1rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(243, 247, 255, 1));
+      border-top: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .site-footer::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -60px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1.1fr;
+      gap: 1.5rem;
+      padding: 2.4rem 0;
+    }
+
+    .footer-grid h3,
+    .footer-grid h4 {
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-grid p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .footer-grid a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .footer-grid a:hover {
+      color: var(--primary-2);
+      text-decoration: underline;
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      background: rgba(2, 8, 23, 0.82);
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s ease;
+    }
+
+    .image-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .image-modal-inner {
+      position: relative;
+      width: min(1200px, 100%);
+      max-height: 90vh;
+      padding: 0.8rem;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+    }
+
+    .image-modal img {
+      width: 100%;
+      max-height: calc(90vh - 1.6rem);
+      object-fit: contain;
+      border-radius: 18px;
+      background: white;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 0.35rem;
+      right: 0.35rem;
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.72);
+      color: white;
+      font-size: 1.3rem;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(18px, -14px, 0) scale(1.05); }
+    }
+
+    @keyframes sheen {
+      0% { transform: translateX(-125%); }
+      55% { transform: translateX(125%); }
+      100% { transform: translateX(125%); }
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .split,
+      .footer-grid,
+      .card-grid.four,
+      .card-grid.three,
+      .post-list {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero h1 {
+        max-width: 100%;
+      }
+
+      .hero-visual {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .menu-btn {
+        display: inline-flex;
+      }
+
+      .nav {
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        right: 1rem;
+        left: 1rem;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.8rem;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        box-shadow: 0 20px 44px rgba(15, 23, 42, 0.12);
+      }
+
+      .nav.open {
+        display: flex;
+      }
+
+      .nav a {
+        width: 100%;
+        padding: 0.95rem 1rem;
+        border-radius: 14px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: min(100% - 1rem, var(--container));
+      }
+
+      .floating-notif {
+        position: static;
+        width: calc(100% - 1rem);
+        margin: 0.75rem auto 0;
+        animation: none;
+      }
+
+      .hero {
+        padding-top: 3.6rem;
+        padding-bottom: 3rem;
+      }
+
+      .section {
+        padding: 3rem 0;
+      }
+
+      .hero-actions,
+      .hero-mini-points,
+      .cta-actions,
+      .btn-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-mini-points span {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .footer-grid {
+        padding: 2rem 0;
+      }
+
+      .hero::before,
+      .hero::after {
+        transform: scale(0.8);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .section-head h2 {
+        font-size: 1.8rem;
+      }
+
+      .brand {
+        width: 48px;
+        height: 48px;
+      }
+
+      .menu-btn {
+        width: 46px;
+        height: 46px;
+      }
+
+      .content-card,
+      .post-card,
+      .topic-card,
+      .section-card,
+      .cta {
+        border-radius: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="floating-notif" id="floatingNotif">
+    <div class="notif-badge">NEW</div>
+    <div class="notif-text">
+      <strong>Research Watch:</strong> Agentic and physical AI are rapidly expanding the security boundary.
+      <a href="ongoing-work.html">Read note →</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Brojogopal Sapui Home">B<span>S</span></a>
+
+      <nav class="nav" id="siteNav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="ongoing-work.html">Ongoing Work</a>
+        <a href="publications.html">Resources</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Cross-layer AI Security • Hardware-Aware Trust • Edge-to-Cloud Intelligence</span>
+
+          <h1>Trustworthy AI Security from Models to Systems and Physical Intelligence</h1>
+
+          <p class="lead">
+            I am Brojogopal Sapui. This website presents a research-focused view of AI security across software, hardware,
+            deployment stacks, and emerging intelligent systems including predictive, generative, agentic, edge, and physical AI.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="research.html">Explore Research Sections</a>
+            <a class="btn btn-secondary" href="ongoing-work.html">Read Ongoing Research Notes</a>
+          </div>
+
+          <div class="hero-mini-points">
+            <span>Software and hardware threat surfaces</span>
+            <span>Deployment-aware security thinking</span>
+            <span>From models and accelerators to embodied AI</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <img
+            src="assets/img/hero-diagram.png"
+            alt="Overview illustration of AI security across models, systems, and deployment layers"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Research Landscape</span>
+          <h2>AI Security Landscape</h2>
+          <p class="lead">
+            A compact cross-layer map of software threats, hardware risks, deployment realities, and the emerging security challenges
+            in predictive, generative, agentic, edge, and physical AI.
+          </p>
+        </div>
+
+        <div class="content-card landscape-card reveal">
+          <img
+            src="assets/img/01_ai_security_landscape.png"
+            alt="AI Security Landscape diagram showing software and hardware security, cloud and edge AI, predictive, generative, agentic, and physical AI, along with countermeasures and future challenges"
+            class="zoom-img"
+          />
+          <div class="card-caption">
+            <p>
+              This diagram gives a high-level technical overview of how modern AI security spans model-level vulnerabilities,
+              hardware implementation risks, deployment settings, and system-level countermeasure design.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Featured Highlights</span>
+          <h2>Selected focus areas with technical context</h2>
+          <p>
+            These highlighted themes provide a fast visual entry point into major directions shaping current AI security research.
+          </p>
+        </div>
+
+        <div class="card-grid three reveal">
+          <a class="post-card" href="ai-security/generative-ai.html">
+            <div class="img-container">
+              <img
+                src="assets/img/highlight-generative.png"
+                alt="Illustration for generative AI security"
+                class="zoomable-thumb"
+              />
+              <button
+                class="img-expand-btn"
+                type="button"
+                aria-label="Expand generative AI image"
+                data-full="assets/img/highlight-generative.png"
+                data-alt="Illustration for generative AI security"
+              >
+                ⤢
+              </button>
+            </div>
+            <span class="tag">Generative AI</span>
+            <h3>Prompt-layer security and containment</h3>
+            <p>
+              Prompt injection, jailbreaks, model misuse, watermarking, alignment, and secure integration remain central challenges in generative systems.
+            </p>
+          </a>
+
+          <a class="post-card" href="ai-security/edge-security.html">
+            <div class="img-container">
+              <img
+                src="assets/img/highlight-edge.png"
+                alt="Illustration for edge AI security"
+                class="zoomable-thumb"
+              />
+              <button
+                class="img-expand-btn"
+                type="button"
+                aria-label="Expand edge AI image"
+                data-full="assets/img/highlight-edge.png"
+                data-alt="Illustration for edge AI security"
+              >
+                ⤢
+              </button>
+            </div>
+            <span class="tag">Edge AI</span>
+            <h3>Why implementation details matter at the edge</h3>
+            <p>
+              Edge AI brings physical exposure, leakage paths, constrained resources, timing effects, and deployment realism directly into the threat model.
+            </p>
+          </a>
+
+          <a class="post-card" href="ai-security/physical-ai.html">
+            <div class="img-container">
+              <img
+                src="assets/img/highlight-physical.png"
+                alt="Illustration for physical AI security"
+                class="zoomable-thumb"
+              />
+              <button
+                class="img-expand-btn"
+                type="button"
+                aria-label="Expand physical AI image"
+                data-full="assets/img/highlight-physical.png"
+                data-alt="Illustration for physical AI security"
+              >
+                ⤢
+              </button>
+            </div>
+            <span class="tag">Physical AI</span>
+            <h3>Security, safety, latency, and control together</h3>
+            <p>
+              In physical AI, sensing, decision-making, timing, and actuation interact with the real world, making trust a full-system design question.
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Core Domains</span>
+          <h2>Foundational security directions</h2>
+          <p>
+            These categories anchor the broader research map and connect model-level threats with implementation-aware defenses.
+          </p>
+        </div>
+
+        <div class="card-grid four reveal">
+          <a class="topic-card" href="ai-security/software-security.html">
+            <h3>Software Security</h3>
+            <p>Adversarial manipulation, poisoning, privacy leakage, prompt-layer threats, model extraction, and secure training.</p>
+          </a>
+
+          <a class="topic-card" href="ai-security/hardware-security.html">
+            <h3>Hardware Security</h3>
+            <p>Side-channel analysis, fault injection, accelerator leakage, implementation gaps, and hardware-aware defenses.</p>
+          </a>
+
+          <a class="topic-card" href="ai-security/generative-ai.html">
+            <h3>Generative AI</h3>
+            <p>Prompt injection, jailbreaks, misuse, alignment, watermarking, and system-level containment.</p>
+          </a>
+
+          <a class="topic-card" href="ai-security/physical-ai.html">
+            <h3>Physical AI</h3>
+            <p>Security of embodied systems where sensing, computation, timing, communication, and control are tightly coupled.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container split reveal">
+        <div class="content-card">
+          <span class="kicker">Research Focus</span>
+          <h2>Cross-layer security with a hardware-aware lens</h2>
+          <p>
+            My work lies at the intersection of AI security, hardware security, edge intelligence, and trustworthy deployment.
+            A recurring theme is that real security cannot stop at algorithmic robustness; it must also account for implementation,
+            accelerators, physical access, system integration, and deployment constraints.
+          </p>
+          <ul class="check-list">
+            <li>Security of AI models across software and hardware layers</li>
+            <li>Side-channel and fault-injection perspectives for edge AI</li>
+            <li>Trust, resilience, and countermeasures for physical AI</li>
+            <li>Survey-style synthesis of open problems and future directions</li>
+          </ul>
+        </div>
+
+        <div class="content-card">
+          <span class="kicker">Site Structure</span>
+          <h2>A living technical map of AI security</h2>
+          <p>
+            The website is organized as a growing research portal: section pages for major themes, compact visual summaries,
+            ongoing notes, and cross-layer discussions that connect foundational security problems with emerging intelligent systems.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-secondary" href="about.html">About my background</a>
+            <a class="btn btn-secondary" href="publications.html">Resources</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Research Themes</span>
+          <h2>Security categories covered on this website</h2>
+          <p>
+            These pages are written to be readable for students and collaborators while remaining technical enough for researchers and engineers.
+          </p>
+        </div>
+
+        <figure class="page-figure lifecycle-fig reveal">
+          <div class="img-frame">
+            <img
+              src="assets/img/full_ml_lifecycle_threats_countermeasures.svg"
+              alt="End-to-end AI lifecycle diagram"
+              class="zoom-img"
+            />
+          </div>
+          <figcaption>
+            End-to-end AI/ML lifecycle showing how threat models and countermeasures evolve from software and cloud stages to edge,
+            hardware, and physical-world deployment.
+          </figcaption>
+        </figure>
+
+        <div class="card-grid three reveal">
+          <a class="section-card" href="ai-security/predictive-ai.html">
+            <h3>Predictive AI Security</h3>
+            <p>Classifiers, detectors, ranking systems, forecasting models, and their attack and defense landscape.</p>
+          </a>
+
+          <a class="section-card" href="ai-security/agentic-ai.html">
+            <h3>Agentic AI Security</h3>
+            <p>Autonomous planning loops, tools, memory, permissions, orchestration, and operational containment.</p>
+          </a>
+
+          <a class="section-card" href="ai-security/countermeasures.html">
+            <h3>Countermeasures</h3>
+            <p>Cross-layer defenses spanning robust learning, runtime monitoring, hardware hardening, and co-design.</p>
+          </a>
+
+          <a class="section-card" href="ai-security/cloud-security.html">
+            <h3>Cloud AI Security</h3>
+            <p>Shared infrastructure, API exposure, privacy, access control, and secure serving.</p>
+          </a>
+
+          <a class="section-card" href="ai-security/edge-security.html">
+            <h3>Edge AI Security</h3>
+            <p>Physical exposure, constrained devices, accelerator implementations, and deployment realism.</p>
+          </a>
+
+          <a class="section-card" href="research.html">
+            <h3>Full Research Map</h3>
+            <p>Browse all sections and use the website as a compact technical survey hub.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Research Watch</span>
+          <h2>Highlighted ongoing directions</h2>
+          <p>
+            These short research-watch notes capture themes I am actively tracking beyond the static section pages:
+            emerging attack surfaces, new defense directions, and system-level gaps becoming important in real AI deployment.
+          </p>
+        </div>
+
+        <div class="post-list reveal">
+          <a class="post-card" href="ongoing-work.html#agentic-watch">
+            <span class="tag">Research Watch</span>
+            <h3>Why agentic AI changes the security problem</h3>
+            <p>
+              Once AI systems can plan, remember, call tools, and act over time, security is no longer only about model outputs.
+              The challenge becomes how to bound autonomy, protect memory, and prevent prompt-level manipulation from turning into real actions.
+            </p>
+          </a>
+
+          <a class="post-card" href="ongoing-work.html#edge-watch">
+            <span class="tag">Research Watch</span>
+            <h3>Edge AI makes implementation details matter</h3>
+            <p>
+              On-device deployment changes the attacker model completely. Secure boot, firmware trust, model extraction, side-channel leakage,
+              sensor validation, and update integrity all become part of whether the AI system is actually trustworthy.
+            </p>
+          </a>
+
+          <a class="post-card" href="ongoing-work.html#physical-watch">
+            <span class="tag">Research Watch</span>
+            <h3>Physical AI needs security and safety together</h3>
+            <p>
+              In embodied and real-time systems, perception errors, communication delay, control instability, and cyber attacks cannot be studied separately.
+              The real challenge is securing the full perception-to-action loop under realistic operating conditions.
+            </p>
+          </a>
+        </div>
+
+        <div style="margin-top: 2rem; text-align: center;" class="reveal">
+          <a class="btn btn-secondary" href="ongoing-work.html">Read all ongoing notes</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta reveal">
+          <div>
+            <span class="eyebrow">Explore More</span>
+            <h2>Research, resources, and ongoing technical directions</h2>
+            <p>
+              Use this portal to navigate core AI security themes, browse focused resources, and follow ongoing research notes across software,
+              hardware, edge, and physical AI.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="research.html">Open research map</a>
+            <a class="btn btn-secondary" href="publications.html">Browse resources</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Brojogopal Sapui</h3>
+        <p>AI Security Research • Hardware Trust • Edge and Physical AI</p>
+      </div>
+
+      <div>
+        <h4>Main Pages</h4>
+        <a href="research.html">Research</a>
+        <a href="ongoing-work.html">Ongoing Work</a>
+        <a href="publications.html">Resources</a>
+      </div>
+
+      <div>
+        <h4>Experience</h4>
+        <p>NXP Semiconductors (Austria), NaMLab, KIT (Germany), IIT Kharagpur, ISI Kolkata.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="image-modal" id="imageModal" aria-hidden="true">
+    <div class="image-modal-inner">
+      <button class="modal-close" id="modalClose" aria-label="Close image viewer">×</button>
+      <img id="modalImage" src="" alt="" />
+    </div>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const siteNav = document.getElementById("siteNav");
+
+    if (menuBtn && siteNav) {
+      menuBtn.addEventListener("click", () => {
+        const isOpen = siteNav.classList.toggle("open");
+        menuBtn.classList.toggle("active", isOpen);
+        menuBtn.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      document.addEventListener("click", (e) => {
+        const clickedInsideNav = siteNav.contains(e.target);
+        const clickedMenuBtn = menuBtn.contains(e.target);
+
+        if (!clickedInsideNav && !clickedMenuBtn && window.innerWidth <= 860) {
+          siteNav.classList.remove("open");
+          menuBtn.classList.remove("active");
+          menuBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    const notif = document.getElementById("floatingNotif");
+    window.addEventListener("scroll", () => {
+      if (!notif) return;
+      if (window.scrollY > 650 && window.innerWidth > 768) {
+        notif.classList.add("hide-notif");
+      } else {
+        notif.classList.remove("hide-notif");
+      }
+    });
+
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const modalClose = document.getElementById("modalClose");
+    const expandButtons = document.querySelectorAll(".img-expand-btn");
+
+    expandButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        modalImg.src = btn.dataset.full;
+        modalImg.alt = btn.dataset.alt || "Expanded image";
+        modal.classList.add("active");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      modalImg.src = "";
+      modalImg.alt = "";
+      document.body.style.overflow = "";
+    }
+
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+  </script>
+</body>
+</html>
