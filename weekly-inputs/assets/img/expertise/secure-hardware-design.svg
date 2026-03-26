@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse"><stop stop-color="#1A2A43"/><stop offset="1" stop-color="#274269"/></linearGradient><linearGradient id="shield" x1="480" y1="200" x2="720" y2="480" gradientUnits="userSpaceOnUse"><stop stop-color="#8CC4FF"/><stop offset="0.55" stop-color="#9B8CFF"/><stop offset="1" stop-color="#54D9CA"/></linearGradient></defs>
+<rect width="1200" height="750" rx="40" fill="url(#bg)"/>
+<g opacity="0.16"><circle cx="180" cy="620" r="130" fill="#8CC4FF"/><circle cx="1010" cy="110" r="130" fill="#54D9CA"/></g>
+<text x="600" y="95" fill="#F7FBFF" font-size="40" font-family="Inter, Arial, sans-serif" font-weight="700" text-anchor="middle">Secure Hardware Design</text>
+<text x="600" y="145" fill="#D7E2F1" font-size="25" font-family="Inter, Arial, sans-serif" text-anchor="middle">Cross-layer protection from circuit primitives to deployment trust</text>
+<rect x="170" y="210" width="220" height="330" rx="24" fill="#20324E" stroke="#8CC4FF" stroke-opacity="0.35"/>
+<rect x="490" y="190" width="220" height="360" rx="30" fill="#20324E" stroke="#9B8CFF" stroke-opacity="0.35"/>
+<rect x="810" y="210" width="220" height="330" rx="24" fill="#20324E" stroke="#54D9CA" stroke-opacity="0.35"/>
+<path d="M600 250L660 280V360C660 430 628 476 600 495C572 476 540 430 540 360V280L600 250Z" fill="url(#shield)" opacity="0.9"/>
+<path d="M580 365L595 382L626 334" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="280" y="275" fill="#F7FBFF" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="600" text-anchor="middle">Device / Circuit</text>
+<text x="600" y="275" fill="#F7FBFF" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="600" text-anchor="middle">Architecture / Logic</text>
+<text x="920" y="275" fill="#F7FBFF" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="600" text-anchor="middle">Deployment / Runtime</text>
+<text x="280" y="340" fill="#D7E2F1" font-size="23" font-family="Inter, Arial, sans-serif" text-anchor="middle">Cell-level hardening</text>
+<text x="280" y="375" fill="#D7E2F1" font-size="23" font-family="Inter, Arial, sans-serif" text-anchor="middle">Masking • Obfuscation</text>
+<text x="600" y="565" fill="#D7E2F1" font-size="22" font-family="Inter, Arial, sans-serif" text-anchor="middle">Secure dataflow • Isolation • Trusted interfaces</text>
+<text x="920" y="340" fill="#D7E2F1" font-size="23" font-family="Inter, Arial, sans-serif" text-anchor="middle">Provisioning</text>
+<text x="920" y="375" fill="#D7E2F1" font-size="23" font-family="Inter, Arial, sans-serif" text-anchor="middle">Monitoring • Policy</text>
+<path d="M390 375H490" stroke="#8CC4FF" stroke-width="8" stroke-linecap="round"/>
+<path d="M710 375H810" stroke="#54D9CA" stroke-width="8" stroke-linecap="round"/>
+<path d="M490 570H710" stroke="#F4C36D" stroke-width="8" stroke-linecap="round"/>
+</svg>

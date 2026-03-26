@@ -1,0 +1,30 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" rx="30" fill="#0C1830"/>
+  <circle cx="400" cy="300" r="92" fill="#6FA8FF" fill-opacity="0.18" stroke="#6FA8FF" stroke-width="2"/>
+  <text x="400" y="290" text-anchor="middle" fill="#E8EEFC" font-size="28" font-family="Inter, Arial" font-weight="700">AI Security</text>
+  <text x="400" y="325" text-anchor="middle" fill="#AEB9D7" font-size="16" font-family="Inter, Arial">Cloud • Edge • Software • Hardware</text>
+  <rect x="70" y="90" width="180" height="76" rx="20" fill="#13233F" stroke="#273E69"/>
+  <text x="160" y="122" text-anchor="middle" fill="#E8EEFC" font-size="20" font-family="Inter, Arial" font-weight="600">Predictive AI</text>
+  <text x="160" y="147" text-anchor="middle" fill="#AEB9D7" font-size="14" font-family="Inter, Arial">Threats & Defenses</text>
+  <rect x="550" y="90" width="180" height="76" rx="20" fill="#13233F" stroke="#273E69"/>
+  <text x="640" y="122" text-anchor="middle" fill="#E8EEFC" font-size="20" font-family="Inter, Arial" font-weight="600">Generative AI</text>
+  <text x="640" y="147" text-anchor="middle" fill="#AEB9D7" font-size="14" font-family="Inter, Arial">Prompt & Model Risks</text>
+  <rect x="70" y="434" width="180" height="76" rx="20" fill="#13233F" stroke="#273E69"/>
+  <text x="160" y="466" text-anchor="middle" fill="#E8EEFC" font-size="20" font-family="Inter, Arial" font-weight="600">Hardware</text>
+  <text x="160" y="491" text-anchor="middle" fill="#AEB9D7" font-size="14" font-family="Inter, Arial">Leakage & Faults</text>
+  <rect x="550" y="434" width="180" height="76" rx="20" fill="#13233F" stroke="#273E69"/>
+  <text x="640" y="466" text-anchor="middle" fill="#E8EEFC" font-size="20" font-family="Inter, Arial" font-weight="600">Physical AI</text>
+  <text x="640" y="491" text-anchor="middle" fill="#AEB9D7" font-size="14" font-family="Inter, Arial">Trusted Embodiment</text>
+  <rect x="54" y="250" width="180" height="76" rx="20" fill="#13233F" stroke="#273E69"/>
+  <text x="144" y="282" text-anchor="middle" fill="#E8EEFC" font-size="20" font-family="Inter, Arial" font-weight="600">Cloud AI</text>
+  <text x="144" y="307" text-anchor="middle" fill="#AEB9D7" font-size="14" font-family="Inter, Arial">Serving & Privacy</text>
+  <rect x="566" y="250" width="180" height="76" rx="20" fill="#13233F" stroke="#273E69"/>
+  <text x="656" y="282" text-anchor="middle" fill="#E8EEFC" font-size="20" font-family="Inter, Arial" font-weight="600">Edge AI</text>
+  <text x="656" y="307" text-anchor="middle" fill="#AEB9D7" font-size="14" font-family="Inter, Arial">Deployment Security</text>
+  <line x1="250" y1="130" x2="332" y2="250" stroke="#7EF0D2" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="550" y1="130" x2="468" y2="250" stroke="#7EF0D2" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="234" y1="286" x2="308" y2="296" stroke="#7EF0D2" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="566" y1="286" x2="492" y2="296" stroke="#7EF0D2" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="250" y1="470" x2="332" y2="350" stroke="#7EF0D2" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="550" y1="470" x2="468" y2="350" stroke="#7EF0D2" stroke-width="2" stroke-dasharray="6 6"/>
+</svg>
