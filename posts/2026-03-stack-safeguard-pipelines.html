@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STACK shows why layered LLM safeguards still need adaptive pipeline-level evaluation | Brojogopal Sapui</title>
+<meta content="This paper matters because it shifts evaluation from single jailbreak-resistant models to full safeguard pipelines. It shows that layered input/output classifier defenses can look strong under standard testing, yet still fail badly once the attacker is optimized against the pipeline as a system." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="../assets/js/site-shell.js"></script><script defer="True" src="../assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="1" data-nav="trending" data-page="2026-03-stack-safeguard-pipelines">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="page-hero">
+<div class="container">
+<span class="eyebrow">Research Watch • March 2026</span>
+<h1>STACK shows why layered LLM safeguards still need adaptive pipeline-level evaluation</h1>
+<p class="lead">This paper matters because it shifts evaluation from single jailbreak-resistant models to full safeguard pipelines. It shows that layered input/output classifier defenses can look strong under standard testing, yet still fail badly once the attacker is optimized against the pipeline as a system.</p>
+</div>
+</section>
+<section class="section">
+<div class="container split">
+<div class="content-card">
+<span class="kicker">Overview</span>
+<h2>What is changing</h2>
+<p>A useful contribution of this paper is that it stops treating safeguard components in isolation and instead evaluates the full defense pipeline as the actual object of attack. The authors build an open-source pipeline around a target model with input and output classifiers, show that a few-shot-prompted classifier can outperform ShieldGemma across their benchmark setting, and report that this stronger pipeline drives the attack success rate on ClearHarm down to 0% under baseline attacks such as PAP, ReNeLLM, and Best-of-N.</p>
+<p>The core result is STACK, a staged attack procedure that develops jailbreaks against each component and then combines them to defeat the whole system. In the paper’s main evaluation, black-box STACK reaches 71% attack success rate on ClearHarm against the few-shot classifier pipeline, and transfer STACK still reaches 33%, which is important because it suggests that even layered defense-in-depth can become brittle once the attacker explicitly optimizes against the pipeline architecture rather than only the base model or a single guard.</p>
+</div>
+<div class="content-card">
+<span class="kicker">Why it matters</span>
+<h2>Research significance</h2>
+<ul class="check-list">
+<li>Evaluation is moving from single-model jailbreak testing to full pipeline-aware red teaming.</li>
+<li>Input and output classifiers may each look strong on their own, but staged attacks can exploit their interaction and ordering.</li>
+<li>A few-shot prompted safeguard classifier can significantly improve baseline robustness, yet this does not guarantee resilience to adaptive attacks.</li>
+<li>Transfer-style attacks show that even limited-access adversaries may be able to target safeguard pipelines without direct access to every component.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="section alt">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Discussion</span>
+<h2>What reviewers should notice</h2>
+<p>
+            These review points help separate benchmark-level claims from stronger system-level conclusions.
+          </p>
+</div>
+<div class="content-card">
+<ul class="check-list">
+<li>Whether the paper evaluates the entire safeguard pipeline rather than only one moderation component.</li>
+<li>Whether the attack is adaptive to the defense architecture, not just reused from generic jailbreak benchmarks.</li>
+<li>Whether robustness is reported in realistic black-box and transfer settings, not only toy or fully white-box assumptions.</li>
+<li>Whether mitigation claims are framed as practical hardening guidance instead of proof that defense-in-depth alone is sufficient.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="content-card">
+<span class="kicker">Current research tension</span>
+<h2>Why this topic matters now</h2>
+<p>Current research tension: layered safeguards are becoming operationally important for frontier models, but this paper shows that composition alone is not enough; once attackers optimize against the pipeline as a system, apparent robustness can collapse much faster than ordinary benchmark results suggest.</p>
+<div class="btn-row" style="margin-top:1rem;"><a href="../ai-security/generative-ai.html">See full generative AI page</a> <a href="https://arxiv.org/pdf/2506.24068" rel="noopener noreferrer" target="_blank">STACK paper (arXiv PDF)</a> <a href="https://github.com/AlignmentResearch/defense-in-depth-demo" rel="noopener noreferrer" target="_blank">Open-source defense pipeline demo</a></div>
+</div>
+</div>
+</section>
+<section class="section alt">
+<div class="container">
+<div class="cta">
+<div>
+<span class="eyebrow">Next Step</span>
+<h2>Back to ongoing research updates</h2>
+<p>
+              Return to the running list of research-watch topics and evolving system-level notes.
+            </p>
+</div>
+<div class="cta-actions">
+<a class="btn btn-primary" href="../ongoing-work.html#2026-03-stack-safeguard-pipelines">Back to this note</a>
+<a class="btn btn-secondary" href="../research.html">Research</a>
+</div>
+</div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>

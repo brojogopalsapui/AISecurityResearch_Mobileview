@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="1368.296813pt"
    height="734.4pt"
    viewBox="0 0 1368.296813 734.4"
    version="1.1"
    id="svg4951"
    sodipodi:docname="full_ml_lifecycle_threats_countermeasures.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -25,16 +25,20 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1106"
+     inkscape:window-height="1017"
      id="namedview4953"
      showgrid="false"
-     inkscape:zoom="0.84"
-     inkscape:cx="199.60276"
-     inkscape:cy="489.60002"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
+     inkscape:zoom="0.59"
+     inkscape:cx="877.11864"
+     inkscape:cy="488.98305"
+     inkscape:window-x="5752"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g4675" />
+     inkscape:current-layer="axes_1"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="pt" />
   <metadata
      id="metadata2">
     <rdf:RDF>
@@ -58,14 +62,9 @@
        id="style4">*{stroke-linejoin: round; stroke-linecap: butt}</style>
   </defs>
   <g
-     id="figure_1">
-    <g
-       id="patch_1">
-      <path
-         d="M 0 734.4  L 1368.296813 734.4  L 1368.296813 0  L 0 0  z "
-         style="fill: #ffffff"
-         id="path8" />
-    </g>
+     id="figure_1"
+     transform="translate(91.5)"
+     style="stroke-linecap:butt;stroke-linejoin:round">
     <g
        id="axes_1"
        transform="matrix(0.99575056,0,0,1,5.1632534,0)"
@@ -83,7 +82,8 @@
       </g>
       <g
          id="patch_3"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="matrix(0.90140774,0,0,1.0016054,46.620344,-0.14737776)">
         <path
            d="m 83.232,107.28 h 377.856 q 11.52,0 11.52,-7.2 V 83.52 q 0,-7.2 -11.52,-7.2 H 83.232 q -11.52,0 -11.52,7.2 v 16.56 q 0,7.2 11.52,7.2 z"
            clip-path="url(#p15f64cd791)"
@@ -113,7 +113,8 @@
       </g>
       <g
          id="patch_6"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="matrix(1.3359798,0,0,0.99506351,-310.42769,0.45317011)">
         <path
            d="m 935.712,107.28 h 147.456 q 11.52,0 11.52,-7.2 V 83.52 q 0,-7.2 -11.52,-7.2 H 935.712 q -11.52,0 -11.52,7.2 v 16.56 q 0,7.2 11.52,7.2 z"
            clip-path="url(#p15f64cd791)"
@@ -123,7 +124,8 @@
       </g>
       <g
          id="patch_7"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-37.660028)">
         <path
            d="m 203.04,159.84 v 11.52 l 13.824,-5.76 z"
            clip-path="url(#p15f64cd791)"
@@ -133,7 +135,8 @@
       </g>
       <g
          id="patch_8"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-37.660028)">
         <path
            d="m 358.56,159.84 v 11.52 l 13.824,-5.76 z"
            clip-path="url(#p15f64cd791)"
@@ -143,7 +146,8 @@
       </g>
       <g
          id="patch_9"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-37.660028)">
         <path
            d="m 514.08,159.84 v 11.52 l 13.824,-5.76 z"
            clip-path="url(#p15f64cd791)"
@@ -153,7 +157,8 @@
       </g>
       <g
          id="patch_10"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-29.291134,-1.1904762)">
         <path
            d="m 669.6,159.84 v 11.52 l 13.824,-5.76 z"
            clip-path="url(#p15f64cd791)"
@@ -163,7 +168,8 @@
       </g>
       <g
          id="patch_11"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-13.557612)">
         <path
            d="m 825.12,159.84 v 11.52 l 13.824,-5.76 z"
            clip-path="url(#p15f64cd791)"
@@ -173,7 +179,8 @@
       </g>
       <g
          id="patch_12"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(40.67283)">
         <path
            d="m 980.64,159.84 v 11.52 l 13.824,-5.76 z"
            clip-path="url(#p15f64cd791)"
@@ -183,77 +190,85 @@
       </g>
       <g
          id="patch_13"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-37.660028)">
         <path
            d="m 80.928,205.92 h 105.984 q 17.28,0 17.28,-10.8 v -59.04 q 0,-10.8 -17.28,-10.8 H 80.928 q -17.28,0 -17.28,10.8 v 59.04 q 0,10.8 17.28,10.8 z"
            clip-path="url(#p15f64cd791)"
-           style="fill:#eef4fb;stroke:#4f7db8;stroke-width:1.20000005;stroke-linecap:butt;stroke-linejoin:miter"
+           style="fill:#eef4fb;stroke:#4f7db8;stroke-width:1.2;stroke-linecap:butt;stroke-linejoin:miter"
            id="path44"
            inkscape:connector-curvature="0" />
       </g>
       <g
          id="patch_14"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-37.660028)">
         <path
            d="m 236.448,205.92 h 105.984 q 17.28,0 17.28,-10.8 v -59.04 q 0,-10.8 -17.28,-10.8 H 236.448 q -17.28,0 -17.28,10.8 v 59.04 q 0,10.8 17.28,10.8 z"
            clip-path="url(#p15f64cd791)"
-           style="fill:#eef4fb;stroke:#4f7db8;stroke-width:1.20000005;stroke-linecap:butt;stroke-linejoin:miter"
+           style="fill:#eef4fb;stroke:#4f7db8;stroke-width:1.2;stroke-linecap:butt;stroke-linejoin:miter"
            id="path47"
            inkscape:connector-curvature="0" />
       </g>
       <g
          id="patch_15"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-37.660028)">
         <path
            d="m 391.968,205.92 h 105.984 q 17.28,0 17.28,-10.8 v -59.04 q 0,-10.8 -17.28,-10.8 H 391.968 q -17.28,0 -17.28,10.8 v 59.04 q 0,10.8 17.28,10.8 z"
            clip-path="url(#p15f64cd791)"
-           style="fill:#eef4fb;stroke:#4f7db8;stroke-width:1.20000005;stroke-linecap:butt;stroke-linejoin:miter"
+           style="fill:#eef4fb;stroke:#4f7db8;stroke-width:1.2;stroke-linecap:butt;stroke-linejoin:miter"
            id="path50"
            inkscape:connector-curvature="0" />
       </g>
       <g
          id="patch_16"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="matrix(1.0762434,0,0,0.99944858,-81.649307,0.09131478)">
         <path
            d="m 547.488,205.92 h 105.984 q 17.28,0 17.28,-10.8 v -59.04 q 0,-10.8 -17.28,-10.8 H 547.488 q -17.28,0 -17.28,10.8 v 59.04 q 0,10.8 17.28,10.8 z"
            clip-path="url(#p15f64cd791)"
-           style="fill:#eef4fb;stroke:#4f7db8;stroke-width:1.20000005;stroke-linecap:butt;stroke-linejoin:miter"
+           style="fill:#eef4fb;stroke:#4f7db8;stroke-width:1.2;stroke-linecap:butt;stroke-linejoin:miter"
            id="path53"
            inkscape:connector-curvature="0" />
       </g>
       <g
          id="patch_17"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="matrix(1.135533,0,0,0.99903313,-126.97181,-2.2208381)">
         <path
            d="m 703.008,205.92 h 105.984 q 17.28,0 17.28,-10.8 v -59.04 q 0,-10.8 -17.28,-10.8 H 703.008 q -17.28,0 -17.28,10.8 v 59.04 q 0,10.8 17.28,10.8 z"
            clip-path="url(#p15f64cd791)"
-           style="fill:#eef4fb;stroke:#4f7db8;stroke-width:1.20000005;stroke-linecap:butt;stroke-linejoin:miter"
+           style="fill:#eef4fb;stroke:#4f7db8;stroke-width:1.2;stroke-linecap:butt;stroke-linejoin:miter"
            id="path56"
            inkscape:connector-curvature="0" />
       </g>
       <g
          id="patch_18"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="matrix(1.2626038,0,0,0.99817833,-219.49321,-0.72738705)">
         <path
            d="m 858.528,205.92 h 105.984 q 17.28,0 17.28,-10.8 v -59.04 q 0,-10.8 -17.28,-10.8 H 858.528 q -17.28,0 -17.28,10.8 v 59.04 q 0,10.8 17.28,10.8 z"
            clip-path="url(#p15f64cd791)"
-           style="fill:#eef4fb;stroke:#4f7db8;stroke-width:1.20000005;stroke-linecap:butt;stroke-linejoin:miter"
+           style="fill:#eef4fb;stroke:#4f7db8;stroke-width:1.2;stroke-linecap:butt;stroke-linejoin:miter"
            id="path59"
            inkscape:connector-curvature="0" />
       </g>
       <g
          id="patch_19"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="matrix(1.1443964,0,0,0.99897719,-103.2655,0.16937823)">
         <path
            d="m 1014.048,205.92 h 105.984 q 17.28,0 17.28,-10.8 v -59.04 q 0,-10.8 -17.28,-10.8 h -105.984 q -17.28,0 -17.28,10.8 v 59.04 q 0,10.8 17.28,10.8 z"
            clip-path="url(#p15f64cd791)"
-           style="fill:#eef4fb;stroke:#4f7db8;stroke-width:1.20000005;stroke-linecap:butt;stroke-linejoin:miter"
+           style="fill:#eef4fb;stroke:#4f7db8;stroke-width:1.2;stroke-linecap:butt;stroke-linejoin:miter"
            id="path62"
            inkscape:connector-curvature="0" />
       </g>
       <g
          id="patch_20"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-52.724038)">
         <path
            d="m 127.008,244.8 h 13.824 l -6.912,8.64 z"
            clip-path="url(#p15f64cd791)"
@@ -263,7 +278,8 @@
       </g>
       <g
          id="patch_21"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="matrix(1.1004225,0,0,0.99960676,-73.832283,0.12174828)">
         <path
            d="m 74.016,371.52 h 119.808 q 16.128,0 16.128,-10.08 V 257.76 q 0,-10.08 -16.128,-10.08 H 74.016 q -16.128,0 -16.128,10.08 v 103.68 q 0,10.08 16.128,10.08 z"
            clip-path="url(#p15f64cd791)"
@@ -283,7 +299,8 @@
       </g>
       <g
          id="patch_23"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-27.115221)">
         <path
            d="m 229.536,371.52 h 119.808 q 16.128,0 16.128,-10.08 V 257.76 q 0,-10.08 -16.128,-10.08 H 229.536 q -16.128,0 -16.128,10.08 v 103.68 q 0,10.08 16.128,10.08 z"
            clip-path="url(#p15f64cd791)"
@@ -303,7 +320,8 @@
       </g>
       <g
          id="patch_25"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-12.051211)">
         <path
            d="m 385.056,371.52 h 119.808 q 16.128,0 16.128,-10.08 V 257.76 q 0,-10.08 -16.128,-10.08 H 385.056 q -16.128,0 -16.128,10.08 v 103.68 q 0,10.08 16.128,10.08 z"
            clip-path="url(#p15f64cd791)"
@@ -363,7 +381,8 @@
       </g>
       <g
          id="patch_31"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="matrix(1.1338999,0,0,0.99947972,-111.83957,0.1610797)">
         <path
            d="m 851.616,371.52 h 119.808 q 16.128,0 16.128,-10.08 V 257.76 q 0,-10.08 -16.128,-10.08 H 851.616 q -16.128,0 -16.128,10.08 v 103.68 q 0,10.08 16.128,10.08 z"
            clip-path="url(#p15f64cd791)"
@@ -383,7 +402,8 @@
       </g>
       <g
          id="patch_33"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="matrix(1.3264232,0,0,0.99878327,-302.98687,-3.4368597)">
         <path
            d="m 1007.136,371.52 h 119.808 q 16.128,0 16.128,-10.08 V 257.76 q 0,-10.08 -16.128,-10.08 h -119.808 q -16.128,0 -16.128,10.08 v 103.68 q 0,10.08 16.128,10.08 z"
            clip-path="url(#p15f64cd791)"
@@ -403,7 +423,8 @@
       </g>
       <g
          id="patch_35"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="matrix(1.2586561,0,0,0.9990757,-54.36591,0.44920766)">
         <path
            d="m 74.016,551.52 h 119.808 q 16.128,0 16.128,-10.08 V 430.56 q 0,-10.08 -16.128,-10.08 H 74.016 q -16.128,0 -16.128,10.08 v 110.88 q 0,10.08 16.128,10.08 z"
            clip-path="url(#p15f64cd791)"
@@ -523,7 +544,8 @@
       </g>
       <g
          id="patch_47"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="matrix(1.2978539,0,0,0.99894433,-295.10648,0.51305681)">
         <path
            d="m 1007.136,551.52 h 119.808 q 16.128,0 16.128,-10.08 V 430.56 q 0,-10.08 -16.128,-10.08 h -119.808 q -16.128,0 -16.128,10.08 v 110.88 q 0,10.08 16.128,10.08 z"
            clip-path="url(#p15f64cd791)"
@@ -533,11 +555,12 @@
       </g>
       <g
          id="line2d_1"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="matrix(1.0059215,0,0,1,-38.824674,0)">
         <path
            d="m 197.28,165.6 h 806.4"
            clip-path="url(#p15f64cd791)"
-           style="fill:none;stroke:#9aa9bf;stroke-width:1.20000005;stroke-linecap:square;stroke-linejoin:round"
+           style="fill:none;stroke:#9aa9bf;stroke-width:1.2;stroke-linecap:square;stroke-linejoin:round"
            id="path152"
            inkscape:connector-curvature="0" />
       </g>
@@ -683,11 +706,12 @@
       </g>
       <g
          id="text_1"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(0,-3)">
         <!-- End-to-End AI/ML Lifecycle: Threat Models and Countermeasures -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.24,0,0,-0.24,144.01875,46.12875)"
+           transform="matrix(0.2928,0,0,-0.2928,144.01875,46.12875)"
            id="g348">
           <defs
              id="defs224">
@@ -731,7 +755,8 @@
                id="DejaVuSans-Bold-20"
                transform="scale(0.015625)"
                inkscape:connector-curvature="0"
-               style="stroke-linecap:butt;stroke-linejoin:round" />
+               style="stroke-linecap:butt;stroke-linejoin:round"
+               d="" />
             <path
                id="DejaVuSans-Bold-41"
                d="M 3419,850 H 1538 L 1241,0 H 31 L 1759,4666 H 3194 L 4922,0 H 3713 Z m -1581,866 h 1278 l -638,1856 z"
@@ -1409,7 +1434,7 @@
         <!-- A cross-layer view from data collection and training to cloud serving, edge deployment, hardware execution, and physical-world operation -->
         <g
            style="fill:#6b7280;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.115,0,0,-0.115,184.74746,64.373281)"
+           transform="matrix(0.135700,0,0,-0.135700,184.74746,64.373281)"
            id="g650">
           <defs
              id="defs376">
@@ -1423,7 +1448,8 @@
                id="DejaVuSans-20"
                transform="scale(0.015625)"
                inkscape:connector-curvature="0"
-               style="stroke-linecap:butt;stroke-linejoin:round" />
+               style="stroke-linecap:butt;stroke-linejoin:round"
+               d="" />
             <path
                id="DejaVuSans-63"
                d="m 3122,3366 v -538 q -244,135 -489,202 -245,67 -495,67 -560,0 -870,-355 -309,-354 -309,-995 0,-641 309,-996 310,-354 870,-354 250,0 495,67 245,67 489,202 V 134 Q 2881,22 2623,-34 2366,-91 2075,-91 1284,-91 818,406 353,903 353,1747 q 0,856 470,1346 471,491 1290,491 265,0 518,-55 253,-54 491,-163 z"
@@ -2794,7 +2820,7 @@
         <!-- Software / Data / Model-Centric Zone -->
         <g
            style="fill:#ffffff;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.115,0,0,-0.115,152.06227,94.973281)"
+           transform="matrix(0.135700,0,0,-0.135700,152.06227,94.973281)"
            id="g731">
           <defs
              id="defs657">
@@ -3154,7 +3180,7 @@
         <!-- Cloud / Platform / API Zone -->
         <g
            style="fill:#ffffff;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.115,0,0,-0.115,518.6693,94.973281)"
+           transform="matrix(0.135700,0,0,-0.135700,518.6693,94.973281)"
            id="g791">
           <defs
              id="defs735">
@@ -3415,7 +3441,7 @@
         <!-- Edge / Device Zone -->
         <g
            style="fill:#ffffff;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.115,0,0,-0.115,774.65949,94.928359)"
+           transform="matrix(0.135700,0,0,-0.135700,774.65949,94.928359)"
            id="g834">
           <defs
              id="defs796">
@@ -3601,7 +3627,7 @@
         <!-- Physical / Actuation Zone -->
         <g
            style="fill:#ffffff;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.115,0,0,-0.115,927.16738,94.928359)"
+           transform="matrix(0.135700,0,0,-0.135700,927.16738,94.928359)"
            id="g887">
           <use
              xlink:href="#DejaVuSans-Bold-50"
@@ -3831,11 +3857,12 @@
       </g>
       <g
          id="text_7"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-37.660028)">
         <!-- 1. Data Collection -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.113,0,0,-0.113,77.267273,162.39133)"
+           transform="matrix(0.12882,0,0,-0.12882,77.267273,162.39133)"
            id="g930">
           <defs
              id="defs892">
@@ -4121,11 +4148,12 @@
       </g>
       <g
          id="text_8"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-37.660028)">
         <!-- 2. Training / -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.113,0,0,-0.113,251.57087,162.30305)"
+           transform="matrix(0.12882,0,0,-0.12882,251.57087,162.30305)"
            id="g987">
           <defs
              id="defs959">
@@ -4369,11 +4397,12 @@
       </g>
       <g
          id="text_9"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-48.204835)">
         <!-- 3. Model Registry / -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.113,0,0,-0.113,384.90403,162.30305)"
+           transform="matrix(0.12882,0,0,-0.12882,384.90403,162.30305)"
            id="g1059">
           <defs
              id="defs1019">
@@ -4659,11 +4688,12 @@
       </g>
       <g
          id="text_10"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-37.660028,-1.5)">
         <!-- 4. Cloud Serving / -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.113,0,0,-0.113,544.03297,162.30305)"
+           transform="matrix(0.12882,0,0,-0.12882,544.03297,162.30305)"
            id="g1124">
           <defs
              id="defs1086">
@@ -4961,11 +4991,12 @@
       </g>
       <g
          id="text_11"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-33.021268,-0.214286)">
         <!-- 5. Edge Deployment / -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.113,0,0,-0.113,687.66678,162.34719)"
+           transform="matrix(0.12882,0,0,-0.12882,687.66678,162.34719)"
            id="g1200">
           <defs
              id="defs1158">
@@ -5350,11 +5381,12 @@
       </g>
       <g
          id="text_12"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(10.76001,1.119048)">
         <!-- 6. Hardware Execution / -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.113,0,0,-0.113,835.20616,162.34719)"
+           transform="matrix(0.12882,0,0,-0.12882,835.20616,162.34719)"
            id="g1297">
           <defs
              id="defs1249">
@@ -5745,11 +5777,12 @@
       </g>
       <g
          id="text_13"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(43.685632)">
         <!-- 7. Sensing, Control -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.113,0,0,-0.113,1006.2381,162.30305)"
+           transform="matrix(0.12882,0,0,-0.12882,1006.2381,162.30305)"
            id="g1378">
           <defs
              id="defs1338">
@@ -6130,7 +6163,7 @@
         <!-- Lifecycle -->
         <g
            style="fill:#f5601b;fill-opacity:1;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.12,0,0,-0.12,36,161.66437)"
+           transform="matrix(0.153600,0,0,-0.153600,36,161.66437)"
            id="g1441">
           <use
              xlink:href="#DejaVuSans-Bold-4c"
@@ -6216,12 +6249,12 @@
       </g>
       <g
          id="text_15"
-         transform="translate(-16.5,-61.5)"
+         transform="translate(-45.121619,-66)"
          style="fill:#f75f19;fill-opacity:1;stroke-linecap:butt;stroke-linejoin:round">
         <!-- Representative -->
         <g
            style="fill:#f75f19;fill-opacity:1;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.12,0,0,-0.12,36,291.79256)"
+           transform="matrix(0.1536,0,0,-0.1536,36,291.79256)"
            id="g1472">
           <use
              xlink:href="#DejaVuSans-Bold-52"
@@ -6474,12 +6507,12 @@
       </g>
       <g
          id="text_16"
-         transform="translate(-22.5,-61.5)"
+         transform="translate(-43.589614,-64.5)"
          style="fill:#ef5112;fill-opacity:1;stroke-linecap:butt;stroke-linejoin:round">
         <!-- Representative -->
         <g
            style="fill:#ef5112;fill-opacity:1;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.12,0,0,-0.12,36,464.59256)"
+           transform="matrix(0.1536,0,0,-0.1536,36,464.59256)"
            id="g1531">
           <use
              xlink:href="#DejaVuSans-Bold-52"
@@ -6750,11 +6783,12 @@
       </g>
       <g
          id="text_17"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-75.320053)">
         <!-- Threats -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.106,0,0,-0.106,79.776,275.89434)"
+           transform="matrix(0.12932,0,0,-0.12932,79.776,275.89434)"
            id="g1580">
           <use
              xlink:href="#DejaVuSans-Bold-54"
@@ -6822,11 +6856,12 @@
       </g>
       <g
          id="text_18"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-75.320053)">
         <!-- • poisoned data -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,82.08,295.21852)"
+           transform="matrix(0.1273,0,0,-0.1273,82.08,295.21852)"
            id="g1616">
           <defs
              id="defs1584">
@@ -6975,11 +7010,12 @@
       </g>
       <g
          id="text_19"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-75.320053)">
         <!-- • label corruption -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,82.08,315.37852)"
+           transform="matrix(0.1273,0,0,-0.1273,82.08,315.37852)"
            id="g1658">
           <defs
              id="defs1620">
@@ -7155,11 +7191,12 @@
       </g>
       <g
          id="text_20"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-75.320053)">
         <!-- • source contamination -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,82.08,335.53852)"
+           transform="matrix(0.1273,0,0,-0.1273,82.08,335.53852)"
            id="g1705">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -7362,11 +7399,12 @@
       </g>
       <g
          id="text_21"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-75.320053)">
         <!-- • benchmark leakage -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,82.08,355.69852)"
+           transform="matrix(0.1273,0,0,-0.1273,82.08,355.69852)"
            id="g1749">
           <defs
              id="defs1709">
@@ -7551,11 +7589,12 @@
       </g>
       <g
          id="text_22"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-37.660028)">
         <!-- Threats -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.106,0,0,-0.106,235.296,275.89434)"
+           transform="matrix(0.12932,0,0,-0.12932,235.296,275.89434)"
            id="g1766">
           <use
              xlink:href="#DejaVuSans-Bold-54"
@@ -7623,11 +7662,12 @@
       </g>
       <g
          id="text_23"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-51.217637)">
         <!-- • backdoors -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,237.6,295.21852)"
+           transform="matrix(0.1273,0,0,-0.1273,237.6,295.21852)"
            id="g1791">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -7731,11 +7771,12 @@
       </g>
       <g
          id="text_24"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-51.217637)">
         <!-- • federated poisoning -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,237.6,315.37852)"
+           transform="matrix(0.1273,0,0,-0.1273,237.6,315.37852)"
            id="g1836">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -7929,11 +7970,12 @@
       </g>
       <g
          id="text_25"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-51.217637)">
         <!-- • privacy leakage -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,237.6,335.53852)"
+           transform="matrix(0.1273,0,0,-0.1273,237.6,335.53852)"
            id="g1873">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -8091,11 +8133,12 @@
       </g>
       <g
          id="text_26"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-49.711236)">
         <!-- • unsafe alignment drift -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,237.6,355.69852)"
+           transform="matrix(0.1273,0,0,-0.1273,237.6,355.69852)"
            id="g1924">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -8316,11 +8359,12 @@
       </g>
       <g
          id="text_27"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-18.076815)">
         <!-- Threats -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.106,0,0,-0.106,390.816,275.89434)"
+           transform="matrix(0.12932,0,0,-0.12932,390.816,275.89434)"
            id="g1941">
           <use
              xlink:href="#DejaVuSans-Bold-54"
@@ -8388,11 +8432,12 @@
       </g>
       <g
          id="text_28"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-18.076815)">
         <!-- • artifact tampering -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,393.12,295.21852)"
+           transform="matrix(0.1273,0,0,-0.1273,393.12,295.21852)"
            id="g1984">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -8577,11 +8622,12 @@
       </g>
       <g
          id="text_29"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-18.076815)">
         <!-- • model replacement -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,393.12,315.37852)"
+           transform="matrix(0.1273,0,0,-0.1273,393.12,315.37852)"
            id="g2025">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -8757,11 +8803,12 @@
       </g>
       <g
          id="text_30"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-16.570414)">
         <!-- • prompt/policy drift -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,393.12,335.53852)"
+           transform="matrix(0.1273,0,0,-0.1273,393.12,335.53852)"
            id="g2073">
           <defs
              id="defs2029">
@@ -8964,11 +9011,12 @@
       </g>
       <g
          id="text_31"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-16.570414)">
         <!-- • unsigned updates -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,393.12,355.69852)"
+           transform="matrix(0.1273,0,0,-0.1273,393.12,355.69852)"
            id="g2112">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -9139,7 +9187,7 @@
         <!-- Threats -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.106,0,0,-0.106,546.336,275.89434)"
+           transform="matrix(0.129320,0,0,-0.129320,546.336,275.89434)"
            id="g2129">
           <use
              xlink:href="#DejaVuSans-Bold-54"
@@ -9211,7 +9259,7 @@
         <!-- • model extraction -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,548.64,295.21852)"
+           transform="matrix(0.127300,0,0,-0.127300,548.64,295.21852)"
            id="g2168">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -9382,7 +9430,7 @@
         <!-- • prompt injection -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,548.64,315.37852)"
+           transform="matrix(0.127300,0,0,-0.127300,548.64,315.37852)"
            id="g2210">
           <defs
              id="defs2172">
@@ -9562,7 +9610,7 @@
         <!-- • unsafe tool use -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,548.64,335.53852)"
+           transform="matrix(0.127300,0,0,-0.127300,548.64,335.53852)"
            id="g2247">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -9724,7 +9772,7 @@
         <!-- • tenant / API abuse -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,548.64,355.69852)"
+           transform="matrix(0.127300,0,0,-0.127300,548.64,355.69852)"
            id="g2294">
           <defs
              id="defs2252">
@@ -9924,11 +9972,12 @@
       </g>
       <g
          id="text_37"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-3.0128028)">
         <!-- Threats -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.106,0,0,-0.106,701.856,275.89434)"
+           transform="matrix(0.12932,0,0,-0.12932,701.856,275.89434)"
            id="g2311">
           <use
              xlink:href="#DejaVuSans-Bold-54"
@@ -9996,11 +10045,12 @@
       </g>
       <g
          id="text_38"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-12.051211)">
         <!-- • firmware tampering -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,704.16,295.21852)"
+           transform="matrix(0.1273,0,0,-0.1273,704.16,295.21852)"
            id="g2354">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -10185,11 +10235,12 @@
       </g>
       <g
          id="text_39"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-12.051211)">
         <!-- • model theft -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,704.16,315.37852)"
+           transform="matrix(0.1273,0,0,-0.1273,704.16,315.37852)"
            id="g2383">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -10311,11 +10362,12 @@
       </g>
       <g
          id="text_40"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-12.051211)">
         <!-- • debug abuse -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,704.16,335.53852)"
+           transform="matrix(0.1273,0,0,-0.1273,704.16,335.53852)"
            id="g2412">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -10437,11 +10489,12 @@
       </g>
       <g
          id="text_41"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-12.051211)">
         <!-- • resource exhaustion -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,704.16,355.69852)"
+           transform="matrix(0.1273,0,0,-0.1273,704.16,355.69852)"
            id="g2457">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -10635,11 +10688,12 @@
       </g>
       <g
          id="text_42"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-6.0256056)">
         <!-- Threats -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.106,0,0,-0.106,857.376,275.89434)"
+           transform="matrix(0.12932,0,0,-0.12932,857.376,275.89434)"
            id="g2474">
           <use
              xlink:href="#DejaVuSans-Bold-54"
@@ -10707,11 +10761,12 @@
       </g>
       <g
          id="text_43"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-21.089617)">
         <!-- • power / EM leakage -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,859.68,295.21852)"
+           transform="matrix(0.1273,0,0,-0.1273,859.68,295.21852)"
            id="g2521">
           <defs
              id="defs2479">
@@ -10911,11 +10966,12 @@
       </g>
       <g
          id="text_44"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-21.089617)">
         <!-- • timing clues -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,859.68,315.37852)"
+           transform="matrix(0.1273,0,0,-0.1273,859.68,315.37852)"
            id="g2552">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -11046,11 +11102,12 @@
       </g>
       <g
          id="text_45"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-21.089617)">
         <!-- • memory-bus observation -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,859.68,335.53852)"
+           transform="matrix(0.1273,0,0,-0.1273,859.68,335.53852)"
            id="g2603">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -11271,11 +11328,12 @@
       </g>
       <g
          id="text_46"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-19.583216)">
         <!-- • fault injection -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,859.68,355.69852)"
+           transform="matrix(0.1273,0,0,-0.1273,859.68,355.69852)"
            id="g2640">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -11437,7 +11495,7 @@
         <!-- Threats -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.106,0,0,-0.106,1012.896,275.89434)"
+           transform="matrix(0.129320,0,0,-0.129320,1012.896,275.89434)"
            id="g2657">
           <use
              xlink:href="#DejaVuSans-Bold-54"
@@ -11509,7 +11567,7 @@
         <!-- • sensor spoofing -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,1015.2,295.21852)"
+           transform="matrix(0.127300,0,0,-0.127300,1015.2,295.21852)"
            id="g2694">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -11671,7 +11729,7 @@
         <!-- • jamming / delay -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,1015.2,315.37852)"
+           transform="matrix(0.127300,0,0,-0.127300,1015.2,315.37852)"
            id="g2731">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -11833,7 +11891,7 @@
         <!-- • planner-controller mismatch -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,1015.2,335.53852)"
+           transform="matrix(0.127300,0,0,-0.127300,1015.2,335.53852)"
            id="g2792">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -12103,7 +12161,7 @@
         <!-- • unsafe actuation -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.095,0,0,-0.095,1015.2,355.69852)"
+           transform="matrix(0.127300,0,0,-0.127300,1015.2,355.69852)"
            id="g2831">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -12270,11 +12328,12 @@
       </g>
       <g
          id="text_52"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-37.660028)">
         <!-- Countermeasures -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.102,0,0,-0.102,79.776,448.39041)"
+           transform="matrix(0.12444,0,0,-0.12444,79.776,448.39041)"
            id="g2864">
           <use
              xlink:href="#DejaVuSans-Bold-43"
@@ -12414,11 +12473,12 @@
       </g>
       <g
          id="text_53"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-42.179231)">
         <!-- • provenance -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,82.08,469.30655)"
+           transform="matrix(0.12648,0,0,-0.12648,82.08,469.30655)"
            id="g2891">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -12531,11 +12591,12 @@
       </g>
       <g
          id="text_54"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-42.179231)">
         <!-- • curation -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,82.08,490.90655)"
+           transform="matrix(0.12648,0,0,-0.12648,82.08,490.90655)"
            id="g2914">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -12630,11 +12691,12 @@
       </g>
       <g
          id="text_55"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-42.179231)">
         <!-- • deduplication -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,82.08,512.50655)"
+           transform="matrix(0.12648,0,0,-0.12648,82.08,512.50655)"
            id="g2947">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -12774,11 +12836,12 @@
       </g>
       <g
          id="text_56"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(-42.179231)">
         <!-- • supply-chain governance -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,82.08,534.10655)"
+           transform="matrix(0.12648,0,0,-0.12648,82.08,534.10655)"
            id="g3000">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -13012,7 +13075,7 @@
         <!-- Countermeasures -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.102,0,0,-0.102,235.296,448.39041)"
+           transform="matrix(0.124440,0,0,-0.124440,235.296,448.39041)"
            id="g3033">
           <use
              xlink:href="#DejaVuSans-Bold-43"
@@ -13156,7 +13219,7 @@
         <!-- • robust training -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,237.6,469.30655)"
+           transform="matrix(0.126480,0,0,-0.126480,237.6,469.30655)"
            id="g3070">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -13318,7 +13381,7 @@
         <!-- • secure MLOps -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,237.6,490.90655)"
+           transform="matrix(0.126480,0,0,-0.126480,237.6,490.90655)"
            id="g3105">
           <defs
              id="defs3075">
@@ -13468,7 +13531,7 @@
         <!-- • DP/privacy controls -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,237.6,512.50655)"
+           transform="matrix(0.126480,0,0,-0.126480,237.6,512.50655)"
            id="g3153">
           <defs
              id="defs3109">
@@ -13675,7 +13738,7 @@
         <!-- • evaluation gates -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,237.6,534.10655)"
+           transform="matrix(0.126480,0,0,-0.126480,237.6,534.10655)"
            id="g3192">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -13846,7 +13909,7 @@
         <!-- Countermeasures -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.102,0,0,-0.102,390.816,448.39041)"
+           transform="matrix(0.124440,0,0,-0.124440,390.816,448.39041)"
            id="g3225">
           <use
              xlink:href="#DejaVuSans-Bold-43"
@@ -13990,7 +14053,7 @@
         <!-- • signed artifacts -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,393.12,469.30655)"
+           transform="matrix(0.126480,0,0,-0.126480,393.12,469.30655)"
            id="g3264">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -14161,7 +14224,7 @@
         <!-- • registry controls -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,393.12,490.90655)"
+           transform="matrix(0.126480,0,0,-0.126480,393.12,490.90655)"
            id="g3305">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -14341,7 +14404,7 @@
         <!-- • versioning -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,393.12,512.50655)"
+           transform="matrix(0.126480,0,0,-0.126480,393.12,512.50655)"
            id="g3332">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -14458,7 +14521,7 @@
         <!-- • release approval -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,393.12,534.10655)"
+           transform="matrix(0.126480,0,0,-0.126480,393.12,534.10655)"
            id="g3371">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -14629,7 +14692,7 @@
         <!-- Countermeasures -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.102,0,0,-0.102,546.336,448.39041)"
+           transform="matrix(0.124440,0,0,-0.124440,546.336,448.39041)"
            id="g3404">
           <use
              xlink:href="#DejaVuSans-Bold-43"
@@ -14773,7 +14836,7 @@
         <!-- • IAM + rate limits -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,548.64,469.30655)"
+           transform="matrix(0.126480,0,0,-0.126480,548.64,469.30655)"
            id="g3448">
           <defs
              id="defs3408">
@@ -14962,7 +15025,7 @@
         <!-- • prompt isolation -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,548.64,490.90655)"
+           transform="matrix(0.126480,0,0,-0.126480,548.64,490.90655)"
            id="g3487">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -15133,7 +15196,7 @@
         <!-- • output validation -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,548.64,512.50655)"
+           transform="matrix(0.126480,0,0,-0.126480,548.64,512.50655)"
            id="g3528">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -15313,7 +15376,7 @@
         <!-- • runtime logging -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,548.64,534.10655)"
+           transform="matrix(0.126480,0,0,-0.126480,548.64,534.10655)"
            id="g3565">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -15475,7 +15538,7 @@
         <!-- Countermeasures -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.102,0,0,-0.102,701.856,448.39041)"
+           transform="matrix(0.124440,0,0,-0.124440,701.856,448.39041)"
            id="g3598">
           <use
              xlink:href="#DejaVuSans-Bold-43"
@@ -15619,7 +15682,7 @@
         <!-- • secure boot -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,704.16,469.30655)"
+           transform="matrix(0.126480,0,0,-0.126480,704.16,469.30655)"
            id="g3627">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -15745,7 +15808,7 @@
         <!-- • attestation -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,704.16,490.90655)"
+           transform="matrix(0.126480,0,0,-0.126480,704.16,490.90655)"
            id="g3656">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -15871,7 +15934,7 @@
         <!-- • encrypted storage -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,704.16,512.50655)"
+           transform="matrix(0.126480,0,0,-0.126480,704.16,512.50655)"
            id="g3697">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -16051,7 +16114,7 @@
         <!-- • rollback protection -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,704.16,534.10655)"
+           transform="matrix(0.126480,0,0,-0.126480,704.16,534.10655)"
            id="g3742">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -16249,7 +16312,7 @@
         <!-- Countermeasures -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.102,0,0,-0.102,857.376,448.39041)"
+           transform="matrix(0.124440,0,0,-0.124440,857.376,448.39041)"
            id="g3775">
           <use
              xlink:href="#DejaVuSans-Bold-43"
@@ -16393,7 +16456,7 @@
         <!-- • masking / hiding -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,859.68,469.30655)"
+           transform="matrix(0.126480,0,0,-0.126480,859.68,469.30655)"
            id="g3814">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -16564,7 +16627,7 @@
         <!-- • secure memory -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,859.68,490.90655)"
+           transform="matrix(0.126480,0,0,-0.126480,859.68,490.90655)"
            id="g3847">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -16708,7 +16771,7 @@
         <!-- • FI sensors -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,859.68,512.50655)"
+           transform="matrix(0.126480,0,0,-0.126480,859.68,512.50655)"
            id="g3877">
           <defs
              id="defs3851">
@@ -16834,7 +16897,7 @@
         <!-- • HW-SW co-design -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,859.68,534.10655)"
+           transform="matrix(0.126480,0,0,-0.126480,859.68,534.10655)"
            id="g3919">
           <defs
              id="defs3883">
@@ -17017,7 +17080,7 @@
         <!-- Countermeasures -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.102,0,0,-0.102,1012.896,448.39041)"
+           transform="matrix(0.124440,0,0,-0.124440,1012.896,448.39041)"
            id="g3952">
           <use
              xlink:href="#DejaVuSans-Bold-43"
@@ -17161,7 +17224,7 @@
         <!-- • sensor validation -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,1015.2,469.30655)"
+           transform="matrix(0.126480,0,0,-0.126480,1015.2,469.30655)"
            id="g3993">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -17341,7 +17404,7 @@
         <!-- • bounded control -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,1015.2,490.90655)"
+           transform="matrix(0.126480,0,0,-0.126480,1015.2,490.90655)"
            id="g4030">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -17503,7 +17566,7 @@
         <!-- • runtime anomaly checks -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,1015.2,512.50655)"
+           transform="matrix(0.126480,0,0,-0.126480,1015.2,512.50655)"
            id="g4081">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -17728,7 +17791,7 @@
         <!-- • fail-safe mode -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.093,0,0,-0.093,1015.2,534.10655)"
+           transform="matrix(0.126480,0,0,-0.126480,1015.2,534.10655)"
            id="g4116">
           <use
              xlink:href="#DejaVuSans-2022"
@@ -17882,7 +17945,7 @@
         <!-- Cross-layer interpretation -->
         <g
            style="fill:#17375e;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.112,0,0,-0.112,99.36,625.84675)"
+           transform="matrix(0.140000,0,0,-0.140000,99.36,625.84675)"
            id="g4171">
           <use
              xlink:href="#DejaVuSans-Bold-43"
@@ -18126,7 +18189,7 @@
         <!-- The same AI system usually needs multiple layers of defense: prevention at data/model level, containment at API/agent level, attestation at device level, implementation protection at hardware level, and fail-safe recovery at physical-control level. -->
         <g
            style="fill:#111827;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.102,0,0,-0.102,130.61,656.6617)"
+           transform="matrix(0.122400,0,0,-0.122400,130.61,656.6617)"
            id="g4675">
           <defs
              id="defs4177">
@@ -18168,81 +18231,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-41"
-             transform="translate(521.875)"
-             id="use4197"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-49"
-             transform="translate(590.2832)"
-             id="use4199"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(619.77539)"
              id="use4201"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-73"
-             transform="translate(651.5625)"
-             id="use4203"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-79"
-             transform="translate(703.66211)"
-             id="use4205"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-73"
-             transform="translate(762.8418)"
-             id="use4207"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(814.94141)"
-             id="use4209"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(854.15039)"
-             id="use4211"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6d"
-             transform="translate(915.67383)"
-             id="use4213"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -18258,117 +18249,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-75"
-             transform="translate(1044.873)"
-             id="use4217"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-73"
-             transform="translate(1108.252)"
-             id="use4219"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-75"
-             transform="translate(1160.3516)"
-             id="use4221"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(1223.7305)"
-             id="use4223"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(1285.0098)"
-             id="use4225"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(1312.793)"
-             id="use4227"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-79"
-             transform="translate(1340.5762)"
-             id="use4229"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(1399.7559)"
              id="use4231"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6e"
-             transform="translate(1431.543)"
-             id="use4233"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(1494.9219)"
-             id="use4235"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(1556.4453)"
-             id="use4237"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-64"
-             transform="translate(1617.9688)"
-             id="use4239"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-73"
-             transform="translate(1681.4453)"
-             id="use4241"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -18384,135 +18267,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-6d"
-             transform="translate(1765.332)"
-             id="use4245"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-75"
-             transform="translate(1862.7441)"
-             id="use4247"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(1926.123)"
-             id="use4249"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(1953.9063)"
-             id="use4251"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-69"
-             transform="translate(1993.1152)"
-             id="use4253"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-70"
-             transform="translate(2020.8984)"
-             id="use4255"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(2084.375)"
-             id="use4257"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(2112.1582)"
-             id="use4259"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(2173.6816)"
              id="use4261"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(2205.4688)"
-             id="use4263"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(2233.252)"
-             id="use4265"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-79"
-             transform="translate(2294.5313)"
-             id="use4267"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(2353.7109)"
-             id="use4269"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-72"
-             transform="translate(2415.2344)"
-             id="use4271"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-73"
-             transform="translate(2456.3477)"
-             id="use4273"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -18528,99 +18285,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-6f"
-             transform="translate(2540.2344)"
-             id="use4277"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-66"
-             transform="translate(2601.416)"
-             id="use4279"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(2636.6211)"
              id="use4281"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-64"
-             transform="translate(2668.4082)"
-             id="use4283"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(2731.8848)"
-             id="use4285"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-66"
-             transform="translate(2793.4082)"
-             id="use4287"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(2828.6133)"
-             id="use4289"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6e"
-             transform="translate(2890.1367)"
-             id="use4291"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-73"
-             transform="translate(2953.5156)"
-             id="use4293"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(3005.6152)"
-             id="use4295"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-3a"
-             transform="translate(3067.1387)"
-             id="use4297"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -18636,117 +18303,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-70"
-             transform="translate(3132.6172)"
-             id="use4301"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-72"
-             transform="translate(3196.0938)"
-             id="use4303"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(3234.957)"
-             id="use4305"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-76"
-             transform="translate(3296.4805)"
-             id="use4307"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(3355.6602)"
-             id="use4309"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6e"
-             transform="translate(3417.1836)"
-             id="use4311"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(3480.5625)"
-             id="use4313"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-69"
-             transform="translate(3519.7715)"
-             id="use4315"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6f"
-             transform="translate(3547.5547)"
-             id="use4317"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6e"
-             transform="translate(3608.7363)"
-             id="use4319"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(3672.1152)"
              id="use4321"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(3703.9023)"
-             id="use4323"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(3765.1816)"
-             id="use4325"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -18762,153 +18321,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-64"
-             transform="translate(3836.1777)"
-             id="use4329"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(3899.6543)"
-             id="use4331"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(3960.9336)"
-             id="use4333"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(4000.1426)"
-             id="use4335"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-2f"
-             transform="translate(4061.4219)"
-             id="use4337"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6d"
-             transform="translate(4095.1133)"
-             id="use4339"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6f"
-             transform="translate(4192.5254)"
-             id="use4341"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-64"
-             transform="translate(4253.707)"
-             id="use4343"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(4317.1836)"
-             id="use4345"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(4378.707)"
-             id="use4347"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(4406.4902)"
              id="use4349"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(4438.2773)"
-             id="use4351"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(4466.0605)"
-             id="use4353"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-76"
-             transform="translate(4527.584)"
-             id="use4355"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(4586.7637)"
-             id="use4357"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(4648.2871)"
-             id="use4359"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-2c"
-             transform="translate(4676.0703)"
-             id="use4361"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -18924,126 +18339,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-63"
-             transform="translate(4739.6445)"
-             id="use4365"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6f"
-             transform="translate(4794.625)"
-             id="use4367"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6e"
-             transform="translate(4855.8066)"
-             id="use4369"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(4919.1855)"
-             id="use4371"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(4958.3945)"
-             id="use4373"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-69"
-             transform="translate(5019.6738)"
-             id="use4375"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6e"
-             transform="translate(5047.457)"
-             id="use4377"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6d"
-             transform="translate(5110.8359)"
-             id="use4379"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(5208.248)"
-             id="use4381"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6e"
-             transform="translate(5269.7715)"
-             id="use4383"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(5333.1504)"
-             id="use4385"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(5372.3594)"
              id="use4387"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(5404.1465)"
-             id="use4389"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(5465.4258)"
-             id="use4391"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -19059,144 +18357,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-41"
-             transform="translate(5536.4219)"
-             id="use4395"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-50"
-             transform="translate(5604.8301)"
-             id="use4397"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-49"
-             transform="translate(5665.1328)"
-             id="use4399"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-2f"
-             transform="translate(5694.625)"
-             id="use4401"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(5728.3164)"
-             id="use4403"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-67"
-             transform="translate(5789.5957)"
-             id="use4405"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(5853.0723)"
-             id="use4407"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6e"
-             transform="translate(5914.5957)"
-             id="use4409"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(5977.9746)"
-             id="use4411"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(6017.1836)"
              id="use4413"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(6048.9707)"
-             id="use4415"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(6076.7539)"
-             id="use4417"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-76"
-             transform="translate(6138.2773)"
-             id="use4419"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(6197.457)"
-             id="use4421"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(6258.9805)"
-             id="use4423"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-2c"
-             transform="translate(6286.7637)"
-             id="use4425"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -19212,126 +18375,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(6350.3379)"
-             id="use4429"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(6411.6172)"
-             id="use4431"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(6450.8262)"
-             id="use4433"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(6490.0352)"
-             id="use4435"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-73"
-             transform="translate(6551.5586)"
-             id="use4437"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(6603.6582)"
-             id="use4439"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(6642.8672)"
-             id="use4441"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(6704.1465)"
-             id="use4443"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-69"
-             transform="translate(6743.3555)"
-             id="use4445"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6f"
-             transform="translate(6771.1387)"
-             id="use4447"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6e"
-             transform="translate(6832.3203)"
-             id="use4449"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(6895.6992)"
              id="use4451"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(6927.4863)"
-             id="use4453"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(6988.7656)"
-             id="use4455"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -19347,117 +18393,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-64"
-             transform="translate(7059.7617)"
-             id="use4459"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(7123.2383)"
-             id="use4461"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-76"
-             transform="translate(7184.7617)"
-             id="use4463"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-69"
-             transform="translate(7243.9414)"
-             id="use4465"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-63"
-             transform="translate(7271.7246)"
-             id="use4467"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(7326.7051)"
-             id="use4469"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(7388.2285)"
              id="use4471"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(7420.0156)"
-             id="use4473"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(7447.7988)"
-             id="use4475"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-76"
-             transform="translate(7509.3223)"
-             id="use4477"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(7568.502)"
-             id="use4479"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(7630.0254)"
-             id="use4481"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-2c"
-             transform="translate(7657.8086)"
-             id="use4483"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -19473,225 +18411,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-69"
-             transform="translate(7721.3828)"
-             id="use4487"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6d"
-             transform="translate(7749.166)"
-             id="use4489"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-70"
-             transform="translate(7846.5781)"
-             id="use4491"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(7910.0547)"
-             id="use4493"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(7937.8379)"
-             id="use4495"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6d"
-             transform="translate(7999.3613)"
-             id="use4497"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(8096.7734)"
-             id="use4499"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6e"
-             transform="translate(8158.2969)"
-             id="use4501"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(8221.6758)"
-             id="use4503"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(8260.8848)"
-             id="use4505"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(8322.1641)"
-             id="use4507"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-69"
-             transform="translate(8361.373)"
-             id="use4509"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6f"
-             transform="translate(8389.1563)"
-             id="use4511"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6e"
-             transform="translate(8450.3379)"
-             id="use4513"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(8513.7168)"
              id="use4515"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-70"
-             transform="translate(8545.5039)"
-             id="use4517"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-72"
-             transform="translate(8608.9805)"
-             id="use4519"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6f"
-             transform="translate(8647.8438)"
-             id="use4521"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(8709.0254)"
-             id="use4523"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(8748.2344)"
-             id="use4525"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-63"
-             transform="translate(8809.7578)"
-             id="use4527"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(8864.7383)"
-             id="use4529"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-69"
-             transform="translate(8903.9473)"
-             id="use4531"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6f"
-             transform="translate(8931.7305)"
-             id="use4533"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6e"
-             transform="translate(8992.9121)"
-             id="use4535"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -19707,99 +18429,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(9088.0781)"
-             id="use4539"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(9149.3574)"
-             id="use4541"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(9188.5664)"
              id="use4543"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-68"
-             transform="translate(9220.3535)"
-             id="use4545"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(9283.7324)"
-             id="use4547"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-72"
-             transform="translate(9345.0117)"
-             id="use4549"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-64"
-             transform="translate(9384.375)"
-             id="use4551"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-77"
-             transform="translate(9447.8516)"
-             id="use4553"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(9529.6387)"
-             id="use4555"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-72"
-             transform="translate(9590.918)"
-             id="use4557"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(9629.7813)"
-             id="use4559"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -19815,90 +18447,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(9723.0918)"
-             id="use4563"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(9750.875)"
-             id="use4565"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-76"
-             transform="translate(9812.3984)"
-             id="use4567"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(9871.5781)"
-             id="use4569"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(9933.1016)"
-             id="use4571"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-2c"
-             transform="translate(9960.8848)"
-             id="use4573"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(9992.6719)"
              id="use4575"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(10024.459)"
-             id="use4577"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6e"
-             transform="translate(10085.738)"
-             id="use4579"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-64"
-             transform="translate(10149.117)"
-             id="use4581"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -19914,162 +18465,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-66"
-             transform="translate(10244.381)"
-             id="use4585"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(10279.586)"
-             id="use4587"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-69"
-             transform="translate(10340.865)"
-             id="use4589"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(10368.648)"
-             id="use4591"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-2d"
-             transform="translate(10396.432)"
-             id="use4593"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-73"
-             transform="translate(10432.516)"
-             id="use4595"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(10484.615)"
-             id="use4597"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-66"
-             transform="translate(10545.895)"
-             id="use4599"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(10581.1)"
-             id="use4601"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(10642.623)"
              id="use4603"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-72"
-             transform="translate(10674.41)"
-             id="use4605"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(10713.273)"
-             id="use4607"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-63"
-             transform="translate(10774.797)"
-             id="use4609"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6f"
-             transform="translate(10829.777)"
-             id="use4611"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-76"
-             transform="translate(10890.959)"
-             id="use4613"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(10950.139)"
-             id="use4615"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-72"
-             transform="translate(11011.662)"
-             id="use4617"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-79"
-             transform="translate(11052.775)"
-             id="use4619"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -20085,162 +18483,9 @@
              width="100%"
              height="100%" />
           <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(11143.742)"
-             id="use4623"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(11205.021)"
-             id="use4625"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
              xlink:href="#DejaVuSans-20"
              transform="translate(11244.23)"
              id="use4627"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-70"
-             transform="translate(11276.018)"
-             id="use4629"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-68"
-             transform="translate(11339.494)"
-             id="use4631"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-79"
-             transform="translate(11402.873)"
-             id="use4633"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-69"
-             transform="translate(11514.152)"
-             id="use4637"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-63"
-             transform="translate(11541.936)"
-             id="use4639"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-61"
-             transform="translate(11596.916)"
-             id="use4641"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(11658.195)"
-             id="use4643"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-2d"
-             transform="translate(11685.979)"
-             id="use4645"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-63"
-             transform="translate(11722.063)"
-             id="use4647"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6f"
-             transform="translate(11777.043)"
-             id="use4649"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6e"
-             transform="translate(11838.225)"
-             id="use4651"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-74"
-             transform="translate(11901.604)"
-             id="use4653"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-72"
-             transform="translate(11940.813)"
-             id="use4655"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6f"
-             transform="translate(11979.676)"
-             id="use4657"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(12040.857)"
-             id="use4659"
              style="stroke-linecap:butt;stroke-linejoin:round"
              x="0"
              y="0"
@@ -20255,83 +18500,31 @@
              y="0"
              width="100%"
              height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(12100.428)"
-             id="use4663"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(12128.211)"
-             id="use4665"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-76"
-             transform="translate(12189.734)"
-             id="use4667"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-65"
-             transform="translate(12248.914)"
-             id="use4669"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-6c"
-             transform="translate(12310.438)"
-             id="use4671"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <use
-             xlink:href="#DejaVuSans-2e"
-             transform="translate(12338.221)"
-             id="use4673"
-             style="stroke-linecap:butt;stroke-linejoin:round"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
         </g>
       </g>
       <g
          id="patch_49"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(0,-34.5)">
         <path
            d="m 84.079556,666 q 499.118624,0 996.895644,0"
-           style="fill:none;stroke:#7d8ea8;stroke-width:1.20000005;stroke-linecap:round;stroke-linejoin:round"
+           style="fill:none;stroke:#7d8ea8;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round"
            id="path4678"
            inkscape:connector-curvature="0" />
         <path
            d="m 1076.9752,664 4,2 -4,2"
-           style="fill:none;stroke:#7d8ea8;stroke-width:1.20000005;stroke-linecap:round;stroke-linejoin:round"
+           style="fill:none;stroke:#7d8ea8;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round"
            id="path4680"
            inkscape:connector-curvature="0" />
       </g>
       <g
          id="text_89"
-         style="stroke-linecap:butt;stroke-linejoin:round">
+         style="stroke-linecap:butt;stroke-linejoin:round"
+         transform="translate(0,-34.5)">
         <!-- Monitoring, incident response, evaluation, and updates feed back into data curation, retraining, redeployment, and field recovery -->
         <g
            style="fill:#6b7280;stroke-linecap:butt;stroke-linejoin:round"
-           transform="matrix(0.105,0,0,-0.105,242.3298,686.89734)"
+           transform="matrix(0.126,0,0,-0.126,242.3298,686.89734)"
            id="g4941">
           <use
              xlink:href="#DejaVuSans-4d"

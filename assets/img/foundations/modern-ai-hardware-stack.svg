@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1400"
+   height="760"
+   viewBox="0 0 1400 760"
+   role="img"
+   aria-label="Modern AI Hardware Stack"
+   version="1.1"
+   id="svg44"
+   sodipodi:docname="modern-ai-hardware-stack.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview44"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1"
+     inkscape:cx="699.5"
+     inkscape:cy="380.5"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="5752"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg44" />
+  <defs
+     id="defs6">
+    <linearGradient
+       id="bgGrad"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="1">
+      <stop
+         offset="0%"
+         stop-color="#fbfdff"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#eef4ff"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       id="multi"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="0">
+      <stop
+         offset="0%"
+         stop-color="#2563eb"
+         id="stop3" />
+      <stop
+         offset="50%"
+         stop-color="#7c3aed"
+         id="stop4" />
+      <stop
+         offset="100%"
+         stop-color="#0f766e"
+         id="stop5" />
+    </linearGradient>
+    <filter
+       id="shadow"
+       x="-0.0034883721"
+       y="-0.01171875"
+       width="1.0069767"
+       height="1.0234375">
+      <feDropShadow
+         dx="0"
+         dy="8"
+         stdDeviation="10"
+         flood-color="#94a3b8"
+         flood-opacity="0.18" />
+    </filter>
+    <marker
+       id="arrowBlue"
+       markerWidth="10"
+       markerHeight="10"
+       refX="8"
+       refY="5"
+       orient="auto">
+      <path
+         d="M0,0 L10,5 L0,10 Z"
+         fill="#2563eb"
+         id="path5" />
+    </marker>
+    <marker
+       id="arrowSlate"
+       markerWidth="10"
+       markerHeight="10"
+       refX="8"
+       refY="5"
+       orient="auto">
+      <path
+         d="M0,0 L10,5 L0,10 Z"
+         fill="#64748b"
+         id="path6" />
+    </marker>
+    <style
+       id="style6">
+.title{font:800 34px Inter,Arial,sans-serif;fill:#22304a}
+.subtitle{font:700 16px Inter,Arial,sans-serif;fill:#4a5d78;letter-spacing:.05em;text-transform:uppercase}
+.bt{font:800 19px Inter,Arial,sans-serif;fill:#22304a}
+.bs{font:500 15px Inter,Arial,sans-serif;fill:#4a5d78}
+.cap{font:700 14px Inter,Arial,sans-serif;fill:#4a5d78}
+</style>
+  </defs>
+  <rect
+     width="1400"
+     height="760"
+     rx="28"
+     fill="url(#bgGrad)"
+     id="rect6" />
+  <rect
+     x="28"
+     y="26"
+     width="1344"
+     height="708"
+     rx="24"
+     fill="none"
+     stroke="#d7e2f1"
+     id="rect7" />
+  <text
+     x="70"
+     y="72"
+     class="subtitle"
+     id="text7">AI Foundations</text>
+  <text
+     x="70"
+     y="118"
+     class="title"
+     id="text8">Modern AI Hardware Stack</text>
+  <g
+     filter="url(#shadow)"
+     id="g9">
+    <rect
+       x="70"
+       y="160"
+       width="250"
+       height="110"
+       rx="22"
+       fill="#ffffff"
+       stroke="#c7d7ee"
+       stroke-width="1.5"
+       id="rect8" />
+    <rect
+       x="70"
+       y="160"
+       width="250"
+       height="7"
+       rx="22"
+       fill="#2563eb"
+       id="rect9" />
+  </g>
+  <text
+     x="90"
+     y="200"
+     class="bt"
+     id="text9">Host &amp; Runtime</text>
+  <text
+     x="90"
+     y="232"
+     class="bs"
+     id="text10">CPU orchestration</text>
+  <text
+     x="90"
+     y="259"
+     class="bs"
+     id="text11">compiler, drivers, DMA</text>
+  <g
+     filter="url(#shadow)"
+     id="g12">
+    <rect
+       x="380"
+       y="160"
+       width="250"
+       height="110"
+       rx="22"
+       fill="#ffffff"
+       stroke="#c7d7ee"
+       stroke-width="1.5"
+       id="rect11" />
+    <rect
+       x="380"
+       y="160"
+       width="250"
+       height="7"
+       rx="22"
+       fill="#7c3aed"
+       id="rect12" />
+  </g>
+  <text
+     x="400"
+     y="200"
+     class="bt"
+     id="text12">Device Memory</text>
+  <text
+     x="400"
+     y="232"
+     class="bs"
+     id="text13">HBM / GDDR / SRAM</text>
+  <text
+     x="400"
+     y="259"
+     class="bs"
+     id="text14">weights, activations, cache</text>
+  <g
+     filter="url(#shadow)"
+     id="g15">
+    <rect
+       x="690"
+       y="160"
+       width="250"
+       height="110"
+       rx="22"
+       fill="#ffffff"
+       stroke="#c7d7ee"
+       stroke-width="1.5"
+       id="rect14" />
+    <rect
+       x="690"
+       y="160"
+       width="250"
+       height="7"
+       rx="22"
+       fill="#0f766e"
+       id="rect15" />
+  </g>
+  <text
+     x="710"
+     y="200"
+     class="bt"
+     id="text15">Tensor Compute</text>
+  <text
+     x="710"
+     y="232"
+     class="bs"
+     id="text16">matrix engines</text>
+  <text
+     x="710"
+     y="259"
+     class="bs"
+     id="text17">vector + reduction units</text>
+  <g
+     filter="url(#shadow)"
+     id="g18">
+    <rect
+       x="1000"
+       y="160"
+       width="290"
+       height="110"
+       rx="22"
+       fill="#ffffff"
+       stroke="#c7d7ee"
+       stroke-width="1.5"
+       id="rect17" />
+    <rect
+       x="1000"
+       y="160"
+       width="290"
+       height="7"
+       rx="22"
+       fill="#d97706"
+       id="rect18" />
+  </g>
+  <text
+     x="1020"
+     y="200"
+     class="bt"
+     id="text18">Security Surfaces</text>
+  <text
+     x="1020"
+     y="232"
+     class="bs"
+     id="text19">firmware, MMIO, timing</text>
+  <text
+     x="1020"
+     y="259"
+     class="bs"
+     id="text20">power / memory / fault paths</text>
+  <line
+     x1="320"
+     y1="215"
+     x2="380"
+     y2="215"
+     stroke="#2563eb"
+     stroke-width="3"
+     marker-end="url(#arrowBlue)"
+     id="line20" />
+  <line
+     x1="630"
+     y1="215"
+     x2="690"
+     y2="215"
+     stroke="#2563eb"
+     stroke-width="3"
+     marker-end="url(#arrowBlue)"
+     id="line21" />
+  <line
+     x1="940"
+     y1="215"
+     x2="1000"
+     y2="215"
+     stroke="#2563eb"
+     stroke-width="3"
+     marker-end="url(#arrowBlue)"
+     id="line22" />
+  <g
+     filter="url(#shadow)"
+     id="g23">
+    <rect
+       x="85"
+       y="360"
+       width="390"
+       height="260"
+       rx="22"
+       fill="#edf4ff"
+       stroke="#c7d7ee"
+       stroke-width="1.5"
+       id="rect22" />
+    <rect
+       x="85"
+       y="360"
+       width="390"
+       height="7"
+       rx="22"
+       fill="url(#multi)"
+       id="rect23" />
+  </g>
+  <text
+     x="105"
+     y="400"
+     class="bt"
+     id="text23">What this stack explains</text>
+  <text
+     x="105"
+     y="432"
+     class="bs"
+     id="text24">Where model state lives</text>
+  <text
+     x="105"
+     y="459"
+     class="bs"
+     id="text25">Who launches and controls kernels</text>
+  <text
+     x="105"
+     y="486"
+     class="bs"
+     id="text26">Which artifacts become measurable</text>
+  <text
+     x="105"
+     y="513"
+     class="bs"
+     id="text27">Where faults or isolation gaps appear</text>
+  <g
+     filter="url(#shadow)"
+     id="g28">
+    <rect
+       x="520"
+       y="360"
+       width="790"
+       height="260"
+       rx="22"
+       fill="#ffffff"
+       stroke="#c7d7ee"
+       stroke-width="1.5"
+       id="rect27" />
+    <rect
+       x="520"
+       y="360"
+       width="790"
+       height="7"
+       rx="22"
+       fill="#d97706"
+       id="rect28" />
+  </g>
+  <text
+     x="540"
+     y="400"
+     class="bt"
+     id="text28">Representative questions</text>
+  <text
+     x="540"
+     y="432"
+     class="bs"
+     id="text29">Can memory traffic reveal workload phase?</text>
+  <text
+     x="871.04297"
+     y="431.02454"
+     class="bs"
+     id="text30"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15px;line-height:normal;font-family:Inter, Arial, sans-serif">Do firmware and runtime boundaries leak control?</text>
+  <text
+     x="540"
+     y="462"
+     class="bs"
+     id="text31"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15px;line-height:normal;font-family:Inter, Arial, sans-serif">Which compute blocks are stable fault targets?</text>
+  <text
+     x="871"
+     y="464"
+     class="bs"
+     id="text32"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15px;line-height:normal;font-family:Inter, Arial, sans-serif">How much of the system sits outside the model abstraction?</text>
+  <g
+     filter="url(#shadow)"
+     id="g33"
+     transform="translate(0,56)">
+    <rect
+       x="560"
+       y="445"
+       width="215"
+       height="98"
+       rx="22"
+       fill="#eef5ff"
+       stroke="#c7d7ee"
+       stroke-width="1.5"
+       id="rect32" />
+    <rect
+       x="560"
+       y="445"
+       width="215"
+       height="7"
+       rx="22"
+       fill="#2563eb"
+       id="rect33" />
+  </g>
+  <text
+     x="580"
+     y="523"
+     class="bt"
+     id="text33"
+     style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:19px;line-height:normal;font-family:Inter, Arial, sans-serif">Leakage</text>
+  <text
+     x="580"
+     y="555"
+     class="bs"
+     id="text34"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15px;line-height:normal;font-family:Inter, Arial, sans-serif">timing</text>
+  <text
+     x="580"
+     y="582"
+     class="bs"
+     id="text35"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15px;line-height:normal;font-family:Inter, Arial, sans-serif">memory bursts</text>
+  <g
+     filter="url(#shadow)"
+     id="g36"
+     transform="translate(0,53)">
+    <rect
+       x="808"
+       y="445"
+       width="215"
+       height="98"
+       rx="22"
+       fill="#eef5ff"
+       stroke="#c7d7ee"
+       stroke-width="1.5"
+       id="rect35" />
+    <rect
+       x="808"
+       y="445"
+       width="215"
+       height="7"
+       rx="22"
+       fill="#7c3aed"
+       id="rect36" />
+  </g>
+  <text
+     x="828"
+     y="521"
+     class="bt"
+     id="text36"
+     style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:19px;line-height:normal;font-family:Inter, Arial, sans-serif">Fault targets</text>
+  <text
+     x="828"
+     y="553"
+     class="bs"
+     id="text37"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15px;line-height:normal;font-family:Inter, Arial, sans-serif">DMA / SRAM / datapath</text>
+  <g
+     filter="url(#shadow)"
+     id="g38"
+     transform="translate(-8,54)">
+    <rect
+       x="1056"
+       y="445"
+       width="215"
+       height="98"
+       rx="22"
+       fill="#eef5ff"
+       stroke="#c7d7ee"
+       stroke-width="1.5"
+       id="rect37" />
+    <rect
+       x="1056"
+       y="445"
+       width="215"
+       height="7"
+       rx="22"
+       fill="#0f766e"
+       id="rect38" />
+  </g>
+  <text
+     x="1076"
+     y="517"
+     class="bt"
+     id="text38"
+     style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:19px;line-height:normal;font-family:Inter, Arial, sans-serif">Trust zones</text>
+  <text
+     x="1076"
+     y="549"
+     class="bs"
+     id="text39"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15px;line-height:normal;font-family:Inter, Arial, sans-serif">host vs device</text>
+  <text
+     x="1076"
+     y="576"
+     class="bs"
+     id="text40"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15px;line-height:normal;font-family:Inter, Arial, sans-serif">tenant vs firmware</text>
+  <g
+     filter="url(#shadow)"
+     id="g41">
+    <rect
+       x="540"
+       y="650"
+       width="340"
+       height="64"
+       rx="22"
+       fill="#f8fbff"
+       stroke="#c7d7ee"
+       stroke-width="1.5"
+       id="rect40" />
+    <rect
+       x="540"
+       y="650"
+       width="340"
+       height="7"
+       rx="22"
+       fill="#2563eb"
+       id="rect41" />
+  </g>
+  <text
+     x="560"
+     y="680"
+     class="bt"
+     id="text41"
+     style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:19px;line-height:normal;font-family:Inter, Arial, sans-serif">Execution view</text>
+  <text
+     x="560"
+     y="712"
+     class="bs"
+     id="text42"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15px;line-height:normal;font-family:Inter, Arial, sans-serif">model graph → runtime → memory → silicon</text>
+  <g
+     filter="url(#shadow)"
+     id="g43">
+    <rect
+       x="920"
+       y="650"
+       width="350"
+       height="64"
+       rx="22"
+       fill="#fff9ef"
+       stroke="#c7d7ee"
+       stroke-width="1.5"
+       id="rect42" />
+    <rect
+       x="920"
+       y="650"
+       width="350"
+       height="7"
+       rx="22"
+       fill="#d97706"
+       id="rect43" />
+  </g>
+  <text
+     x="940"
+     y="680"
+     class="bt"
+     id="text43"
+     style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:19px;line-height:normal;font-family:Inter, Arial, sans-serif">Security view</text>
+  <text
+     x="940"
+     y="712"
+     class="bs"
+     id="text44"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15px;line-height:normal;font-family:Inter, Arial, sans-serif">observation + control exist across the whole stack</text>
+</svg>

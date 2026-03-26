@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="2200"
+   height="1400"
+   viewBox="0 0 2200 1400"
+   preserveAspectRatio="xMidYMid meet"
+   version="1.1"
+   id="svg49"
+   sodipodi:docname="ai_security_landscape_professional_largefont.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview49"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.54"
+     inkscape:cx="1100.9259"
+     inkscape:cy="699.07407"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="5752"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg49" />
+  <defs
+     id="defs1">
+    <rect
+       x="-44.662577"
+       y="1305.5215"
+       width="1944.5399"
+       height="79.018405"
+       id="rect51" />
+    <rect
+       x="-72.147239"
+       y="644.17178"
+       width="2160.9816"
+       height="111.65644"
+       id="rect50" />
+    <marker
+       id="arrow"
+       markerWidth="16"
+       markerHeight="16"
+       refX="13"
+       refY="8"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M 0 0 L 16 8 L 0 16 z"
+         fill="#6B7A90"
+         id="path1" />
+    </marker>
+    <style
+       id="style1"><![CDATA[
+      .title { font-family: Arial, Helvetica, sans-serif; font-size: 60px; font-weight: 700; fill: #0F172A; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 26px; fill: #475569; }
+      .node-title { font-family: Arial, Helvetica, sans-serif; font-size: 38px; font-weight: 700; fill: #FFFFFF; }
+      .node-sub { font-family: Arial, Helvetica, sans-serif; font-size: 24px; fill: #EFF6FF; }
+      .card-title { font-family: Arial, Helvetica, sans-serif; font-size: 34px; font-weight: 700; fill: #0F172A; }
+      .card-body { font-family: Arial, Helvetica, sans-serif; font-size: 24px; fill: #475569; }
+      .axis-label { font-family: Arial, Helvetica, sans-serif; font-size: 24px; fill: #475569; }
+      .thin { stroke: #6B7A90; stroke-width: 4; fill: none; }
+      .axis { stroke: #94A3B8; stroke-width: 4.5; fill: none; }
+      .card { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 2.2; }
+      .quad { fill: #F8FAFC; stroke: #CBD5E1; stroke-width: 2.2; }
+    ]]></style>
+  </defs>
+  <rect
+     x="0"
+     y="0"
+     width="2200"
+     height="1400"
+     fill="#FFFFFF"
+     id="rect1" />
+  <text
+     x="85"
+     y="92"
+     class="title"
+     id="text1">AI Security Landscape</text>
+  <text
+     x="85"
+     y="138"
+     class="subtitle"
+     id="text2"
+     style="font-size:32px">Software ↔ Hardware | Cloud ↔ Edge | Predictive ↔ Generative ↔ Agentic ↔ Physical</text>
+  <rect
+     x="787.42981"
+     y="170.34396"
+     rx="47.082611"
+     ry="27.844664"
+     width="723.05444"
+     height="123.31208"
+     fill="#4f83c2"
+     stroke="#4f83c2"
+     stroke-width="2.92154"
+     id="rect2" />
+  <text
+     x="1100"
+     y="232"
+     text-anchor="middle"
+     class="node-title"
+     id="text3">AI Security</text>
+  <text
+     x="1132"
+     y="270"
+     text-anchor="middle"
+     class="node-sub"
+     id="text4"
+     style="font-size:32px">cross-layer, deployment-aware, trust-centric</text>
+  <rect
+     x="210"
+     y="395"
+     rx="24"
+     ry="24"
+     width="300"
+     height="102"
+     fill="#6F8FCB"
+     stroke="#6F8FCB"
+     stroke-width="2.5"
+     id="rect4" />
+  <rect
+     x="665"
+     y="395"
+     rx="24"
+     ry="24"
+     width="345"
+     height="102"
+     fill="#5F9D9F"
+     stroke="#5F9D9F"
+     stroke-width="2.5"
+     id="rect5" />
+  <rect
+     x="1145"
+     y="395"
+     rx="24"
+     ry="24"
+     width="300"
+     height="102"
+     fill="#5A89C7"
+     stroke="#5A89C7"
+     stroke-width="2.5"
+     id="rect6" />
+  <rect
+     x="1650"
+     y="395"
+     rx="24"
+     ry="24"
+     width="300"
+     height="102"
+     fill="#8B7AB8"
+     stroke="#8B7AB8"
+     stroke-width="2.5"
+     id="rect7" />
+  <text
+     x="360"
+     y="456"
+     text-anchor="middle"
+     class="node-title"
+     id="text7">Software</text>
+  <text
+     x="837"
+     y="456"
+     text-anchor="middle"
+     class="node-title"
+     id="text8">System / Runtime</text>
+  <text
+     x="1295"
+     y="456"
+     text-anchor="middle"
+     class="node-title"
+     id="text9">Hardware</text>
+  <text
+     x="1800"
+     y="456"
+     text-anchor="middle"
+     class="node-title"
+     id="text10">Deployment</text>
+  <path
+     d="M 1100.6448,296.20798 401.65499,374.81865"
+     class="thin"
+     marker-end="url(#arrow)"
+     id="path10" />
+  <path
+     d="M 1100.2446,295.91158 859.89445,379.0764"
+     class="thin"
+     marker-end="url(#arrow)"
+     id="path11" />
+  <path
+     d="m 1099.8974,295.74124 167.3975,84.2612"
+     class="thin"
+     marker-end="url(#arrow)"
+     id="path12" />
+  <path
+     d="m 1099.3251,296.26419 675.9814,79.85008"
+     class="thin"
+     marker-end="url(#arrow)"
+     id="path13" />
+  <path
+     d="M360,501 L360,585"
+     class="thin"
+     marker-end="url(#arrow)"
+     id="path14" />
+  <path
+     d="M837,501 L837,585"
+     class="thin"
+     marker-end="url(#arrow)"
+     id="path15" />
+  <path
+     d="M1295,501 L1295,585"
+     class="thin"
+     marker-end="url(#arrow)"
+     id="path16" />
+  <path
+     d="M1800,501 L1800,585"
+     class="thin"
+     marker-end="url(#arrow)"
+     id="path17" />
+  <rect
+     x="82.257721"
+     y="590.04913"
+     rx="28.390297"
+     ry="25.985645"
+     width="447.69315"
+     height="177.90173"
+     class="card"
+     id="rect17" />
+  <rect
+     x="557.15979"
+     y="590.10455"
+     rx="31.215525"
+     ry="25.969448"
+     width="492.24481"
+     height="177.79083"
+     class="card"
+     id="rect18" />
+  <rect
+     x="1064.2953"
+     y="590.06219"
+     rx="29.042242"
+     ry="25.981838"
+     width="457.97385"
+     height="177.87566"
+     class="card"
+     id="rect19" />
+  <rect
+     x="1570"
+     y="590"
+     rx="26"
+     ry="26"
+     width="410"
+     height="178"
+     class="card"
+     id="rect20" />
+  <text
+     x="315"
+     y="645"
+     text-anchor="middle"
+     class="card-title"
+     id="text20">Predictive AI</text>
+  <text
+     x="311"
+     y="695"
+     text-anchor="middle"
+     class="card-body"
+     id="text21"
+     style="font-size:32px">model theft, adversarial inputs,</text>
+  <text
+     x="319"
+     y="732"
+     text-anchor="middle"
+     class="card-body"
+     id="text22"
+     style="font-size:32px">training-data integrity</text>
+  <text
+     x="805"
+     y="645"
+     text-anchor="middle"
+     class="card-title"
+     id="text23">Generative AI</text>
+  <text
+     x="805"
+     y="695"
+     text-anchor="middle"
+     class="card-body"
+     id="text24"
+     style="font-size:32px">prompt injection, privacy leakage,</text>
+  <text
+     x="805"
+     y="732"
+     text-anchor="middle"
+     class="card-body"
+     id="text25"
+     style="font-size:32px">jailbreaks, model misuse</text>
+  <text
+     x="1295"
+     y="645"
+     text-anchor="middle"
+     class="card-title"
+     id="text26">Agentic AI</text>
+  <text
+     x="1295"
+     y="695"
+     text-anchor="middle"
+     class="card-body"
+     id="text27"
+     style="font-size:32px">tool abuse, memory poisoning,</text>
+  <text
+     x="1295"
+     y="732"
+     text-anchor="middle"
+     class="card-body"
+     id="text28"
+     style="font-size:32px">planning manipulation</text>
+  <text
+     x="1775"
+     y="645"
+     text-anchor="middle"
+     class="card-title"
+     id="text29">Physical AI</text>
+  <text
+     x="1775"
+     y="695"
+     text-anchor="middle"
+     class="card-body"
+     id="text30"
+     style="font-size:32px">sensor spoofing, latency,</text>
+  <text
+     x="1775"
+     y="732"
+     text-anchor="middle"
+     class="card-body"
+     id="text31"
+     style="font-size:32px">safety, edge trust</text>
+  <line
+     x1="1100"
+     y1="830"
+     x2="1100"
+     y2="1290"
+     class="axis"
+     id="line31" />
+  <line
+     x1="170"
+     y1="1188"
+     x2="2050"
+     y2="1188"
+     class="axis"
+     id="line32" />
+  <text
+     x="1126"
+     y="870"
+     class="axis-label"
+     id="text32"
+     style="font-size:32px">Software-heavy</text>
+  <text
+     x="1128"
+     y="1278"
+     class="axis-label"
+     id="text33"
+     style="font-size:32px">Hardware-heavy</text>
+  <text
+     x="170"
+     y="1168"
+     class="axis-label"
+     id="text34"
+     style="font-size:32px">Cloud-centric</text>
+  <text
+     x="2050"
+     y="1168"
+     text-anchor="end"
+     class="axis-label"
+     id="text35"
+     style="font-size:32px">Edge-centric</text>
+  <rect
+     x="260"
+     y="920"
+     rx="24"
+     ry="24"
+     width="540"
+     height="150"
+     class="quad"
+     id="rect35" />
+  <rect
+     x="1400"
+     y="920"
+     rx="24"
+     ry="24"
+     width="540"
+     height="150"
+     class="quad"
+     id="rect36" />
+  <rect
+     x="260"
+     y="1230"
+     rx="24"
+     ry="24"
+     width="540"
+     height="150"
+     class="quad"
+     id="rect37" />
+  <rect
+     x="1400"
+     y="1230"
+     rx="24"
+     ry="24"
+     width="540"
+     height="150"
+     class="quad"
+     id="rect38" />
+  <text
+     x="290"
+     y="975"
+     class="card-title"
+     id="text38">Cloud + Software</text>
+  <text
+     x="290"
+     y="1020"
+     class="card-body"
+     id="text39"
+     style="font-size:32px">model APIs, data pipelines,</text>
+  <text
+     x="290"
+     y="1057"
+     class="card-body"
+     id="text40"
+     style="font-size:32px">LLM orchestration</text>
+  <text
+     x="1430"
+     y="975"
+     class="card-title"
+     id="text41">Edge + Software</text>
+  <text
+     x="1430"
+     y="1020"
+     class="card-body"
+     id="text42"
+     style="font-size:32px">on-device inference,</text>
+  <text
+     x="1430"
+     y="1057"
+     class="card-body"
+     id="text43"
+     style="font-size:32px">mobile runtime</text>
+  <text
+     x="290"
+     y="1285"
+     class="card-title"
+     id="text44">Cloud + Hardware</text>
+  <text
+     x="290"
+     y="1330"
+     class="card-body"
+     id="text45"
+     style="font-size:32px">datacenter accelerators,</text>
+  <text
+     x="290"
+     y="1367"
+     class="card-body"
+     id="text46"
+     style="font-size:32px">secure serving</text>
+  <text
+     x="1430"
+     y="1285"
+     class="card-title"
+     id="text47">Edge + Hardware</text>
+  <text
+     x="1430"
+     y="1330"
+     class="card-body"
+     id="text48"
+     style="font-size:32px">ASIC / FPGA / NPU,</text>
+  <text
+     x="1430"
+     y="1367"
+     class="card-body"
+     id="text49"
+     style="font-size:32px">side-channel and fault risks</text>
+  <text
+     xml:space="preserve"
+     id="text50"
+     style="fill:#ffffff;text-orientation:auto;stroke-width:3.976;font-size:32px;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect50)" />
+  <text
+     xml:space="preserve"
+     id="text51"
+     style="fill:#ffffff;text-orientation:auto;stroke-width:3.976;font-size:32px;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect51)" />
+</svg>

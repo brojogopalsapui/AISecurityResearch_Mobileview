@@ -1,0 +1,2223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="760"
+   version="1.1"
+   viewBox="0,0,1400,760"
+   width="1400"
+   id="svg628"
+   sodipodi:docname="threat_model.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata632">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1106"
+     id="namedview630"
+     showgrid="false"
+     inkscape:zoom="0.90028971"
+     inkscape:cx="700"
+     inkscape:cy="380"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg628" />
+  <defs
+     id="defs14">
+    <filter
+       height="150%"
+       id="shadow"
+       width="150%"
+       x="-20%"
+       y="-20%">
+      <feGaussianBlur
+         in="SourceAlpha"
+         result="blur"
+         stdDeviation="2.5"
+         id="feGaussianBlur2" />
+      <feOffset
+         dx="0"
+         dy="2"
+         in="blur"
+         result="offsetBlur"
+         id="feOffset4" />
+      <feColorMatrix
+         in="offsetBlur"
+         result="shadow"
+         type="matrix"
+         values="0 0 0 0 0.12 0 0 0 0 0.14 0 0 0 0 0.18 0 0 0 0.18 0"
+         id="feColorMatrix6" />
+      <feBlend
+         in="SourceGraphic"
+         in2="shadow"
+         mode="normal"
+         id="feBlend8" />
+    </filter>
+    <marker
+       id="arrow"
+       markerHeight="10"
+       markerWidth="10"
+       orient="auto"
+       refX="10"
+       refY="5">
+      <path
+         d="M 0 0 L 10 5 L 0 10 z"
+         fill="#666"
+         id="path11" />
+    </marker>
+    <marker
+       id="arrow-2"
+       markerHeight="10"
+       markerWidth="10"
+       orient="auto"
+       refX="10"
+       refY="5">
+      <path
+         style="fill:#666666"
+         inkscape:connector-curvature="0"
+         d="M 0,0 10,5 0,10 Z"
+         id="path11-9" />
+    </marker>
+    <marker
+       id="arrow-8"
+       markerHeight="10"
+       markerWidth="10"
+       orient="auto"
+       refX="10"
+       refY="5">
+      <path
+         style="fill:#666666"
+         inkscape:connector-curvature="0"
+         d="M 0,0 10,5 0,10 Z"
+         id="path11-2" />
+    </marker>
+    <marker
+       id="arrow-2-6"
+       markerHeight="10"
+       markerWidth="10"
+       orient="auto"
+       refX="10"
+       refY="5">
+      <path
+         style="fill:#666666"
+         inkscape:connector-curvature="0"
+         d="M 0,0 10,5 0,10 Z"
+         id="path11-9-3" />
+    </marker>
+  </defs>
+  <g
+     filter="url(#shadow)"
+     id="g26">
+    <rect
+       fill="#ECF3FA"
+       height="370"
+       rx="16"
+       ry="16"
+       stroke="#C8CDD3"
+       stroke-width="1.2"
+       width="410"
+       x="20"
+       y="20"
+       id="rect18" />
+    <rect
+       fill="#A9C6E6"
+       height="54"
+       rx="16"
+       ry="16"
+       stroke="none"
+       width="410"
+       x="20"
+       y="20"
+       id="rect20" />
+    <rect
+       fill="#A9C6E6"
+       height="16"
+       stroke="none"
+       width="410"
+       x="20"
+       y="58"
+       id="rect22" />
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="28"
+       font-weight="600"
+       text-anchor="middle"
+       x="225.0"
+       y="55.0"
+       id="text24">3P Cloud Platforms</text>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g36">
+    <rect
+       fill="#F2F2F2"
+       height="370"
+       rx="16"
+       ry="16"
+       stroke="#C8CDD3"
+       stroke-width="1.2"
+       width="510"
+       x="455"
+       y="20"
+       id="rect28" />
+    <rect
+       fill="#D9D9D9"
+       height="54"
+       rx="16"
+       ry="16"
+       stroke="none"
+       width="510"
+       x="455"
+       y="20"
+       id="rect30" />
+    <rect
+       fill="#D9D9D9"
+       height="16"
+       stroke="none"
+       width="510"
+       x="455"
+       y="58"
+       id="rect32" />
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="28"
+       font-weight="600"
+       text-anchor="middle"
+       x="710.0"
+       y="55.0"
+       id="text34">Manufacturer</text>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g46">
+    <rect
+       fill="#F7F1D9"
+       height="370"
+       rx="16"
+       ry="16"
+       stroke="#C8CDD3"
+       stroke-width="1.2"
+       width="380"
+       x="1000"
+       y="20"
+       id="rect38" />
+    <rect
+       fill="#E3CD80"
+       height="54"
+       rx="16"
+       ry="16"
+       stroke="none"
+       width="380"
+       x="1000"
+       y="20"
+       id="rect40" />
+    <rect
+       fill="#E3CD80"
+       height="16"
+       stroke="none"
+       width="380"
+       x="1000"
+       y="58"
+       id="rect42" />
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="28"
+       font-weight="600"
+       text-anchor="middle"
+       x="1190.0"
+       y="55.0"
+       id="text44">End User</text>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g50">
+    <rect
+       fill="#E5F0DF"
+       height="315"
+       rx="16"
+       ry="16"
+       stroke="#C8CDD3"
+       stroke-width="1.2"
+       width="510"
+       x="455"
+       y="405"
+       id="rect48" />
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g60">
+    <rect
+       fill="#E6F0DC"
+       height="230"
+       rx="16"
+       ry="16"
+       stroke="#C8CDD3"
+       stroke-width="1.2"
+       width="380"
+       x="1000"
+       y="430"
+       id="rect52" />
+    <rect
+       fill="#B8D59A"
+       height="54"
+       rx="16"
+       ry="16"
+       stroke="none"
+       width="380"
+       x="1000"
+       y="430"
+       id="rect54" />
+    <rect
+       fill="#B8D59A"
+       height="16"
+       stroke="none"
+       width="380"
+       x="1000"
+       y="468"
+       id="rect56" />
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="28"
+       font-weight="600"
+       text-anchor="middle"
+       x="1190.0"
+       y="465.0"
+       id="text58">IP Provider</text>
+  </g>
+  <g
+     fill="none"
+     stroke="#222"
+     stroke-width="2.0"
+     id="g84">
+    <path
+       d="M 81.1 159.8 C 62.7 159.8, 51.2 148.3, 51.2 132.2 C 51.2 114.95, 65.0 102.3, 82.25 103.45 C 89.15 88.5, 107.55 86.2, 120.19999999999999 97.7 C 135.14999999999998 94.25, 147.8 104.6, 148.95 120.7 C 163.89999999999998 120.7, 175.39999999999998 132.2, 175.39999999999998 147.15 C 175.39999999999998 163.25, 161.6 173.6, 143.2 173.6 L 81.1 173.6 Z"
+       id="path62" />
+    <rect
+       height="36.8"
+       rx="2"
+       ry="2"
+       width="62.099999999999994"
+       x="74.19999999999999"
+       y="187.39999999999998"
+       id="rect64" />
+    <line
+       x1="105.25"
+       x2="105.25"
+       y1="224.2"
+       y2="234.54999999999998"
+       id="line66" />
+    <line
+       x1="90.3"
+       x2="120.19999999999999"
+       y1="234.54999999999998"
+       y2="234.54999999999998"
+       id="line68" />
+    <rect
+       height="20.7"
+       rx="2"
+       ry="2"
+       width="29.9"
+       x="147.8"
+       y="192.0"
+       id="rect70" />
+    <rect
+       height="32.199999999999996"
+       rx="2"
+       ry="2"
+       width="18.4"
+       x="42.0"
+       y="195.45"
+       id="rect72" />
+    <rect
+       height="40.25"
+       rx="2"
+       ry="2"
+       width="13.799999999999999"
+       x="188.04999999999998"
+       y="186.25"
+       id="rect74" />
+    <line
+       stroke-width="1.2"
+       x1="105.25"
+       x2="105.25"
+       y1="173.6"
+       y2="187.39999999999998"
+       id="line76" />
+    <line
+       stroke-width="1.2"
+       x1="105.25"
+       x2="162.75"
+       y1="173.6"
+       y2="192.0"
+       id="line78" />
+    <line
+       stroke-width="1.2"
+       x1="105.25"
+       x2="51.2"
+       y1="173.6"
+       y2="195.45"
+       id="line80" />
+    <line
+       stroke-width="1.2"
+       x1="105.25"
+       x2="194.95"
+       y1="173.6"
+       y2="186.25"
+       id="line82" />
+  </g>
+  <g
+     fill="none"
+     stroke="#222"
+     stroke-width="2.0"
+     id="g126">
+    <circle
+       cx="500.0"
+       cy="118.0"
+       r="10.0"
+       id="circle86" />
+    <line
+       x1="500.0"
+       x2="500.0"
+       y1="128.0"
+       y2="164.0"
+       id="line88" />
+    <line
+       x1="500.0"
+       x2="486.0"
+       y1="138.0"
+       y2="152.0"
+       id="line90" />
+    <line
+       x1="500.0"
+       x2="516.0"
+       y1="138.0"
+       y2="150.0"
+       id="line92" />
+    <line
+       x1="500.0"
+       x2="490.0"
+       y1="164.0"
+       y2="188.0"
+       id="line94" />
+    <line
+       x1="500.0"
+       x2="512.0"
+       y1="164.0"
+       y2="188.0"
+       id="line96" />
+    <rect
+       height="46.0"
+       width="110.0"
+       x="522.0"
+       y="136.0"
+       id="rect98" />
+    <line
+       x1="522.0"
+       x2="522.0"
+       y1="182.0"
+       y2="200.0"
+       id="line100" />
+    <line
+       x1="632.0"
+       x2="632.0"
+       y1="182.0"
+       y2="200.0"
+       id="line102" />
+    <rect
+       height="8.0"
+       width="20.0"
+       x="534.0"
+       y="162.0"
+       id="rect104" />
+    <rect
+       height="8.0"
+       width="16.0"
+       x="562.0"
+       y="162.0"
+       id="rect106" />
+    <rect
+       height="8.0"
+       width="20.0"
+       x="586.0"
+       y="162.0"
+       id="rect108" />
+    <rect
+       height="8.0"
+       width="14.0"
+       x="610.0"
+       y="162.0"
+       id="rect110" />
+    <rect
+       height="34.0"
+       width="26.0"
+       x="554.0"
+       y="108.0"
+       id="rect112" />
+    <line
+       x1="567.0"
+       x2="567.0"
+       y1="108.0"
+       y2="98.0"
+       id="line114" />
+    <line
+       x1="554.0"
+       x2="538.0"
+       y1="116.0"
+       y2="116.0"
+       id="line116" />
+    <line
+       x1="580.0"
+       x2="598.0"
+       y1="116.0"
+       y2="116.0"
+       id="line118" />
+    <circle
+       cx="567.0"
+       cy="114.0"
+       fill="#222"
+       r="1.3"
+       id="circle120" />
+    <circle
+       cx="567.0"
+       cy="122.0"
+       fill="#222"
+       r="1.3"
+       id="circle122" />
+    <circle
+       cx="567.0"
+       cy="130.0"
+       fill="#222"
+       r="1.3"
+       id="circle124" />
+  </g>
+  <g
+     fill="none"
+     stroke="#111"
+     stroke-width="2.2"
+     id="g150">
+    <circle
+       cx="1323.5"
+       cy="300.8"
+       r="19.0"
+       id="circle128" />
+    <path
+       d="M 1308.3 322.65 C 1310.2 342.6, 1336.8 342.6, 1338.7 322.65"
+       id="path130" />
+    <path
+       d="M 1315.9 317.9 Q 1323.5 322.65, 1331.1 317.9"
+       id="path132" />
+    <line
+       x1="1295.0"
+       x2="1302.6"
+       y1="283.7"
+       y2="283.7"
+       id="line134" />
+    <line
+       x1="1295.0"
+       x2="1295.0"
+       y1="283.7"
+       y2="291.3"
+       id="line136" />
+    <line
+       x1="1295.0"
+       x2="1302.6"
+       y1="329.3"
+       y2="329.3"
+       id="line138" />
+    <line
+       x1="1295.0"
+       x2="1295.0"
+       y1="329.3"
+       y2="321.7"
+       id="line140" />
+    <line
+       x1="1350.1"
+       x2="1342.5"
+       y1="283.7"
+       y2="283.7"
+       id="line142" />
+    <line
+       x1="1350.1"
+       x2="1350.1"
+       y1="283.7"
+       y2="291.3"
+       id="line144" />
+    <line
+       x1="1350.1"
+       x2="1342.5"
+       y1="329.3"
+       y2="329.3"
+       id="line146" />
+    <line
+       x1="1350.1"
+       x2="1350.1"
+       y1="329.3"
+       y2="321.7"
+       id="line148" />
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g168">
+    <rect
+       fill="#F7EBC0"
+       height="170"
+       rx="4"
+       ry="4"
+       stroke="#E1D6AA"
+       stroke-width="1.0"
+       width="235"
+       x="170"
+       y="95"
+       id="rect152" />
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="17"
+       font-weight="700"
+       x="182"
+       y="128"
+       id="text154">Security Threats</text>
+    <circle
+       cx="186"
+       cy="150"
+       fill="#7b281c"
+       r="2.5"
+       id="circle156" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="198"
+       y="156"
+       id="text158">Data Poisoning</text>
+    <circle
+       cx="186"
+       cy="176"
+       fill="#7b281c"
+       r="2.5"
+       id="circle160" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="198"
+       y="182"
+       id="text162">Model Modification</text>
+    <circle
+       cx="186"
+       cy="202"
+       fill="#7b281c"
+       r="2.5"
+       id="circle164" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="198"
+       y="208"
+       id="text166">IP Stealing</text>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g194">
+    <rect
+       fill="#F7EBC0"
+       height="180"
+       rx="4"
+       ry="4"
+       stroke="#E1D6AA"
+       stroke-width="1.0"
+       width="295"
+       x="645"
+       y="95"
+       id="rect170" />
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="17"
+       font-weight="700"
+       x="657"
+       y="128"
+       id="text172">Security Threats</text>
+    <circle
+       cx="661"
+       cy="150"
+       fill="#7b281c"
+       r="2.5"
+       id="circle174" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="673"
+       y="156"
+       id="text176">Data Poisoning</text>
+    <circle
+       cx="661"
+       cy="176"
+       fill="#7b281c"
+       r="2.5"
+       id="circle178" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="673"
+       y="182"
+       id="text180">Model Modification</text>
+    <circle
+       cx="661"
+       cy="202"
+       fill="#7b281c"
+       r="2.5"
+       id="circle182" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="673"
+       y="208"
+       id="text184">IP Stealing</text>
+    <circle
+       cx="661"
+       cy="228"
+       fill="#7b281c"
+       r="2.5"
+       id="circle186" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="673"
+       y="234"
+       id="text188">Hardware Intrusion</text>
+    <circle
+       cx="661"
+       cy="254"
+       fill="#7b281c"
+       r="2.5"
+       id="circle190" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="673"
+       y="260"
+       id="text192">Side-channel attacks</text>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g212">
+    <rect
+       fill="#F7EBC0"
+       height="170"
+       rx="4"
+       ry="4"
+       stroke="#E1D6AA"
+       stroke-width="1.0"
+       width="335"
+       x="1025"
+       y="100"
+       id="rect196" />
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="17"
+       font-weight="700"
+       x="1037"
+       y="133"
+       id="text198">Security Threats</text>
+    <circle
+       cx="1041"
+       cy="155"
+       fill="#7b281c"
+       r="2.5"
+       id="circle200" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="1053"
+       y="161"
+       id="text202">Inference Data Poisoning</text>
+    <circle
+       cx="1041"
+       cy="181"
+       fill="#7b281c"
+       r="2.5"
+       id="circle204" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="1053"
+       y="187"
+       id="text206">Side-channel attacks</text>
+    <circle
+       cx="1041"
+       cy="207"
+       fill="#7b281c"
+       r="2.5"
+       id="circle208" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="1053"
+       y="213"
+       id="text210">Hardware Intrusion</text>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g234">
+    <rect
+       fill="#F7EBC0"
+       height="135"
+       rx="4"
+       ry="4"
+       stroke="#E1D6AA"
+       stroke-width="1.0"
+       width="335"
+       x="1025"
+       y="500"
+       id="rect214" />
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="17"
+       font-weight="700"
+       x="1037"
+       y="533"
+       id="text216">Security Threats</text>
+    <circle
+       cx="1041"
+       cy="555"
+       fill="#7b281c"
+       r="2.5"
+       id="circle218" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="1053"
+       y="561"
+       id="text220">Data Poisoning</text>
+    <circle
+       cx="1041"
+       cy="581"
+       fill="#7b281c"
+       r="2.5"
+       id="circle222" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="1053"
+       y="587"
+       id="text224">Model Modification</text>
+    <circle
+       cx="1041"
+       cy="607"
+       fill="#7b281c"
+       r="2.5"
+       id="circle226" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="1053"
+       y="613"
+       id="text228">IP Stealing</text>
+    <circle
+       cx="1041"
+       cy="633"
+       fill="#7b281c"
+       r="2.5"
+       id="circle230" />
+    <text
+       fill="#7b281c"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       x="1053"
+       y="639"
+       id="text232">Hardware Intrusion</text>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g240">
+    <rect
+       fill="#F8F8F8"
+       height="50"
+       rx="0"
+       ry="0"
+       stroke="#333"
+       stroke-width="1.6"
+       width="290"
+       x="90"
+       y="282"
+       id="rect236" />
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="22"
+       font-weight="500"
+       text-anchor="middle"
+       x="235.0"
+       y="313.49"
+       id="text238">Training</text>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g248">
+    <rect
+       fill="#FFFFFF"
+       height="78"
+       rx="0"
+       ry="0"
+       stroke="#333"
+       stroke-width="1.6"
+       width="175"
+       x="470"
+       y="283"
+       id="rect242" />
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="22"
+       font-weight="500"
+       text-anchor="middle"
+       x="557.5"
+       y="314.74"
+       id="text244">Dataset</text>
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="22"
+       font-weight="500"
+       text-anchor="middle"
+       x="557.5"
+       y="342.24"
+       id="text246">Generation</text>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g256">
+    <rect
+       fill="#FFFFFF"
+       height="78"
+       rx="0"
+       ry="0"
+       stroke="#333"
+       stroke-width="1.6"
+       width="165"
+       x="755"
+       y="283"
+       id="rect250" />
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="22"
+       font-weight="500"
+       text-anchor="middle"
+       x="837.5"
+       y="314.74"
+       id="text252">Real-time</text>
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="22"
+       font-weight="500"
+       text-anchor="middle"
+       x="837.5"
+       y="342.24"
+       id="text254">testing</text>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g264">
+    <rect
+       fill="#FFFFFF"
+       height="92"
+       rx="0"
+       ry="0"
+       stroke="#333"
+       stroke-width="1.6"
+       width="185"
+       x="500"
+       y="470"
+       id="rect258" />
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="22"
+       font-weight="500"
+       text-anchor="middle"
+       x="592.5"
+       y="508.74"
+       id="text260">Dataset</text>
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="22"
+       font-weight="500"
+       text-anchor="middle"
+       x="592.5"
+       y="536.24"
+       id="text262">Splitting</text>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g270">
+    <rect
+       fill="#FFFFFF"
+       height="72"
+       rx="0"
+       ry="0"
+       stroke="#333"
+       stroke-width="1.6"
+       width="165"
+       x="770"
+       y="470"
+       id="rect266" />
+    <text
+       fill="#111"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="22"
+       font-weight="500"
+       text-anchor="middle"
+       x="852.5"
+       y="512.49"
+       id="text268">Validation</text>
+  </g>
+  <g
+     id="g278"
+     transform="translate(-8)"
+     style="filter:url(#shadow)">
+    <rect
+       height="88"
+       rx="0"
+       ry="0"
+       width="310"
+       x="485"
+       y="598"
+       id="rect272"
+       style="fill:#f7f7f7;stroke:#333333;stroke-width:1.60000002" />
+    <text
+       font-size="22"
+       font-weight="500"
+       x="640"
+       y="634.73999"
+       id="text274"
+       style="font-weight:500;font-size:22px;font-family:Arial, Helvetica, sans-serif;text-anchor:middle;fill:#111111">DNN (structure,</text>
+    <text
+       font-size="22"
+       font-weight="500"
+       x="640"
+       y="662.23999"
+       id="text276"
+       style="font-weight:500;font-size:22px;font-family:Arial, Helvetica, sans-serif;text-anchor:middle;fill:#111111">Type, Initialization )</text>
+  </g>
+  <g
+     id="g422"
+     transform="translate(-12,-16)"
+     style="fill:none;stroke:#5a6c7a;stroke-width:1.5">
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="430"
+       y2="430"
+       id="line280"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="430"
+       y2="441.39999"
+       id="line282"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="430"
+       y2="452.79999"
+       id="line284"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="430"
+       y2="464.20001"
+       id="line286"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="430"
+       y2="475.60001"
+       id="line288"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="447.10001"
+       y2="430"
+       id="line290"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="447.10001"
+       y2="441.39999"
+       id="line292"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="447.10001"
+       y2="452.79999"
+       id="line294"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="447.10001"
+       y2="464.20001"
+       id="line296"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="447.10001"
+       y2="475.60001"
+       id="line298"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="464.20001"
+       y2="430"
+       id="line300"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="464.20001"
+       y2="441.39999"
+       id="line302"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="464.20001"
+       y2="452.79999"
+       id="line304"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="464.20001"
+       y2="464.20001"
+       id="line306"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="464.20001"
+       y2="475.60001"
+       id="line308"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="430"
+       y2="430"
+       id="line310"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="430"
+       y2="441.39999"
+       id="line312"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="430"
+       y2="452.79999"
+       id="line314"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="430"
+       y2="464.20001"
+       id="line316"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="430"
+       y2="475.60001"
+       id="line318"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="441.39999"
+       y2="430"
+       id="line320"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="441.39999"
+       y2="441.39999"
+       id="line322"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="441.39999"
+       y2="452.79999"
+       id="line324"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="441.39999"
+       y2="464.20001"
+       id="line326"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="441.39999"
+       y2="475.60001"
+       id="line328"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="452.79999"
+       y2="430"
+       id="line330"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="452.79999"
+       y2="441.39999"
+       id="line332"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="452.79999"
+       y2="452.79999"
+       id="line334"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="452.79999"
+       y2="464.20001"
+       id="line336"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="452.79999"
+       y2="475.60001"
+       id="line338"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="464.20001"
+       y2="430"
+       id="line340"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="464.20001"
+       y2="441.39999"
+       id="line342"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="464.20001"
+       y2="452.79999"
+       id="line344"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="464.20001"
+       y2="464.20001"
+       id="line346"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="464.20001"
+       y2="475.60001"
+       id="line348"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="475.60001"
+       y2="430"
+       id="line350"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="475.60001"
+       y2="441.39999"
+       id="line352"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="475.60001"
+       y2="452.79999"
+       id="line354"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="475.60001"
+       y2="464.20001"
+       id="line356"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="475.60001"
+       y2="475.60001"
+       id="line358"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="430"
+       y2="441.39999"
+       id="line360"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="430"
+       y2="458.5"
+       id="line362"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="430"
+       y2="475.60001"
+       id="line364"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="441.39999"
+       y2="441.39999"
+       id="line366"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="441.39999"
+       y2="458.5"
+       id="line368"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="441.39999"
+       y2="475.60001"
+       id="line370"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="452.79999"
+       y2="441.39999"
+       id="line372"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="452.79999"
+       y2="458.5"
+       id="line374"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="452.79999"
+       y2="475.60001"
+       id="line376"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="464.20001"
+       y2="441.39999"
+       id="line378"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="464.20001"
+       y2="458.5"
+       id="line380"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="464.20001"
+       y2="475.60001"
+       id="line382"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="475.60001"
+       y2="441.39999"
+       id="line384"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="475.60001"
+       y2="458.5"
+       id="line386"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="475.60001"
+       y2="475.60001"
+       id="line388"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <circle
+       cx="885"
+       cy="430"
+       r="3.99"
+       id="circle390"
+       style="fill:#5cc6d0;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="885"
+       cy="447.10001"
+       r="3.99"
+       id="circle392"
+       style="fill:#f0b869;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="885"
+       cy="464.20001"
+       r="3.99"
+       id="circle394"
+       style="fill:#d4807a;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="907.79999"
+       cy="430"
+       r="3.99"
+       id="circle396"
+       style="fill:#f0b869;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="907.79999"
+       cy="441.39999"
+       r="3.99"
+       id="circle398"
+       style="fill:#d4807a;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="907.79999"
+       cy="452.79999"
+       r="3.99"
+       id="circle400"
+       style="fill:#5cc6d0;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="907.79999"
+       cy="464.20001"
+       r="3.99"
+       id="circle402"
+       style="fill:#f0b869;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="907.79999"
+       cy="475.60001"
+       r="3.99"
+       id="circle404"
+       style="fill:#d4807a;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="930.59998"
+       cy="430"
+       r="3.99"
+       id="circle406"
+       style="fill:#d4807a;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="930.59998"
+       cy="441.39999"
+       r="3.99"
+       id="circle408"
+       style="fill:#5cc6d0;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="930.59998"
+       cy="452.79999"
+       r="3.99"
+       id="circle410"
+       style="fill:#f0b869;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="930.59998"
+       cy="464.20001"
+       r="3.99"
+       id="circle412"
+       style="fill:#d4807a;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="930.59998"
+       cy="475.60001"
+       r="3.99"
+       id="circle414"
+       style="fill:#5cc6d0;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="953.40002"
+       cy="441.39999"
+       r="3.99"
+       id="circle416"
+       style="fill:#5cc6d0;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="953.40002"
+       cy="458.5"
+       r="3.99"
+       id="circle418"
+       style="fill:#f0b869;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="953.40002"
+       cy="475.60001"
+       r="3.99"
+       id="circle420"
+       style="fill:#d4807a;stroke:#52606d;stroke-width:0.80000001" />
+  </g>
+  <g
+     id="g566"
+     transform="translate(0,-6)"
+     style="fill:none;stroke:#5a6c7a;stroke-width:1.5">
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="595"
+       y2="595"
+       id="line424"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="595"
+       y2="606.40002"
+       id="line426"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="595"
+       y2="617.79999"
+       id="line428"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="595"
+       y2="629.20001"
+       id="line430"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="595"
+       y2="640.59998"
+       id="line432"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="612.09998"
+       y2="595"
+       id="line434"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="612.09998"
+       y2="606.40002"
+       id="line436"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="612.09998"
+       y2="617.79999"
+       id="line438"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="612.09998"
+       y2="629.20001"
+       id="line440"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="612.09998"
+       y2="640.59998"
+       id="line442"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="629.20001"
+       y2="595"
+       id="line444"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="629.20001"
+       y2="606.40002"
+       id="line446"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="629.20001"
+       y2="617.79999"
+       id="line448"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="629.20001"
+       y2="629.20001"
+       id="line450"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="885"
+       x2="907.79999"
+       y1="629.20001"
+       y2="640.59998"
+       id="line452"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="595"
+       y2="595"
+       id="line454"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="595"
+       y2="606.40002"
+       id="line456"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="595"
+       y2="617.79999"
+       id="line458"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="595"
+       y2="629.20001"
+       id="line460"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="595"
+       y2="640.59998"
+       id="line462"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="606.40002"
+       y2="595"
+       id="line464"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="606.40002"
+       y2="606.40002"
+       id="line466"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="606.40002"
+       y2="617.79999"
+       id="line468"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="606.40002"
+       y2="629.20001"
+       id="line470"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="606.40002"
+       y2="640.59998"
+       id="line472"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="617.79999"
+       y2="595"
+       id="line474"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="617.79999"
+       y2="606.40002"
+       id="line476"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="617.79999"
+       y2="617.79999"
+       id="line478"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="617.79999"
+       y2="629.20001"
+       id="line480"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="617.79999"
+       y2="640.59998"
+       id="line482"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="629.20001"
+       y2="595"
+       id="line484"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="629.20001"
+       y2="606.40002"
+       id="line486"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="629.20001"
+       y2="617.79999"
+       id="line488"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="629.20001"
+       y2="629.20001"
+       id="line490"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="629.20001"
+       y2="640.59998"
+       id="line492"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="640.59998"
+       y2="595"
+       id="line494"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="640.59998"
+       y2="606.40002"
+       id="line496"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="640.59998"
+       y2="617.79999"
+       id="line498"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="640.59998"
+       y2="629.20001"
+       id="line500"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="907.79999"
+       x2="930.59998"
+       y1="640.59998"
+       y2="640.59998"
+       id="line502"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="595"
+       y2="606.40002"
+       id="line504"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="595"
+       y2="623.5"
+       id="line506"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="595"
+       y2="640.59998"
+       id="line508"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="606.40002"
+       y2="606.40002"
+       id="line510"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="606.40002"
+       y2="623.5"
+       id="line512"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="606.40002"
+       y2="640.59998"
+       id="line514"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="617.79999"
+       y2="606.40002"
+       id="line516"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="617.79999"
+       y2="623.5"
+       id="line518"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="617.79999"
+       y2="640.59998"
+       id="line520"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="629.20001"
+       y2="606.40002"
+       id="line522"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="629.20001"
+       y2="623.5"
+       id="line524"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="629.20001"
+       y2="640.59998"
+       id="line526"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="640.59998"
+       y2="606.40002"
+       id="line528"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="640.59998"
+       y2="623.5"
+       id="line530"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <line
+       x1="930.59998"
+       x2="953.40002"
+       y1="640.59998"
+       y2="640.59998"
+       id="line532"
+       style="stroke:#9aa6b2;stroke-width:1" />
+    <circle
+       cx="885"
+       cy="595"
+       r="3.99"
+       id="circle534"
+       style="fill:#5cc6d0;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="885"
+       cy="612.09998"
+       r="3.99"
+       id="circle536"
+       style="fill:#f0b869;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="885"
+       cy="629.20001"
+       r="3.99"
+       id="circle538"
+       style="fill:#d4807a;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="907.79999"
+       cy="595"
+       r="3.99"
+       id="circle540"
+       style="fill:#f0b869;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="907.79999"
+       cy="606.40002"
+       r="3.99"
+       id="circle542"
+       style="fill:#d4807a;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="907.79999"
+       cy="617.79999"
+       r="3.99"
+       id="circle544"
+       style="fill:#5cc6d0;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="907.79999"
+       cy="629.20001"
+       r="3.99"
+       id="circle546"
+       style="fill:#f0b869;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="907.79999"
+       cy="640.59998"
+       r="3.99"
+       id="circle548"
+       style="fill:#d4807a;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="930.59998"
+       cy="595"
+       r="3.99"
+       id="circle550"
+       style="fill:#d4807a;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="930.59998"
+       cy="606.40002"
+       r="3.99"
+       id="circle552"
+       style="fill:#5cc6d0;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="930.59998"
+       cy="617.79999"
+       r="3.99"
+       id="circle554"
+       style="fill:#f0b869;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="930.59998"
+       cy="629.20001"
+       r="3.99"
+       id="circle556"
+       style="fill:#d4807a;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="930.59998"
+       cy="640.59998"
+       r="3.99"
+       id="circle558"
+       style="fill:#5cc6d0;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="953.40002"
+       cy="606.40002"
+       r="3.99"
+       id="circle560"
+       style="fill:#5cc6d0;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="953.40002"
+       cy="623.5"
+       r="3.99"
+       id="circle562"
+       style="fill:#f0b869;stroke:#52606d;stroke-width:0.80000001" />
+    <circle
+       cx="953.40002"
+       cy="640.59998"
+       r="3.99"
+       id="circle564"
+       style="fill:#d4807a;stroke:#52606d;stroke-width:0.80000001" />
+  </g>
+  <text
+     font-size="17"
+     x="898"
+     y="670"
+     id="text568"
+     style="font-size:17px;font-family:Arial, Helvetica, sans-serif;fill:#111111">Trained</text>
+  <text
+     font-size="17"
+     x="916"
+     y="692"
+     id="text570"
+     style="font-size:17px;font-family:Arial, Helvetica, sans-serif;fill:#111111">DNN</text>
+  <circle
+     cx="1028"
+     cy="315"
+     fill="#111"
+     r="2.8"
+     id="circle572" />
+  <text
+     fill="#111"
+     font-family="Arial, Helvetica, sans-serif"
+     font-size="16"
+     x="1044"
+     y="320"
+     id="text574">Face Recognition</text>
+  <circle
+     cx="1028"
+     cy="338.2"
+     fill="#111"
+     r="2.8"
+     id="circle576" />
+  <text
+     fill="#111"
+     font-family="Arial, Helvetica, sans-serif"
+     font-size="16"
+     x="1044"
+     y="343.2"
+     id="text578">Traffic Sign Detection</text>
+  <circle
+     cx="1028"
+     cy="361.4"
+     fill="#111"
+     r="2.8"
+     id="circle580" />
+  <text
+     fill="#111"
+     font-family="Arial, Helvetica, sans-serif"
+     font-size="16"
+     x="1044"
+     y="366.4"
+     id="text582">Character Recognition</text>
+  <path
+     d="M 557 361 L 557 470"
+     fill="none"
+     marker-end="url(#arrow)"
+     stroke="#666"
+     stroke-width="2.3"
+     id="path584" />
+  <path
+     d="M 645 322 L 755 322"
+     fill="none"
+     marker-end="url(#arrow)"
+     stroke="#666"
+     stroke-width="2.3"
+     id="path586" />
+  <rect
+     height="44"
+     width="84.400002"
+     x="653.35699"
+     y="333.76883"
+     id="rect588"
+     style="opacity:0.93999999;fill:#ffffff;stroke:none" />
+  <text
+     font-size="15"
+     x="696.66772"
+     y="360.43335"
+     id="text590"
+     style="font-size:15px;font-family:Arial, Helvetica, sans-serif;text-anchor:middle;fill:#111111">Real-time</text>
+  <text
+     font-size="15"
+     x="695.55701"
+     y="375.1011"
+     id="text592"
+     style="font-size:15px;font-family:Arial, Helvetica, sans-serif;text-anchor:middle;fill:#111111">Data</text>
+  <path
+     d="M 920 322 L 1000 322"
+     fill="none"
+     marker-end="url(#arrow)"
+     stroke="#666"
+     stroke-width="2.3"
+     id="path594" />
+  <path
+     d="M 685 515 L 770 515"
+     fill="none"
+     marker-end="url(#arrow)"
+     stroke="#666"
+     stroke-width="2.3"
+     id="path596" />
+  <rect
+     height="34.00322"
+     width="74.227943"
+     x="689"
+     y="468"
+     id="rect598"
+     style="opacity:0.93999999;fill:#ffffff;stroke:none;stroke-width:0.7896297" />
+  <text
+     font-size="15"
+     x="727"
+     y="482"
+     id="text600"
+     style="font-size:15px;font-family:Arial, Helvetica, sans-serif;text-anchor:middle;fill:#111111">Validation</text>
+  <text
+     font-size="15"
+     x="727"
+     y="500"
+     id="text602"
+     style="font-size:15px;font-family:Arial, Helvetica, sans-serif;text-anchor:middle;fill:#111111">Dataset</text>
+  <path
+     d="M 500 515 L 285 515 L 285 332"
+     fill="none"
+     marker-end="url(#arrow)"
+     stroke="#666"
+     stroke-width="2.3"
+     id="path604"
+     style="stroke-width:2.3;stroke-miterlimit:4;stroke-dasharray:none" />
+  <rect
+     fill="white"
+     height="44"
+     opacity="0.94"
+     stroke="none"
+     width="76.8"
+     x="341.6"
+     y="448"
+     id="rect606" />
+  <text
+     fill="#111"
+     font-family="Arial, Helvetica, sans-serif"
+     font-size="15"
+     text-anchor="middle"
+     x="380"
+     y="468"
+     id="text608">Training</text>
+  <text
+     fill="#111"
+     font-family="Arial, Helvetica, sans-serif"
+     font-size="15"
+     text-anchor="middle"
+     x="380"
+     y="486"
+     id="text610">Dataset</text>
+  <path
+     d="M 125 332 L 125 704 L 865 704 L 865 542"
+     fill="none"
+     marker-end="url(#arrow)"
+     stroke="#666"
+     stroke-width="2.3"
+     id="path616" />
+  <path
+     d="M 852 470 L 852 361"
+     fill="none"
+     marker-end="url(#arrow)"
+     stroke="#666"
+     stroke-width="2.3"
+     id="path618" />
+  <rect
+     height="44"
+     width="69.199997"
+     x="777.40002"
+     y="409"
+     id="rect620"
+     style="opacity:0.93999999;fill:#ffffff;stroke:none" />
+  <text
+     font-size="15"
+     x="812"
+     y="429"
+     id="text622"
+     style="font-size:15px;font-family:Arial, Helvetica, sans-serif;text-anchor:middle;fill:#111111">Trained</text>
+  <text
+     font-size="15"
+     x="812"
+     y="449"
+     id="text624"
+     style="font-size:15px;font-family:Arial, Helvetica, sans-serif;text-anchor:middle;fill:#111111">DNN</text>
+  <path
+     d="M 548 230 L 548 258 L 536 258 L 557 282 L 578 258 L 566 258 L 566 230 Z"
+     fill="#FFFFFF"
+     stroke="#666"
+     stroke-width="1.5"
+     id="path626" />
+  <path
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#666666;stroke-width:2.48770261;marker-end:url(#arrow-2)"
+     d="m 785.23666,641.02709 h 99.4398"
+     id="path596-9" />
+  <path
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#666666;stroke-width:3.30051708;marker-end:url(#arrow-8)"
+     d="M 475.64105,636.50216 H 205.95238 V 336.07778"
+     id="path604-6" />
+  <path
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#666666;stroke-width:2.29999995;marker-end:url(#arrow-2-6)"
+     d="m 390.64105,636.50216 h 85"
+     id="path596-9-1" />
+</svg>

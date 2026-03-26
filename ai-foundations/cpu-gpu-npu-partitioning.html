@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CPU–GPU–NPU Partitioning | Brojogopal Sapui</title>
+<meta content="Technical foundation page on heterogeneous AI execution across CPU, GPU, and NPU domains and the resulting trust boundaries in edge and client systems." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="../assets/js/site-shell.js"></script><script defer="True" src="../assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="1" data-nav="research" data-page="cpu-gpu-npu-partitioning">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="hero" style="padding: 4.5rem 0 3rem;">
+<div class="container">
+<span class="eyebrow">AI Foundations • CPU–GPU–NPU Partitioning</span>
+<h1 style="max-width: 14ch;">CPU–GPU–NPU Partitioning</h1>
+<p class="lead" style="max-width: 86ch;">Client and edge AI systems rarely run end-to-end on one homogeneous processor. Real deployments partition work across CPUs, GPUs, and NPUs, and that partitioning defines where tensors move, where permissions change, and where trust boundaries become visible.</p>
+</div>
+</section>
+<section class="section">
+<div class="container split">
+<div class="content-card">
+<span class="kicker">Overview</span>
+<h2>What this topic covers</h2>
+<p>CPUs usually handle control-heavy orchestration, preprocessing, post-processing, and operating-system integration. GPUs absorb throughput-oriented parallel workloads. NPUs target efficient local AI inference under tighter power and thermal budgets. The actual split depends on model type, latency goals, toolchain support, and vendor runtime capabilities.</p>
+<p>For security analysis, heterogeneous partitioning changes the observation points. A model that appears “local” may actually move tensors through shared memory, drivers, runtime translation layers, and fallback paths. Those movements can expose data, expand telemetry, or create silent policy gaps when unsupported operators leave the protected execution path.</p>
+</div>
+<div class="content-card">
+<span class="kicker">Why it matters</span>
+<h2>Security significance</h2>
+<ul class="check-list">
+<li>Heterogeneous execution introduces multiple memory domains and driver boundaries.</li>
+<li>Operator fallback paths can move sensitive tensors into less trusted software stacks.</li>
+<li>Security controls must follow the data as it crosses CPU, GPU, and NPU ownership.</li>
+<li>Edge AI trust models are incomplete without an execution-partition view.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="section alt">
+<div class="container">
+<figure class="page-figure compact-figure foundation-figure">
+<div class="img-frame">
+<img alt="Diagram of CPU, GPU, and NPU domains with transfers and security checkpoints." class="zoom-img" src="../assets/img/foundations/cpu-gpu-npu-partitioning.svg"/>
+</div>
+<figcaption>Heterogeneous client-AI execution across CPU, GPU, and NPU domains, emphasizing transfers, shared memory, and trust-boundary crossings.</figcaption>
+</figure>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Key concepts</span>
+<h2>Functional roles in heterogeneous systems</h2>
+<p>Different processors are chosen for different operational reasons, and those reasons affect the security story.</p>
+</div>
+<div class="card-grid three">
+<div class="section-card"><h3>CPU domain</h3><p>The CPU runs orchestration logic, model loading, preprocessing, runtime control, fallback handling, and many security-critical software checks. It is often the richest control point and the broadest attack surface.</p></div>
+<div class="section-card"><h3>GPU domain</h3><p>The GPU provides flexible parallel execution and often handles large tensor kernels or graphics-adjacent compute. It may expose more tooling and visibility than an NPU, but also higher complexity and larger shared resource surfaces.</p></div>
+<div class="section-card"><h3>NPU domain</h3><p>The NPU aims for efficient AI execution with tight energy and thermal control. Its runtimes may be more opaque, making operator coverage, model partitioning, and telemetry handling especially important for security reasoning.</p></div>
+</div>
+</div>
+</section>
+<section class="section alt">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Security lens</span>
+<h2>Partition-aware security checks</h2>
+<p>To secure a client or edge pipeline, the partition itself must be part of the threat model.</p>
+</div>
+<div class="card-grid three">
+<div class="section-card"><h3>Memory and copy policy</h3><p>Who owns the tensor buffer before and after each stage? Shared-memory mapping, DMA, and zeroization policy determine whether intermediate state remains exposed longer than intended.</p></div>
+<div class="section-card"><h3>Driver and runtime permissions</h3><p>Execution stacks often include vendor runtimes, kernel drivers, and user-space APIs. Each layer may collect telemetry, retain model metadata, or define privileged control paths.</p></div>
+<div class="section-card"><h3>Fallback and unsupported operators</h3><p>If the NPU cannot run an operator, the runtime may silently move execution elsewhere. That fallback path can invalidate assumptions about locality, confidentiality, or real-time behavior.</p></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="cta">
+<div>
+<span class="eyebrow">Next Step</span>
+<h2>Back to the research map</h2>
+<p>Return to the structured research overview or continue browsing the other AI foundations and AI security themes.</p>
+</div>
+<div class="cta-actions">
+<a class="btn btn-primary" href="../research.html">Research Map</a>
+<a class="btn btn-secondary" href="../publications.html">Resources</a>
+</div>
+</div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>
