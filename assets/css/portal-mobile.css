@@ -614,7 +614,6 @@ body.portal-page .btn-row .btn{flex:1 1 220px}
 @keyframes glossSweep{0%{left:-34%}100%{left:128%}}
 @keyframes fadeRise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-
 /* =========================================================
    PORTAL FIX PASS — contrast, figures, accordions, links
    ========================================================= */
@@ -698,14 +697,13 @@ body.portal-page .resource-table li{
   color:var(--portal-text-soft)!important;
 }
 
+/* White only for image surfaces, not for whole text cards */
 body.portal-page .portal-media,
 body.portal-page .feature-media,
 body.portal-page .img-container,
-body.portal-page .visual-panel,
 body.portal-page .compact-figure,
 body.portal-page .page-figure .img-frame,
 body.portal-page .img-frame,
-body.portal-page .hero-visual .portal-visual,
 body.portal-page .portal-media.hero-figure-media{
   background:linear-gradient(180deg,#ffffff,#eef5ff)!important;
   border:1px solid rgba(151,190,255,.20)!important;
@@ -992,4 +990,183 @@ body.portal-page[data-page="home"] .hero .container::after{background:radial-gra
   body.portal-page .expertise-grid{
     grid-template-columns:repeat(3,minmax(0,1fr))!important;
   }
+}
+
+/* =========================================================
+   FINAL CONTRAST FIXES
+   ========================================================= */
+
+/* keep sections transparent so dark page background shows through */
+body.portal-page .section,
+body.portal-page .section.alt,
+body.portal-page .pulse-overview-section{
+  background:transparent!important;
+}
+
+/* stronger readable section headings on non-home pages */
+body.portal-page:not([data-page="home"]) .section-head,
+body.portal-page:not([data-page="home"]) .section-head > div{
+  color:var(--portal-text)!important;
+}
+body.portal-page:not([data-page="home"]) .section-head h2,
+body.portal-page:not([data-page="home"]) .section-head h3,
+body.portal-page:not([data-page="home"]) .section-head .eyebrow,
+body.portal-page:not([data-page="home"]) .section-head .mini-kicker,
+body.portal-page:not([data-page="home"]) .section-head .kicker{
+  color:var(--portal-text)!important;
+  opacity:1!important;
+}
+body.portal-page:not([data-page="home"]) .section-head p,
+body.portal-page:not([data-page="home"]) .section-head .lead{
+  color:var(--portal-text-soft)!important;
+  opacity:1!important;
+}
+
+/* top strip visibility */
+.portal-topline__inner{
+  background:linear-gradient(135deg, rgba(18,34,63,.96), rgba(13,28,55,.92))!important;
+}
+.portal-topline__text{
+  color:#dfe9ff!important;
+  opacity:1!important;
+}
+.portal-topline__link{
+  color:var(--portal-cyan)!important;
+  font-weight:900!important;
+}
+.portal-topline__link:hover{
+  color:#ffffff!important;
+}
+.portal-pill--pulse{
+  color:#ffd07a!important;
+  border-color:rgba(255,200,109,.34)!important;
+}
+
+/* footer readability */
+.site-shell-footer .shell-footer__card h3,
+.site-shell-footer .shell-footer__card h4{
+  color:var(--portal-text)!important;
+}
+.site-shell-footer .shell-footer__card p{
+  color:var(--portal-text-soft)!important;
+  opacity:1!important;
+}
+.site-shell-footer .shell-footer__links a{
+  color:var(--portal-text)!important;
+  background:rgba(255,255,255,.05)!important;
+  border:1px solid var(--portal-line)!important;
+}
+.site-shell-footer .shell-footer__links a:hover{
+  color:#06111f!important;
+  background:linear-gradient(135deg, rgba(91,140,255,.95), rgba(83,229,246,.86))!important;
+  border-color:transparent!important;
+}
+.site-shell-footer .shell-footer__links a.trending-link{
+  color:#07111f!important;
+  background:linear-gradient(135deg, rgba(255,200,109,.96), rgba(255,255,255,.92), rgba(91,140,255,.84))!important;
+  border-color:rgba(255,200,109,.35)!important;
+}
+
+/* visual cards should stay dark; only image areas should be white */
+body.portal-page .visual-panel,
+body.portal-page .hero-visual .portal-visual{
+  background:var(--portal-glass)!important;
+  border:1px solid var(--portal-line)!important;
+  box-shadow:var(--portal-shadow)!important;
+}
+
+/* home portal overview: keep text readable */
+body.portal-page[data-page="home"] .hero-visual .portal-copy{
+  background:transparent!important;
+  color:var(--portal-text)!important;
+}
+body.portal-page[data-page="home"] .hero-visual .portal-copy p,
+body.portal-page[data-page="home"] .hero-visual .portal-copy span,
+body.portal-page[data-page="home"] .hero-visual .portal-copy small{
+  color:var(--portal-text-soft)!important;
+  opacity:1!important;
+}
+body.portal-page[data-page="home"] .hero-visual .portal-copy .mini-kicker{
+  color:#d2fbff!important;
+}
+body.portal-page[data-page="home"] .hero-visual .portal-figure-link{
+  background:rgba(255,255,255,.06)!important;
+  color:var(--portal-cyan)!important;
+  border:1px solid var(--portal-line)!important;
+}
+body.portal-page[data-page="home"] .hero-visual .portal-figure-link:hover{
+  color:#ffffff!important;
+  border-color:var(--portal-line-strong)!important;
+}
+body.portal-page[data-page="home"] .hero-visual .metric-card{
+  background:linear-gradient(180deg, rgba(20,38,72,.92), rgba(10,22,43,.96))!important;
+  color:var(--portal-text)!important;
+}
+body.portal-page[data-page="home"] .hero-visual .metric-card strong{
+  color:var(--portal-cyan)!important;
+}
+body.portal-page[data-page="home"] .hero-visual .metric-card span{
+  color:var(--portal-text-soft)!important;
+  opacity:1!important;
+}
+
+/* visual panel copy text */
+body.portal-page .visual-copy,
+body.portal-page .portal-copy{
+  color:var(--portal-text)!important;
+}
+body.portal-page .visual-copy h3,
+body.portal-page .portal-copy h3,
+body.portal-page .visual-copy h2,
+body.portal-page .portal-copy h2{
+  color:var(--portal-text)!important;
+}
+body.portal-page .visual-copy p,
+body.portal-page .portal-copy p,
+body.portal-page .visual-copy span,
+body.portal-page .portal-copy span,
+body.portal-page .visual-copy small,
+body.portal-page .portal-copy small{
+  color:var(--portal-text-soft)!important;
+  opacity:1!important;
+}
+
+/* keep image figures white on all pages */
+body.portal-page .visual-panel img,
+body.portal-page .visual-panel .zoom-img,
+body.portal-page .visual-panel .zoomable-thumb,
+body.portal-page .visual-panel .hero-figure-img,
+body.portal-page .page-figure .img-frame,
+body.portal-page .img-frame,
+body.portal-page .portal-media,
+body.portal-page .feature-media,
+body.portal-page .img-container,
+body.portal-page .portal-media.hero-figure-media{
+  background:linear-gradient(180deg,#ffffff,#eef5ff)!important;
+  border:1px solid rgba(151,190,255,.20)!important;
+}
+
+/* extra safety for washed-out text inside cards */
+body.portal-page .panel p,
+body.portal-page .content-card p,
+body.portal-page .post-card p,
+body.portal-page .resource-card p,
+body.portal-page .watch-note p,
+body.portal-page .visual-copy p,
+body.portal-page .portal-copy p{
+  color:var(--portal-text-soft)!important;
+  opacity:1!important;
+}
+body.portal-page .panel h2,
+body.portal-page .panel h3,
+body.portal-page .content-card h2,
+body.portal-page .content-card h3,
+body.portal-page .post-card h2,
+body.portal-page .post-card h3,
+body.portal-page .resource-card h2,
+body.portal-page .resource-card h3,
+body.portal-page .watch-note h2,
+body.portal-page .watch-note h3{
+  color:var(--portal-text)!important;
+  opacity:1!important;
 }
