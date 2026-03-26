@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hardware Security | Brojogopal Sapui</title>
+<meta content="Hardware security for AI spans physical access, side-channel leakage, fault injection, bus and memory observability, accelerator-specific exposure, and cross-layer defenses from model to silicon." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="../assets/js/site-shell.js"></script><script defer="True" src="../assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="1" data-nav="research" data-page="hardware-security">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="page-hero">
+<div class="container">
+<span class="eyebrow">AI Security Section</span>
+<h1>Hardware Security</h1>
+<p class="lead">
+          Once AI is deployed in silicon, the security problem changes fundamentally. Switching activity leaks information,
+          timing and memory traffic become observable, faults can be injected physically or electrically, and the accelerator
+          itself becomes a target for reverse engineering, model extraction, or implementation-specific manipulation.
+          Hardware security therefore exposes attack surfaces that are invisible in purely algorithmic evaluation.
+        </p>
+</div>
+</section>
+<section class="section">
+<div class="container page-grid">
+<aside class="toc">
+<h3>Navigate this section</h3>
+<a href="#overview">Overview</a>
+<a href="#threats">Threat model</a>
+<a href="#defenses">Countermeasures</a>
+<a href="#gaps">Open challenges</a>
+<a href="#readings">Selected readings</a>
+<hr style="border-color:rgba(32,58,87,.12)"/>
+<a href="software-security.html">Software</a>
+<a href="hardware-security.html">Hardware</a>
+<a href="cloud-security.html">Cloud</a>
+<a href="edge-security.html">Edge</a>
+<a href="predictive-ai.html">Predictive AI</a>
+<a href="generative-ai.html">Generative AI</a>
+<a href="agentic-ai.html">Agentic AI</a>
+<a href="physical-ai.html">Physical AI</a>
+<a href="countermeasures.html">Countermeasures</a>
+</aside>
+<div class="content-card">
+<section id="overview">
+<span class="kicker">Overview</span>
+<h2>Why hardware security changes the AI threat model</h2>
+<p>
+              Many AI security discussions stop at the software or model layer, where the main focus is adversarial examples,
+              poisoning, privacy leakage, or prompt manipulation. Those are important, but they do not fully describe what happens
+              after a model is compiled, quantized, mapped to memory, scheduled on a processor, or synthesized into a custom accelerator.
+              Hardware implementation introduces physical observables and implementation asymmetries that an attacker can exploit
+              without ever needing to break the model mathematically.
+            </p>
+<p>
+              This is the central idea of hardware security for AI: the learned function may be secure in abstraction, yet its
+              realization in silicon can still leak information, admit fault-based manipulation, reveal intellectual property,
+              or violate trust assumptions through memory, bus, timing, or power behavior. In other words, once AI reaches
+              CPUs, GPUs, FPGAs, MCUs, NPUs, ASIC accelerators, or in-memory computing fabrics, security becomes a <strong>cross-layer</strong>
+              problem involving architecture, microarchitecture, circuit behavior, packaging, and deployment context.
+            </p>
+<h3>What belongs under hardware AI security</h3>
+<ul>
+<li><strong>Implementation leakage:</strong> power, electromagnetic, timing, cache, memory-traffic, and acoustic observables.</li>
+<li><strong>Fault behavior:</strong> voltage, clock, laser, electromagnetic, thermal, or radiation-induced faults and bit flips.</li>
+<li><strong>Accelerator exposure:</strong> dataflow structure, buffer usage, interconnects, reuse patterns, and layer scheduling.</li>
+<li><strong>Memory and bus observability:</strong> off-chip accesses, DMA traffic, bus snooping, and shared-memory side effects.</li>
+<li><strong>IP protection:</strong> protection of model parameters, architecture, proprietary mappings, and generated hardware configurations.</li>
+<li><strong>Secure execution:</strong> enclaves, trusted execution, authenticated boot, attestation, and run-time tamper sensing.</li>
+</ul>
+<h3>Why this matters in practice</h3>
+<p>
+              AI hardware is often deployed where cost, power, latency, and privacy matter: phones, edge devices, vehicles,
+              medical equipment, industrial controllers, robotics, and custom inference platforms. These environments frequently
+              give attackers some degree of proximity, persistence, or physical interaction. A query-only adversary is no longer the only concern;
+              the attacker may probe rails, observe EM emissions, inject glitches, monitor memory traffic, or recover functionality from a generated bitstream.
+            </p>
+<h3>Core security goals at the hardware layer</h3>
+<ul>
+<li><strong>Confidentiality:</strong> protect model weights, architecture, intermediate activations, prompts, and sensitive input data.</li>
+<li><strong>Integrity:</strong> prevent fault-induced misclassification, malicious reconfiguration, or silent corruption of computations.</li>
+<li><strong>Availability:</strong> preserve service under fault stress, abusive workloads, or repeated perturbation attempts.</li>
+<li><strong>IP protection:</strong> prevent reverse engineering of accelerator structure, mapping strategies, and deployed models.</li>
+<li><strong>Attestation and trust:</strong> establish whether the platform, firmware, and execution context are genuine and untampered.</li>
+<li><strong>Cross-layer assurance:</strong> connect model behavior with how the architecture, memory system, and circuits actually execute it.</li>
+</ul>
+<div class="callout">
+<strong>Research intuition:</strong> hardware security is the point where AI stops being only a mathematical model and becomes a physical process.
+              That physical process leaks, glitches, ages, drifts, and exposes structure in ways the algorithmic abstraction never shows.
+            </div>
+</section>
+<figure class="page-figure">
+<img alt="Diagram showing hardware AI security across observation surface, active attacks, exposed targets, accelerator risks, impact, and research focus." src="../assets/img/diagrams/hardware_security_landscape.svg"/>
+<figcaption>Hardware AI security from leakage and faults to accelerator-aware protection.</figcaption>
+</figure>
+<section id="threats">
+<span class="kicker">Threat model</span>
+<h2>Threat model and hardware-specific attack surface</h2>
+<p>
+              A rigorous hardware-AI threat model must specify <strong>where</strong> the attacker is positioned,
+              <strong>how much physical access</strong> they have, <strong>which implementation details</strong> are observable,
+              and <strong>what objective</strong> they pursue. Hardware attackers can be local or near-local, but that does not mean they are unrealistic.
+              In embedded, edge, industrial, automotive, defense, or consumer contexts, physical proximity is often part of the expected deployment model.
+            </p>
+<h3>Attacker positions</h3>
+<ul>
+<li><strong>Near-field observer:</strong> measures power, EM, timing, cache activity, or externally visible memory behavior.</li>
+<li><strong>Board-level adversary:</strong> accesses debug ports, buses, clocks, supply rails, or removable storage.</li>
+<li><strong>Physical injector:</strong> induces glitches or transient faults using voltage, clock, EM, laser, temperature, or radiation methods.</li>
+<li><strong>Co-resident adversary:</strong> shares compute resources and exploits microarchitectural channels such as cache or memory contention.</li>
+<li><strong>Reverse engineer:</strong> studies binaries, bitstreams, runtime traces, packaging, or layout clues to recover the accelerator or model structure.</li>
+<li><strong>Malicious integrator or insider:</strong> modifies firmware, reconfiguration files, calibration parameters, or design-for-test paths.</li>
+</ul>
+<h3>Attacker goals</h3>
+<ul>
+<li><strong>Model extraction:</strong> recover weights, architecture, hyperparameters, or hardware-generated IP.</li>
+<li><strong>Input or activation leakage:</strong> infer sensitive user data, intermediate states, or prompts from physical observables.</li>
+<li><strong>Misclassification or degradation:</strong> inject faults to alter outputs, confidence, or control decisions.</li>
+<li><strong>Implementation fingerprinting:</strong> recover mapping, dataflow, reuse strategy, or layer structure of the deployed accelerator.</li>
+<li><strong>Privilege escalation:</strong> abuse debug features, firmware interfaces, or reconfiguration paths.</li>
+<li><strong>Reliability-to-security crossover:</strong> exploit soft errors or transient faults that were treated as only a reliability problem.</li>
+</ul>
+<h3>Major hardware threat classes</h3>
+<h3>1. Side-channel leakage and reverse engineering</h3>
+<p>
+              Side-channel attacks exploit information unintentionally leaked during computation. In AI hardware, this can include power traces,
+              EM radiation, timing variations, cache activity, memory-access patterns, and data-dependent switching behavior. These leakages may reveal
+              not only secret keys, as in classical cryptography, but also model parameters, input classes, architecture choices, layer ordering,
+              activation sparsity, and accelerator configuration.
+            </p>
+<ul>
+<li><strong>Power and EM analysis:</strong> infer weights, inputs, layer execution, or data-dependent activity.</li>
+<li><strong>Timing and cache channels:</strong> exploit latency or shared-resource effects to recover model behavior or tokens.</li>
+<li><strong>Memory-pattern leakage:</strong> observe off-chip transfers or buffer refills to infer layer shapes and reuse strategies.</li>
+<li><strong>Dataflow reverse engineering:</strong> exploit accelerator-specific regularity to recover hardware configuration and model structure.</li>
+</ul>
+<h3>2. Fault injection and bit-flip attacks</h3>
+<p>
+              Fault attacks deliberately disturb computation so the system produces a wrong result or leaks extra information.
+              In AI hardware, the attacker may target weights, activations, control logic, memory cells, or timing paths. The goal may be broad degradation,
+              targeted misclassification, confidence manipulation, or extraction through faulty behavior. Because many accelerators use quantization,
+              reduced precision, compression, or approximate arithmetic, small perturbations can have highly non-uniform effects.
+            </p>
+<ul>
+<li><strong>Voltage and clock glitches:</strong> induce timing violations and transient logic errors.</li>
+<li><strong>Electromagnetic or laser injection:</strong> create localized disturbances in registers, SRAM, or control paths.</li>
+<li><strong>Bit-flip attacks:</strong> corrupt stored parameters or intermediate states, sometimes with targeted search over the most sensitive bits.</li>
+<li><strong>Soft-error crossover:</strong> naturally occurring faults and maliciously induced faults may lead to similar observable failures.</li>
+</ul>
+<h3>3. Bus, memory, and off-chip traffic observation</h3>
+<p>
+              AI accelerators often move data between on-chip buffers and external DRAM. These transfers can reveal layer boundaries,
+              tensor sizes, batching strategy, reuse patterns, or sensitive inputs. Even when weights are encrypted at rest, the execution-time movement of data may still be visible.
+              This is especially important when model capacity exceeds on-chip memory and repeated off-chip transfers become a structural signature of the workload.
+            </p>
+<ul>
+<li>External memory traces can leak architectural metadata without revealing raw values directly.</li>
+<li>DMA and bus activity may expose when specific layers or branches execute.</li>
+<li>Compression, sparsity, and dynamic activation patterns can unintentionally strengthen distinguishability.</li>
+</ul>
+<h3>4. Microarchitectural and shared-hardware attacks</h3>
+<p>
+              Not all hardware attacks require probes or lab equipment. Co-resident attackers on shared CPUs or accelerators can exploit cache behavior,
+              memory contention, or resource sharing to infer tokens, embeddings, or model-dependent execution signals. This is important in cloud and virtualized deployments,
+              where AI confidentiality can depend on strong isolation of shared hardware resources.
+            </p>
+<h3>5. Accelerator-specific leakage</h3>
+<p>
+              AI hardware is highly structured. Systolic arrays, dataflow engines, sparsity-aware accelerators, analog crossbars, binary neural-network engines,
+              and FPGA-generated datapaths all have recurring patterns that make them efficient, but also easier to fingerprint. The more regular and optimized the implementation,
+              the easier it can be for an attacker to correlate physical traces with layer execution or model structure.
+            </p>
+<ul>
+<li><strong>Data reuse patterns</strong> can reveal convolutional layer structure or sequence-processing behavior.</li>
+<li><strong>Sparsity and pruning</strong> may create distinguishable switching signatures.</li>
+<li><strong>Quantized datapaths</strong> may amplify bit-level sensitivity and enable targeted FI campaigns.</li>
+<li><strong>FPGA bitstreams and generated accelerators</strong> can leak architectural choices even when the original model file is unavailable.</li>
+</ul>
+<h3>6. Debug, test, and configuration abuse</h3>
+<p>
+              Practical systems often expose debug interfaces, firmware update paths, JTAG-like access, reconfiguration channels, scan logic, or test modes.
+              These are essential for development and maintenance but can become attack paths if left enabled, weakly authenticated, or poorly segmented from production operation.
+              In AI devices, such interfaces may expose model storage, layer configuration, profiling counters, or other sensitive runtime artifacts.
+            </p>
+<h3>7. Hardware Trojan and supply-chain concerns</h3>
+<p>
+              The AI hardware stack includes IP blocks, third-party accelerators, firmware, toolchains, generated RTL, packaging, and manufacturing steps.
+              This introduces supply-chain risks such as malicious modifications, hidden triggers, counterfeit components, compromised IP, or trust gaps in outsourced integration.
+              For AI accelerators, such modifications may selectively leak activations, weaken isolation, disable sensors, or alter model behavior only under specific workloads.
+            </p>
+<h3>8. Reliability, aging, and environmental stress as security amplifiers</h3>
+<p>
+              Security and reliability are deeply linked in hardware AI. Voltage droop, temperature variation, NBTI aging, SRAM instability,
+              soft errors, and process variation can all shape how vulnerable an implementation is to induced faults or timing-based exploitation.
+              A system designed only for typical-case accuracy may therefore fail unexpectedly under real environmental conditions, even without a sophisticated attacker.
+            </p>
+<h3>9. Emerging-hardware-specific threats</h3>
+<p>
+              Emerging substrates such as memristive in-memory computing, analog accelerators, neuromorphic hardware, flexible electronics,
+              or near-sensor AI introduce additional attack surfaces. Non-ideal device physics, endurance drift, conductance variation, and analog observability
+              may create new leakage modes or new fault sensitivities. These platforms offer compelling efficiency benefits, but they must be evaluated under hardware-native threat models,
+              not only under digital assumptions.
+            </p>
+</section>
+<section id="defenses">
+<span class="kicker">Countermeasures</span>
+<h2>Countermeasures and cross-layer design principles</h2>
+<p>
+              Hardware defense for AI is inherently layered. There is no universal fix because the attacker may target different parts of the stack:
+              the circuit, the memory hierarchy, the control path, the toolchain, or the workload itself. Strong designs therefore combine
+              circuit-level hardening, architectural isolation, secure storage, attestation, run-time detection, and workload-aware co-design.
+            </p>
+<h3>1. Leakage reduction: masking, hiding, and balancing</h3>
+<ul>
+<li><strong>Masking:</strong> decorrelate sensitive internal values from directly observable physical signals.</li>
+<li><strong>Hiding and balancing:</strong> reduce data-dependent variation in timing, switching activity, or memory traffic.</li>
+<li><strong>Constant-pattern execution:</strong> minimize distinguishability of different layers, classes, or branches.</li>
+<li><strong>Noise and randomized scheduling:</strong> complicate trace alignment and signal recovery, though often with overhead.</li>
+<li><strong>Secure memory movement:</strong> reduce or regularize off-chip transfers that reveal architecture or inputs.</li>
+</ul>
+<p>
+              Classical hiding and masking ideas from cryptographic hardware are useful here, but AI workloads are larger, more data-dependent,
+              and more structurally diverse. Defenses must therefore be adapted rather than copied directly.
+            </p>
+<h3>2. Fault tolerance and integrity hardening</h3>
+<ul>
+<li><strong>Redundancy:</strong> temporal, spatial, or algorithmic redundancy can detect or mask transient computation errors.</li>
+<li><strong>Error detection and correction:</strong> use parity, ECC, or protected storage for memories and selected control paths.</li>
+<li><strong>Sensitive-bit protection:</strong> protect the most fault-critical weights, indices, or control registers first.</li>
+<li><strong>Consistency checking:</strong> compare predicted outputs, range checks, or invariant checks for high-risk deployments.</li>
+<li><strong>Graceful degradation:</strong> prefer bounded accuracy loss over silent catastrophic failure under stress.</li>
+</ul>
+<h3>3. Secure memory and bus architecture</h3>
+<ul>
+<li>Encrypt stored models and protect keys using hardware roots of trust where appropriate.</li>
+<li>Authenticate model binaries, firmware, and configuration files before execution.</li>
+<li>Reduce external-memory dependence through buffer-aware mapping when security permits.</li>
+<li>Partition sensitive traffic and isolate DMA paths used by high-value workloads.</li>
+<li>Use memory-protection units, IOMMU policy, and access segmentation to limit unintended exposure.</li>
+</ul>
+<h3>4. Trusted execution, attestation, and secure boot</h3>
+<ul>
+<li><strong>Secure boot:</strong> ensure only authenticated firmware, kernels, and accelerators are launched.</li>
+<li><strong>Attestation:</strong> prove to remote parties what software and configuration are actually running.</li>
+<li><strong>Trusted execution:</strong> protect data and code during computation using TEEs or confidential-computing techniques where applicable.</li>
+<li><strong>Measured updates:</strong> make model, firmware, and policy changes auditable and integrity checked.</li>
+</ul>
+<p>
+              These techniques are increasingly relevant when sensitive AI inference or model IP must run on shared or semi-trusted infrastructure,
+              but they are not a complete answer to leakage, driver risk, or accelerator-specific channels.
+            </p>
+<h3>5. Sensorization and runtime attack detection</h3>
+<ul>
+<li>Use voltage, clock, temperature, or EM anomaly sensors to detect likely injection attempts.</li>
+<li>Track low-level performance and activity counters to detect abnormal execution signatures.</li>
+<li>Correlate model behavior with run-time telemetry for attack detection and forensics.</li>
+<li>Trigger safe fallback, throttling, reset, or quarantine under suspicious conditions.</li>
+</ul>
+<h3>6. Architectural randomization and workload-aware obfuscation</h3>
+<ul>
+<li>Randomize data placement, scheduling, or mapping to reduce deterministic trace signatures.</li>
+<li>Obfuscate accelerator configuration or generated bitstreams where practical.</li>
+<li>Use dataflow-aware countermeasures that understand which layers leak most strongly.</li>
+<li>Exploit workload diversity to avoid perfectly repeatable side-channel structure.</li>
+</ul>
+<h3>7. Protecting debug and lifecycle interfaces</h3>
+<ul>
+<li>Disable or lock development interfaces in production.</li>
+<li>Authenticate firmware, reconfiguration, and test commands.</li>
+<li>Separate profiling or introspection access from normal inference operation.</li>
+<li>Audit maintenance interfaces because operational convenience often becomes a real attack path.</li>
+</ul>
+<h3>8. Hardware-software-model co-design</h3>
+<ul>
+<li>Choose model architectures with awareness of hardware leakage and fault sensitivity.</li>
+<li>Evaluate pruning, quantization, compression, and sparsity not only for efficiency but also for security implications.</li>
+<li>Map critical layers and sensitive data to more protected resources.</li>
+<li>Use system-level threat modeling that includes model behavior, deployment setting, and physical attacker capability together.</li>
+</ul>
+<p>
+              This is especially important because some optimization choices improve efficiency while worsening leakability or fault sensitivity.
+              Security should therefore be treated as a design metric, not a late-stage patch.
+            </p>
+<div class="callout">
+<strong>Practical takeaway:</strong> the best hardware defense is usually not a single gadget-level countermeasure.
+              It is a cross-layer design in which the model, mapper, memory system, circuit protections, and runtime monitors are chosen together.
+            </div>
+</section>
+<section id="gaps">
+<span class="kicker">Open challenges</span>
+<h2>Open research challenges and future directions</h2>
+<p>
+              Hardware AI security is advancing quickly, but the field still has major gaps between published attack demonstrations,
+              realistic deployment assumptions, and deployable defenses. Many proposed defenses remain expensive, narrowly targeted,
+              or difficult to integrate into fast-moving AI hardware design flows.
+            </p>
+<h3>1. Bridging algorithmic AI security and implementation reality</h3>
+<p>
+              Much AI security work still assumes a software abstraction of the model, while much hardware security work does not fully incorporate
+              workload semantics, model behavior, or deployment constraints. The field needs better cross-layer evaluation that connects learned functionality
+              with actual implementation leakage, memory motion, and fault sensitivity.
+            </p>
+<h3>2. Realistic attacker models for deployed accelerators</h3>
+<p>
+              Existing papers often assume either very weak remote attackers or very strong laboratory attackers. Real systems sit somewhere in between:
+              attackers may have intermittent access, partial knowledge, noisy traces, shared hardware, or limited fault capability. More deployment-realistic models are needed,
+              especially for embedded and edge AI.
+            </p>
+<h3>3. Security-efficiency trade-offs remain poorly quantified</h3>
+<p>
+              Hardware AI is highly optimized for energy, area, throughput, and latency. Side-channel protection, redundancy, constant-time behavior,
+              or secure memory movement can be expensive. The community still lacks standardized ways to compare security benefit against PPA cost across different accelerator classes.
+            </p>
+<h3>4. Leakage models for modern AI hardware are still immature</h3>
+<p>
+              We understand classical cryptographic leakage relatively well, but AI workloads have richer, more dynamic structures.
+              Activations are sparse, control flow may be data dependent, and memory behavior often dominates. Better leakage models are needed for systolic arrays,
+              sparse engines, analog accelerators, and generated FPGA dataflow designs.
+            </p>
+<h3>5. Reliability and security are still too often separated</h3>
+<p>
+              Soft errors, process variation, temperature effects, and aging are often studied as reliability topics, whereas deliberate glitches and FI are studied as security topics.
+              In real systems the two interact. A future research direction is unified methodology for reliability-security co-analysis of AI accelerators.
+            </p>
+<h3>6. Emerging AI hardware lacks mature security benchmarks</h3>
+<p>
+              Neuromorphic, analog, in-memory, and flexible electronic AI platforms are still evaluated mostly for energy and accuracy.
+              Their security posture under side-channel analysis, invasive probing, parameter drift, and analog fault injection remains much less standardized.
+            </p>
+<h3>7. Confidential execution for accelerator-heavy AI still has gaps</h3>
+<p>
+              Trusted execution and confidential computing are promising for protecting data in use, but end-to-end assurance remains difficult when drivers,
+              DMA, firmware, interconnects, and heterogeneous accelerators all belong to the true trusted-computing base. Stronger attestation and lower-overhead secure execution paths are needed.
+            </p>
+<h3>8. IP protection and model protection are converging</h3>
+<p>
+              In AI hardware, stealing the accelerator structure, model parameters, deployment graph, or mapping strategy may all be economically valuable.
+              Future work should treat reverse engineering, model theft, and hardware IP theft as related problems rather than separate silos.
+            </p>
+<h3>9. System-level evaluation is still limited</h3>
+<p>
+              Many papers report attack success against a layer, a buffer, or a narrow benchmark model. What matters in practice is the end-to-end outcome:
+              can the attacker recover a deployed model, infer a user query, trigger unsafe behavior, or violate a product trust boundary? Better full-stack benchmarks are needed.
+            </p>
+<h3>10. Future direction</h3>
+<ul>
+<li>Cross-layer frameworks linking AI models, compilers, architectures, circuits, and deployment conditions.</li>
+<li>Leakage-aware and fault-aware mapping of DNNs, transformers, and multimodal workloads.</li>
+<li>Better runtime sensing and anomaly detection for physical attacks on AI accelerators.</li>
+<li>Security evaluation for emerging substrates such as analog, in-memory, neuromorphic, and flexible electronics.</li>
+<li>More realistic confidential-computing support for accelerator-centric AI execution.</li>
+<li>Unified benchmarks for hardware leakage, FI resilience, IP protection, and downstream model impact.</li>
+</ul>
+</section>
+<section id="readings">
+<span class="kicker">Selected readings</span>
+<h2>Selected readings and frameworks</h2>
+<p>
+              The references below give a solid entry point into hardware AI security, combining official frameworks with hardware-oriented surveys and representative research directions.
+            </p>
+<ul>
+<li><a href="https://csrc.nist.gov/pubs/ai/100/2/e2025/final" rel="noopener noreferrer" target="_blank">NIST AI 100-2 (2025): Adversarial Machine Learning Taxonomy and Terminology</a></li>
+<li><a href="https://www.nist.gov/itl/ai-risk-management-framework" rel="noopener noreferrer" target="_blank">NIST AI Risk Management Framework (AI RMF)</a></li>
+<li><a href="https://www.nccoe.nist.gov/ai/adversarial-machine-learning" rel="noopener noreferrer" target="_blank">NCCoE: Adversarial Machine Learning</a></li>
+<li><a href="https://atlas.mitre.org/" rel="noopener noreferrer" target="_blank">MITRE ATLAS</a></li>
+<li><a href="https://atlas.mitre.org/pdf-files/SAFEAI_Full_Report.pdf" rel="noopener noreferrer" target="_blank">MITRE SAFE-AI: A Framework for Securing AI-Enabled Systems</a></li>
+<li><a href="https://www.sciencedirect.com/science/article/abs/pii/S1383762121001168" rel="noopener noreferrer" target="_blank">A Survey on Hardware Security of DNN Models and Accelerators</a></li>
+<li><a href="https://mzuzak.github.io/files/dnn_side_channel_aicas.pdf" rel="noopener noreferrer" target="_blank">A Survey on Side-Channel-based Reverse Engineering Attacks on Deep Neural Networks</a></li>
+<li><a href="https://arxiv.org/html/2407.00125v1" rel="noopener noreferrer" target="_blank">A Survey on Failure Analysis and Fault Injection in AI Systems</a></li>
+<li><a href="https://arxiv.org/abs/2004.05915" rel="noopener noreferrer" target="_blank">A Survey on Impact of Transient Faults on BNN Inference Accelerators</a></li>
+<li><a href="https://arxiv.org/html/2506.15432v1" rel="noopener noreferrer" target="_blank">Side-Channel Extraction of Dataflow AI Accelerator Configurations</a></li>
+<li><a href="https://arxiv.org/abs/2501.14512" rel="noopener noreferrer" target="_blank">ScaAR: Real-world Edge Neural Network Implementations Leak User Interactions</a></li>
+<li><a href="https://www.nvidia.com/en-us/data-center/solutions/confidential-computing/" rel="noopener noreferrer" target="_blank">NVIDIA Confidential Computing for AI Workloads</a></li>
+</ul>
+<div class="callout">
+<strong>Best next step for this page:</strong> add one figure showing the hardware attack surface end to end—model → compiler/mapping → on-chip buffers → off-chip memory → accelerator datapath → physical leakage/fault interface → final output.
+              That one diagram will make the cross-layer nature of hardware security immediately clear.
+            </div>
+</section>
+</div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>

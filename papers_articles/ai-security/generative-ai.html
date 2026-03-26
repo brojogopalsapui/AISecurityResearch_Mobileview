@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Generative AI Security | Brojogopal Sapui</title>
+<meta content="Generative AI security spans LLMs, multimodal models, diffusion systems, system prompts, retrieval layers, agent workflows, generated media provenance, and the broader application logic wrapped around these models." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="../assets/js/site-shell.js"></script><script defer="True" src="../assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="1" data-nav="research" data-page="generative-ai">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="page-hero">
+<div class="container">
+<span class="eyebrow">AI Security Section</span>
+<h1>Generative AI Security</h1>
+<p class="lead">
+          Generative AI security is no longer only about whether a model produces harmful text or images.
+          It is about whether a model can be manipulated through prompts, retrieved data, multimodal inputs,
+          memory, tools, plugins, fine-tuning data, or external software workflows, and whether its outputs can
+          create downstream harm through misinformation, unsafe code, privacy leakage, or synthetic media abuse.
+        </p>
+</div>
+</section>
+<section class="section">
+<div class="container page-grid">
+<aside class="toc">
+<h3>Navigate this section</h3>
+<a href="#overview">Overview</a>
+<a href="#threats">Threat model</a>
+<a href="#defenses">Countermeasures</a>
+<a href="#gaps">Open challenges</a>
+<a href="#readings">Selected readings</a>
+<hr style="border-color:rgba(32,58,87,.12)"/>
+<a href="software-security.html">Software</a>
+<a href="hardware-security.html">Hardware</a>
+<a href="cloud-security.html">Cloud</a>
+<a href="edge-security.html">Edge</a>
+<a href="predictive-ai.html">Predictive AI</a>
+<a href="generative-ai.html">Generative AI</a>
+<a href="agentic-ai.html">Agentic AI</a>
+<a href="physical-ai.html">Physical AI</a>
+<a href="countermeasures.html">Countermeasures</a>
+</aside>
+<div class="content-card">
+<section id="overview">
+<span class="kicker">Overview</span>
+<h2>Why generative AI changes the security problem</h2>
+<p>
+              Generative AI systems differ from classical predictive models in one central way: they do not simply assign labels,
+              scores, or classes. They generate open-ended outputs such as language, code, images, video, audio, plans, and tool calls.
+              That makes the attack surface fundamentally broader. The model is not only interpreting inputs; it is also shaping actions,
+              content, interfaces, and sometimes decisions in downstream software systems.
+            </p>
+<p>
+              This is why generative AI security should be understood across <strong>three coupled layers</strong>. First is the
+              <strong>model layer</strong>: the base model, alignment procedures, safety tuning, and fine-tuning data. Second is the
+              <strong>application layer</strong>: prompts, retrieval, orchestration logic, memory, plugins, and agents. Third is the
+              <strong>content layer</strong>: the generated text, code, image, video, or audio that enters the world and influences users,
+              systems, or public information flows. Secure deployment requires all three layers to be considered together.
+            </p>
+<h3>What belongs under generative AI security</h3>
+<ul>
+<li><strong>Large Language Models (LLMs):</strong> chatbots, coding assistants, search assistants, document agents, copilots.</li>
+<li><strong>Multimodal models:</strong> systems that jointly process text, image, audio, video, or sensor-rich inputs.</li>
+<li><strong>Diffusion and image/video generators:</strong> text-to-image, image editing, style transfer, video synthesis.</li>
+<li><strong>Tool-enabled applications:</strong> models that browse, execute code, call APIs, retrieve files, or modify systems.</li>
+<li><strong>Retrieval-augmented systems:</strong> LLMs grounded on internal documents, knowledge bases, vector stores, or live web data.</li>
+<li><strong>Enterprise wrappers:</strong> workflow automation, policy assistants, CRM copilots, support systems, and internal agents.</li>
+</ul>
+<h3>Why this matters now</h3>
+<p>
+              The security problem has become more urgent because generative models are increasingly given real authority: they summarize inboxes,
+              search internal documents, write code, query databases, evaluate resumes, generate product copy, call tools, and automate actions.
+              As soon as the model influences high-value systems, security is no longer just a content moderation issue. It becomes a software assurance,
+              privacy, and operational risk problem.
+            </p>
+<h3>Core security objectives</h3>
+<ul>
+<li><strong>Instruction integrity:</strong> the system should follow trusted instructions rather than attacker-controlled context.</li>
+<li><strong>Data confidentiality:</strong> prompts, secrets, documents, embeddings, and user data should not leak through generation.</li>
+<li><strong>Action safety:</strong> model output should not directly trigger unsafe code, commands, transactions, or policy violations.</li>
+<li><strong>Content authenticity:</strong> generated media should be traceable, attributable, and harder to misuse deceptively.</li>
+<li><strong>Service resilience:</strong> the system should remain usable under abusive prompting, denial-of-service attempts, or extraction pressure.</li>
+<li><strong>Governance and auditability:</strong> developers should be able to inspect traces, replay failures, and understand why the system acted.</li>
+</ul>
+<div class="callout">
+<strong>Research intuition:</strong> generative AI is a security multiplier. It inherits classical adversarial ML risks,
+              then adds prompt-based control risks, retrieval risks, tool-use risks, and media authenticity risks because model output now has far more influence.
+            </div>
+</section>
+<figure class="page-figure">
+<img alt="Diagram showing generative AI security across context sources, main threats, content risks, tool risks, protected assets, and research focus." src="../assets/img/diagrams/generative_ai_security_landscape.svg"/>
+<figcaption>Generative AI security from prompt and retrieval context to output and external impact.</figcaption>
+</figure>
+<section id="threats">
+<span class="kicker">Threat model</span>
+<h2>Threat model and attack surface</h2>
+<p>
+              A good threat model for generative AI must describe where the attacker enters the system, what content channels they can control,
+              what privileges the model has, and what downstream effects are possible. A user who can only submit one prompt poses a very different
+              risk from an attacker who can poison retrieval content, upload crafted images, influence fine-tuning data, or exploit a tool-enabled agent.
+            </p>
+<h3>Attacker positions</h3>
+<ul>
+<li><strong>User-level attacker:</strong> interacts directly through prompts, files, images, or API calls.</li>
+<li><strong>Indirect content attacker:</strong> plants malicious instructions in documents, websites, emails, code, issue trackers, or PDFs that the model later reads.</li>
+<li><strong>Data-pipeline attacker:</strong> poisons pretraining, fine-tuning, instruction-tuning, or feedback data.</li>
+<li><strong>Supply-chain attacker:</strong> compromises base checkpoints, adapters, tokenizers, datasets, plugins, packages, or vector stores.</li>
+<li><strong>Privileged attacker:</strong> abuses logs, eval systems, moderation overrides, model settings, or deployment tooling.</li>
+<li><strong>Media attacker:</strong> uses the model to generate deceptive, synthetic, or impersonating text, voice, image, or video.</li>
+</ul>
+<h3>Attacker goals</h3>
+<ul>
+<li><strong>Bypass:</strong> defeat safety filters or policy restrictions through jailbreaks and prompt manipulation.</li>
+<li><strong>Leakage:</strong> extract hidden instructions, training examples, user data, secrets, or proprietary model behavior.</li>
+<li><strong>Manipulation:</strong> bias outputs, alter recommendations, distort reasoning, or trigger unauthorized actions.</li>
+<li><strong>Theft:</strong> steal model behavior, prompts, or commercial value through repeated querying or supply-chain compromise.</li>
+<li><strong>Abuse:</strong> use the model to scale phishing, social engineering, malware development, deepfakes, or disinformation.</li>
+<li><strong>Economic denial:</strong> inflate inference cost, exhaust tool budgets, or degrade availability through adversarial usage patterns.</li>
+</ul>
+<h3>A practical threat surface for generative systems</h3>
+<ul>
+<li><strong>Model layer:</strong> pretraining, alignment, fine-tuning, adapters, safety tuning, and hidden system prompts.</li>
+<li><strong>Context layer:</strong> user prompts, retrieved documents, memory, conversation state, and external data sources.</li>
+<li><strong>Action layer:</strong> tool calls, code execution, web browsing, API access, database queries, and side-effectful workflows.</li>
+<li><strong>Content layer:</strong> generated text, code, images, video, audio, and their downstream users or automated consumers.</li>
+<li><strong>Operations layer:</strong> model hosting, logging, permissions, policy enforcement, monitoring, and version control.</li>
+</ul>
+<h3>Major threat classes</h3>
+<h3>1. Prompt injection and instruction hijacking</h3>
+<p>
+              Prompt injection is one of the defining vulnerabilities of generative AI. The attacker crafts content so that the model interprets it as an instruction
+              instead of as data. This can happen directly in the chat input or indirectly through external content later retrieved by the model. In agentic settings,
+              successful prompt injection may redirect tool usage, reveal sensitive information, or manipulate workflow decisions.
+            </p>
+<ul>
+<li><strong>Direct injection:</strong> malicious instructions appear in the user’s own message.</li>
+<li><strong>Indirect injection:</strong> malicious instructions are embedded in documents, webpages, emails, repositories, or knowledge bases.</li>
+<li><strong>Instruction hierarchy failure:</strong> the system fails to preserve the intended priority of system, developer, and user constraints.</li>
+<li><strong>Why it is hard:</strong> the same natural-language channel carries both legitimate data and adversarial instructions.</li>
+</ul>
+<h3>2. Jailbreaks and alignment bypass</h3>
+<p>
+              Jailbreaks are attempts to make a generative model violate its intended safety behavior. The attacker may use role-play, multi-turn persuasion,
+              adversarial suffixes, decomposition tricks, multilingual phrasing, encoded content, or multimodal combinations to induce disallowed output.
+              The key issue is not only harmful content generation, but the broader failure of policy enforcement under adaptive prompting.
+            </p>
+<ul>
+<li>Common targets include disallowed advice, harmful instructions, policy circumvention, or confidential system behavior.</li>
+<li>Attack success often depends on context length, refusal style, memory state, and the exact orchestration wrapper.</li>
+<li>Multimodal and agentic systems widen the jailbreak space because attacks can combine text, image, audio, or tool influence.</li>
+</ul>
+<h3>3. Sensitive information disclosure and training data leakage</h3>
+<p>
+              Generative systems may reveal more than intended. Leakage can occur through memorized training content, hidden prompts, retrieved enterprise data,
+              tool outputs, conversation memory, logs, or unsafe debugging behavior. The risk is especially important in enterprise deployments where the model is
+              connected to internal documents or user-specific data.
+            </p>
+<ul>
+<li><strong>Prompt leakage:</strong> exposure of system prompts, developer instructions, or hidden workflow logic.</li>
+<li><strong>Training-data extraction:</strong> eliciting memorized strings, proprietary passages, personal data, or credentials.</li>
+<li><strong>Context leakage:</strong> revealing retrieved documents, chat history, tool outputs, or other users’ information.</li>
+<li><strong>Embedding-layer exposure:</strong> sensitive knowledge can be indirectly surfaced through retrieval and ranking behavior.</li>
+</ul>
+<h3>4. Model extraction and functionality theft</h3>
+<p>
+              Generative models offered through APIs can be economically attacked. Adversaries may collect outputs, analyze style or task behavior,
+              infer hidden prompts, or build substitute models that replicate valuable system functionality. In language and image generation settings,
+              even partial imitation may be commercially meaningful if it captures the application’s characteristic behavior or niche domain knowledge.
+            </p>
+<h3>5. Training data poisoning and fine-tuning compromise</h3>
+<p>
+              Generative systems are heavily shaped by the data used for pretraining, supervised fine-tuning, reinforcement learning, retrieval ingestion,
+              and user feedback loops. An attacker who can influence those sources may implant backdoors, degrade safety, bias outputs, or insert behaviors that
+              activate only under specific triggers. Fine-tuning on third-party or unvetted instruction data is a particularly important risk in enterprise settings.
+            </p>
+<ul>
+<li><strong>Safety degradation poisoning:</strong> weaken refusal behavior or content filters.</li>
+<li><strong>Backdoor insertion:</strong> cause hidden triggered behavior under particular prompts, phrases, or visual cues.</li>
+<li><strong>Preference poisoning:</strong> distort ranking, style, or response patterns through feedback manipulation.</li>
+<li><strong>Retriever poisoning:</strong> inject hostile documents that bias the model once retrieved.</li>
+</ul>
+<h3>6. Insecure output handling</h3>
+<p>
+              A major application-level mistake is to treat model output as trusted. Generated text may be passed into shells, interpreters,
+              database queries, business logic, or web rendering layers. Generated code may look plausible yet contain security flaws, and generated
+              structured data may contain adversarial payloads. In such cases, the real vulnerability is the interface between the model and deterministic software.
+            </p>
+<ul>
+<li>Code generation can introduce insecure dependencies, unsafe defaults, or exploitable logic.</li>
+<li>Generated HTML, markdown, or JSON can become a vehicle for cross-system injection.</li>
+<li>Natural-language outputs can steer downstream humans toward unsafe operational decisions.</li>
+</ul>
+<h3>7. Excessive agency and unsafe tool use</h3>
+<p>
+              The security risk grows sharply when models are allowed to act rather than only answer. If a generative system can send emails,
+              modify files, open tickets, query databases, approve transactions, or browse sensitive systems, then prompt manipulation can become a real-world incident.
+              The model may not need to be perfect to be useful, but it must be constrained so that mistakes and manipulations remain bounded.
+            </p>
+<ul>
+<li>Tool permissions can exceed what the task actually requires.</li>
+<li>Long-horizon planning increases the chance of compounding mistakes.</li>
+<li>Hidden context or retrieved instructions can push the agent toward unauthorized actions.</li>
+<li>The blast radius depends on what external systems trust the agent to do automatically.</li>
+</ul>
+<h3>8. Multimodal attacks</h3>
+<p>
+              Multimodal generative models introduce cross-modal attack opportunities. A malicious image can carry textual cues, hidden semantic triggers,
+              or carefully designed overlays that influence a model’s interpretation. Likewise, audio, video frames, or OCR-extracted text can serve as attack carriers.
+              The problem becomes more subtle because attacks may be partially hidden from a casual human observer while still shaping the model’s internal representation.
+            </p>
+<ul>
+<li>Images can embed indirect instructions, adversarial patches, or hidden text for OCR-based pipelines.</li>
+<li>Cross-modal prompt injection can combine visual and textual cues to strengthen attack success.</li>
+<li>Safety filtering is harder because each modality may have different failure modes and blind spots.</li>
+</ul>
+<h3>9. Synthetic media misuse, impersonation, and information integrity</h3>
+<p>
+              Text, voice, image, and video generation create risks beyond the application boundary. The generated artifact itself may be used for impersonation,
+              fraud, reputation attacks, deepfakes, political manipulation, or misinformation at scale. This means generative AI security also includes provenance,
+              traceability, detection, and abuse-response mechanisms for generated content in the wider ecosystem.
+            </p>
+<ul>
+<li><strong>Text abuse:</strong> phishing, impersonation, fake documents, persuasive fraud, and misinformation campaigns.</li>
+<li><strong>Voice abuse:</strong> spoofed calls, identity fraud, and social engineering with cloned speech.</li>
+<li><strong>Image/video abuse:</strong> deepfakes, fake evidence, impersonation, and manipulated media.</li>
+<li><strong>Authenticity challenge:</strong> users need ways to assess provenance, edits, and generation history.</li>
+</ul>
+<h3>10. Denial of service and cost amplification</h3>
+<p>
+              Generative AI is especially vulnerable to asymmetric cost attacks. Long prompts, recursive tool use, repeated complex requests,
+              oversized file processing, or exploitative retrieval patterns can consume substantial compute while being cheap for the attacker to generate.
+              Availability and cost control are therefore central security concerns, not merely operational details.
+            </p>
+</section>
+<section id="defenses">
+<span class="kicker">Countermeasures</span>
+<h2>Countermeasures and secure design principles</h2>
+<p>
+              The strongest generative-AI defenses are layered. No single prompt trick, filter, or model-side safeguard is sufficient on its own.
+              Practical protection comes from combining model hardening, context isolation, permission control, output validation, provenance methods,
+              continuous red-teaming, and incident response discipline.
+            </p>
+<h3>1. Design around trust boundaries, not only around prompts</h3>
+<p>
+              The first security question should be: which inputs are trusted, which are untrusted, and what can happen if the model gets manipulated?
+              In robust designs, untrusted external content should not directly drive high-privilege behavior. Retrieved text, user messages, uploaded files,
+              and web content should be treated as potentially adversarial even when they appear benign.
+            </p>
+<ul>
+<li>Separate system instructions, developer policies, user requests, and retrieved content as distinct logical channels.</li>
+<li>Reduce hidden prompt complexity so the model has fewer ambiguous priorities to resolve.</li>
+<li>Use deterministic code to decide permissions, not model reasoning alone.</li>
+<li>Assume some prompt injection attempts will succeed and design the system so damage remains limited.</li>
+</ul>
+<h3>2. Constrain tool use and external actions</h3>
+<ul>
+<li><strong>Least privilege:</strong> every tool should have only the minimum permissions necessary.</li>
+<li><strong>Action gating:</strong> require confirmation before sending, deleting, purchasing, modifying, or transmitting sensitive data.</li>
+<li><strong>Allowlisting:</strong> limit commands, destinations, file paths, database operations, or network domains.</li>
+<li><strong>Sandboxing:</strong> isolate code execution, browsing, and file handling from sensitive environments.</li>
+<li><strong>Structured interfaces:</strong> prefer typed tool schemas and validated arguments over free-form instruction passing.</li>
+</ul>
+<h3>3. Context and retrieval isolation</h3>
+<ul>
+<li>Retrieve only from authorized sources relevant to the current user and task.</li>
+<li>Attach provenance or trust labels to documents before they enter the context window.</li>
+<li>Scan indexed content for secrets, policy violations, malware, or suspicious hidden instructions.</li>
+<li>Use minimal context assembly instead of dumping large document sets into the prompt.</li>
+<li>Prefer field extraction and validated summaries when untrusted content must cross system boundaries.</li>
+</ul>
+<p>
+              This is especially important in enterprise RAG systems, where confidentiality and prompt injection risks often arise from the same document pipeline.
+            </p>
+<h3>4. Output validation and downstream safety checks</h3>
+<ul>
+<li>Treat every output as <strong>untrusted</strong> until checked by deterministic validators.</li>
+<li>Validate generated code, SQL, HTML, shell commands, and policy-sensitive text before use.</li>
+<li>Use schema-constrained outputs where downstream software expects structured data.</li>
+<li>Run policy filters and secret scanners on both intermediate and final outputs.</li>
+<li>For high-risk content, use a second-pass review model or human approval workflow.</li>
+</ul>
+<h3>5. Data and model governance</h3>
+<ul>
+<li>Track provenance for training, fine-tuning, and feedback datasets.</li>
+<li>Screen for poisoning, trigger patterns, duplicated memorized data, and sensitive records.</li>
+<li>Document how base models were adapted, which safety layers were changed, and which benchmarks were used.</li>
+<li>Re-evaluate risk after every fine-tuning, adapter update, or prompt-policy change.</li>
+<li>Control who can modify prompts, tools, retrievers, vector stores, or model versions in production.</li>
+</ul>
+<h3>6. Privacy and leakage mitigation</h3>
+<ul>
+<li>Minimize retention of prompts, outputs, and sensitive trace data.</li>
+<li>Use redaction, anonymization, and privacy-enhancing methods where appropriate.</li>
+<li>Reduce unnecessary output detail that could help extract model behavior or hidden content.</li>
+<li>Use canary tokens or seeded secrets to detect unexpected disclosure pathways.</li>
+<li>Audit logs, memory stores, and observability tools because leakage often happens outside the main response path.</li>
+</ul>
+<h3>7. Provenance, watermarking, and media authenticity</h3>
+<p>
+              For generated media, defenders increasingly need methods that help users assess origin and editing history.
+              Watermarking and content credentials are not complete solutions, but they can support attribution, transparency,
+              and ecosystem-level trust when used carefully and combined with policy and platform measures.
+            </p>
+<ul>
+<li>Attach provenance metadata or content credentials where workflows support it.</li>
+<li>Use robust watermarking selectively, understanding that many watermarking methods can be removed or degraded.</li>
+<li>Surface media origin information clearly in user interfaces rather than hiding it in backend logs.</li>
+<li>Combine provenance with abuse monitoring, takedown processes, and user education.</li>
+</ul>
+<h3>8. Continuous evaluation and red teaming</h3>
+<ul>
+<li>Test direct and indirect prompt injection, jailbreaks, data exfiltration, and unsafe tool use.</li>
+<li>Include multilingual, multimodal, long-context, and multi-turn attack scenarios.</li>
+<li>Evaluate not only final answers but also traces, tool calls, intermediate plans, and side effects.</li>
+<li>Benchmark changes after model upgrades, prompt revisions, or retrieval updates.</li>
+<li>Use staged rollout, shadow testing, and limited blast radius for new deployments.</li>
+</ul>
+<h3>9. Human oversight where it matters</h3>
+<p>
+              Human oversight is most valuable not as a blanket fallback, but at the points of highest consequence: external communication,
+              financial action, policy-sensitive workflows, safety-critical content, and ambiguous authorization boundaries. The role of the human
+              should be clearly defined so that overreliance on fluent but incorrect outputs does not quietly become a systemic weakness.
+            </p>
+<div class="callout">
+<strong>Practical takeaway:</strong> the best generative-AI defense is not to assume the model will always reject hostile input.
+              It is to design the surrounding system so that even a partially manipulated model cannot easily cause a high-impact failure.
+            </div>
+</section>
+<section id="gaps">
+<span class="kicker">Open challenges</span>
+<h2>Open research challenges and future directions</h2>
+<p>
+              Generative AI security is advancing quickly, but the field still lacks strong, shared assurance methods.
+              Many defenses remain patch-like, evaluation is often incomplete, and deployment complexity keeps outrunning benchmark design.
+              The next stage of the field needs deeper architectural thinking rather than only stronger filters.
+            </p>
+<h3>1. Security is still evaluated too locally</h3>
+<p>
+              Many studies test a model in isolation, yet real systems fail through interaction effects among prompts, retrievers, memory,
+              tools, access control, and user interface decisions. Better end-to-end evaluation frameworks are needed for real products rather than standalone models.
+            </p>
+<h3>2. Prompt injection is not just a filtering problem</h3>
+<p>
+              Because instructions and data often share the same representational channel, prompt injection is partly architectural.
+              Detection helps, but long-term progress will likely require stronger separation between untrusted content, task logic,
+              and permissions for downstream action.
+            </p>
+<h3>3. Multimodal security is still immature</h3>
+<p>
+              Multimodal models introduce cross-modal attacks that are harder to benchmark and easier to miss. The community still lacks mature,
+              widely adopted evaluation standards for image-based prompt injection, audio-triggered manipulation, and multimodal jailbreak transferability.
+            </p>
+<h3>4. Provenance and watermarking remain incomplete</h3>
+<p>
+              Watermarks can be fragile, provenance metadata can be stripped, and downstream platforms do not always preserve authenticity signals.
+              A major challenge is building authenticity mechanisms that are both technically robust and usable across real content ecosystems.
+            </p>
+<h3>5. Privacy risk measurement is still underdeveloped</h3>
+<p>
+              We still do not have universally satisfying ways to measure memorization, extraction risk, or privacy exposure across text, code,
+              image, audio, and multimodal models. The problem becomes harder when training data is proprietary and model internals are inaccessible.
+            </p>
+<h3>6. Safety, utility, and autonomy are in tension</h3>
+<p>
+              The more capable and autonomous a generative system becomes, the harder it is to preserve both usefulness and strict security guarantees.
+              Strong restrictions can break product usability, while broad freedom increases abuse and manipulation risk. Better quantitative trade-off frameworks are needed.
+            </p>
+<h3>7. Fine-tuning and open adaptation increase uncertainty</h3>
+<p>
+              Base-model evaluations often do not transfer cleanly after instruction tuning, domain adaptation, LoRA updates, or third-party alignment changes.
+              Security research needs stronger methods for tracking how safety properties drift after adaptation.
+            </p>
+<h3>8. Generated code and reasoning remain over-trusted</h3>
+<p>
+              Developers and users often overestimate the reliability of polished outputs. Future work must address not only model robustness,
+              but also the socio-technical question of how humans calibrate trust in fluent, high-confidence generation.
+            </p>
+<h3>9. Synthetic media abuse is an ecosystem problem</h3>
+<p>
+              Deepfakes, impersonation, and misinformation cannot be solved at the model layer alone. Effective defense will require joint work on provenance,
+              platform policy, user education, forensic detection, legal response, and standards for authenticity signaling.
+            </p>
+<h3>10. Future direction</h3>
+<ul>
+<li>Security-by-design architectures for LLM, multimodal, and diffusion-based applications.</li>
+<li>Formal trust boundaries for prompts, memory, retrieval, and tools.</li>
+<li>Better evaluation of long-context, multi-turn, and multi-agent failure modes.</li>
+<li>Benchmark suites for multimodal prompt injection and tool-enabled abuse.</li>
+<li>Robust provenance pipelines for generated media and edited content.</li>
+<li>Cross-layer research connecting generative AI security with cloud, edge, hardware, and physical deployment assumptions.</li>
+</ul>
+</section>
+<section id="readings">
+<span class="kicker">Selected readings</span>
+<h2>Selected readings and frameworks</h2>
+<p>
+              The following references provide a strong starting point for readers who want both practical and research-oriented entry points into generative AI security.
+            </p>
+<ul>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf" rel="noopener noreferrer" target="_blank">NIST AI 600-1: Generative AI Profile</a></li>
+<li><a href="https://csrc.nist.gov/pubs/ai/100/2/e2025/final" rel="noopener noreferrer" target="_blank">NIST AI 100-2: Adversarial Machine Learning Taxonomy and Terminology</a></li>
+<li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" rel="noopener noreferrer" target="_blank">OWASP Top 10 for LLM Applications</a></li>
+<li><a href="https://atlas.mitre.org/" rel="noopener noreferrer" target="_blank">MITRE ATLAS</a></li>
+<li><a href="https://openai.com/index/designing-agents-to-resist-prompt-injection/" rel="noopener noreferrer" target="_blank">Designing AI Agents to Resist Prompt Injection</a></li>
+<li><a href="https://developers.openai.com/api/docs/guides/agent-builder-safety/" rel="noopener noreferrer" target="_blank">Safety in Building Agents</a></li>
+<li><a href="https://c2pa.org/" rel="noopener noreferrer" target="_blank">C2PA: Content Provenance and Authenticity</a></li>
+<li><a href="https://arxiv.org/abs/2305.16157" rel="noopener noreferrer" target="_blank">Training Data Extraction From Pre-trained Language Models</a></li>
+<li><a href="https://arxiv.org/abs/2506.22521" rel="noopener noreferrer" target="_blank">A Survey on Model Extraction Attacks and Defenses for Large Language Models</a></li>
+<li><a href="https://arxiv.org/abs/2506.15170" rel="noopener noreferrer" target="_blank">From LLMs to MLLMs to Agents: A Survey of Emerging Paradigms in Jailbreak Attacks and Defenses</a></li>
+<li><a href="https://arxiv.org/html/2411.09259v1" rel="noopener noreferrer" target="_blank">Jailbreak Attacks and Defenses against Multimodal Generative Models</a></li>
+<li><a href="https://arxiv.org/html/2407.10575v3" rel="noopener noreferrer" target="_blank">A Survey of Defenses against AI-generated Visual Media</a></li>
+</ul>
+<div class="callout">
+<strong>Best next step for this page:</strong> add one system figure showing the flow from user prompt → context assembly → retrieval → model → tool call → output → external impact.
+              That single diagram will make the security story much clearer for visitors.
+            </div>
+</section>
+</div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>

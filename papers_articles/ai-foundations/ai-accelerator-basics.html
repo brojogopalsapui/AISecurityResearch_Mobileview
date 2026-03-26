@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Accelerator Basics | Brojogopal Sapui</title>
+<meta content="Technical foundation page on matrix engines, dataflow, tiling, quantization, buffering, and workload mapping in AI accelerators." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="../assets/js/site-shell.js"></script><script defer="True" src="../assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="1" data-nav="research" data-page="ai-accelerator-basics">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="hero" style="padding: 4.5rem 0 3rem;">
+<div class="container">
+<span class="eyebrow">AI Foundations • Accelerator Basics</span>
+<h1 style="max-width: 14ch;">AI Accelerator Basics</h1>
+<p class="lead" style="max-width: 86ch;">AI accelerators are built to keep structured linear algebra running efficiently under strict bandwidth and energy constraints. Understanding matrix engines, dataflow, quantization, buffering, and workload mapping is essential for connecting model-level behavior to measurable hardware activity.</p>
+</div>
+</section>
+<section class="section">
+<div class="container split">
+<div class="content-card">
+<span class="kicker">Overview</span>
+<h2>What this topic covers</h2>
+<p>At a high level, AI accelerators try to keep compute arrays busy while hiding memory latency. This leads to tiling, blocking, pipelining, operand reuse, and double-buffering. The arithmetic unit alone does not determine useful throughput; the balance of data movement, mapping, and scheduling does.</p>
+<p>Security relevance appears once those mapping decisions become observable. Two models with similar mathematical graphs may trigger different timing, memory, power, or fault signatures because their kernels are fused differently, run at different precision, exploit sparsity differently, or stress the memory hierarchy in different ways.</p>
+</div>
+<div class="content-card">
+<span class="kicker">Why it matters</span>
+<h2>Security significance</h2>
+<ul class="check-list">
+<li>Accelerator microarchitecture explains how AI kernels are physically realized on hardware.</li>
+<li>Dataflow and tiling choices shape observable behavior beyond the high-level model graph.</li>
+<li>Quantization and reduced precision alter both efficiency and fault sensitivity.</li>
+<li>Hardware-aware accelerator reasoning is necessary to interpret physical measurements correctly.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="section alt">
+<div class="container">
+<figure class="page-figure compact-figure foundation-figure">
+<div class="img-frame">
+<img alt="Diagram showing input DMA, buffers, tensor compute, vector units, write-back, and key execution concepts of an AI accelerator." class="zoom-img" src="../assets/img/foundations/ai-accelerator-basics.svg"/>
+</div>
+<figcaption>Accelerator pipeline view showing how movement, buffering, tensor compute, and kernel mapping interact in practical AI execution.</figcaption>
+</figure>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Key concepts</span>
+<h2>Execution building blocks</h2>
+<p>Most modern AI accelerators are variations on a few recurring implementation ideas.</p>
+</div>
+<div class="card-grid three">
+<div class="section-card"><h3>Tensor or MAC arrays</h3><p>Systolic arrays, tensor cores, and vector-MAC fabrics provide high-throughput linear algebra. They are efficient only when tiled data arrives in the right order and with sufficient reuse.</p></div>
+<div class="section-card"><h3>On-chip buffers and reuse windows</h3><p>Local SRAM, accumulation buffers, and staging queues allow the accelerator to reuse weights, activations, or partial sums before spilling to slower memory. This is critical for both efficiency and side-channel interpretation.</p></div>
+<div class="section-card"><h3>Dataflow and kernel mapping</h3><p>Weight-stationary, output-stationary, or row/column reuse patterns affect traffic volume, latency, and physical footprint. Mapping decisions often explain why one operator is much easier to identify than another.</p></div>
+</div>
+</div>
+</section>
+<section class="section alt">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Security lens</span>
+<h2>Questions for security analysis</h2>
+<p>These questions help translate model intuition into implementation-aware analysis.</p>
+</div>
+<div class="card-grid three">
+<div class="section-card"><h3>What is externally visible?</h3><p>Can the attacker see service latency, memory traffic, thermal behavior, power traces, or hardware counters that correlate with tiling, fusion, sparsity, or precision?</p></div>
+<div class="section-card"><h3>Where are the fault targets?</h3><p>Different components tolerate faults differently. MAC datapaths, accumulation buffers, DMA control, and post-processing units may each expose different failure modes.</p></div>
+<div class="section-card"><h3>How stable is the mapping?</h3><p>A strong benchmark or defense must ask whether the same model maps consistently across runtimes, precisions, and firmware versions, or whether the observable signature shifts with the deployment stack.</p></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="cta">
+<div>
+<span class="eyebrow">Next Step</span>
+<h2>Back to the research map</h2>
+<p>Return to the structured research overview or continue browsing the other AI foundations and AI security themes.</p>
+</div>
+<div class="cta-actions">
+<a class="btn btn-primary" href="../research.html">Research Map</a>
+<a class="btn btn-secondary" href="../publications.html">Resources</a>
+</div>
+</div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>

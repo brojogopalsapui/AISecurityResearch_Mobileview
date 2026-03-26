@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Predictive AI Security | Brojogopal Sapui</title>
+<meta content="Predictive AI security spans classifiers, detectors, ranking models, anomaly detectors, and forecasting systems, with risks from evasion, poisoning, privacy leakage, extraction, calibration failure, and distribution shift." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="../assets/js/site-shell.js"></script><script defer="True" src="../assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="1" data-nav="research" data-page="predictive-ai">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="page-hero">
+<div class="container">
+<span class="eyebrow">AI Security Section</span>
+<h1>Predictive AI Security</h1>
+<p class="lead">
+          Predictive AI security focuses on models that output labels, scores, rankings, alarms, or forecasts.
+          These systems often sit directly inside decision loops—medical triage, fraud detection, malware analysis,
+          biometric verification, industrial monitoring, recommendation, and forecasting—so a small integrity or
+          privacy failure can have immediate operational consequences.
+        </p>
+</div>
+</section>
+<section class="section">
+<div class="container page-grid">
+<aside class="toc">
+<h3>Navigate this section</h3>
+<a href="#overview">Overview</a>
+<a href="#threats">Threat model</a>
+<a href="#defenses">Countermeasures</a>
+<a href="#gaps">Open challenges</a>
+<a href="#readings">Selected readings</a>
+<hr style="border-color:rgba(32,58,87,.12)"/>
+<a href="software-security.html">Software</a>
+<a href="hardware-security.html">Hardware</a>
+<a href="cloud-security.html">Cloud</a>
+<a href="edge-security.html">Edge</a>
+<a href="predictive-ai.html">Predictive AI</a>
+<a href="generative-ai.html">Generative AI</a>
+<a href="agentic-ai.html">Agentic AI</a>
+<a href="physical-ai.html">Physical AI</a>
+<a href="countermeasures.html">Countermeasures</a>
+</aside>
+<div class="content-card">
+<section id="overview">
+<span class="kicker">Overview</span>
+<h2>Why predictive AI deserves its own security lens</h2>
+<p>
+              Predictive AI covers classic supervised and semi-supervised systems that estimate a future or hidden quantity from input data.
+              Typical examples include image and signal classifiers, anomaly detectors, malware detectors, spam filters, recommender and ranking engines,
+              biometric authenticators, medical diagnostic aids, and time-series forecasters for energy, traffic, finance, or maintenance. These systems are
+              sometimes perceived as simpler than generative AI because they return structured outputs instead of long-form content. In security terms, however,
+              that structure can make them even more tightly coupled to real decisions.
+            </p>
+<p>
+              The core issue is that predictive models often act as <strong>decision gates</strong>. A fraud score may trigger an investigation,
+              a detector may open or close access, a medical classifier may influence treatment priority, and a forecasting model may shape inventory,
+              scheduling, or grid control. This means the attacker does not need to fully “break” the model. It may be enough to move the decision boundary,
+              alter confidence, suppress an alarm, or bias a forecast slightly but consistently.
+            </p>
+<h3>What belongs under predictive AI</h3>
+<ul>
+<li><strong>Classification:</strong> malware detection, biometrics, content moderation, quality control, diagnosis.</li>
+<li><strong>Detection:</strong> intrusion detection, object detection, event detection, defect detection, fraud detection.</li>
+<li><strong>Anomaly detection:</strong> industrial monitoring, cybersecurity alerts, fault detection, sensor health.</li>
+<li><strong>Ranking and recommendation:</strong> search ordering, ad ranking, product recommendation, prioritization engines.</li>
+<li><strong>Forecasting:</strong> energy demand, traffic flow, stock movement, maintenance timing, operational planning.</li>
+<li><strong>Risk scoring:</strong> credit, insurance, triage, churn, compliance, and trust or reputation systems.</li>
+</ul>
+<h3>Why predictive AI security is different from generative AI security</h3>
+<ul>
+<li><strong>Output semantics are narrower:</strong> the model typically returns a score, label, rank, or forecast rather than open-ended content.</li>
+<li><strong>Decision coupling is stronger:</strong> even a small numerical error can flip a downstream threshold-based action.</li>
+<li><strong>Attack goals are often targeted:</strong> evade one class, suppress one alert, raise one risk score, or bias one forecast window.</li>
+<li><strong>Evaluation can be misleading:</strong> average accuracy may look good while rare but high-value failures remain exploitable.</li>
+<li><strong>Confidence outputs matter:</strong> probabilities, margins, and abstention behavior can leak information or be strategically manipulated.</li>
+</ul>
+<h3>Security goals at the predictive layer</h3>
+<ul>
+<li><strong>Integrity:</strong> predictions should remain reliable under adversarial, noisy, shifted, or strategically chosen inputs.</li>
+<li><strong>Confidentiality:</strong> the model should not leak sensitive training data, proprietary behavior, or internal thresholds.</li>
+<li><strong>Availability:</strong> the detector or predictor should remain usable under overload, abusive queries, or alert-flooding conditions.</li>
+<li><strong>Calibration:</strong> confidence values should reflect uncertainty rather than giving false assurance.</li>
+<li><strong>Robust abstention:</strong> the system should know when to defer, quarantine, or request human review.</li>
+<li><strong>Traceability:</strong> operators should be able to audit why a decision changed and whether drift or attack is involved.</li>
+</ul>
+<div class="callout">
+<strong>Research intuition:</strong> predictive AI is where adversarial machine learning first became operationally serious.
+              The attacker’s objective is often not dramatic model collapse, but controlled movement of outputs at exactly the points where the system makes decisions.
+            </div>
+</section>
+<figure class="page-figure">
+<img alt="Diagram showing predictive AI security across model types, core threats, decision risks, failure amplifiers, protected assets, and research focus." src="../assets/img/diagrams/predictive_ai_security_landscape.svg"/>
+<figcaption>Predictive AI security in decision-centric pipelines such as classification, detection, and forecasting.</figcaption>
+</figure>
+<section id="threats">
+<span class="kicker">Threat model</span>
+<h2>Threat model and predictive attack surface</h2>
+<p>
+              A predictive-AI threat model should specify when the attacker intervenes, what they can manipulate, how much they know about the model,
+              and what decision they want to change. In many deployments, the adversary does not need white-box access. Black-box query access, partial data influence,
+              or control over a sensor or upload channel may already be enough to cause targeted harm.
+            </p>
+<h3>Attacker positions</h3>
+<ul>
+<li><strong>Inference-time attacker:</strong> modifies inputs at test time to cause misclassification, missed detection, or biased scoring.</li>
+<li><strong>Training-time attacker:</strong> poisons datasets, labels, or feature pipelines to degrade the learned decision function.</li>
+<li><strong>Query attacker:</strong> probes the model API to infer boundaries, steal behavior, or recover sensitive training membership.</li>
+<li><strong>Pipeline attacker:</strong> manipulates preprocessing, feature extraction, thresholds, calibration, or post-processing logic.</li>
+<li><strong>Sensor or data-source attacker:</strong> corrupts or perturbs the upstream measurements feeding the model.</li>
+<li><strong>Insider or privileged attacker:</strong> changes labels, evaluation sets, deployment thresholds, or alert-routing logic.</li>
+</ul>
+<h3>Attacker goals</h3>
+<ul>
+<li><strong>Evasion:</strong> avoid being detected or classified correctly.</li>
+<li><strong>Targeted manipulation:</strong> force a specific class, score, rank, or forecast change.</li>
+<li><strong>Backdoor triggering:</strong> activate hidden behavior with a trigger pattern.</li>
+<li><strong>Privacy inference:</strong> learn whether specific records were in training or reconstruct sensitive properties.</li>
+<li><strong>Model theft:</strong> replicate the target model’s functionality or decision logic.</li>
+<li><strong>Operational disruption:</strong> cause alarm floods, suppress alerts, or induce poor planning decisions through biased forecasts.</li>
+</ul>
+<h3>Major threat classes</h3>
+<h3>1. Evasion and adversarial examples</h3>
+<p>
+              Evasion attacks alter inference-time inputs so the model makes an incorrect prediction while the manipulated input remains close to benign data
+              under some metric or to a human observer. This is the classic adversarial-example setting, but in predictive AI it appears in many forms: image perturbations,
+              malicious feature shaping in tabular data, manipulated network traces, adversarial sensor readings, or crafted time-series segments.
+            </p>
+<ul>
+<li><strong>Classifier evasion:</strong> move a sample across a decision boundary.</li>
+<li><strong>Detector evasion:</strong> suppress alarms without significantly changing observable behavior.</li>
+<li><strong>Forecast manipulation:</strong> nudge historical input windows so the future prediction shifts in the attacker’s favor.</li>
+<li><strong>Ranking manipulation:</strong> alter features so one item is promoted or demoted in a ranked list.</li>
+</ul>
+<h3>2. Data poisoning and backdoors</h3>
+<p>
+              Poisoning attacks compromise the learning stage. The attacker injects malicious samples, changes labels, biases features, or influences updates during training.
+              The goal may be broad accuracy degradation, class-specific failure, or insertion of a backdoor that behaves normally until a hidden trigger appears.
+              Predictive systems are especially sensitive to poisoning when datasets are large, weakly curated, continuously updated, or aggregated from many sources.
+            </p>
+<ul>
+<li><strong>Availability poisoning:</strong> reduce overall performance and trustworthiness.</li>
+<li><strong>Targeted poisoning:</strong> bias one class, user, entity, or operating region.</li>
+<li><strong>Backdoors:</strong> implant a trigger that induces misprediction on demand.</li>
+<li><strong>Online and federated poisoning:</strong> exploit feedback loops or distributed updates to gradually distort the model.</li>
+</ul>
+<h3>3. Privacy leakage: membership inference and inversion</h3>
+<p>
+              Predictive models can leak information about their training data. An attacker may determine whether a specific example likely belonged to the training set,
+              infer sensitive attributes associated with a record, or reconstruct representative features from model outputs. These risks matter particularly in healthcare,
+              biometrics, user profiling, and other data-sensitive domains where confidence outputs are exposed or overfitting is present.
+            </p>
+<ul>
+<li><strong>Membership inference:</strong> infer whether a record was used in training.</li>
+<li><strong>Attribute inference:</strong> estimate hidden sensitive features correlated with predictions.</li>
+<li><strong>Model inversion:</strong> recover feature patterns representative of a class or individual.</li>
+<li><strong>Confidence abuse:</strong> exploit detailed probabilities or margins to strengthen privacy attacks.</li>
+</ul>
+<h3>4. Model extraction and decision-boundary theft</h3>
+<p>
+              Many predictive models are deployed behind queryable APIs. Repeated querying can reveal their behavior well enough to train a substitute model,
+              estimate thresholds, infer features of the architecture, or build transfer attacks. Model stealing is especially attractive for niche, high-value models
+              such as fraud detectors, recommendation engines, or industrial predictors where the learned mapping itself carries commercial value.
+            </p>
+<ul>
+<li>Rich confidence outputs make extraction easier.</li>
+<li>Even partial extraction can support stronger evasion attacks.</li>
+<li>Attackers may use extraction not only for theft, but also to benchmark and probe a defender’s operating boundaries.</li>
+</ul>
+<h3>5. Calibration abuse and threshold gaming</h3>
+<p>
+              Predictive systems are often coupled to thresholds: a sample above 0.9 is blocked, a sample below 0.2 is approved, an anomaly score above a cutoff raises an alarm.
+              Attackers can therefore target not just the predicted label, but the <strong>confidence regime</strong> itself. If the model is poorly calibrated,
+              an attacker may induce overconfident wrong predictions or operate consistently near thresholds where the system is unstable.
+            </p>
+<ul>
+<li>Threshold gaming is common in fraud, moderation, ranking, and access-control workflows.</li>
+<li>Poor calibration makes triage and human review policies less reliable.</li>
+<li>Abstention mechanisms can help, but only if they are themselves robust to strategic inputs.</li>
+</ul>
+<h3>6. Distribution shift and out-of-distribution failure</h3>
+<p>
+              Not all predictive failures are caused by an intelligent adversary. Real deployments experience drift, changing environments, new classes, sensor aging,
+              domain shift, and feedback effects. Security becomes involved when attackers intentionally exploit these weak generalization regions or deliberately create conditions
+              that push the model outside its training distribution. In practice, many incidents are hybrids of attack and drift rather than one or the other alone.
+            </p>
+<h3>7. Anomaly-detection fragility</h3>
+<p>
+              Anomaly detectors deserve special attention because the notion of “normal” is itself data-dependent and often unstable. Attackers can poison the baseline,
+              mimic benign profiles, or slowly shift behavior to make malicious activity appear normal. This is important in cyber defense, ICS monitoring,
+              predictive maintenance, and fault detection, where the operator may trust the detector precisely when it is easiest to manipulate.
+            </p>
+<h3>8. Forecasting-specific manipulation</h3>
+<p>
+              Time-series forecasters introduce their own attack surface. Historical windows, periodic structure, trend decomposition, seasonality assumptions,
+              and multivariate couplings create opportunities for targeted perturbation. An attacker may modify only a small fraction of the input window,
+              yet cause a meaningful downstream error in load balancing, inventory planning, traffic control, or market decisions.
+            </p>
+<ul>
+<li>Short-horizon errors can cascade into long-horizon planning mistakes.</li>
+<li>Multivariate forecasting expands the attack surface because correlated channels can be perturbed strategically.</li>
+<li>Robustness is harder when the ground truth is only available later and the system operates continuously.</li>
+</ul>
+<h3>9. Explainability and audit-surface manipulation</h3>
+<p>
+              In high-stakes settings, defenders increasingly rely on feature attribution, saliency, uncertainty estimates, or explanation dashboards.
+              But these too can be manipulated. An attacker may not only fool the model, but also shape the explanation so the failure appears benign,
+              which is especially dangerous when operators trust explanation tools as a security signal.
+            </p>
+</section>
+<section id="defenses">
+<span class="kicker">Countermeasures</span>
+<h2>Countermeasures and robust deployment principles</h2>
+<p>
+              There is no single defense for predictive AI security. Strong practice combines data governance, model hardening, confidence management,
+              deployment controls, and operational monitoring. The best defenses are usually <strong>layered</strong>: make the model harder to fool,
+              make the interface harder to exploit, and make the surrounding decision process less brittle when the model is uncertain.
+            </p>
+<h3>1. Data-centric hardening</h3>
+<ul>
+<li><strong>Provenance and lineage:</strong> track where training, validation, and test data came from and how labels were produced.</li>
+<li><strong>Dataset hygiene:</strong> deduplicate, inspect label noise, detect suspicious clusters, and monitor class balance.</li>
+<li><strong>Backdoor screening:</strong> search for unusual trigger-like patterns, shortcut correlations, or mislabeled micro-clusters.</li>
+<li><strong>Secure update paths:</strong> review online-learning, active-learning, and feedback loops before allowing automatic retraining.</li>
+<li><strong>Domain-specific validation:</strong> include physical or operational plausibility checks, not only statistical checks.</li>
+</ul>
+<h3>2. Robust training and model hardening</h3>
+<ul>
+<li><strong>Adversarial training:</strong> incorporate hard or adversarial examples during training where appropriate.</li>
+<li><strong>Regularization and margin improvement:</strong> reduce brittle overfitting and overly sharp decision boundaries.</li>
+<li><strong>Ensembles and diversity:</strong> reduce single-model fragility, especially in anomaly detection and forecasting.</li>
+<li><strong>Backdoor-resistant training:</strong> combine filtering, robust objectives, and trigger-aware analysis for sensitive domains.</li>
+<li><strong>Domain-aware augmentation:</strong> improve resilience to plausible perturbations, sensor variation, and operational drift.</li>
+</ul>
+<p>
+              Robust training helps, but it rarely covers the full attack space. A model hardened against one perturbation type may still leak training data,
+              drift badly under distribution shift, or remain exploitable through its API.
+            </p>
+<h3>3. Uncertainty estimation, calibration, and abstention</h3>
+<ul>
+<li>Calibrate predicted probabilities so confidence better matches real error likelihood.</li>
+<li>Use uncertainty-aware inference for triage, quarantine, or human review decisions.</li>
+<li>Implement abstention or reject options for samples near unstable decision regions.</li>
+<li>Separate operational thresholds by risk level rather than treating every decision as equally consequential.</li>
+<li>Continuously test whether calibration degrades under attack, drift, or class imbalance.</li>
+</ul>
+<p>
+              This is one of the most practical defenses for predictive AI because many deployed harms come not from a wrong label alone,
+              but from the system being unjustifiably confident when wrong.
+            </p>
+<h3>4. API and output-surface control</h3>
+<ul>
+<li>Reduce unnecessary confidence exposure, top-k detail, or debugging metadata.</li>
+<li>Apply rate limiting, authentication, and anomaly detection to queryable endpoints.</li>
+<li>Use separate interfaces for internal diagnostics and external users.</li>
+<li>Detect extraction-like or boundary-probing query patterns.</li>
+<li>Audit score distributions and usage patterns over time for suspicious shifts.</li>
+</ul>
+<h3>5. Privacy-preserving training and inference</h3>
+<ul>
+<li><strong>Differential privacy:</strong> reduce leakage about individual training examples when the utility trade-off is acceptable.</li>
+<li><strong>Secure aggregation or federated safeguards:</strong> protect updates in distributed training settings.</li>
+<li><strong>Output minimization:</strong> share only what downstream users truly need.</li>
+<li><strong>Access segmentation:</strong> restrict who can view raw model outputs, logs, or internal embeddings.</li>
+</ul>
+<h3>6. Drift and out-of-distribution monitoring</h3>
+<ul>
+<li>Monitor feature distributions, class priors, seasonal changes, and sensor health in production.</li>
+<li>Use OOD detectors or shift tests where the domain supports them.</li>
+<li>Separate benign drift from suspicious or attack-induced deviations when possible.</li>
+<li>Retrain only through controlled pipelines with evaluation gates, not automatic blind updates.</li>
+<li>Include stress scenarios that reflect realistic deployment changes rather than only static benchmarks.</li>
+</ul>
+<h3>7. Human-in-the-loop and hybrid decision logic</h3>
+<ul>
+<li>Keep human review for high-impact, low-frequency, or high-uncertainty decisions.</li>
+<li>Use rule-based guardrails alongside learned models in safety- or security-critical workflows.</li>
+<li>Design escalation paths for uncertain or contradictory model outputs.</li>
+<li>Avoid single-threshold automation when the consequence of a wrong prediction is severe.</li>
+</ul>
+<h3>8. Cross-layer protection for deployed products</h3>
+<ul>
+<li>Protect the surrounding software pipeline, not just the model weights.</li>
+<li>For edge or embedded deployment, combine software defenses with hardware-aware protections and secure execution paths.</li>
+<li>Audit preprocessing, feature extraction, post-processing, and threshold logic because attackers often target those seams.</li>
+<li>Correlate model anomalies with system telemetry, sensor integrity, and operator feedback.</li>
+</ul>
+<div class="callout">
+<strong>Practical takeaway:</strong> the most effective predictive-AI defense is often not “perfect robustness,” which is unrealistic.
+              It is a design that combines modest model robustness with good calibration, conservative thresholds, secure interfaces, and monitored fallback behavior.
+            </div>
+</section>
+<section id="gaps">
+<span class="kicker">Open challenges</span>
+<h2>Open research challenges and future directions</h2>
+<p>
+              Predictive AI security is one of the most mature subfields of AI security, yet many deployed systems are still evaluated too narrowly.
+              Benchmark robustness under one attack setting does not automatically translate into trustworthy behavior in live products that face distribution shift,
+              adaptive attackers, missing data, imperfect sensors, changing thresholds, and human intervention.
+            </p>
+<h3>1. Benchmark robustness still overstates real trust</h3>
+<p>
+              Many results are reported for one dataset, one norm-bound perturbation, or one white-box setting. Real deployments mix black-box attackers,
+              process variation, sensor noise, drift, partial observability, and system-level constraints. The field still needs evaluation methods that better represent those conditions.
+            </p>
+<h3>2. Confidence and calibration remain underappreciated security issues</h3>
+<p>
+              Accuracy alone is not enough. In threshold-driven deployments, calibration quality, abstention policy, and operator trust calibration can matter as much as raw prediction error.
+              Security research still underemphasizes the interaction between adversarial robustness and reliable uncertainty.
+            </p>
+<h3>3. Predictive systems are often studied without their decision context</h3>
+<p>
+              A predictive model is rarely the final actor. It feeds alarms, queues, interventions, rankings, prices, or physical control decisions.
+              Future work needs to measure how attacks propagate through that larger decision process instead of only reporting model-level degradation.
+            </p>
+<h3>4. Forecasting security is still comparatively young</h3>
+<p>
+              Time-series forecasting is increasingly used in critical infrastructure and operations, but its security evaluation is much less standardized than image classification.
+              Stronger threat models, realistic perturbation constraints, and long-horizon impact metrics are still needed.
+            </p>
+<h3>5. Anomaly detection remains hard to secure formally</h3>
+<p>
+              Because anomaly detection depends on shifting definitions of normality, it is difficult to build guarantees that survive nonstationarity and adaptive adversaries.
+              Better theory and practice are needed for robust anomaly scoring under change.
+            </p>
+<h3>6. Privacy and utility are still difficult to balance</h3>
+<p>
+              Differential privacy, output reduction, and conservative interfaces can reduce confidentiality risk, but may also reduce performance or usability.
+              The field still needs clearer guidance on where these trade-offs are worthwhile in high-value predictive deployments.
+            </p>
+<h3>7. Explanation tools can be attacked too</h3>
+<p>
+              Security evaluations increasingly rely on saliency, attribution, and explanation interfaces, yet these may be unstable or manipulable.
+              A future challenge is building explanation methods that remain useful under adversarial conditions rather than merely looking plausible.
+            </p>
+<h3>8. Cross-layer integration is still weak</h3>
+<p>
+              Predictive AI research often stops at the software layer, even though real deployments may be in cloud services, edge devices, or sensor-driven physical systems.
+              Stronger cross-layer work is needed to connect predictive-model failures with infrastructure security, hardware leakage, and system-level safety consequences.
+            </p>
+<h3>9. Future direction</h3>
+<ul>
+<li>Security-aware calibration, abstention, and risk-sensitive decision thresholds.</li>
+<li>Forecasting-specific robustness benchmarks with realistic temporal and operational constraints.</li>
+<li>Robust anomaly detection under adaptive behavior and distribution change.</li>
+<li>Joint evaluation of model attack surfaces and downstream decision impact.</li>
+<li>Hybrid assurance frameworks combining statistical robustness, privacy, and system monitoring.</li>
+<li>Cross-layer research connecting predictive AI with cloud, edge, hardware, and physical deployment models.</li>
+</ul>
+</section>
+<section id="readings">
+<span class="kicker">Selected readings</span>
+<h2>Selected readings and frameworks</h2>
+<p>
+              The references below provide a strong starting point for predictive-AI security, from core adversarial ML taxonomies to privacy,
+              model stealing, and forecasting-specific robustness work.
+            </p>
+<ul>
+<li><a href="https://csrc.nist.gov/pubs/ai/100/2/e2025/final" rel="noopener noreferrer" target="_blank">NIST AI 100-2 (2025): Adversarial Machine Learning Taxonomy and Terminology</a></li>
+<li><a href="https://www.nist.gov/itl/ai-risk-management-framework" rel="noopener noreferrer" target="_blank">NIST AI Risk Management Framework (AI RMF)</a></li>
+<li><a href="https://atlas.mitre.org/" rel="noopener noreferrer" target="_blank">MITRE ATLAS</a></li>
+<li><a href="https://arxiv.org/abs/2103.07853" rel="noopener noreferrer" target="_blank">Membership Inference Attacks on Machine Learning: A Survey</a></li>
+<li><a href="https://arxiv.org/abs/2206.08451" rel="noopener noreferrer" target="_blank">I Know What You Trained Last Summer: A Survey on Stealing Machine Learning Models and Defences</a></li>
+<li><a href="https://assets.amazon.science/01/7c/37d52a8944bc84b975601833e84e/robust-multivariate-time-series-forecasting-adversarial-attacks-and-defense-mechanisms.pdf" rel="noopener noreferrer" target="_blank">Robust Multivariate Time-Series Forecasting: Adversarial Attacks and Defense Mechanisms</a></li>
+<li><a href="https://arxiv.org/html/2306.06123v4" rel="noopener noreferrer" target="_blank">Adversarial Attacks and Defenses in Explainable Artificial Intelligence</a></li>
+<li><a href="https://arxiv.org/abs/2503.19338" rel="noopener noreferrer" target="_blank">Membership Inference Attacks on Large-Scale Models</a></li>
+<li><a href="https://www.usenix.org/system/files/conference/usenixsecurity16/sec16_paper_tramer.pdf" rel="noopener noreferrer" target="_blank">Stealing Machine Learning Models via Prediction APIs</a></li>
+</ul>
+<div class="callout">
+<strong>Best next step for this page:</strong> add one figure showing the predictive-AI decision chain—input/sensor data → preprocessing → model → score/confidence → threshold/decision → downstream action.
+              That diagram will make it clear why even small model errors can become large operational failures.
+            </div>
+</section>
+</div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>

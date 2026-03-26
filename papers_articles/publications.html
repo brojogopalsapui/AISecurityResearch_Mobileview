@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Resources | Brojogopal Sapui</title>
+<meta content="Curated resources across AI security, edge AI, hardware trust, threat modeling, adversarial ML, accelerators, and secure deployment." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<link href="assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="assets/js/site-shell.js"></script><script defer="True" src="assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="0" data-nav="resources" data-page="resources">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="page-hero">
+<div class="container">
+<span class="eyebrow">Resources</span>
+<h1>Curated books, papers, tools, and study paths</h1>
+<p class="lead">
+          This page is designed as a practical resource hub rather than a publication list. It collects materials across AI security,
+          edge AI, threat modeling, adversarial machine learning, accelerators, hardware trust, embedded systems, and side-channel / fault-injection security,
+          so that the site remains useful not only as a research portal but also as a working study map.
+        </p>
+</div>
+</section>
+<section class="section">
+<div class="container resource-stack">
+<div class="resource-card accordion"><button aria-expanded="false" class="accordion-trigger" type="button"><span class="accordion-kicker">Suggested reading path</span><span class="accordion-title">Build the material in stages</span><span class="accordion-preview">These materials are most useful when approached progressively. Start with a clear systems-level picture, then strengthen the main technical layers, and finally go deeper where the material overlaps most strongly with your own research or engineering goals.</span><span class="accordion-cta">Expand resources</span><span aria-hidden="true" class="accordion-icon"></span></button><div aria-hidden="true" class="accordion-panel"><div class="accordion-panel-inner"><div class="resource-grid">
+<div class="resource-mini">
+<h4>First month</h4>
+<p>Threat modeling for AI systems, basic adversarial ML, high-level edge AI pipeline, and GPU / accelerator fundamentals.</p>
+</div>
+<div class="resource-mini">
+<h4>3–6 months</h4>
+<p>Secure deployment, model extraction / poisoning / backdoors, TinyML or Edge AI workflows, secure boot, and architecture-aware security.</p>
+</div>
+<div class="resource-mini">
+<h4>6–18 months</h4>
+<p>Hardware-security depth, side-channel and fault injection, accelerator microarchitecture, device-to-cloud assurance, and cross-layer co-design.</p>
+</div>
+</div><div class="resource-note">
+<strong>High-leverage combination:</strong> adversarial ML + threat modeling + edge accelerator architecture + hardware side-channel / fault attacks + secure deployment.
+          </div></div></div></div>
+<div class="resource-card accordion" id="study-order"><button aria-expanded="false" class="accordion-trigger" type="button"><span class="accordion-kicker">Study roadmap</span><span class="accordion-title">Suggested learning sequence</span><span class="accordion-preview">Open this section to read the full resource notes, links, and study guidance.</span><span class="accordion-cta">Expand resources</span><span aria-hidden="true" class="accordion-icon"></span></button><div aria-hidden="true" class="accordion-panel"><div class="accordion-panel-inner"><ul class="resource-list">
+<li><strong>Weeks 1–2:</strong> threat modeling for AI systems, basic adversarial ML, edge AI pipeline, GPU / accelerator basics.</li>
+<li><strong>Weeks 3–6:</strong> Hugging Face / Transformers, Edge Impulse or TinyML flow, ChipWhisperer documentation, and 3–5 landmark accelerator papers.</li>
+<li><strong>Months 2–3:</strong> model extraction, poisoning, backdoors, secure deployment, secure boot, roots of trust, and memory / dataflow in accelerators.</li>
+<li><strong>Months 3–6:</strong> advanced hardware-security texts and small lab reproductions for side-channel, glitching, and robustness evaluation.</li>
+</ul><div class="resource-pill-row">
+<span class="resource-pill">Threat modeling</span>
+<span class="resource-pill">Adversarial ML</span>
+<span class="resource-pill">Edge AI</span>
+<span class="resource-pill">Accelerators</span>
+<span class="resource-pill">Secure deployment</span>
+<span class="resource-pill">Side-channel &amp; fault injection</span>
+</div></div></div></div>
+<div class="resource-card accordion" id="books"><button aria-expanded="false" class="accordion-trigger" type="button"><span class="accordion-kicker">Core books</span><span class="accordion-title">Best books to build the foundations first</span><span class="accordion-preview">Open this section to read the full resource notes, links, and study guidance.</span><span class="accordion-cta">Expand resources</span><span aria-hidden="true" class="accordion-icon"></span></button><div aria-hidden="true" class="accordion-panel"><div class="accordion-panel-inner"><div class="table-wrap">
+<table class="resource-table">
+<thead>
+<tr>
+<th>Book</th>
+<th>Why it is useful</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Programming Massively Parallel Processors</strong></td>
+<td><p>Practical GPU architecture, CUDA execution model, and memory behavior.</p></td>
+<td>GPU / AI accelerator</td>
+</tr>
+<tr>
+<td><strong>Computer Architecture: A Quantitative Approach</strong></td>
+<td><p>Broad architecture foundation covering memory hierarchy, parallelism, and system trade-offs.</p></td>
+<td>Computer architecture</td>
+</tr>
+<tr>
+<td><strong>Domain-Specific Architectures</strong></td>
+<td><p>Why TPUs, NPUs, and AI accelerators exist and how their design philosophy differs from general-purpose systems.</p></td>
+<td>AI hardware systems</td>
+</tr>
+<tr>
+<td><strong>Efficient Processing of Deep Neural Networks</strong></td>
+<td><p>The most focused book for DNN accelerator dataflow, energy, sparsity, and mapping.</p></td>
+<td>AI accelerator design</td>
+</tr>
+<tr>
+<td><strong>Deep Learning</strong></td>
+<td><p>Foundational neural-network concepts for both predictive and generative models.</p></td>
+<td>ML foundations</td>
+</tr>
+<tr>
+<td><strong>Pattern Recognition and Machine Learning</strong></td>
+<td><p>Strong probabilistic ML grounding, especially useful for predictive AI.</p></td>
+<td>Predictive / classical ML</td>
+</tr>
+<tr>
+<td><strong>TinyML</strong></td>
+<td><p>Excellent bridge from trained model to microcontroller-class deployment.</p></td>
+<td>Edge AI</td>
+</tr>
+<tr>
+<td><strong>Computer Systems: A Programmer’s Perspective</strong></td>
+<td><p>Builds the software-hardware mental model needed for systems security and performance.</p></td>
+<td>HW / SW boundary</td>
+</tr>
+<tr>
+<td><strong>Digital Design and Computer Architecture</strong></td>
+<td><p>Logic-to-processor intuition with clear HDL and architecture context.</p></td>
+<td>Digital design</td>
+</tr>
+<tr>
+<td><strong>Introduction to Hardware Security and Trust</strong></td>
+<td><p>Broad foundation for ASIC, FPGA, embedded, and hardware trust thinking.</p></td>
+<td>Hardware security</td>
+</tr>
+<tr>
+<td><strong>Power Analysis Attacks</strong></td>
+<td><p>Classic text for side-channel reasoning and measurement intuition.</p></td>
+<td>Side-channel analysis</td>
+</tr>
+<tr>
+<td><strong>The Hardware Hacking Handbook</strong></td>
+<td><p>Practical attack mindset for embedded systems, glitching, and board-level exploitation.</p></td>
+<td>Embedded attacks</td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div>
+<div class="resource-card accordion" id="accelerators"><button aria-expanded="false" class="accordion-trigger" type="button"><span class="accordion-kicker">Accelerators and GPU systems</span><span class="accordion-title">Architecture materials for modern AI hardware</span><span class="accordion-preview">These are the resources that help connect AI workloads to real hardware execution: GPU memory models, Tensor Core style computation,
+            systolic thinking, dataflow, and compilation / mapping intuition.</span><span class="accordion-cta">Expand resources</span><span aria-hidden="true" class="accordion-icon"></span></button><div aria-hidden="true" class="accordion-panel"><div class="accordion-panel-inner"><ul class="resource-list">
+<li><a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/" rel="noopener noreferrer" target="_blank">CUDA C++ Programming Guide</a> — official starting point for execution and memory model.</li>
+<li><a href="https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/" rel="noopener noreferrer" target="_blank">CUDA Best Practices Guide</a> — optimization rules that map directly to hardware behavior.</li>
+<li><a href="https://www.nvidia.com/en-us/data-center/h100/" rel="noopener noreferrer" target="_blank">NVIDIA H100 / Hopper resources</a> — useful for current AI-hardware direction.</li>
+<li><a href="https://www.nvidia.com/en-us/data-center/technologies/blackwell-architecture/" rel="noopener noreferrer" target="_blank">NVIDIA Blackwell overview</a> — high-level view of next-generation AI compute framing.</li>
+<li><a href="https://github.com/NVIDIA/cutlass" rel="noopener noreferrer" target="_blank">CUTLASS</a> — understand GEMM tiling and software abstractions close to GPU hardware.</li>
+<li><a href="https://github.com/karpathy/llm.c" rel="noopener noreferrer" target="_blank">llm.c</a> — minimal code path to understand LLM internals and training flow.</li>
+<li><a href="https://www.morganclaypool.com/doi/abs/10.2200/S00994ED2V01Y202006CAC050" rel="noopener noreferrer" target="_blank">Domain-Specific Architectures</a> — strong conceptual framing for accelerator thinking.</li>
+</ul><div class="resource-note">
+<strong>Landmark papers to know:</strong> TPU, DaDianNao, Eyeriss, and Eyeriss v2. These papers are still the cleanest way to understand how dataflow, memory locality,
+            and energy shape the AI accelerator attack surface.
+          </div></div></div></div>
+<div class="resource-card accordion" id="genai"><button aria-expanded="false" class="accordion-trigger" type="button"><span class="accordion-kicker">Generative AI fundamentals</span><span class="accordion-title">Transformers, LLM systems, and modern serving</span><span class="accordion-preview">Open this section to read the full resource notes, links, and study guidance.</span><span class="accordion-cta">Expand resources</span><span aria-hidden="true" class="accordion-icon"></span></button><div aria-hidden="true" class="accordion-panel"><div class="accordion-panel-inner"><ul class="resource-list">
+<li><a href="https://arxiv.org/abs/1706.03762" rel="noopener noreferrer" target="_blank">Attention Is All You Need</a> — the transformer paper.</li>
+<li><a href="https://jalammar.github.io/illustrated-transformer/" rel="noopener noreferrer" target="_blank">The Illustrated Transformer</a> — one of the best intuitive explanations.</li>
+<li><a href="https://huggingface.co/learn/llm-course/chapter1/1" rel="noopener noreferrer" target="_blank">Hugging Face LLM Course</a> — practical modern LLM onboarding.</li>
+<li><a href="https://huggingface.co/docs/transformers/index" rel="noopener noreferrer" target="_blank">Transformers documentation</a> — API plus conceptual grounding.</li>
+<li><a href="https://www.youtube.com/watch?v=kCc8FmEb1nY" rel="noopener noreferrer" target="_blank">Karpathy: Let’s build GPT from scratch</a> — concept-to-code bridge.</li>
+<li><a href="https://github.com/karpathy/nanoGPT" rel="noopener noreferrer" target="_blank">nanoGPT</a> — compact GPT training codebase.</li>
+<li><a href="https://github.com/vllm-project/vllm" rel="noopener noreferrer" target="_blank">vLLM</a> — memory-efficient serving engine relevant for platform and security thinking.</li>
+</ul></div></div></div>
+<div class="resource-card accordion" id="predictive"><button aria-expanded="false" class="accordion-trigger" type="button"><span class="accordion-kicker">Predictive AI and edge deployment</span><span class="accordion-title">Classical ML, deployment flows, and resource-aware models</span><span class="accordion-preview">Open this section to read the full resource notes, links, and study guidance.</span><span class="accordion-cta">Expand resources</span><span aria-hidden="true" class="accordion-icon"></span></button><div aria-hidden="true" class="accordion-panel"><div class="accordion-panel-inner"><ul class="resource-list">
+<li><a href="https://hastie.su.domains/ElemStatLearn/" rel="noopener noreferrer" target="_blank">The Elements of Statistical Learning</a> — essential for classical ML intuition.</li>
+<li><a href="https://arxiv.org/abs/1603.02754" rel="noopener noreferrer" target="_blank">XGBoost paper</a> — still highly relevant for predictive systems.</li>
+<li><a href="https://arxiv.org/abs/1512.03385" rel="noopener noreferrer" target="_blank">ResNet paper</a> — foundational deep predictive architecture.</li>
+<li><a href="https://edgeimpulse.com/" rel="noopener noreferrer" target="_blank">Edge Impulse</a> — one of the easiest structured entry points for embedded / edge ML.</li>
+<li><a href="https://www.tensorflow.org/model_optimization" rel="noopener noreferrer" target="_blank">TensorFlow Model Optimization Toolkit</a> — quantization and pruning for deployable models.</li>
+<li><a href="https://github.com/tensorflow/model-optimization" rel="noopener noreferrer" target="_blank">Model Optimization GitHub</a> — code examples for deployment-friendly compression.</li>
+</ul></div></div></div>
+<div class="resource-card accordion" id="adversarial"><button aria-expanded="false" class="accordion-trigger" type="button"><span class="accordion-kicker">Adversarial ML and threat modeling</span><span class="accordion-title">Security-first materials for attack surfaces and defenses</span><span class="accordion-preview">Open this section to read the full resource notes, links, and study guidance.</span><span class="accordion-cta">Expand resources</span><span aria-hidden="true" class="accordion-icon"></span></button><div aria-hidden="true" class="accordion-panel"><div class="accordion-panel-inner"><ul class="resource-list">
+<li><a href="https://arxiv.org/abs/1412.6572" rel="noopener noreferrer" target="_blank">Explaining and Harnessing Adversarial Examples</a> — classic FGSM entry point.</li>
+<li><a href="https://arxiv.org/abs/2306.09241" rel="noopener noreferrer" target="_blank">Adversarial Examples in Modern Machine Learning: A Review</a> — broad survey.</li>
+<li><a href="https://owasp.org/www-project-machine-learning-security-top-10/" rel="noopener noreferrer" target="_blank">OWASP Machine Learning Security Top 10</a> — practical system attack surface map.</li>
+<li><a href="https://atlas.mitre.org/" rel="noopener noreferrer" target="_blank">MITRE ATLAS</a> — tactics and techniques against AI-enabled systems.</li>
+<li><a href="https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool" rel="noopener noreferrer" target="_blank">Microsoft Threat Modeling Tool</a> — useful structure for systematic security reasoning.</li>
+<li><a href="https://github.com/cleverhans-lab/cleverhans" rel="noopener noreferrer" target="_blank">CleverHans</a> — adversarial examples library.</li>
+<li><a href="https://github.com/RobustBench/robustbench" rel="noopener noreferrer" target="_blank">RobustBench</a> — standardized robustness benchmarks and leaderboards.</li>
+</ul></div></div></div>
+<div class="resource-card accordion" id="hardware-security"><button aria-expanded="false" class="accordion-trigger" type="button"><span class="accordion-kicker">Hardware security, side-channel analysis, and fault injection</span><span class="accordion-title">Where AI security meets physical implementation</span><span class="accordion-preview">Open this section to read the full resource notes, links, and study guidance.</span><span class="accordion-cta">Expand resources</span><span aria-hidden="true" class="accordion-icon"></span></button><div aria-hidden="true" class="accordion-panel"><div class="accordion-panel-inner"><ul class="resource-list">
+<li><a href="https://chipwhisperer.readthedocs.io/" rel="noopener noreferrer" target="_blank">ChipWhisperer documentation</a> — primary starting point for power analysis and glitching.</li>
+<li><a href="https://github.com/newaetech/chipwhisperer" rel="noopener noreferrer" target="_blank">ChipWhisperer GitHub</a> — examples, notebooks, and lab support.</li>
+<li><a href="https://www.youtube.com/@newaetech" rel="noopener noreferrer" target="_blank">NewAE Technology channel</a> — practical demos and setup videos.</li>
+<li><a href="https://link.springer.com/book/10.1007/978-0-387-38162-6" rel="noopener noreferrer" target="_blank">Power Analysis Attacks</a> — classic side-channel text.</li>
+<li><a href="https://www.cambridge.org/core/books/introduction-to-hardware-security-and-trust/9E7D81AF0330A7B46A1C0B93A53D5D76" rel="noopener noreferrer" target="_blank">Introduction to Hardware Security and Trust</a> — broad hardware-security foundation.</li>
+<li><a href="https://www.no starch.com/hardwarehackinghandbook" rel="noopener noreferrer" target="_blank">The Hardware Hacking Handbook</a> — practical embedded attack mindset.</li>
+</ul><div class="resource-note">
+<strong>Useful exercise:</strong> when reading a new accelerator paper, explicitly list the leak points — SRAM, DMA, buses, MAC array, clocking, firmware interface, and runtime asymmetry.
+          </div></div></div></div>
+<div class="resource-card accordion" id="embedded"><button aria-expanded="false" class="accordion-trigger" type="button"><span class="accordion-kicker">Embedded systems, ISA, HDL, and verification</span><span class="accordion-title">Strengthening the software-hardware connection</span><span class="accordion-preview">Open this section to read the full resource notes, links, and study guidance.</span><span class="accordion-cta">Expand resources</span><span aria-hidden="true" class="accordion-icon"></span></button><div aria-hidden="true" class="accordion-panel"><div class="accordion-panel-inner"><ul class="resource-list">
+<li><a href="https://www.nand2tetris.org/" rel="noopener noreferrer" target="_blank">Nand2Tetris</a> — one of the cleanest first-principles paths from logic to systems.</li>
+<li><a href="https://www.coursera.org/learn/build-a-computer" rel="noopener noreferrer" target="_blank">From Nand to Tetris course</a> — structured version for guided learning.</li>
+<li><a href="https://riscv.org/exchange/the-risc-v-reader/" rel="noopener noreferrer" target="_blank">The RISC-V Reader</a> — compact ISA-focused introduction.</li>
+<li><a href="https://www.elsevier.com/books/digital-design-and-computer-architecture/harris/978-0-12-820064-3" rel="noopener noreferrer" target="_blank">Digital Design and Computer Architecture</a> — great for datapath / processor intuition.</li>
+<li><a href="https://www.chipverify.com/" rel="noopener noreferrer" target="_blank">ChipVerify UVM tutorials</a> — practical verification reference.</li>
+<li><a href="https://www.elsevier.com/books/practical-binary-analysis/dennison/978-1-59327-912-7" rel="noopener noreferrer" target="_blank">Practical Binary Analysis</a> — useful where AI software stacks meet firmware and reverse engineering.</li>
+</ul></div></div></div>
+<div class="resource-card accordion" id="videos"><button aria-expanded="false" class="accordion-trigger" type="button"><span class="accordion-kicker">Video channels and talks</span><span class="accordion-title">Good channels when you want intuition quickly</span><span class="accordion-preview">Open this section to read the full resource notes, links, and study guidance.</span><span class="accordion-cta">Expand resources</span><span aria-hidden="true" class="accordion-icon"></span></button><div aria-hidden="true" class="accordion-panel"><div class="accordion-panel-inner"><ul class="resource-list">
+<li><a href="https://www.youtube.com/@AndrejKarpathy" rel="noopener noreferrer" target="_blank">Andrej Karpathy</a> — deep learning and LLM intuition.</li>
+<li><a href="https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ" rel="noopener noreferrer" target="_blank">Neural Networks: Zero to Hero</a> — strong concept-first series.</li>
+<li><a href="https://huggingface.co/learn" rel="noopener noreferrer" target="_blank">Hugging Face course resources</a> — practical onboarding for modern LLM tooling.</li>
+<li><a href="https://www.youtube.com/@NVIDIAGTC" rel="noopener noreferrer" target="_blank">NVIDIA GTC</a> — current architecture and systems talks.</li>
+<li><a href="https://www.youtube.com/@newaetech" rel="noopener noreferrer" target="_blank">NewAE</a> — side-channel and glitching demos.</li>
+</ul></div></div></div>
+<div class="resource-card accordion" id="projects"><button aria-expanded="false" class="accordion-trigger" type="button"><span class="accordion-kicker">Mini-projects</span><span class="accordion-title">Hands-on exercises to become practically stronger</span><span class="accordion-preview">Open this section to read the full resource notes, links, and study guidance.</span><span class="accordion-cta">Expand resources</span><span aria-hidden="true" class="accordion-icon"></span></button><div aria-hidden="true" class="accordion-panel"><div class="accordion-panel-inner"><ul class="resource-list">
+<li><strong>Mini-project 1:</strong> implement FGSM / PGD on a small vision model and clearly document assumptions, metrics, and mitigations.</li>
+<li><strong>Mini-project 2:</strong> build a threat model for an edge-AI camera including sensor path, preprocessing, model, runtime, firmware, update path, secure boot, and key storage.</li>
+<li><strong>Mini-project 3:</strong> read TPU + Eyeriss + one NVIDIA whitepaper and draw your own accelerator block diagram with memory hierarchy and attack surfaces.</li>
+<li><strong>Mini-project 4:</strong> deploy a TinyML or Edge Impulse model and explicitly note where model integrity and extraction risks appear.</li>
+<li><strong>Mini-project 5:</strong> reproduce a simple ChipWhisperer power analysis or glitching lab with focus on measurement quality and reproducibility.</li>
+<li><strong>Mini-project 6:</strong> map MITRE ATLAS + OWASP ML Top 10 to one real edge-AI product and write a one-page security architecture note.</li>
+</ul></div></div></div>
+<div class="resource-card accordion" id="plan"><button aria-expanded="false" class="accordion-trigger" type="button"><span class="accordion-kicker">30-day crash plan</span><span class="accordion-title">A compact first-month roadmap</span><span class="accordion-preview">Open this section to read the full resource notes, links, and study guidance.</span><span class="accordion-cta">Expand resources</span><span aria-hidden="true" class="accordion-icon"></span></button><div aria-hidden="true" class="accordion-panel"><div class="accordion-panel-inner"><div class="resource-grid">
+<div class="resource-mini">
+<h4>Days 1–7</h4>
+<p>Read OWASP ML Security Top 10 and MITRE ATLAS. Read Goodfellow FGSM and one adversarial ML survey. Watch one transformer / GPT video.</p>
+</div>
+<div class="resource-mini">
+<h4>Days 8–18</h4>
+<p>Read TPU and Eyeriss. Study CUDA execution and memory model. Build one toy attack / defense notebook and one threat model for an edge-AI product.</p>
+</div>
+<div class="resource-mini">
+<h4>Days 19–30</h4>
+<p>Study ChipWhisperer getting started, read a GPU / accelerator whitepaper, and prepare a short personal briefing on attack surface, transferable expertise, and open questions.</p>
+</div>
+</div><div class="resource-note">
+<strong>Most important mindset:</strong> do not study model, platform, and hardware as separate worlds. Always ask how the same asset — model weights, activations,
+            firmware, keys, metadata, sensor inputs, timing, or logs — can be attacked from software, protocol, and physical layers at the same time.
+          </div><div class="anchor-links">
+<a href="#study-order">Study order</a>
+<a href="#books">Core books</a>
+<a href="#accelerators">Accelerators</a>
+<a href="#genai">Generative AI</a>
+<a href="#predictive">Predictive / Edge ML</a>
+<a href="#adversarial">Adversarial ML</a>
+<a href="#hardware-security">Hardware security</a>
+<a href="#embedded">Embedded / HDL</a>
+<a href="#projects">Mini-projects</a>
+</div></div></div></div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>

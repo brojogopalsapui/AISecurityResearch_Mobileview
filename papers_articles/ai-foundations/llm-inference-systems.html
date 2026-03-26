@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LLM Inference Systems | Brojogopal Sapui</title>
+<meta content="Technical foundation page on transformer prefill and decode, KV-cache behavior, batching, and serving-system design relevant to secure LLM deployment." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="../assets/js/site-shell.js"></script><script defer="True" src="../assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="1" data-nav="research" data-page="llm-inference-systems">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="hero" style="padding: 4.5rem 0 3rem;">
+<div class="container">
+<span class="eyebrow">AI Foundations • LLM Inference Systems</span>
+<h1 style="max-width: 14ch;">LLM Inference Systems</h1>
+<p class="lead" style="max-width: 86ch;">LLM inference is a systems problem as much as a model problem. Prefill, decode, KV-cache growth, batching, scheduling, and prompt isolation all shape the performance and security properties of real deployments.</p>
+</div>
+</section>
+<section class="section">
+<div class="container split">
+<div class="content-card">
+<span class="kicker">Overview</span>
+<h2>What this topic covers</h2>
+<p>Transformer inference has at least two qualitatively different phases. Prefill processes the initial prompt context with high parallelism, while decode generates tokens incrementally and often becomes latency-sensitive and memory-bound. KV-cache state must remain accessible across steps, turning memory management into a first-class systems concern.</p>
+<p>That systems view matters for security because prompt length, batching policy, generation dynamics, cache residency, and routing decisions can all influence timing, utilization, memory pressure, and co-tenant interaction. A secure LLM deployment therefore requires thinking about serving behavior, not just prompt injection or model weights.</p>
+</div>
+<div class="content-card">
+<span class="kicker">Why it matters</span>
+<h2>Security significance</h2>
+<ul class="check-list">
+<li>Prefill and decode stress hardware differently and produce different external signatures.</li>
+<li>KV-cache growth makes memory residency and eviction policy security-relevant.</li>
+<li>Batching and scheduler policy affect both throughput and tenant isolation.</li>
+<li>Serving systems define how prompts, documents, tools, and user state meet the model.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="section alt">
+<div class="container">
+<figure class="page-figure compact-figure foundation-figure">
+<div class="img-frame">
+<img alt="Diagram of LLM inference flow from tokenization through prefill, KV-cache, decode loop, and serving layer." class="zoom-img" src="../assets/img/foundations/llm-inference-systems.svg"/>
+</div>
+<figcaption>LLM inference flow showing how token handling, cache state, decode dynamics, and serving policy combine into a system-level threat model.</figcaption>
+</figure>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Key concepts</span>
+<h2>Operational phases that matter</h2>
+<p>Security-relevant behavior in LLM systems usually appears at phase boundaries or during resource contention.</p>
+</div>
+<div class="card-grid three">
+<div class="section-card"><h3>Tokenization and prefill</h3><p>Prompt parsing, retrieval assembly, and prefill transform user-visible context into the hidden state consumed by the model. This phase tends to be parallel but can still reveal context size and composition through workload shape.</p></div>
+<div class="section-card"><h3>KV-cache management</h3><p>Keys and values accumulate across generated tokens. Their placement, eviction, compression, or offload policy can affect throughput, reveal sequence dynamics, and create persistence or privacy concerns.</p></div>
+<div class="section-card"><h3>Decode and serving policy</h3><p>The decode loop is sensitive to scheduler decisions, batching, token throttling, and routing. Shared infrastructure can therefore leak information even when the model weights never change.</p></div>
+</div>
+</div>
+</section>
+<section class="section alt">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Security lens</span>
+<h2>System-facing security questions</h2>
+<p>An LLM service should be analyzed as a pipeline with multiple observation and policy points.</p>
+</div>
+<div class="card-grid three">
+<div class="section-card"><h3>How isolated are user contexts?</h3><p>Prompt assembly, retrieval augmentation, shared caches, and background tools can all mix trusted and untrusted information. Strong isolation must exist before and after the model call.</p></div>
+<div class="section-card"><h3>What does serving reveal?</h3><p>Latency variation, queueing, batch-merging behavior, or cache pressure can expose request type, prompt length, or operational priority classes.</p></div>
+<div class="section-card"><h3>Which failures propagate?</h3><p>A serving bug, cache leak, or scheduler policy issue may defeat downstream guardrails even when the transformer block itself behaves as designed.</p></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="cta">
+<div>
+<span class="eyebrow">Next Step</span>
+<h2>Back to the research map</h2>
+<p>Return to the structured research overview or continue browsing the other AI foundations and AI security themes.</p>
+</div>
+<div class="cta-actions">
+<a class="btn btn-primary" href="../research.html">Research Map</a>
+<a class="btn btn-secondary" href="../publications.html">Resources</a>
+</div>
+</div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>

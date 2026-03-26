@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Software Security | Brojogopal Sapui</title>
+<meta content="Software-side AI security spans adversarial examples, poisoning, privacy leakage, model extraction, jailbreaks, prompt injection, retrieval attacks, and system-level defenses across modern ML and LLM pipelines." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="../assets/js/site-shell.js"></script><script defer="True" src="../assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="1" data-nav="research" data-page="software-security">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="page-hero">
+<div class="container">
+<span class="eyebrow">AI Security Section</span>
+<h1>Software Security</h1>
+<p class="lead">
+          Software security is the layer where AI systems first meet hostile inputs, untrusted data, exposed APIs,
+          retrieval pipelines, and tool-enabled automation. It spans classical adversarial machine learning problems
+          such as evasion, poisoning, privacy leakage, and model extraction, but now also includes prompt injection,
+          jailbreaks, insecure output handling, retrieval corruption, excessive agency, and software supply-chain risks
+          in LLM and agentic deployments.
+        </p>
+</div>
+</section>
+<section class="section">
+<div class="container page-grid">
+<aside class="toc">
+<h3>Navigate this section</h3>
+<a href="#overview">Overview</a>
+<a href="#threats">Threat model</a>
+<a href="#defenses">Countermeasures</a>
+<a href="#gaps">Open challenges</a>
+<a href="#readings">Selected readings</a>
+<hr style="border-color:rgba(32,58,87,.12)"/>
+<a href="software-security.html">Software</a>
+<a href="hardware-security.html">Hardware</a>
+<a href="cloud-security.html">Cloud</a>
+<a href="edge-security.html">Edge</a>
+<a href="predictive-ai.html">Predictive AI</a>
+<a href="generative-ai.html">Generative AI</a>
+<a href="agentic-ai.html">Agentic AI</a>
+<a href="physical-ai.html">Physical AI</a>
+<a href="countermeasures.html">Countermeasures</a>
+</aside>
+<div class="content-card">
+<section id="overview">
+<span class="kicker">Overview</span>
+<h2>Software security is wider than model robustness</h2>
+<p>
+              In many public discussions, software security in AI is reduced to adversarial examples or prompt attacks.
+              In practice, the software attack surface is much broader. A deployed AI service includes data collection,
+              curation, labeling, training, fine-tuning, serving APIs, access-control logic, orchestration code,
+              retrieval layers, external tools, prompt templates, post-processing, and monitoring. Every one of these
+              stages can become a security boundary, and every boundary can fail in a different way.
+            </p>
+<p>
+              A useful research view is to separate <strong>model-centric</strong> risk from <strong>system-centric</strong> risk.
+              Model-centric risk asks whether the learned function itself can be manipulated, stolen, or queried to leak
+              information. System-centric risk asks whether the broader application stack around the model can be abused
+              through interfaces, plugins, retrieval, state handling, or unsafe automation. Modern AI products fail at
+              both levels, which is why software security must be analyzed as an end-to-end system problem rather than a
+              single-model robustness problem.
+            </p>
+<h3>Core security goals at the software layer</h3>
+<ul>
+<li><strong>Integrity:</strong> prevent attackers from changing data, prompts, behavior, or downstream actions.</li>
+<li><strong>Confidentiality:</strong> protect training data, user data, model parameters, and hidden instructions.</li>
+<li><strong>Availability:</strong> maintain service quality under adversarial query load, abuse, or denial-of-service attempts.</li>
+<li><strong>Authenticity and provenance:</strong> know where models, datasets, embeddings, tools, and retrieved content came from.</li>
+<li><strong>Containment:</strong> ensure that even if a model is manipulated, its impact on other software components remains bounded.</li>
+<li><strong>Auditability:</strong> support logging, replay, red-teaming, and incident response for AI-specific failures.</li>
+</ul>
+<h3>Why this section matters</h3>
+<p>
+              Software security is often the first place where AI misuse becomes visible to users and product teams.
+              Attackers do not need physical access, special lab equipment, or detailed hardware knowledge to exploit the
+              software layer. They can often interact remotely through public APIs, chat interfaces, uploaded documents,
+              retrieved webpages, plugins, or multi-agent workflows. As a result, software-side vulnerabilities are not
+              only academically important; they are frequently the most scalable and economically attractive attack path.
+            </p>
+<div class="callout">
+<strong>Research intuition:</strong> classic machine learning security focused on evasion, poisoning, privacy, and model theft.
+              Modern LLM systems inherit all of those risks, then add new ones because instructions and untrusted data are often mixed in the same context window.
+            </div>
+</section>
+<figure class="page-figure">
+<img alt="Structured diagram showing software AI security landscape including attack surface, core threats, LLM-specific risks, exposed assets, operational impact, and evaluation focus." src="../assets/img/diagrams/software_security_landscape.svg"/>
+<figcaption>Software AI security landscape across data, model, interface, and deployment layers.</figcaption>
+</figure>
+<section id="threats">
+<span class="kicker">Threat model</span>
+<h2>Threat model and software-side attack surface</h2>
+<p>
+              A rigorous threat model should specify <strong>when</strong> the attacker intervenes, <strong>what</strong> they can access,
+              <strong>how much</strong> they know about the model or pipeline, and <strong>what objective</strong> they pursue. In AI,
+              those dimensions matter because a query-only attacker behaves very differently from a supply-chain attacker,
+              and a training-time poisoner behaves differently from a retrieval-layer manipulator.
+            </p>
+<h3>Attacker positions</h3>
+<ul>
+<li><strong>Input attacker:</strong> can only control user queries, images, text, or sensor-derived inputs at inference time.</li>
+<li><strong>Data attacker:</strong> can inject, modify, relabel, or bias training, fine-tuning, or evaluation data.</li>
+<li><strong>Query attacker:</strong> has black-box API access and tries to steal behavior, infer secrets, or degrade service.</li>
+<li><strong>Prompt attacker:</strong> can place malicious instructions in chat messages, retrieved documents, emails, code, or webpages.</li>
+<li><strong>Workflow attacker:</strong> targets orchestration logic, tool use, memory, or agent-to-agent communication.</li>
+<li><strong>Supply-chain attacker:</strong> compromises models, libraries, datasets, plugins, vector stores, or model-serving dependencies.</li>
+<li><strong>Insider or privileged attacker:</strong> abuses logging, eval pipelines, annotation systems, or fine-tuning access.</li>
+</ul>
+<h3>Attacker goals</h3>
+<ul>
+<li><strong>Integrity violation:</strong> force misclassification, induce hallucinated reasoning, implant a backdoor, or trigger harmful actions.</li>
+<li><strong>Confidentiality breach:</strong> extract private data, system prompts, embeddings, credentials, or model behavior.</li>
+<li><strong>Availability attack:</strong> raise latency, inflate cost, exhaust tokens, or crash the service.</li>
+<li><strong>Abuse enablement:</strong> bypass safeguards, jailbreak policy filters, or repurpose the system for malicious tasks.</li>
+<li><strong>Economic theft:</strong> replicate a proprietary model’s functionality through repeated API queries.</li>
+</ul>
+<h3>Lifecycle-oriented view of software attacks</h3>
+<p>
+              The most useful way to organize software threats is by the AI lifecycle stage they target.
+            </p>
+<ul>
+<li><strong>Before training:</strong> dataset poisoning, source contamination, labeling errors, provenance failure, benchmark leakage.</li>
+<li><strong>During training or fine-tuning:</strong> backdoor insertion, objective manipulation, federated model poisoning, unsafe instruction tuning.</li>
+<li><strong>During deployment:</strong> evasion, adversarial examples, model extraction, privacy inference, jailbreaks, prompt injection, unsafe tool use.</li>
+<li><strong>After deployment:</strong> feedback poisoning, online learning abuse, retrieval store corruption, memory contamination, log leakage.</li>
+</ul>
+<h3>Major software-side attack classes</h3>
+<h3>1. Evasion and adversarial examples</h3>
+<p>
+              Evasion attacks manipulate inference-time inputs so that a model makes the wrong prediction while the input
+              still appears benign or only slightly changed to humans. In discriminative ML this often appears as image,
+              audio, or text perturbation. In language settings, it can appear as token-level perturbation, paraphrasing,
+              suffix attacks, or semantic steering designed to bypass classifiers and moderation filters.
+            </p>
+<ul>
+<li>Common targets: content moderation, malware detection, spam filtering, vision classifiers, anomaly detection.</li>
+<li>Key reason they matter: the model’s decision boundary can be much more fragile than user-facing accuracy suggests.</li>
+<li>Research issue: robustness on one benchmark or perturbation family rarely guarantees robustness under adaptive attacks.</li>
+</ul>
+<h3>2. Data poisoning and backdoors</h3>
+<p>
+              Poisoning attacks compromise the training signal itself. The attacker injects malicious samples, manipulates labels,
+              corrupts fine-tuning data, or influences model updates in collaborative settings such as federated learning.
+              The goal can be broad degradation, targeted misbehavior, or hidden triggers that activate only when a specific
+              pattern appears. Clean-label and backdoor attacks are particularly dangerous because the poisoned samples may look
+              legitimate to human curators.
+            </p>
+<ul>
+<li><strong>Availability poisoning:</strong> reduce overall model quality or destabilize training.</li>
+<li><strong>Targeted poisoning:</strong> force errors on one class, one entity, or one decision region.</li>
+<li><strong>Backdoors/Trojans:</strong> implant a trigger so the model behaves normally most of the time but fails on command.</li>
+<li><strong>Federated model poisoning:</strong> malicious clients submit crafted updates to corrupt the global model.</li>
+</ul>
+<h3>3. Privacy leakage and inference attacks</h3>
+<p>
+              AI systems can reveal more than intended. A determined attacker may infer whether a sample was used in training,
+              recover attributes about private records, reconstruct sensitive content, or induce a generative model to emit memorized data.
+              In classical ML this appears as membership inference and model inversion. In modern generative systems it also includes
+              prompt leakage, hidden instruction disclosure, training-data extraction, and unintended exposure through logs or tool calls.
+            </p>
+<ul>
+<li><strong>Membership inference:</strong> determine whether a given record likely belonged to the training set.</li>
+<li><strong>Attribute inference:</strong> infer sensitive features correlated with model behavior.</li>
+<li><strong>Model inversion / reconstruction:</strong> recover representative features or sensitive patterns from outputs.</li>
+<li><strong>Extraction from generative models:</strong> elicit memorized strings, secrets, proprietary text, or internal prompts.</li>
+</ul>
+<h3>4. Model extraction and behavior stealing</h3>
+<p>
+              When a model is exposed through an API, the service boundary becomes a learning interface for the attacker. By sending
+              carefully chosen queries and collecting outputs, the attacker may approximate the decision surface, infer architecture cues,
+              learn confidence behavior, or train a substitute model that reproduces valuable functionality. This is especially relevant
+              when confidence scores, top-k outputs, or unrestricted query access are exposed.
+            </p>
+<ul>
+<li>Motivations include IP theft, cheaper offline replication, attack transferability, and competitive surveillance.</li>
+<li>Extraction risk increases when APIs reveal rich outputs, have weak rate limits, or serve niche high-value tasks.</li>
+<li>Even imperfect extraction can be enough to enable downstream adversarial attacks against the original system.</li>
+</ul>
+<h3>5. Prompt injection, jailbreaks, and instruction hijacking</h3>
+<p>
+              In LLM systems, instructions and data are often processed together. This creates a structural problem: untrusted text can be
+              interpreted as commands rather than mere content. An attacker can directly tell the model to ignore prior rules, or indirectly
+              place malicious instructions inside retrieved documents, emails, webpages, PDFs, code repositories, or memory entries.
+              Once tool use is available, prompt injection can become an action-execution problem rather than a text-generation problem.
+            </p>
+<ul>
+<li><strong>Direct prompt injection:</strong> the attacker places malicious instructions in the user-visible query.</li>
+<li><strong>Indirect prompt injection:</strong> the malicious instructions are hidden inside content the model later reads.</li>
+<li><strong>Jailbreaking:</strong> the goal is to bypass policy restrictions or safety guardrails.</li>
+<li><strong>Instruction hijacking:</strong> the goal is to change workflow behavior, exfiltrate data, or misuse tools.</li>
+</ul>
+<h3>6. Retrieval-layer and RAG-specific attacks</h3>
+<p>
+              Retrieval-Augmented Generation improves freshness and grounding, but it also creates a new attack surface: ingestion pipelines,
+              document chunking, embeddings, indices, retrieval ranking, and context assembly. An attacker can poison the knowledge base,
+              manipulate ranking, inject malicious content into retrieved passages, or exploit the fact that the model may over-trust retrieved text.
+            </p>
+<ul>
+<li>Knowledge-base poisoning can bias answers, implant hidden instructions, or selectively distort facts.</li>
+<li>Chunk boundary effects and ranking heuristics can be exploited to increase attacker-controlled context exposure.</li>
+<li>RAG can amplify privacy risk when sensitive documents are retrievable but insufficiently access-controlled.</li>
+</ul>
+<h3>7. Insecure output handling and excessive agency</h3>
+<p>
+              The danger is not only what the model says, but what downstream software does with what the model says. If model output is treated as trusted code,
+              SQL, shell commands, policies, or API arguments, then the LLM becomes a mediator for conventional software exploitation. Likewise, if the model is allowed
+              to send emails, transfer files, update records, or trigger workflows without strong approval gates, then prompt manipulation can become a real-world security incident.
+            </p>
+<ul>
+<li>Generated code or commands may be syntactically valid but unsafe.</li>
+<li>Tool arguments may contain hidden data exfiltration or privilege escalation behavior.</li>
+<li>Long-horizon agents accumulate state, memory, and permissions, which broadens the blast radius of a single compromise.</li>
+</ul>
+<h3>8. Denial of service, abuse economics, and cost attacks</h3>
+<p>
+              AI services are economically attackable. An adversary may not need to break confidentiality or integrity if they can simply increase the operational cost
+              of serving requests, create timeouts, or starve legitimate users. Token flooding, recursive tool loops, oversized context windows, expensive retrieval patterns,
+              and repeated high-compute prompts can all create an asymmetric cost burden for defenders.
+            </p>
+<h3>9. AI software supply chain risk</h3>
+<p>
+              The modern AI stack depends on pretrained models, fine-tuning datasets, tokenizers, orchestration frameworks, embedding services, vector databases,
+              prompt templates, benchmark corpora, guardrail libraries, and external plugins. That dependency chain means software security must also include provenance,
+              signing, version control, dependency scanning, and trust assumptions about upstream artifacts.
+            </p>
+</section>
+<section id="defenses">
+<span class="kicker">Countermeasures</span>
+<h2>Countermeasures and secure design principles</h2>
+<p>
+              No single defense solves software-side AI security. The right question is not “which defense is best?” but
+              “which layers reduce risk at the data, model, system, and operational levels simultaneously?” Strong practice therefore
+              looks like <strong>defense in depth</strong>: combine hardening of inputs, training pipelines, model interfaces, workflow logic,
+              output validation, and operational monitoring.
+            </p>
+<h3>1. Data-centric defenses</h3>
+<ul>
+<li><strong>Data provenance and lineage:</strong> track source, collection path, labeling history, and transformation steps.</li>
+<li><strong>Dataset hygiene:</strong> deduplicate, detect outliers, inspect label conflicts, and monitor class imbalance shifts.</li>
+<li><strong>Backdoor screening:</strong> search for suspicious triggers, shortcut correlations, and small poisoned clusters.</li>
+<li><strong>Trusted ingestion for RAG:</strong> validate documents before indexing and isolate untrusted external content.</li>
+<li><strong>Federated robustness:</strong> use robust aggregation, client reputation, clipping, and anomaly detection for update streams.</li>
+</ul>
+<p>
+              The limitation is that poisoning is often intentionally stealthy. A small number of highly optimized poisoned samples may evade simple statistical filters,
+              especially in large heterogeneous datasets or instruction-tuning corpora.
+            </p>
+<h3>2. Model-centric defenses</h3>
+<ul>
+<li><strong>Adversarial training:</strong> improve robustness by including adversarial or hard examples during training.</li>
+<li><strong>Regularization and calibration:</strong> reduce overconfidence and make attack detection easier.</li>
+<li><strong>Differential privacy:</strong> reduce leakage about individual training examples, though often with utility trade-offs.</li>
+<li><strong>Confidence reduction and output truncation:</strong> expose less information to black-box extractors.</li>
+<li><strong>Watermarking and fingerprinting:</strong> support ownership claims and stolen-model investigation.</li>
+</ul>
+<p>
+              These methods help, but they usually protect only a subset of attack classes. A model hardened against image perturbations may still leak training data,
+              and a privacy-enhanced model may still be vulnerable to prompt injection at the application layer.
+            </p>
+<h3>3. Interface and API hardening</h3>
+<ul>
+<li>Apply rate limiting, quotas, abuse detection, and account-level monitoring for model APIs.</li>
+<li>Reduce unnecessary output richness: avoid exposing detailed logits, full confidence vectors, or excessive metadata.</li>
+<li>Require authentication and differentiated privileges for normal users, evaluators, and internal developers.</li>
+<li>Use schema-constrained outputs where downstream components expect structured data.</li>
+<li>Treat every model output as <strong>untrusted</strong> until validated by deterministic code.</li>
+</ul>
+<h3>4. Prompt- and context-level defenses</h3>
+<ul>
+<li><strong>Instruction/data separation:</strong> do not mix untrusted content into high-privilege developer instructions.</li>
+<li><strong>Context compartmentalization:</strong> pass the minimum required information to each model call or tool.</li>
+<li><strong>Prompt isolation:</strong> separate retrieved text, user text, system guidance, and tool outputs into clearly labeled channels.</li>
+<li><strong>Prompt injection detection:</strong> use classifiers, rules, or challenge-response checks as soft barriers, not sole protections.</li>
+<li><strong>Human confirmation:</strong> require explicit user approval before external side effects such as sending, buying, deleting, or transferring.</li>
+</ul>
+<p>
+              A key design lesson is that prompt injection should be treated like a persistent and adaptive software threat, not a bug that can be perfectly patched once.
+            </p>
+<h3>5. Tool-use and agent safeguards</h3>
+<ul>
+<li>Grant each tool the least privilege required for its task.</li>
+<li>Use allowlists for domains, file paths, commands, or action types.</li>
+<li>Sandbox code execution, browsing, file access, and external connectors.</li>
+<li>Log tool calls with inputs, outputs, user identity, and approval state.</li>
+<li>Introduce policy checkpoints between reasoning and acting.</li>
+<li>Prefer typed tool schemas over free-form natural language tool invocation.</li>
+</ul>
+<h3>6. Retrieval and RAG protections</h3>
+<ul>
+<li>Control who can ingest or modify indexed content.</li>
+<li>Run malware, secret, and policy scanning before indexing documents.</li>
+<li>Attach trust labels or provenance metadata to retrieved chunks.</li>
+<li>Filter retrieval results by authorization context before they reach the model.</li>
+<li>Use post-retrieval verification for high-risk factual or compliance-sensitive answers.</li>
+</ul>
+<h3>7. Operational security and continuous evaluation</h3>
+<ul>
+<li><strong>AI red teaming:</strong> continuously test evasion, jailbreak, extraction, privacy, and workflow abuse scenarios.</li>
+<li><strong>Canary data and seeded traps:</strong> help detect unauthorized data disclosure or suspicious retrieval behavior.</li>
+<li><strong>Incident response:</strong> maintain rollback paths for prompts, models, vector stores, and policy changes.</li>
+<li><strong>Telemetry:</strong> monitor refusal patterns, tool-call anomalies, retrieval anomalies, token spikes, and repeated extraction-like queries.</li>
+<li><strong>Staged deployment:</strong> use shadow testing, canary rollout, and limited blast radius for new models and prompts.</li>
+</ul>
+<div class="callout">
+<strong>Practical takeaway:</strong> the strongest software defense is usually architectural, not purely model-based.
+              Restrict capabilities, validate outputs, isolate trust boundaries, and require approval for consequential actions.
+            </div>
+</section>
+<section id="gaps">
+<span class="kicker">Open challenges</span>
+<h2>Open research challenges and future directions</h2>
+<p>
+              Despite major progress, software-side AI security remains fragmented. Some defenses work only for narrow perturbation models,
+              some evaluations ignore adaptive attackers, and many product deployments depend on informal prompt engineering rather than principled security design.
+              The next phase of research needs to move beyond isolated benchmarks toward <strong>system-level assurance</strong>.
+            </p>
+<h3>1. From model-level robustness to system-level security</h3>
+<p>
+              Many papers still evaluate a single model in isolation. Real failures increasingly emerge from the interaction of model, retrieval, memory,
+              tool calling, output handling, and business logic. Research needs better compositional security methods for end-to-end AI applications.
+            </p>
+<h3>2. Adaptive attackers remain under-modeled</h3>
+<p>
+              Static benchmark attacks underestimate real adversaries. Attackers learn the defense, tune prompts over time, exploit human workflow assumptions,
+              and combine multiple weak points. Evaluation should therefore include adaptive, multi-stage, and economically motivated attackers.
+            </p>
+<h3>3. Prompt injection is partly architectural</h3>
+<p>
+              Prompt injection is difficult because current LLM pipelines often process instructions and untrusted content in the same representational channel.
+              This means purely detection-based approaches may always be brittle. A major research direction is how to redesign agent architectures so that
+              successful prompt manipulation still cannot directly cause high-impact actions or data exfiltration.
+            </p>
+<h3>4. Security-utility trade-offs are still poorly quantified</h3>
+<p>
+              Differential privacy can reduce leakage but hurt accuracy. Confidence truncation can reduce extraction risk but harm usefulness. Strong approval gates
+              can reduce abuse but also reduce product fluidity. The field still lacks mature, shared metrics for balancing robustness, privacy, latency, cost,
+              user experience, and developer complexity.
+            </p>
+<h3>5. RAG security is still immature</h3>
+<p>
+              Retrieval has become the default enterprise design pattern, but many deployments still treat the vector store as a neutral component. In reality,
+              the ingestion path, chunking strategy, embedding model, ranking logic, and authorization boundary all affect security. Better formal models and benchmarks
+              for retrieval poisoning, retriever manipulation, and retrieval privacy leakage are urgently needed.
+            </p>
+<h3>6. Privacy risks in large-scale and generative models are evolving</h3>
+<p>
+              Membership inference, inversion, and extraction risks look different in recommendation systems, multimodal models, code models, and general-purpose LLMs.
+              We still need sharper understanding of what memorization means operationally, how leakage changes after instruction tuning or RL-based updates, and how to
+              measure privacy exposure without access to proprietary training data.
+            </p>
+<h3>7. AI supply-chain assurance is incomplete</h3>
+<p>
+              The community still lacks strong norms for dataset provenance, model attestation, tokenizer trust, prompt-template governance, embedding-model change control,
+              and safe reuse of public checkpoints. This is a critical gap because modern AI applications are assembled from many upstream artifacts rather than built from scratch.
+            </p>
+<h3>8. Benchmarks lag behind deployment reality</h3>
+<p>
+              Benchmarks are often clean, static, English-only, and single-turn. Real systems are multilingual, multimodal, stateful, tool-enabled, and connected to live data.
+              Future evaluation must better reflect realistic deployments, including partial observability, feedback loops, and long-horizon agent behavior.
+            </p>
+<h3>9. Bridging AI security with classical AppSec and SecOps</h3>
+<p>
+              Software security for AI should not evolve as a completely separate discipline. The strongest deployments integrate traditional software assurance ideas—least privilege,
+              sandboxing, input validation, CI/CD controls, secrets management, dependency scanning, observability, and incident response—with AI-specific testing and threat modeling.
+              The research challenge is to make that integration systematic rather than ad hoc.
+            </p>
+<h3>10. Future direction</h3>
+<ul>
+<li>Security-by-design architectures for LLM agents and tool ecosystems.</li>
+<li>Formal trust boundaries for retrieval, memory, and external tools.</li>
+<li>Unified metrics for robustness, privacy, and abuse resistance.</li>
+<li>Adaptive red-teaming frameworks that reflect real attacker iteration.</li>
+<li>Cross-layer work connecting software risks with cloud, edge, and hardware deployment assumptions.</li>
+<li>Assurance methods that remain useful even when model internals are opaque.</li>
+</ul>
+</section>
+<section id="readings">
+<span class="kicker">Selected readings</span>
+<h2>Selected readings and frameworks</h2>
+<p>
+              The references below are a good starting point for a reader who wants both foundational and current views of software-side AI security.
+            </p>
+<ul>
+<li><a href="https://csrc.nist.gov/pubs/ai/100/2/e2025/final" rel="noopener noreferrer" target="_blank">NIST AI 100-2 (2025): Adversarial Machine Learning Taxonomy and Terminology</a></li>
+<li><a href="https://www.nist.gov/itl/ai-risk-management-framework" rel="noopener noreferrer" target="_blank">NIST AI Risk Management Framework (AI RMF)</a></li>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf" rel="noopener noreferrer" target="_blank">NIST AI 600-1: Generative AI Profile</a></li>
+<li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" rel="noopener noreferrer" target="_blank">OWASP Top 10 for LLM Applications</a></li>
+<li><a href="https://atlas.mitre.org/" rel="noopener noreferrer" target="_blank">MITRE ATLAS</a></li>
+<li><a href="https://openai.com/index/designing-agents-to-resist-prompt-injection/" rel="noopener noreferrer" target="_blank">Designing AI Agents to Resist Prompt Injection</a></li>
+<li><a href="https://developers.openai.com/api/docs/guides/agent-builder-safety/" rel="noopener noreferrer" target="_blank">Safety in Building Agents</a></li>
+<li><a href="https://arxiv.org/abs/2206.08451" rel="noopener noreferrer" target="_blank">I Know What You Trained Last Summer: A Survey on Stealing Machine Learning Models and Defences</a></li>
+<li><a href="https://arxiv.org/abs/2103.07853" rel="noopener noreferrer" target="_blank">Membership Inference Attacks on Machine Learning: A Survey</a></li>
+<li><a href="https://arxiv.org/abs/2505.08728" rel="noopener noreferrer" target="_blank">Securing RAG: A Risk Assessment and Mitigation Framework</a></li>
+<li><a href="https://arxiv.org/abs/2503.22759" rel="noopener noreferrer" target="_blank">Data Poisoning in Deep Learning: A Survey</a></li>
+</ul>
+<div class="callout">
+<strong>Best next step for this page:</strong> add one figure showing the software attack surface across
+              data, model, retrieval, orchestration, and tool execution. That single diagram will make the page much more intuitive.
+            </div>
+</section>
+</div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>

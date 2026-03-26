@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Distributed AI and Interconnects | Brojogopal Sapui</title>
+<meta content="Technical foundation page on distributed AI execution, collective communication, interconnect fabrics, and why distributed behavior is part of the AI security model." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="../assets/js/site-shell.js"></script><script defer="True" src="../assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="1" data-nav="research" data-page="distributed-ai-interconnects">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="hero" style="padding: 4.5rem 0 3rem;">
+<div class="container">
+<span class="eyebrow">AI Foundations • Distributed AI &amp; Interconnects</span>
+<h1 style="max-width: 14ch;">Distributed AI and Interconnects</h1>
+<p class="lead" style="max-width: 86ch;">Large AI systems increasingly rely on distributed execution across many accelerators, servers, or racks. Once tensors, gradients, optimizer state, or KV-cache fragments move across interconnect fabrics, communication itself becomes part of the security problem.</p>
+</div>
+</section>
+<section class="section">
+<div class="container split">
+<div class="content-card">
+<span class="kicker">Overview</span>
+<h2>What this topic covers</h2>
+<p>Distributed AI systems exchange activations, gradients, optimizer state, or cache fragments through interconnect fabrics such as NVLink, PCIe, CXL, Ethernet, InfiniBand, or switch fabrics spanning racks. Collective communication and topology-aware scheduling are essential to keep many devices working together efficiently.</p>
+<p>From a security perspective, those communication layers are not invisible plumbing. Traffic patterns, synchronization stalls, topology placement, metadata, and orchestration behavior can reveal workload structure or become targets for denial, integrity disruption, or cross-tenant observation. A modern AI threat model is incomplete if it ignores the networked execution path.</p>
+</div>
+<div class="content-card">
+<span class="kicker">Why it matters</span>
+<h2>Security significance</h2>
+<ul class="check-list">
+<li>Communication cost can dominate execution, making interconnect traffic a major performance and security signal.</li>
+<li>Collectives and synchronization expose metadata about batch structure, sharding, and workload phase.</li>
+<li>Distributed execution broadens trust boundaries from a single device to a coordinated system.</li>
+<li>Attestation, integrity, and isolation become multi-node properties rather than local guarantees.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="section alt">
+<div class="container">
+<figure class="page-figure compact-figure foundation-figure">
+<div class="img-frame">
+<img alt="Diagram of distributed AI nodes connected through an interconnect fabric with leakage and defense considerations." class="zoom-img" src="../assets/img/foundations/distributed-ai-interconnects.svg"/>
+</div>
+<figcaption>Distributed execution view showing that nodes, fabrics, collectives, and orchestration metadata all belong inside the AI security model.</figcaption>
+</figure>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Key concepts</span>
+<h2>Distributed execution building blocks</h2>
+<p>A secure analysis of scale-out AI begins with the communication structure itself.</p>
+</div>
+<div class="card-grid three">
+<div class="section-card"><h3>Nodes and local memories</h3><p>Each node has its own accelerator-local state, memory hierarchy, and scheduler behavior. Distributed execution never eliminates local security questions; it multiplies them across many participants.</p></div>
+<div class="section-card"><h3>Interconnect and collective operations</h3><p>All-reduce, all-gather, scatter, and pipeline synchronization determine how state moves across the system. These operations can reveal workload structure and create integrity-sensitive control points.</p></div>
+<div class="section-card"><h3>Placement and orchestration metadata</h3><p>Topology choices, rack placement, route selection, and scheduling metadata influence both efficiency and observability. Even without reading tensor values, an observer may learn a great deal from coordination patterns.</p></div>
+</div>
+</div>
+</section>
+<section class="section alt">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Security lens</span>
+<h2>Distributed-system security questions</h2>
+<p>Security assurance in scale-out AI must include communication-aware reasoning.</p>
+</div>
+<div class="card-grid three">
+<div class="section-card"><h3>What can the fabric observer infer?</h3><p>Traffic timing, volume, synchronization barriers, and collective cadence may reveal model family, phase, or scaling behavior even when payloads stay encrypted or inaccessible.</p></div>
+<div class="section-card"><h3>Where does integrity matter most?</h3><p>Faults or misrouting in collectives can corrupt global state, poison distributed updates, or destabilize inference pipelines that rely on synchronized shards.</p></div>
+<div class="section-card"><h3>How are nodes authenticated and isolated?</h3><p>Distributed AI requires node identity, attestation, trusted routing assumptions, and clear separation between benign telemetry and information that leaks tenant or workload structure.</p></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="cta">
+<div>
+<span class="eyebrow">Next Step</span>
+<h2>Back to the research map</h2>
+<p>Return to the structured research overview or continue browsing the other AI foundations and AI security themes.</p>
+</div>
+<div class="cta-actions">
+<a class="btn btn-primary" href="../research.html">Research Map</a>
+<a class="btn btn-secondary" href="../publications.html">Resources</a>
+</div>
+</div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>

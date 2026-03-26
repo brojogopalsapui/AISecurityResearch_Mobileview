@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cloud AI Security | Brojogopal Sapui</title>
+<meta content="Cloud AI security spans shared infrastructure, model APIs, orchestration, storage, IAM, tenant isolation, confidential computing, training clusters, and large-scale AI service operation." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="../assets/js/site-shell.js"></script><script defer="True" src="../assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="1" data-nav="research" data-page="cloud-security">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="page-hero">
+<div class="container">
+<span class="eyebrow">AI Security Section</span>
+<h1>Cloud AI Security</h1>
+<p class="lead">
+          Cloud AI security is shaped by remote model access, shared infrastructure, large-scale orchestration,
+          centralized data pipelines, tenant isolation, identity boundaries, logging, storage, and the operational glue
+          that keeps AI services running in production. In the cloud, security is not only about the model. It is about
+          the entire service stack that surrounds the model at scale.
+        </p>
+</div>
+</section>
+<section class="section">
+<div class="container page-grid">
+<aside class="toc">
+<h3>Navigate this section</h3>
+<a href="#overview">Overview</a>
+<a href="#threats">Threat model</a>
+<a href="#defenses">Countermeasures</a>
+<a href="#gaps">Open challenges</a>
+<a href="#readings">Selected readings</a>
+<hr style="border-color:rgba(32,58,87,.12)"/>
+<a href="software-security.html">Software</a>
+<a href="hardware-security.html">Hardware</a>
+<a href="cloud-security.html">Cloud</a>
+<a href="edge-security.html">Edge</a>
+<a href="predictive-ai.html">Predictive AI</a>
+<a href="generative-ai.html">Generative AI</a>
+<a href="agentic-ai.html">Agentic AI</a>
+<a href="physical-ai.html">Physical AI</a>
+<a href="countermeasures.html">Countermeasures</a>
+</aside>
+<div class="content-card">
+<section id="overview">
+<span class="kicker">Overview</span>
+<h2>Why cloud deployment changes the AI security problem</h2>
+<p>
+              Cloud deployment makes advanced AI broadly accessible because it centralizes compute, storage, model serving,
+              observability, and orchestration. That centralization is powerful, but it also concentrates risk. A cloud AI service
+              typically exposes remote APIs, uses object storage and vector databases, relies on CI/CD and container orchestration,
+              keeps logs and traces, integrates with identity systems, and often shares physical infrastructure with other tenants.
+              This means the real attack surface is much larger than the model endpoint that users see.
+            </p>
+<p>
+              A practical way to think about cloud AI security is to separate <strong>model security</strong> from <strong>service security</strong>.
+              Model security asks whether the model can be extracted, manipulated, poisoned, or made to leak information. Service security asks
+              whether the surrounding cloud stack—identity, storage, network paths, orchestration, inference gateways, secrets, logging,
+              and tenant isolation—can be exploited to reach the model or the data around it. In production, failures often come from their interaction.
+            </p>
+<h3>Why the cloud is different from local deployment</h3>
+<ul>
+<li><strong>Remote access is the default:</strong> cloud AI is usually reachable through APIs, SDKs, gateways, or internal service meshes.</li>
+<li><strong>Shared infrastructure is common:</strong> compute nodes, accelerators, storage, and orchestration layers may be multi-tenant.</li>
+<li><strong>Operational scale is high:</strong> autoscaling, queuing, retries, tracing, and distributed pipelines create more trust boundaries.</li>
+<li><strong>Data gravity matters:</strong> training corpora, prompts, embeddings, artifacts, and logs are often centralized in cloud storage.</li>
+<li><strong>Control is distributed:</strong> responsibility is shared across cloud provider, model provider, platform team, and application owner.</li>
+</ul>
+<h3>Cloud-specific security objectives</h3>
+<ul>
+<li><strong>Tenant isolation:</strong> one customer’s data, prompts, and workloads must not leak into another customer’s environment.</li>
+<li><strong>Identity-centric control:</strong> every model, dataset, service, tool, and operator action should be bound to explicit authorization.</li>
+<li><strong>Data governance:</strong> prompts, retrieved content, embeddings, model artifacts, and logs should be stored and retained intentionally.</li>
+<li><strong>Service resilience:</strong> the system should withstand extraction pressure, abusive prompts, token flooding, and cost-amplification attacks.</li>
+<li><strong>Operational auditability:</strong> incidents should be traceable across model calls, tools, infrastructure events, and policy changes.</li>
+<li><strong>Supply-chain integrity:</strong> base models, containers, weights, packages, and deployment manifests should be trusted and versioned.</li>
+</ul>
+<h3>Where cloud AI security becomes most visible</h3>
+<ul>
+<li>Hosted LLM APIs and inference endpoints.</li>
+<li>Enterprise RAG platforms with object storage and vector databases.</li>
+<li>Managed training pipelines and batch fine-tuning jobs.</li>
+<li>Agent platforms connected to SaaS tools, email, ticketing, or databases.</li>
+<li>Multi-user copilots embedded inside business workflows.</li>
+<li>Model-serving platforms built on Kubernetes and containerized microservices.</li>
+</ul>
+<div class="callout">
+<strong>Research intuition:</strong> cloud AI security is fundamentally a <em>systems</em> problem.
+              Even when the model is strong, weak identity boundaries, storage policy mistakes, logging leakage,
+              or orchestration misconfiguration can become the real source of compromise.
+            </div>
+</section>
+<figure class="page-figure">
+<img alt="Diagram showing cloud AI security across trust boundaries, main threats, data exposure, infrastructure risks, operational impact, and security focus." src="../assets/img/diagrams/cloud_ai_security_landscape.svg"/>
+<figcaption>Cloud AI security across identity, orchestration, storage, model serving, and operations.</figcaption>
+</figure>
+<section id="threats">
+<span class="kicker">Threat model</span>
+<h2>Threat model and cloud-specific attack surface</h2>
+<p>
+              A cloud AI threat model should state who the attacker is, which layer they can touch, and whether they aim at the model,
+              the platform, or the data around it. Cloud attackers are often remote and economically motivated, but not always. They may be external API abusers,
+              malicious tenants, compromised developers, insiders with excessive permissions, supply-chain adversaries, or attackers who exploit ordinary cloud weaknesses
+              to reach AI-specific assets.
+            </p>
+<h3>Attacker positions</h3>
+<ul>
+<li><strong>Remote API attacker:</strong> interacts with public or semi-public inference endpoints to extract behavior, leak data, or raise cost.</li>
+<li><strong>Tenant-level attacker:</strong> abuses multi-tenant hosting assumptions, noisy-neighbor conditions, or weak isolation boundaries.</li>
+<li><strong>Application-layer attacker:</strong> exploits prompts, retrieval, plugins, web hooks, or orchestration code wrapped around the model.</li>
+<li><strong>Credential attacker:</strong> steals cloud tokens, service accounts, API keys, or workload identities to access AI resources.</li>
+<li><strong>Supply-chain attacker:</strong> compromises models, containers, packages, CI pipelines, infrastructure-as-code, or deployment manifests.</li>
+<li><strong>Insider or privileged operator:</strong> misuses logging access, model management rights, storage buckets, or debugging interfaces.</li>
+</ul>
+<h3>Shared-responsibility reality</h3>
+<p>
+              In cloud AI, responsibility is rarely held by one actor. The infrastructure provider may secure the physical facilities and core platform,
+              but the customer or application owner still controls IAM choices, data placement, secrets, retrieval configuration, storage policy,
+              prompt design, and tool permissions. Security failure often occurs in the seams between those roles rather than inside one clearly owned component.
+            </p>
+<h3>Major cloud AI threat classes</h3>
+<h3>1. API abuse, model extraction, and query-scale reconnaissance</h3>
+<p>
+              Cloud AI is typically exposed through APIs, making query-based attack surfaces central. Attackers can send repeated requests to approximate model behavior,
+              infer hidden prompts, recover policy boundaries, probe moderation thresholds, or build substitute models. Even when full extraction is not achieved,
+              repeated querying can reveal system capability, weakness, or confidential business logic.
+            </p>
+<ul>
+<li>High-risk signals include unrestricted query volume, rich probability outputs, verbose error messages, and weak tenant-level quotas.</li>
+<li>Reconnaissance often begins with harmless-looking prompts to map refusals, token limits, tool availability, and hidden wrappers.</li>
+<li>Cost abuse and extraction can occur together: the attacker learns from the service while forcing the defender to pay for the interaction.</li>
+</ul>
+<h3>2. Identity, access, and secret-management failures</h3>
+<p>
+              Many cloud AI incidents are ordinary cloud-security failures with AI consequences. Overprivileged service accounts, leaked API keys,
+              misconfigured roles, long-lived secrets, or badly scoped workload identities can expose model endpoints, storage buckets, training artifacts,
+              vector databases, or management interfaces. In AI deployments, these mistakes are amplified because one credential may unlock multiple sensitive assets.
+            </p>
+<ul>
+<li>Compromised service identities may access prompts, embeddings, logs, fine-tuning jobs, or downstream connectors.</li>
+<li>Shared secrets across services make blast radius large and root-cause analysis harder.</li>
+<li>Temporary tokens and attested workload identity are safer than static credentials embedded in code or configuration.</li>
+</ul>
+<h3>3. Storage, logging, and data-governance leakage</h3>
+<p>
+              Cloud AI systems often store more data than teams realize: prompt logs, traces, user uploads, retrieved documents, embeddings,
+              output caches, evaluation artifacts, and debug records. These may reside in object storage, observability tools, databases, or vendor dashboards.
+              Leakage may therefore occur outside the model response path, through retention policy mistakes, logging verbosity, insecure exports,
+              or insufficient access segmentation between teams.
+            </p>
+<ul>
+<li><strong>Prompt and response leakage:</strong> sensitive content appears in logs, traces, support dashboards, or analytics exports.</li>
+<li><strong>Embedding leakage:</strong> vector stores can indirectly expose proprietary knowledge if access is poorly controlled.</li>
+<li><strong>Artifact leakage:</strong> model checkpoints, adapters, tokenizer files, and evaluation outputs may be unintentionally exposed.</li>
+</ul>
+<h3>4. Multi-tenant isolation and cross-boundary risk</h3>
+<p>
+              Cloud AI often runs on shared clusters, shared accelerators, shared orchestration layers, or multi-tenant control planes.
+              Even when direct cross-tenant compromise is rare, weak isolation can still cause leakage through misrouting, cache confusion,
+              metadata exposure, shared indexes, or insufficient namespace and identity separation. As AI workloads increasingly rely on expensive shared accelerators,
+              the importance of strong isolation grows further.
+            </p>
+<ul>
+<li>Isolation issues can arise at the network, container, runtime, storage, scheduler, or accelerator-assignment level.</li>
+<li>Shared vector stores or retrieval services can accidentally mix authorization domains.</li>
+<li>Operational dashboards may expose metadata about workloads, job names, or usage patterns across teams or tenants.</li>
+</ul>
+<h3>5. Orchestration, RAG, and glue-code compromise</h3>
+<p>
+              In practice, the model is only one component in a broader cloud workflow. Orchestration services assemble prompts, fetch documents,
+              normalize tool outputs, handle state, and invoke downstream APIs. This glue code often becomes the weakest point because it evolves rapidly,
+              is business-specific, and may not receive the same security review as core infrastructure. Prompt injection, retrieval poisoning, and insecure output handling
+              can therefore become cloud AI incidents even when the hosting layer itself is correctly configured.
+            </p>
+<h3>6. Model and software supply-chain compromise</h3>
+<p>
+              Cloud AI services depend on many upstream artifacts: pretrained weights, container images, libraries, tokenizer assets, evaluation scripts,
+              infrastructure-as-code, plugin connectors, and CI/CD pipelines. A supply-chain compromise can alter behavior long before the model is queried.
+              The cloud amplifies this risk because artifacts are reused, replicated, and deployed rapidly across environments.
+            </p>
+<ul>
+<li>Malicious or low-integrity checkpoints can introduce hidden behaviors or unsafe defaults.</li>
+<li>Compromised containers and build pipelines can leak secrets or tamper with model-serving logic.</li>
+<li>Untracked prompt-template or policy changes can materially alter security posture without obvious infrastructure alerts.</li>
+</ul>
+<h3>7. Training-pipeline and MLOps compromise</h3>
+<p>
+              Managed cloud training pipelines bring datasets, notebooks, feature stores, schedulers, experiment trackers, and artifact registries into scope.
+              Attackers may poison data, alter evaluation jobs, replace model artifacts, tamper with deployment promotion logic, or exploit weak separation between development,
+              staging, and production AI assets. MLOps pipelines are attractive because they concentrate both privileges and trust.
+            </p>
+<ul>
+<li>Model registries and artifact stores become high-value targets.</li>
+<li>Evaluation pipelines can be manipulated to falsely signal readiness or safety.</li>
+<li>Notebook and job environments often accumulate overly broad permissions over time.</li>
+</ul>
+<h3>8. Cost-amplification and availability attacks</h3>
+<p>
+              Cloud AI systems are highly susceptible to asymmetric economic attacks. Attackers can trigger long contexts, repeated generation,
+              expensive retrieval, recursive tool execution, massive embedding requests, or bursty inference traffic. The result may be latency spikes,
+              service degradation, quota exhaustion, or large unexpected bills even without a conventional data breach.
+            </p>
+<ul>
+<li>Autoscaling reduces some availability issues but can worsen cost exposure.</li>
+<li>Queueing and retries can unintentionally amplify attacker traffic.</li>
+<li>Billing, throttling, and anomaly detection are therefore part of the security boundary.</li>
+</ul>
+<h3>9. Confidentiality of data in use</h3>
+<p>
+              Cloud controls traditionally protect data at rest and in transit, but AI workloads also raise concern about data <em>in use</em> during training or inference.
+              Organizations handling sensitive prompts, regulated data, healthcare information, or proprietary model weights increasingly care about execution confidentiality,
+              attestation, and whether cloud operators or co-resident workloads could observe sensitive computation paths.
+            </p>
+<h3>10. Governance drift across fast-moving cloud stacks</h3>
+<p>
+              Cloud AI deployments change quickly: prompts evolve, model versions rotate, containers are rebuilt, connectors are added, and new data sources are indexed.
+              This velocity creates a governance problem. Security assumptions that were valid last month may quietly fail after a seemingly small pipeline or policy change.
+            </p>
+</section>
+<section id="defenses">
+<span class="kicker">Countermeasures</span>
+<h2>Countermeasures and secure design principles</h2>
+<p>
+              Strong cloud AI defense comes from combining cloud-native security discipline with AI-specific controls.
+              The goal is not merely to harden one endpoint. It is to make identities explicit, reduce blast radius,
+              verify what is deployed, control data movement, and continuously observe the behavior of both models and the infrastructure around them.
+            </p>
+<h3>1. Zero-trust and identity-first architecture</h3>
+<ul>
+<li>Authenticate and authorize every access to models, data stores, orchestration services, and management APIs.</li>
+<li>Use short-lived credentials, workload identity, and service-to-service authentication rather than shared static secrets.</li>
+<li>Apply least privilege at human, service, tool, and pipeline levels.</li>
+<li>Separate development, evaluation, staging, and production identities and permissions.</li>
+<li>Continuously re-evaluate trust instead of assuming safety based on network location alone.</li>
+</ul>
+<p>
+              This matters especially in cloud AI because network perimeter assumptions break down quickly once models, retrievers,
+              agents, pipelines, and storage are distributed across many services.
+            </p>
+<h3>2. Strong tenant and workload isolation</h3>
+<ul>
+<li>Use namespace, network, and storage isolation for different teams, customers, and environments.</li>
+<li>Prevent shared indexes, caches, or logs from crossing authorization boundaries.</li>
+<li>Restrict scheduler placement and resource sharing for sensitive workloads when required.</li>
+<li>Prefer dedicated or stronger-isolation configurations for high-value training and inference services.</li>
+<li>Harden Kubernetes and cluster admission paths, not only the application container itself.</li>
+</ul>
+<h3>3. API, gateway, and inference-endpoint protection</h3>
+<ul>
+<li>Enforce rate limits, quotas, anomaly detection, and per-tenant traffic policies.</li>
+<li>Reduce unnecessary output detail such as raw confidences, verbose errors, or debugging metadata.</li>
+<li>Use API gateways, schema validation, and policy enforcement before requests reach the model runtime.</li>
+<li>Track extraction-like query patterns, repeated boundary probing, and cost-amplifying request shapes.</li>
+<li>Separate internal admin endpoints from customer-facing inference paths.</li>
+</ul>
+<h3>4. Data governance and storage minimization</h3>
+<ul>
+<li>Classify prompts, documents, embeddings, checkpoints, and logs by sensitivity.</li>
+<li>Minimize retention of raw prompts, intermediate traces, and debugging artifacts.</li>
+<li>Encrypt data at rest and in transit, and control access to object stores, model registries, and vector databases.</li>
+<li>Segment logging and analytics access so operators do not automatically see sensitive customer content.</li>
+<li>Use explicit lifecycle rules for backup, archival, export, and deletion of AI-related artifacts.</li>
+</ul>
+<h3>5. Secrets management and connector control</h3>
+<ul>
+<li>Store credentials in dedicated secrets-management systems rather than code, prompts, or environment files.</li>
+<li>Rotate secrets regularly and on incident signals.</li>
+<li>Bind connector access to narrow roles and specific use cases.</li>
+<li>Scan builds, repositories, prompts, and logs for exposed secrets.</li>
+<li>Make external connectors opt-in and auditable rather than implicitly available to the entire AI platform.</li>
+</ul>
+<h3>6. Secure MLOps and supply-chain integrity</h3>
+<ul>
+<li>Sign and verify model artifacts, container images, and deployment packages where possible.</li>
+<li>Version-control prompts, policy files, evaluation configurations, and infrastructure-as-code.</li>
+<li>Use admission and CI/CD checks before models, containers, or retrievers are promoted to production.</li>
+<li>Track provenance for base models, fine-tuning data, adapters, and benchmark results.</li>
+<li>Separate who can train, who can approve, who can deploy, and who can observe production behavior.</li>
+</ul>
+<h3>7. Retrieval and application-layer hardening</h3>
+<ul>
+<li>Treat retrieved cloud content as untrusted unless explicitly validated.</li>
+<li>Apply authorization filters before retrieved content enters prompts.</li>
+<li>Isolate high-privilege system instructions from user and document content.</li>
+<li>Validate model outputs before they are passed to tools, databases, or downstream services.</li>
+<li>Use human approval or deterministic policy checks for consequential actions.</li>
+</ul>
+<h3>8. Confidential computing and attested execution</h3>
+<p>
+              For sensitive deployments, organizations increasingly consider confidential computing to protect data in use during training or inference.
+              Hardware-backed trusted execution environments and attestation can strengthen trust assumptions around remote execution,
+              especially when sensitive data or proprietary models must be processed in shared cloud environments.
+            </p>
+<ul>
+<li>Use confidential-computing-capable infrastructure when execution confidentiality is a major requirement.</li>
+<li>Bind secrets release and workflow approval to attestation where feasible.</li>
+<li>Understand the performance, compatibility, and operational trade-offs rather than assuming TEEs are a universal fix.</li>
+</ul>
+<h3>9. Monitoring, forensics, and incident response</h3>
+<ul>
+<li>Correlate infrastructure logs, IAM events, model traces, retrieval events, and tool invocations.</li>
+<li>Detect unusual query bursts, repeated refusals, high-cost sessions, extraction patterns, or cross-tenant anomalies.</li>
+<li>Prepare rollback paths for model versions, prompts, indexes, containers, and policy changes.</li>
+<li>Retain enough evidence for investigation while avoiding unnecessary retention of sensitive user content.</li>
+<li>Exercise incident playbooks that include both cloud-security and AI-specific failure modes.</li>
+</ul>
+<div class="callout">
+<strong>Practical takeaway:</strong> cloud AI security works best when the model is treated like one high-value service inside a larger zero-trust,
+              identity-driven, auditable platform—not like a magical black box placed on top of ordinary cloud plumbing.
+            </div>
+</section>
+<section id="gaps">
+<span class="kicker">Open challenges</span>
+<h2>Open research challenges and future directions</h2>
+<p>
+              Cloud AI security is moving quickly, but assurance still lags behind deployment velocity. Teams can launch powerful AI services in days,
+              while rigorous evaluation of isolation, provenance, privacy, and service composition still takes much longer. The major challenge is therefore
+              not only better controls, but better <strong>assurance under rapid change</strong>.
+            </p>
+<h3>1. Assurance across layered ownership remains weak</h3>
+<p>
+              Cloud AI systems are built across provider, model platform, application, and customer layers. Shared responsibility is well known in principle,
+              but still difficult to verify in practice. Organizations need clearer ways to express which control is owned by whom and how evidence flows across those layers.
+            </p>
+<h3>2. Strong multi-tenant isolation for AI accelerators is still evolving</h3>
+<p>
+              As AI workloads rely more on shared accelerators and specialized runtimes, the research problem of secure isolation grows more important.
+              The community still needs stronger practical assurance around co-residency risk, scheduling separation, memory isolation, and performance side effects in shared AI infrastructure.
+            </p>
+<h3>3. Data in use remains a difficult trust boundary</h3>
+<p>
+              Encryption at rest and in transit is mature, but protection of data and model weights during live execution remains harder.
+              Confidential computing is promising, yet deployment patterns, attestation workflows, debugging models, and performance costs are still active engineering questions.
+            </p>
+<h3>4. Logging and observability create a paradox</h3>
+<p>
+              Cloud AI needs detailed telemetry for safety, abuse detection, and debugging, but that same telemetry may contain user data,
+              proprietary prompts, retrieved documents, or tool outputs. Better privacy-aware observability designs are needed so teams can investigate incidents without over-collecting sensitive content.
+            </p>
+<h3>5. MLOps assurance is still immature</h3>
+<p>
+              CI/CD pipelines for AI now include datasets, prompts, benchmark results, adapters, containers, vector stores, and policy files.
+              We still lack mature, widely adopted assurance practices that cover the entire lifecycle rather than only the final deployed image.
+            </p>
+<h3>6. Cloud cost and security are tightly coupled</h3>
+<p>
+              In AI services, cost anomalies can signal active attack, broken routing, extraction pressure, or denial-of-wallet behavior.
+              Future security frameworks should treat billing behavior, scaling patterns, and quota abuse as first-class security signals rather than separate FinOps concerns.
+            </p>
+<h3>7. Retrieval and storage authorization remain easy to get wrong</h3>
+<p>
+              Enterprise cloud AI frequently connects LLMs to large internal knowledge stores. The challenge is not only preventing external leakage,
+              but ensuring that retrieval, caching, and summarization preserve the original authorization semantics of the underlying documents.
+            </p>
+<h3>8. Cloud AI benchmarks lag behind real deployments</h3>
+<p>
+              Many evaluations still assume a single endpoint and a single attacker. Real systems are multi-stage, stateful, multilingual, monitored,
+              containerized, and interconnected with storage, identity, and SaaS platforms. Better cloud-realistic benchmarks are needed for query abuse,
+              retrieval compromise, orchestration risk, and cross-layer incident response.
+            </p>
+<h3>9. Governance drift is continuous</h3>
+<p>
+              The cloud encourages rapid experimentation, but prompts, retrievers, connectors, model versions, and IAM policies can all drift over time.
+              A major future direction is continuous assurance: proving not only that the system was secure at deployment, but that it remains acceptably secure after many small operational changes.
+            </p>
+<h3>10. Future direction</h3>
+<ul>
+<li>Evidence-driven control mapping across provider, platform, application, and customer layers.</li>
+<li>Stronger attestation and confidential-computing workflows for sensitive AI inference and training.</li>
+<li>Cloud-realistic benchmarks for extraction, tenant isolation, cost abuse, and orchestration compromise.</li>
+<li>Privacy-aware observability and forensic methods for AI services.</li>
+<li>Security architectures that connect IAM, storage policy, retrievers, tools, and models as one governed system.</li>
+<li>Cross-layer research connecting cloud risks with hardware trust, edge deployment, and physical-world AI consequences.</li>
+</ul>
+</section>
+<section id="readings">
+<span class="kicker">Selected readings</span>
+<h2>Selected readings and frameworks</h2>
+<p>
+              The references below are strong starting points for readers who want cloud-native and AI-specific perspectives together.
+            </p>
+<ul>
+<li><a href="https://www.nist.gov/itl/ai-risk-management-framework" rel="noopener noreferrer" target="_blank">NIST AI Risk Management Framework (AI RMF)</a></li>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf" rel="noopener noreferrer" target="_blank">NIST AI 600-1: Generative AI Profile</a></li>
+<li><a href="https://csrc.nist.gov/pubs/ai/100/2/e2025/final" rel="noopener noreferrer" target="_blank">NIST AI 100-2: Adversarial Machine Learning Taxonomy and Terminology</a></li>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.800-207.pdf" rel="noopener noreferrer" target="_blank">NIST SP 800-207: Zero Trust Architecture</a></li>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf" rel="noopener noreferrer" target="_blank">NIST Cybersecurity Framework (CSF) 2.0</a></li>
+<li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf" rel="noopener noreferrer" target="_blank">OWASP Top 10 for LLM Applications 2025</a></li>
+<li><a href="https://atlas.mitre.org/" rel="noopener noreferrer" target="_blank">MITRE ATLAS</a></li>
+<li><a href="https://atlas.mitre.org/pdf-files/SAFEAI_Full_Report.pdf" rel="noopener noreferrer" target="_blank">MITRE SAFE-AI: A Framework for Securing AI-Enabled Systems</a></li>
+<li><a href="https://cloudsecurityalliance.org/artifacts/ai-controls-matrix" rel="noopener noreferrer" target="_blank">Cloud Security Alliance: AI Controls Matrix (AICM)</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/security/" rel="noopener noreferrer" target="_blank">Kubernetes Security Overview</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/" rel="noopener noreferrer" target="_blank">Kubernetes: Securing a Cluster</a></li>
+<li><a href="https://cloud.google.com/security/products/confidential-computing" rel="noopener noreferrer" target="_blank">Confidential Computing for Cloud Workloads</a></li>
+</ul>
+<div class="callout">
+<strong>Best next step for this page:</strong> add one diagram showing the cloud AI stack end to end—identity → API gateway → orchestration → retrieval/storage → model runtime → tool connectors → logs/monitoring.
+              That figure will make the cloud-specific trust boundaries much easier to understand.
+            </div>
+</section>
+</div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>

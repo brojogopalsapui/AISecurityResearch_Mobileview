@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agentic AI Security | Brojogopal Sapui</title>
+<meta content="Agentic AI security spans autonomous planning, memory, tool use, delegation, identity, multi-agent coordination, and long-horizon execution risks in modern AI systems." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="../assets/js/site-shell.js"></script><script defer="True" src="../assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="1" data-nav="research" data-page="agentic-ai">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="page-hero">
+<div class="container">
+<span class="eyebrow">AI Security Section</span>
+<h1>Agentic AI Security</h1>
+<p class="lead">
+          Agentic AI introduces a different security regime from one-shot assistants because the system can plan,
+          maintain state, call tools, retrieve external information, delegate subtasks, and act over time.
+          The security problem is therefore not limited to harmful output generation. It includes goal hijacking,
+          memory poisoning, tool misuse, privilege abuse, unsafe delegation, cascading failures, and operational
+          drift across long-horizon workflows.
+        </p>
+</div>
+</section>
+<section class="section">
+<div class="container page-grid">
+<aside class="toc">
+<h3>Navigate this section</h3>
+<a href="#overview">Overview</a>
+<a href="#threats">Threat model</a>
+<a href="#defenses">Countermeasures</a>
+<a href="#gaps">Open challenges</a>
+<a href="#readings">Selected readings</a>
+<hr style="border-color:rgba(32,58,87,.12)"/>
+<a href="software-security.html">Software</a>
+<a href="hardware-security.html">Hardware</a>
+<a href="cloud-security.html">Cloud</a>
+<a href="edge-security.html">Edge</a>
+<a href="predictive-ai.html">Predictive AI</a>
+<a href="generative-ai.html">Generative AI</a>
+<a href="agentic-ai.html">Agentic AI</a>
+<a href="physical-ai.html">Physical AI</a>
+<a href="countermeasures.html">Countermeasures</a>
+</aside>
+<div class="content-card">
+<section id="overview">
+<span class="kicker">Overview</span>
+<h2>Why agentic AI changes the security problem</h2>
+<p>
+              Agentic systems are not just chat interfaces with longer prompts. They are software systems in which a model
+              can decompose tasks, choose intermediate actions, retrieve context, store memory, invoke tools, communicate with
+              other services, and sometimes coordinate with other agents. This means the attack surface becomes temporal and operational.
+              A single manipulated step may persist in memory, alter later planning, trigger a chain of tool calls, or quietly reshape the
+              system's goals over many iterations.
+            </p>
+<p>
+              The central difference from ordinary LLM applications is that an agent does not only <strong>answer</strong>; it can
+              <strong>act</strong>. Once action is possible, security depends on capability boundaries, policy enforcement, state handling,
+              and runtime oversight. In that setting, prompt injection is still important, but it becomes only one part of a larger problem that
+              includes tool authorization, memory integrity, inter-agent trust, identity propagation, rollback, and containment of downstream side effects.
+            </p>
+<h3>What makes a system agentic?</h3>
+<ul>
+<li><strong>Goal-directed behavior:</strong> the system tries to complete a task rather than simply produce a one-step answer.</li>
+<li><strong>Planning and decomposition:</strong> the system breaks work into subgoals, iterations, or conditional branches.</li>
+<li><strong>State and memory:</strong> the system persists observations, preferences, previous tool outputs, or partial results.</li>
+<li><strong>Tool use:</strong> the system can browse, search, query databases, send messages, execute code, or manipulate files.</li>
+<li><strong>Delegation:</strong> the system may call sub-agents, workflows, or external services on the user's behalf.</li>
+<li><strong>Long-horizon execution:</strong> the system may operate across many steps, making partial compromise accumulate over time.</li>
+</ul>
+<h3>Why agentic security is different from generative security</h3>
+<ul>
+<li><strong>Time matters:</strong> security failures can emerge gradually across many small steps rather than in one output.</li>
+<li><strong>State matters:</strong> malicious content can persist in memory, context, or workflow artifacts.</li>
+<li><strong>Permissions matter:</strong> the model's access to tools, files, identities, and external systems becomes part of the threat model.</li>
+<li><strong>Composition matters:</strong> safety depends on how planner, retriever, tools, memory, UI, and connectors interact.</li>
+<li><strong>Blast radius matters:</strong> an agent connected to real systems can cause irreversible external effects.</li>
+</ul>
+<h3>Core security objectives for agents</h3>
+<ul>
+<li><strong>Goal integrity:</strong> the agent should continue pursuing the authorized task rather than an attacker-injected objective.</li>
+<li><strong>Capability bounding:</strong> the agent should only access tools, data, and actions needed for the current job.</li>
+<li><strong>State integrity:</strong> memory, scratchpads, and intermediate context should resist poisoning and unintended persistence.</li>
+<li><strong>Execution safety:</strong> tool calls and downstream actions should remain policy-compliant and auditable.</li>
+<li><strong>Containment:</strong> when manipulation occurs, the damage should be localized rather than propagated across services.</li>
+<li><strong>Human recoverability:</strong> operators should be able to inspect, interrupt, approve, roll back, or disable agent behavior.</li>
+</ul>
+<div class="callout">
+<strong>Research intuition:</strong> the defining risk of agentic AI is not only harmful generation. It is the transformation of language-driven mistakes or manipulations into <em>stateful, tool-mediated, real-world actions</em>.
+            </div>
+</section>
+<figure class="page-figure">
+<img alt="Diagram showing agentic AI security across planner, memory, tools, delegation, threats, oversight points, and research focus." src="../assets/img/diagrams/agentic_ai_security_landscape.svg"/>
+<figcaption>Agentic AI security across planning, memory, tools, delegation, and runtime control.</figcaption>
+</figure>
+<section id="threats">
+<span class="kicker">Threat model</span>
+<h2>Threat model and agentic attack surface</h2>
+<p>
+              An agentic threat model should describe who can influence the agent, which resources the agent can reach, how memory is handled,
+              whether tools have side effects, and what approvals or guardrails exist between reasoning and action. Agentic risk often arises not because
+              one component is completely broken, but because multiple partially trusted components are composed without strong boundaries.
+            </p>
+<h3>Attacker positions</h3>
+<ul>
+<li><strong>Direct user attacker:</strong> interacts with the agent through prompts, uploads, or instructions.</li>
+<li><strong>Indirect content attacker:</strong> plants malicious instructions in emails, documents, webpages, tickets, repos, or search results the agent later reads.</li>
+<li><strong>Tool-output attacker:</strong> controls or influences external tools, APIs, or documents whose outputs are fed back into the agent.</li>
+<li><strong>Memory attacker:</strong> causes malicious state to persist across turns, tasks, or users.</li>
+<li><strong>Identity attacker:</strong> steals, expands, or misuses credentials and delegated access available to the agent.</li>
+<li><strong>Supply-chain attacker:</strong> compromises plugins, MCP servers, agent frameworks, adapters, configs, or sub-agent dependencies.</li>
+<li><strong>Insider or operator attacker:</strong> modifies system prompts, policies, tools, audit settings, or deployment parameters.</li>
+</ul>
+<h3>Attacker goals</h3>
+<ul>
+<li><strong>Goal hijack:</strong> steer the agent away from the user's intended task toward attacker-defined objectives.</li>
+<li><strong>Unauthorized action:</strong> trigger emails, file changes, purchases, deletions, approvals, or data transfer.</li>
+<li><strong>Data exfiltration:</strong> cause the agent to reveal secrets, documents, credentials, prompts, or user data.</li>
+<li><strong>Privilege abuse:</strong> make the agent use more authority than the task requires.</li>
+<li><strong>Persistence:</strong> implant malicious instructions into memory, task state, or downstream workflows.</li>
+<li><strong>Cascading compromise:</strong> propagate the attack across tools, services, or other agents.</li>
+</ul>
+<h3>Major threat classes</h3>
+<h3>1. Goal hijacking and prompt-chain compromise</h3>
+<p>
+              The core failure mode for many agents is that the agent silently shifts from the user's goal to an attacker-specified one.
+              This may begin as direct or indirect prompt injection, but in agentic settings the effect is broader than unsafe text generation.
+              Once the goal or subgoal is corrupted, the planner may choose new tools, reinterpret constraints, and rationalize harmful behavior as task completion.
+            </p>
+<ul>
+<li>Goal hijacking may happen through webpages, emails, retrieved documents, hidden text, or tool responses.</li>
+<li>Multi-step planning can magnify the effect because corrupted subgoals influence later decisions.</li>
+<li>Long context windows may increase exposure to attacker-controlled instructions mixed with legitimate task context.</li>
+</ul>
+<h3>2. Tool misuse and unsafe actuation</h3>
+<p>
+              A powerful agent is dangerous if its tool permissions are too broad. Tool misuse includes invoking commands on untrusted data,
+              sending messages to unauthorized recipients, reading or modifying files outside scope, calling high-risk APIs, running destructive shell commands,
+              or triggering external actions without meaningful confirmation. In practice, tool misuse often turns a model-level attack into a business or security incident.
+            </p>
+<ul>
+<li><strong>Read actions:</strong> opening sensitive files, inboxes, databases, or dashboards beyond scope.</li>
+<li><strong>Write actions:</strong> editing documents, tickets, records, or configuration files incorrectly.</li>
+<li><strong>Execute actions:</strong> running code, scripts, workflows, or commands that alter the host environment.</li>
+<li><strong>Network actions:</strong> sending data to external endpoints or communicating with attacker-controlled services.</li>
+</ul>
+<h3>3. Memory poisoning and unsafe persistence</h3>
+<p>
+              Memory is one of the most distinctive risks in agentic systems. Short-term memory, long-term memory, task notes, summaries, and scratchpads can all
+              persist attacker-controlled content. If that content is later treated as trusted context, the agent can repeatedly reintroduce the attack to itself.
+              This turns one-time manipulation into durable workflow corruption.
+            </p>
+<ul>
+<li><strong>User memory poisoning:</strong> attacker injects content that becomes part of long-term preferences or instructions.</li>
+<li><strong>Task-state poisoning:</strong> malicious summaries or notes distort subsequent decision steps.</li>
+<li><strong>Cross-session contamination:</strong> memory survives beyond the original attack surface and affects later tasks.</li>
+<li><strong>Cross-user contamination:</strong> poor isolation causes one user's poisoned state to influence another user's work.</li>
+</ul>
+<h3>4. Identity and privilege abuse</h3>
+<p>
+              Agentic systems frequently inherit user tokens, service accounts, API keys, or delegated permissions. If identity propagation is weakly designed,
+              the agent may gain more authority than intended or may use a high-privilege connector in a low-trust context. Once that happens, even a modest prompt attack can lead
+              to serious consequences because the agent is acting with real credentials.
+            </p>
+<ul>
+<li>Agents may accidentally reuse credentials across tasks or users.</li>
+<li>Delegated access may persist longer than the task that justified it.</li>
+<li>High-privilege service accounts create large blast radius if the agent is manipulated.</li>
+</ul>
+<h3>5. Unsafe delegation and multi-agent trust failures</h3>
+<p>
+              Multi-agent systems add another layer of complexity because one agent may rely on another agent's outputs, summaries, or actions.
+              This creates new trust boundaries: who authenticated the sub-agent, what policy it follows, whether its memory is isolated, and whether its outputs are verified.
+              A weak or compromised sub-agent can mislead the planner, leak information, or become an attack relay.
+            </p>
+<ul>
+<li>Delegation can obscure accountability when many sub-agents contribute to one outcome.</li>
+<li>Inter-agent messages can carry malicious instructions, poisoned summaries, or hidden assumptions.</li>
+<li>Failure containment becomes harder when one compromised agent can influence others.</li>
+</ul>
+<h3>6. Unexpected code execution and environment escape</h3>
+<p>
+              Some agents can execute code directly or indirectly through scripts, plugins, or local runtimes. If execution boundaries are weak,
+              natural-language manipulation can become code execution, shell misuse, file-system abuse, or container escape. This risk is especially acute in coding agents,
+              browser agents, and development assistants that interact with repositories, terminals, or build systems.
+            </p>
+<h3>7. Context poisoning from tool outputs and external content</h3>
+<p>
+              Agents continuously ingest external content: search results, browser pages, emails, tickets, documents, API responses, and logs.
+              Every one of those becomes a potential instruction channel. A tool may return attacker-controlled text, and the agent may treat it as operational guidance.
+              This blurs the distinction between data and instruction and makes ordinary integration points part of the attack surface.
+            </p>
+<h3>8. Cascading failures across long-horizon plans</h3>
+<p>
+              The longer the plan, the more chances for partial errors to compound. An agent may make a small mistake in step two, use that mistaken assumption in step six,
+              persist the resulting summary into memory, and then call a powerful tool in step ten. The final incident may appear disconnected from the original manipulation,
+              which makes debugging and forensics difficult.
+            </p>
+<ul>
+<li>Small early errors can become large later actions.</li>
+<li>Recovery is harder when the agent rewrites its own plan as it proceeds.</li>
+<li>Users may not observe intermediate states closely enough to catch drift early.</li>
+</ul>
+<h3>9. Human-oversight failure and automation overtrust</h3>
+<p>
+              Human-in-the-loop does not automatically solve agentic risk. If approvals are vague, rushed, or poorly explained, users may become rubber stamps.
+              Conversely, too many low-value approval prompts produce fatigue and missed critical warnings. The oversight layer itself therefore needs design discipline:
+              who approves, what they see, what they can block, and how the system behaves when approval is absent.
+            </p>
+<h3>10. Agentic supply chain and configuration drift</h3>
+<p>
+              Modern agents depend on frameworks, connectors, model providers, tool servers, memory stores, prompts, policies, and orchestration runtimes.
+              A vulnerability or silent change in any of those can materially alter the security posture. Agentic systems are therefore exposed not only to model misuse,
+              but also to configuration drift, unsafe defaults, poisoned connectors, and third-party protocol risk.
+            </p>
+</section>
+<section id="defenses">
+<span class="kicker">Countermeasures</span>
+<h2>Countermeasures and secure design principles</h2>
+<p>
+              Secure agent design is fundamentally about <strong>constraining impact</strong>. Because prompt injection and social engineering are difficult to detect perfectly,
+              defenses should assume some manipulations will get through. The goal is to prevent those manipulations from easily turning into harmful or irreversible actions.
+            </p>
+<h3>1. Capability bounding and least privilege</h3>
+<ul>
+<li>Give each tool only the minimum permissions required for the current task.</li>
+<li>Prefer narrow, typed tools over broad shell or file-system access.</li>
+<li>Issue temporary, scoped credentials instead of long-lived, reusable secrets.</li>
+<li>Separate read, write, execute, and network permissions rather than bundling them together.</li>
+<li>Disable high-risk tools by default and require explicit elevation for exceptional cases.</li>
+</ul>
+<h3>2. Approval gates for consequential actions</h3>
+<ul>
+<li>Require explicit confirmation before sending external messages, deleting data, approving transactions, or changing critical records.</li>
+<li>Present users with clear summaries of what the agent intends to do, why, and with which data.</li>
+<li>Make approval state auditable and non-bypassable through alternative tool routes.</li>
+<li>Use stronger approval workflows for actions involving money, credentials, confidential data, or infrastructure changes.</li>
+</ul>
+<p>
+              Good approval design is selective. The point is not to interrupt every low-risk step, but to create friction at the moments where a wrong action would be costly.
+            </p>
+<h3>3. Memory hygiene and state governance</h3>
+<ul>
+<li>Treat memory as untrusted unless it has been validated for the current task.</li>
+<li>Separate short-term scratchpads from durable long-term memory.</li>
+<li>Apply retention limits, expiry, and review policies to persistent memories.</li>
+<li>Prevent sensitive tool outputs, secrets, and attacker-controlled instructions from being stored unnecessarily.</li>
+<li>Isolate memory by user, task, and environment to prevent cross-session contamination.</li>
+</ul>
+<h3>4. Tool sandboxing and execution containment</h3>
+<ul>
+<li>Sandbox code execution, browsing, file access, and command invocation.</li>
+<li>Use allowlists for domains, file paths, commands, repositories, and API scopes.</li>
+<li>Restrict outbound network access for tools that do not need it.</li>
+<li>Bind destructive or environment-altering commands to stricter review and logging.</li>
+<li>Ensure failed or interrupted tool actions leave a recoverable system state where possible.</li>
+</ul>
+<h3>5. Strong identity and delegation control</h3>
+<ul>
+<li>Propagate user identity and authorization context explicitly rather than implicitly sharing service credentials.</li>
+<li>Use task-scoped tokens and revoke them when the task ends.</li>
+<li>Separate agent identity from human identity so actions remain attributable.</li>
+<li>Limit which agents can impersonate users, access mailboxes, browse private content, or modify infrastructure.</li>
+<li>Apply policy checks at delegation boundaries before one agent can invoke another.</li>
+</ul>
+<h3>6. Policy engines and deterministic guardrails</h3>
+<ul>
+<li>Use deterministic policy checks between planning and acting.</li>
+<li>Validate tool arguments against schemas, business rules, and authorization context.</li>
+<li>Keep critical policies outside the model so they cannot be changed by prompt manipulation alone.</li>
+<li>Version-control prompts, tools, policy files, and workflow configurations together.</li>
+<li>Prefer fail-closed behavior for ambiguous or policy-conflicting actions.</li>
+</ul>
+<h3>7. Monitoring, tracing, and runtime detection</h3>
+<ul>
+<li>Log prompts, tool calls, approvals, memory writes, identity use, and external side effects.</li>
+<li>Detect suspicious patterns such as repeated prompt-boundary probing, unusual tool chains, credential access, or exfiltration-like behavior.</li>
+<li>Trace agent execution across sub-agents and connectors so incidents remain reconstructable.</li>
+<li>Alert on policy violations, anomalous autonomy escalation, or changes in normal task structure.</li>
+<li>Keep emergency stop, rollback, and disable mechanisms available to operators.</li>
+</ul>
+<h3>8. Secure multi-agent composition</h3>
+<ul>
+<li>Authenticate and authorize inter-agent communication explicitly.</li>
+<li>Treat outputs from one agent as untrusted input to another unless independently verified.</li>
+<li>Prevent unrestricted recursive delegation and unbounded agent spawning.</li>
+<li>Assign distinct roles, permissions, and memory scopes to different agents.</li>
+<li>Design containment so one compromised agent cannot silently dominate the whole workflow.</li>
+</ul>
+<h3>9. Continuous red teaming and adversarial evaluation</h3>
+<ul>
+<li>Test direct and indirect prompt injection against realistic tool chains.</li>
+<li>Include memory poisoning, malicious tool outputs, identity abuse, and multi-agent compromise scenarios.</li>
+<li>Evaluate not only final outputs but intermediate plans, approval prompts, memory writes, and external actions.</li>
+<li>Re-test after every prompt, tool, connector, or policy update.</li>
+<li>Benchmark long-horizon behavior because many agentic failures appear only after many steps.</li>
+</ul>
+<div class="callout">
+<strong>Practical takeaway:</strong> secure agents should be designed as if some manipulation will succeed. The architecture must therefore constrain authority, verify actions, isolate state, and keep humans able to interrupt the workflow before damage becomes irreversible.
+            </div>
+</section>
+<section id="gaps">
+<span class="kicker">Open challenges</span>
+<h2>Open research challenges and future directions</h2>
+<p>
+              Agentic AI security is still early. The field has many useful design patterns, but relatively few mature assurance methods.
+              Existing guidance increasingly agrees that prompt injection cannot be solved purely with classifiers or prompt tricks; instead, security must be built into identity,
+              tools, memory, delegation, and human oversight. The research challenge is to turn those principles into strong, measurable guarantees.
+            </p>
+<h3>1. Safe autonomy boundaries are still hard to define</h3>
+<p>
+              Agents need enough freedom to be useful, but not so much freedom that any successful manipulation becomes high impact.
+              The right autonomy boundary depends on task value, reversibility, identity scope, and operator expectations. We still lack mature methods for setting those boundaries systematically.
+            </p>
+<h3>2. Prompt injection is partly an architectural problem</h3>
+<p>
+              Because agents ingest untrusted content while simultaneously trying to follow trusted goals, prompt injection is not simply bad input classification.
+              Better architectures are needed to separate data, goals, permissions, and actions so that even when the model is misled, policy enforcement still holds.
+            </p>
+<h3>3. Memory security remains underdeveloped</h3>
+<p>
+              Memory makes agents useful, but it also creates persistence and contamination risk. The field still needs stronger frameworks for which memories should persist,
+              how they should be validated, when they should expire, and how to prove they are not poisoning later behavior.
+            </p>
+<h3>4. Multi-agent assurance is especially immature</h3>
+<p>
+              Single-agent security is already difficult; multi-agent systems add delegation, trust chains, message validation, and failure propagation.
+              We still lack widely adopted assurance methods for inter-agent identity, message integrity, and containment of compromised sub-agents.
+            </p>
+<h3>5. Human oversight is easy to add superficially and hard to design well</h3>
+<p>
+              Approval steps can create false comfort if they are too frequent, too opaque, or too easy to bypass. Research is needed on effective approval UX,
+              calibrated trust, selective interruption, and operator decision support under high-speed automated workflows.
+            </p>
+<h3>6. Benchmarking lags behind real deployments</h3>
+<p>
+              Many current evaluations are short-horizon and single-agent. Real deployments involve long tasks, multiple tools, retrieval, memory,
+              and enterprise connectors. Better benchmarks should capture long-horizon drift, memory poisoning, delegation failures, and compound attack chains.
+            </p>
+<h3>7. Deterministic guarantees are still limited</h3>
+<p>
+              Probabilistic guardrails are useful, but organizations increasingly want stronger guarantees around what an agent can never do.
+              Future work is likely to focus more on policy languages, authenticated workflows, cryptographic attestation, typed tools, and formalized execution boundaries.
+            </p>
+<h3>8. Supply-chain exposure is growing with agent ecosystems</h3>
+<p>
+              Protocols, plugins, MCP servers, sub-agents, hosted tools, and framework extensions are expanding quickly. Security research must therefore account for ecosystem risk,
+              not just the base model. This includes dependency trust, update governance, third-party server behavior, and configuration drift.
+            </p>
+<h3>9. Cross-layer integration is still weak</h3>
+<p>
+              Agentic security is often discussed only at the application layer, even though the actual deployment may depend on cloud IAM, browser isolation,
+              endpoint security, hardware trust, or physical actuators. Stronger cross-layer research is needed to connect model-level reasoning, software control flow,
+              infrastructure boundaries, and real-world consequences.
+            </p>
+<h3>10. Future direction</h3>
+<ul>
+<li>Capability-bounded agent architectures with explicit trust boundaries.</li>
+<li>Stronger memory governance and state-isolation mechanisms.</li>
+<li>Authenticated workflows and policy languages for tool use and delegation.</li>
+<li>Benchmark suites for long-horizon, multi-agent, and browser-based attacks.</li>
+<li>Better human-oversight interfaces for high-consequence agent actions.</li>
+<li>Cross-layer work connecting agentic AI security with cloud, edge, hardware, and physical AI deployment.</li>
+</ul>
+</section>
+<section id="readings">
+<span class="kicker">Selected readings</span>
+<h2>Selected readings and frameworks</h2>
+<p>
+              The references below are a strong starting point for understanding current agentic-AI security from both practical and research perspectives.
+            </p>
+<ul>
+<li><a href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/" rel="noopener noreferrer" target="_blank">OWASP Top 10 for Agentic Applications for 2026</a></li>
+<li><a href="https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/" rel="noopener noreferrer" target="_blank">OWASP Agentic AI: Threats and Mitigations</a></li>
+<li><a href="https://openai.com/index/designing-agents-to-resist-prompt-injection/" rel="noopener noreferrer" target="_blank">Designing AI Agents to Resist Prompt Injection</a></li>
+<li><a href="https://openai.com/index/prompt-injections/" rel="noopener noreferrer" target="_blank">Understanding Prompt Injections: A Frontier Security Challenge</a></li>
+<li><a href="https://www.anthropic.com/news/prompt-injection-defenses" rel="noopener noreferrer" target="_blank">Mitigating the Risk of Prompt Injections in Browser Use</a></li>
+<li><a href="https://atlas.mitre.org/" rel="noopener noreferrer" target="_blank">MITRE ATLAS</a></li>
+<li><a href="https://www.mitre.org/sites/default/files/2026-02/PR-26-00176-1-MITRE-ATLAS-OpenClaw-Investigation.pdf" rel="noopener noreferrer" target="_blank">MITRE ATLAS OpenClaw Investigation</a></li>
+<li><a href="https://csrc.nist.gov/projects/cosais" rel="noopener noreferrer" target="_blank">NIST Control Overlays for Securing AI Systems (COSAiS)</a></li>
+<li><a href="https://arxiv.org/abs/2602.10465" rel="noopener noreferrer" target="_blank">Authenticated Workflows: A Systems Approach to Protecting Agentic AI</a></li>
+<li><a href="https://arxiv.org/abs/2511.18114" rel="noopener noreferrer" target="_blank">ASTRA: Agentic Steerability and Risk Assessment Framework</a></li>
+</ul>
+<div class="callout">
+<strong>Best next step for this page:</strong> add one diagram showing the full agent loop—goal → planner → memory → retrieval → tool call → observation → updated plan → approval gate → external action.
+              That single figure will make the temporal nature of agentic risk much easier to understand.
+            </div>
+</section>
+</div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>

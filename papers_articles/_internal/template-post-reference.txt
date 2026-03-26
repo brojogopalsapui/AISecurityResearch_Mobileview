@@ -1,0 +1,228 @@
+POST TEMPLATE REFERENCE
+This file is for internal future use only.
+Do not link this file directly from the website.
+
+====================================================
+HOW TO ADD A NEW WEEKLY / MONTHLY POST
+====================================================
+
+1. Copy the HTML template below
+2. Create a new file inside:
+   posts/
+3. Use a name like:
+   posts/2026-03-your-topic.html
+4. Paste the HTML into that new file
+5. Edit:
+   - title
+   - date
+   - heading
+   - introduction
+   - overview text
+   - discussion text
+   - image path
+   - related links
+6. Open ongoing-work.html
+7. Copy the accordion template already commented there
+8. Paste it ABOVE the first existing watch-note
+9. Add the new post link inside watch-inline-links
+
+====================================================
+BEST FILE NAMING STYLE
+====================================================
+
+posts/2026-03-secure-edge-agents.html
+posts/2026-03-robotics-trust-boundary.html
+posts/2026-04-llm-runtime-observation.html
+
+Use:
+- lowercase only
+- hyphens only
+- year-month-topic format
+
+====================================================
+FULL HTML TEMPLATE FOR A NEW POST
+====================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[POST TITLE] | Brojogopal Sapui</title>
+  <meta
+    name="description"
+    content="[SHORT DESCRIPTION OF THE POST]"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html" aria-label="Brojogopal Sapui Home">B<span>S</span></a>
+
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../research.html">Research</a>
+        <a href="../ongoing-work.html">Trending Topics</a>
+        <a href="../publications.html">Resources</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+
+      <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Research Watch • [MONTH YEAR]</span>
+        <h1>[POST TITLE]</h1>
+        <p class="lead">
+          [WRITE A SHORT INTRODUCTION HERE. EXPLAIN THE EMERGING TREND, RESEARCH SHIFT,
+          OR SYSTEM-LEVEL TENSION IN CLEAR BUT TECHNICAL LANGUAGE.]
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split">
+        <div class="content-card">
+          <span class="kicker">Overview</span>
+          <h2>What is changing</h2>
+          <p>
+            [FIRST PARAGRAPH: explain the topic intuitively and clearly.]
+          </p>
+          <p>
+            [SECOND PARAGRAPH: explain the technical reason this matters now,
+            especially for security, trust, deployment, systems, or hardware.]
+          </p>
+        </div>
+
+        <div class="content-card">
+          <span class="kicker">Why it matters</span>
+          <h2>Research significance</h2>
+          <ul class="check-list">
+            <li>[MAIN TECHNICAL SHIFT]</li>
+            <li>[WHY OLDER ASSUMPTIONS ARE NO LONGER ENOUGH]</li>
+            <li>[WHAT SECURITY OR SYSTEM CONSEQUENCE FOLLOWS]</li>
+            <li>[WHAT OPEN QUESTION OR RESEARCH DIRECTION EMERGES]</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="content-card landscape-card">
+          <img
+            src="../assets/img/[YOUR-POST-IMAGE].png"
+            alt="[ILLUSTRATION FOR THE POST]"
+            class="zoom-img"
+          />
+          <div class="card-caption">
+            <p>
+              [ADD A SHORT FIGURE CAPTION HERE. THIS CAN BE A TECHNICAL DIAGRAM,
+              CONCEPTUAL FIGURE, FLOWCHART, OR SYSTEM VIEW.]
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Discussion</span>
+          <h2>Key technical questions</h2>
+          <p>
+            [USE THIS SECTION TO MAKE THE RESEARCH TENSION AND OPEN QUESTIONS CLEAR.]
+          </p>
+        </div>
+
+        <div class="card-grid three">
+          <div class="section-card">
+            <h3>Threat or systems view</h3>
+            <p>
+              [DESCRIBE THE MAIN ATTACKER, TRUST, OR SYSTEM ASSUMPTION.]
+            </p>
+          </div>
+
+          <div class="section-card">
+            <h3>Deployment reality</h3>
+            <p>
+              [EXPLAIN WHAT CHANGES IN REAL DEPLOYMENT, NOT ONLY IN THEORY.]
+            </p>
+          </div>
+
+          <div class="section-card">
+            <h3>Open direction</h3>
+            <p>
+              [MENTION ONE OR TWO OPEN RESEARCH DIRECTIONS.]
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <span class="eyebrow">Next Step</span>
+            <h2>Back to Trending Topics</h2>
+            <p>
+              Return to the running list of research-watch notes and evolving technical directions.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="../ongoing-work.html">Trending Topics</a>
+            <a class="btn btn-secondary" href="../research.html">Research</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Brojogopal Sapui</h3>
+        <p>AI Security• Hardware Trust • Edge/Physical AI</p>
+      </div>
+      <div>
+        <h4>Main Pages</h4>
+        <a href="../research.html">Research</a>
+        <a href="../ongoing-work.html">Trending Topics</a>
+        <a href="../publications.html">Resources</a>
+      </div>
+      <div>
+        <h4>Focus</h4>
+        <p>Cross-layer AI security, trustworthy deployment, hardware-aware defense, and physical intelligence.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
+
+====================================================
+CARD / LINK REMINDER FOR ongoing-work.html
+====================================================
+
+Inside ongoing-work.html, add a new accordion note at the TOP of the watch-stack.
+If you created a full post page, add this link inside watch-inline-links:
+
+<a href="posts/2026-03-your-topic.html">Read full post</a>

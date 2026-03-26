@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Physical AI Security | Brojogopal Sapui</title>
+<meta content="Physical AI security spans embodied and cyber-physical systems where perception, planning, control, communication, timing, and actuation interact under real-world constraints." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="../assets/js/site-shell.js"></script><script defer="True" src="../assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="1" data-nav="research" data-page="physical-ai">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="page-hero">
+<div class="container">
+<span class="eyebrow">AI Security Section</span>
+<h1>Physical AI Security</h1>
+<p class="lead">
+          Physical AI extends intelligence into embodied and real-time systems such as robots, vehicles, drones,
+          autonomous machines, industrial cells, and AI-enabled operational technology. In these systems, security is no longer only
+          about model outputs. It is about how sensing, timing, control, communication, planning, and actuation interact with the physical world.
+        </p>
+</div>
+</section>
+<section class="section">
+<div class="container page-grid">
+<aside class="toc">
+<h3>Navigate this section</h3>
+<a href="#overview">Overview</a>
+<a href="#threats">Threat model</a>
+<a href="#defenses">Countermeasures</a>
+<a href="#gaps">Open challenges</a>
+<a href="#readings">Selected readings</a>
+<hr style="border-color:rgba(32,58,87,.12)"/>
+<a href="software-security.html">Software</a>
+<a href="hardware-security.html">Hardware</a>
+<a href="cloud-security.html">Cloud</a>
+<a href="edge-security.html">Edge</a>
+<a href="predictive-ai.html">Predictive AI</a>
+<a href="generative-ai.html">Generative AI</a>
+<a href="agentic-ai.html">Agentic AI</a>
+<a href="physical-ai.html">Physical AI</a>
+<a href="countermeasures.html">Countermeasures</a>
+</aside>
+<div class="content-card">
+<section id="overview">
+<span class="kicker">Overview</span>
+<h2>Why physical AI changes the security problem</h2>
+<p>
+              Physical AI covers systems that do not only infer but also interact with the world. These systems perceive through cameras,
+              lidar, radar, microphones, tactile sensors, industrial probes, or other modalities; interpret that data with predictive,
+              generative, or agentic models; and then act through motion, control commands, communication, or workflow execution.
+              The result is a different security regime from purely digital AI. A model error, a delayed packet, a spoofed sensor,
+              or a corrupted controller state can change physical behavior rather than only text on a screen.
+            </p>
+<p>
+              The best way to think about physical AI security is as a <strong>closed-loop trust problem</strong>. The system senses the world,
+              interprets it, chooses an action, and then changes the world it will sense next. That loop means mistakes and manipulations can accumulate.
+              A false perception can alter planning, the altered plan can change control behavior, and the resulting motion or actuation can create a new unsafe state.
+              This is why security and safety become tightly coupled in embodied systems.
+            </p>
+<h3>What belongs under physical AI</h3>
+<ul>
+<li><strong>Robotics:</strong> industrial robots, mobile manipulators, warehouse robots, humanoids, collaborative robots, and service robots.</li>
+<li><strong>Autonomous vehicles and drones:</strong> systems combining perception, planning, control, localization, and communication.</li>
+<li><strong>AI-enabled operational technology:</strong> industrial control, utilities, smart buildings, and cyber-physical infrastructure with AI in the loop.</li>
+<li><strong>Smart spaces and embodied systems:</strong> systems where AI monitors or controls moving assets, processes, or environments.</li>
+<li><strong>Human-robot teaming:</strong> systems where physical interaction with people introduces additional safety and trust constraints.</li>
+</ul>
+<h3>Why physical AI is different from edge AI</h3>
+<ul>
+<li><strong>Actuation is central:</strong> the system can move, steer, brake, grasp, open, inject, redirect, or otherwise affect the physical world.</li>
+<li><strong>Timing matters more:</strong> even small delays or synchronization faults can change control outcomes.</li>
+<li><strong>Safety coupling is unavoidable:</strong> cybersecurity events can quickly become physical hazards to people, equipment, or infrastructure.</li>
+<li><strong>Environment uncertainty matters:</strong> weather, lighting, terrain, wear, human behavior, and dynamic obstacles all affect security exposure.</li>
+<li><strong>System-of-systems behavior matters:</strong> vehicles, robots, sensors, operators, and backend services often interact across one control surface.</li>
+</ul>
+<h3>Core security goals for physical AI</h3>
+<ul>
+<li><strong>Perception integrity:</strong> the system should not be easily misled about what is present in its environment.</li>
+<li><strong>Control integrity:</strong> the path from perception to planning to actuation should resist unauthorized manipulation.</li>
+<li><strong>Operational availability:</strong> the system should remain functional or fail safely under attack, noise, and degraded conditions.</li>
+<li><strong>State awareness:</strong> the system should detect when it is uncertain, off-nominal, or outside its validated operating envelope.</li>
+<li><strong>Containment:</strong> if compromise occurs, physical impact should be bounded through safe states, rate limits, and fallback logic.</li>
+<li><strong>Lifecycle assurance:</strong> deployment, calibration, updates, maintenance, and field servicing must preserve trust over time.</li>
+</ul>
+<div class="callout">
+<strong>Research intuition:</strong> physical AI is where AI security becomes embodied. The attacker is not only trying to change a prediction,
+              but to influence a <em>perception-to-action loop</em> that operates in real environments under timing, control, and safety constraints.
+            </div>
+</section>
+<figure class="page-figure">
+<img alt="Diagram showing physical AI security across sensing, perception, planning, control, threats, safety coupling, and runtime defenses." src="../assets/img/diagrams/physical_ai_security_landscape.svg"/>
+<figcaption>Physical AI security across the perception-to-action loop in embodied systems.</figcaption>
+</figure>
+<section id="threats">
+<span class="kicker">Threat model</span>
+<h2>Threat model and physical-world attack surface</h2>
+<p>
+              A physical-AI threat model should ask more than who can query the model. It should ask who can affect the environment,
+              the sensors, the network, the controller, the update path, and the actuation boundary. In embodied systems, the attacker may operate physically,
+              digitally, or through a hybrid pathway. A painted object, a spoofed GNSS signal, a jamming source, a manipulated maintenance laptop,
+              or a compromised planning module can all influence the same system from different entry points.
+            </p>
+<h3>Attacker positions</h3>
+<ul>
+<li><strong>Environmental attacker:</strong> manipulates physical objects, lighting, sound, RF conditions, or scene structure to mislead sensing.</li>
+<li><strong>Sensor-path attacker:</strong> spoofs, jams, blinds, or perturbs cameras, lidar, radar, IMUs, GNSS, tactile sensors, or industrial probes.</li>
+<li><strong>Controller or network attacker:</strong> interferes with internal buses, field networks, V2X links, telemetry, or timing synchronization.</li>
+<li><strong>Local hardware attacker:</strong> probes boards, injects faults, tampers with peripherals, or replaces modules.</li>
+<li><strong>Remote workflow attacker:</strong> exploits cloud, fleet-management, map, update, or planning services that influence the physical system.</li>
+<li><strong>Insider or maintenance attacker:</strong> abuses calibration tools, engineering workstations, service modes, or privileged access during upkeep.</li>
+</ul>
+<h3>Attacker goals</h3>
+<ul>
+<li><strong>Perception deception:</strong> make the system misinterpret objects, lanes, obstacles, identities, or system state.</li>
+<li><strong>Control deviation:</strong> alter path planning, actuator commands, or safety interlocks.</li>
+<li><strong>Unsafe degradation:</strong> force reduced capability, confusion, oscillation, or unsafe fallback behavior.</li>
+<li><strong>Availability loss:</strong> jam sensing, saturate compute, or disrupt communications until the system becomes unavailable.</li>
+<li><strong>Persistence:</strong> implant malicious configuration, calibration bias, or firmware changes that survive across missions.</li>
+<li><strong>Cascading physical impact:</strong> trigger downstream operational, safety, or economic consequences beyond the initial compromise.</li>
+</ul>
+<h3>Major threat classes</h3>
+<h3>1. Sensor spoofing, jamming, and environmental manipulation</h3>
+<p>
+              Physical AI begins with sensing, so many attacks target the sensor boundary first. Cameras may be fooled by carefully placed visual patterns,
+              lighting artifacts, or occlusions. GNSS receivers may be spoofed. Radar or lidar can be jammed or confused. Acoustic or ultrasonic channels can be injected.
+              Industrial sensors can be perturbed through process changes that remain within plausible ranges but shift decisions in the attacker's favor.
+            </p>
+<ul>
+<li>These attacks can be transient and localized, making them hard to reproduce after the event.</li>
+<li>They often exploit weaknesses before the model itself, such as preprocessing, synchronization, or calibration assumptions.</li>
+<li>The same attack may affect both security and functional safety if the manipulated perception feeds control logic directly.</li>
+</ul>
+<h3>2. Perception-to-action pipeline compromise</h3>
+<p>
+              In physical AI, compromise does not end at the model. The output of perception is passed to planners, policy modules, controllers,
+              and actuators. An attacker can therefore target interfaces between those layers: object lists, occupancy maps, route costs,
+              risk scores, control-set references, or behavioral state machines. Small semantic distortions in early stages can become large physical deviations later.
+            </p>
+<ul>
+<li>A misdetected obstacle can change path planning.</li>
+<li>A spoofed localization state can change control authority or map alignment.</li>
+<li>A corrupted planner output can trigger unsafe but internally consistent actions.</li>
+</ul>
+<h3>3. Timing and real-time exploitation</h3>
+<p>
+              Real-time behavior is part of the security boundary in physical AI. Packet delay, compute slowdown, scheduling jitter,
+              stale sensor fusion, clock drift, or overloaded control cycles may not look like classical compromises, yet they can cause unstable or unsafe behavior.
+              Attackers may therefore target timing as a control variable, forcing the system into operating regions where decisions are based on outdated world models.
+            </p>
+<ul>
+<li>Latency attacks are especially dangerous in autonomous driving, drones, collaborative robotics, and industrial motion systems.</li>
+<li>Timing failures can combine with perception failures so that even correct classifications arrive too late to remain useful.</li>
+<li>Security evaluation must therefore include deadlines, synchronization, and control-loop budgets.</li>
+</ul>
+<h3>4. Communication and coordination attacks</h3>
+<p>
+              Many physical-AI systems are networked: robots coordinate with supervisors, vehicles exchange data with infrastructure,
+              drones receive mission updates, and AI-enabled OT systems consume commands from engineering or monitoring layers. Communication links thus become a major attack surface.
+              Attackers may launch man-in-the-middle attacks, replay messages, jam links, spoof status updates, or corrupt coordination traffic between subsystems.
+            </p>
+<ul>
+<li>Distributed autonomy increases performance but also introduces trust assumptions across nodes.</li>
+<li>Intermittent links and degraded connectivity can force systems into emergency or fallback modes that themselves need security review.</li>
+<li>Message integrity alone is not enough when the receiving system cannot semantically validate whether the message still makes sense in context.</li>
+</ul>
+<h3>5. Hardware tampering, fault injection, and low-level compromise</h3>
+<p>
+              Physical AI often runs on edge hardware, so the hardware threat model remains active: side-channel leakage, glitching, debug-interface abuse,
+              memory extraction, counterfeit components, and sensor-board tampering all matter. In embodied systems, these attacks can become especially serious because they may alter
+              both the intelligence and the actuation pathways.
+            </p>
+<h3>6. Calibration, mapping, and state-estimation manipulation</h3>
+<p>
+              Many physical systems depend on calibration parameters, maps, transforms, and estimators that are not visible in a simple model-centric view.
+              If those artifacts are biased or replaced, the system can remain internally coherent while being physically wrong. Examples include extrinsic sensor miscalibration,
+              manipulated maps, corrupted localization priors, or tampered controller gains.
+            </p>
+<ul>
+<li>These attacks are subtle because they may not trigger obvious alarms.</li>
+<li>The resulting behavior may appear like normal drift or wear unless operators have strong validation tools.</li>
+<li>Maintenance and servicing channels are common opportunities for such compromise.</li>
+</ul>
+<h3>7. Unsafe human-machine interaction</h3>
+<p>
+              Physical AI often operates near people: drivers, pedestrians, workers, operators, and patients. Human behavior therefore becomes part of the threat surface.
+              An attacker may exploit user trust, confuse human supervisors, induce unsafe handover, or manipulate human-robot collaboration assumptions. In some cases,
+              the system may remain formally uncompromised yet still become dangerous because its explanations, signals, or takeover requests are misleading or poorly timed.
+            </p>
+<h3>8. OTA, fleet, and backend-driven physical compromise</h3>
+<p>
+              Physical systems increasingly depend on remote updates, cloud planners, telemetry pipelines, and fleet-management infrastructure.
+              A backend breach can therefore propagate into the physical world by pushing malicious models, unsafe maps, biased calibration data, or altered policies to many devices at once.
+              This is one reason physical AI cannot be secured only at the device level.
+            </p>
+<h3>9. Reliability-to-security crossover</h3>
+<p>
+              In embodied systems, security and reliability often blur together. Environmental stress, component aging, misalignment, temperature, vibration, and sensor degradation
+              can all interact with adversarial manipulation. Attackers may exploit already weak operating regions rather than creating entirely new ones.
+              This makes physical AI a strong example of why cross-layer assurance matters.
+            </p>
+<h3>10. Safety bypass and recovery-path exploitation</h3>
+<p>
+              Physical systems often include fallback modes, emergency stops, limp-home modes, or supervisory overrides. These are essential for safety,
+              but they can also become targets. An attacker may suppress a safe stop, trigger unnecessary emergency behavior, or repeatedly force the system into degraded states
+              that create operational disruption or dangerous operator habituation.
+            </p>
+</section>
+<section id="defenses">
+<span class="kicker">Countermeasures</span>
+<h2>Countermeasures and secure design principles</h2>
+<p>
+              Physical AI requires multi-layer defense because no single layer can absorb all risk. Robust perception alone is not enough if control timing is weak.
+              Strong hardware is not enough if sensor trust and fleet governance are poor. The best designs combine secure sensing, trusted compute, bounded autonomy,
+              resilient communication, runtime anomaly detection, and safe failure behavior.
+            </p>
+<h3>1. Secure the perception boundary</h3>
+<ul>
+<li>Validate sensor plausibility, consistency, and timing before high-impact decisions are made.</li>
+<li>Fuse multiple sensing modalities where one channel alone is easy to spoof or jam.</li>
+<li>Track sensor health, calibration drift, and synchronization quality continuously.</li>
+<li>Use environment-aware confidence handling rather than assuming all sensed inputs are equally trustworthy.</li>
+<li>Preserve evidence paths for forensic review in high-consequence deployments.</li>
+</ul>
+<h3>2. Protect the full perception-planning-control chain</h3>
+<ul>
+<li>Treat intermediate artifacts such as maps, detections, trajectories, and control references as security-sensitive data.</li>
+<li>Authenticate and integrity-protect messages passed between perception, planning, and control modules.</li>
+<li>Use sanity bounds and physical invariants so impossible or unsafe states are rejected before actuation.</li>
+<li>Prefer architectures that can degrade gracefully when one module becomes uncertain rather than forcing brittle all-or-nothing behavior.</li>
+</ul>
+<h3>3. Build timing-aware security</h3>
+<ul>
+<li>Define end-to-end latency budgets as part of the security and safety case.</li>
+<li>Monitor for stale data, delayed fusion, synchronization loss, and compute overload.</li>
+<li>Separate best-effort AI tasks from hard real-time control paths when possible.</li>
+<li>Test security under degraded timing conditions, not only nominal ones.</li>
+</ul>
+<p>
+              In physical systems, a correct answer that arrives too late can be operationally equivalent to a wrong answer.
+            </p>
+<h3>4. Use hardware-rooted trust and secure lifecycle controls</h3>
+<ul>
+<li>Apply secure boot, measured boot, attestation, and rollback protection for embodied devices.</li>
+<li>Protect model files, control software, maps, calibration artifacts, and credentials at rest and during updates.</li>
+<li>Control servicing and maintenance access with strong identity, logging, and separation of duties.</li>
+<li>Lock down debug interfaces, engineering modes, and factory backdoors before deployment.</li>
+</ul>
+<h3>5. Constrain autonomy and actuation</h3>
+<ul>
+<li>Bound what actions the system can take under uncertainty or degraded sensing.</li>
+<li>Use rate limits, safety envelopes, and policy constraints around motion or actuator authority.</li>
+<li>Require stronger confirmation or supervisory approval for high-consequence actions where feasible.</li>
+<li>Design fail-safe or fail-operational modes explicitly rather than assuming one generic fallback is enough.</li>
+</ul>
+<h3>6. Harden communications and distributed coordination</h3>
+<ul>
+<li>Protect V2X, fieldbus, telemetry, and robot coordination channels against spoofing, replay, and unauthorized command injection.</li>
+<li>Validate both message origin and message plausibility in physical context.</li>
+<li>Plan for degraded connectivity and define secure offline behavior in advance.</li>
+<li>Keep cloud dependence bounded so temporary connectivity loss does not force unsafe operation.</li>
+</ul>
+<h3>7. Runtime monitoring and anomaly detection</h3>
+<ul>
+<li>Monitor for unusual sensor disagreement, control oscillation, repeated overrides, timing violations, and unexpected state transitions.</li>
+<li>Combine cyber telemetry with physical-process telemetry so compromise is not interpreted only as a software event.</li>
+<li>Use health monitoring for hardware, sensing, and control modules alongside ML anomaly detection.</li>
+<li>Ensure alerting and diagnostics are understandable to operators under time pressure.</li>
+</ul>
+<h3>8. Design human oversight for real operations</h3>
+<ul>
+<li>Make system state, uncertainty, and intent visible to operators.</li>
+<li>Design takeover and intervention paths that are timely, comprehensible, and realistic under workload.</li>
+<li>Avoid overloading humans with constant low-value warnings that produce habituation.</li>
+<li>Train operators for degraded and attack-like situations, not only nominal workflows.</li>
+</ul>
+<h3>9. Validate under combined safety-security conditions</h3>
+<ul>
+<li>Test adversarial perception, communication faults, timing stress, and hardware faults together where relevant.</li>
+<li>Use scenario-based evaluation rather than only benchmark accuracy or isolated penetration tests.</li>
+<li>Account for environmental variation such as weather, lighting, clutter, and human interaction.</li>
+<li>Measure both digital failure metrics and physical consequence metrics.</li>
+</ul>
+<div class="callout">
+<strong>Practical takeaway:</strong> physical-AI defense works best when the system is designed to remain bounded under uncertainty.
+              Secure sensing, trusted compute, validated control paths, resilient communications, and safe fallback behavior matter more than any single “AI-only” defense.
+            </div>
+</section>
+<section id="gaps">
+<span class="kicker">Open challenges</span>
+<h2>Open research challenges and future directions</h2>
+<p>
+              Physical AI is one of the hardest AI-security domains because it combines learning systems, cyber-physical systems,
+              hardware trust, and safety engineering. Many good techniques exist for individual layers, but integrated assurance is still immature.
+              The major open problem is how to evaluate and certify real embodied systems under realistic combined threats rather than only isolated benchmarks.
+            </p>
+<h3>1. Security and safety are still evaluated too separately</h3>
+<p>
+              Many studies analyze adversarial ML or robotics safety in isolation, yet real embodied failures emerge from their interaction.
+              Future work needs stronger joint assurance methods that connect cybersecurity events to physical consequence and recovery behavior.
+            </p>
+<h3>2. Closed-loop evaluation remains difficult</h3>
+<p>
+              Benchmarking perception alone misses how attacks propagate through planning and control. The field still needs better ways to test
+              full-loop performance under uncertainty, adversarial manipulation, and timing stress.
+            </p>
+<h3>3. Sensor-physics-aware security is still immature</h3>
+<p>
+              Many AI security benchmarks use digital perturbations, while real physical attacks exploit lighting, weather, reflectivity, vibration,
+              RF conditions, or process dynamics. Better evaluation must connect model robustness with real sensor physics and deployment context.
+            </p>
+<h3>4. Timing and control are underrepresented in AI-security literature</h3>
+<p>
+              Latency, synchronization, and scheduling strongly affect physical outcomes, yet they are often treated as systems concerns rather than security concerns.
+              This separation is increasingly unrealistic for embodied AI.
+            </p>
+<h3>5. Human oversight is difficult to design well</h3>
+<p>
+              In vehicles, robots, and AI-enabled OT, human supervision is often the final safeguard. But takeover timing, attention limits,
+              unclear explanations, and overtrust in automation all complicate this layer. Better socio-technical security design is needed.
+            </p>
+<h3>6. Fleet and backend risk can dominate local hardening</h3>
+<p>
+              Strong local devices can still fail if updates, maps, calibration data, or remote policies are compromised centrally.
+              Physical AI therefore needs lifecycle and fleet-oriented assurance, not only device-level hardening.
+            </p>
+<h3>7. Reliability and adversarial behavior are entangled</h3>
+<p>
+              Aging, drift, temperature, mechanical wear, and misalignment can create weak operating regions that attackers exploit.
+              Research should increasingly treat robustness, reliability, and security as one cross-layer problem rather than three separate ones.
+            </p>
+<h3>8. Standards and metrics are still emerging</h3>
+<p>
+              Measurement science for perception, agility, safety, and robot performance is improving, but widely accepted security metrics for embodied AI are still limited.
+              Stronger shared benchmarks and assurance cases will be important as deployment expands.
+            </p>
+<h3>9. Future direction</h3>
+<ul>
+<li>Integrated safety-security assurance for perception-to-action loops.</li>
+<li>Scenario-based benchmarking that combines sensing, timing, communication, and actuation stress.</li>
+<li>Sensor-physics-aware defenses grounded in real deployment environments.</li>
+<li>Runtime monitors that fuse cyber and physical anomaly signals.</li>
+<li>Secure lifecycle methods for maps, calibration, OTA updates, and maintenance tooling.</li>
+<li>Cross-layer work connecting physical AI with cloud orchestration, edge devices, hardware trust, and agentic autonomy.</li>
+</ul>
+</section>
+<section id="readings">
+<span class="kicker">Selected readings</span>
+<h2>Selected readings and frameworks</h2>
+<p>
+              The references below are strong starting points for connecting embodied AI, robotics, cyber-physical security,
+              and operational safety considerations.
+            </p>
+<ul>
+<li><a href="https://cset.georgetown.edu/publication/physical-ai/" rel="noopener noreferrer" target="_blank">CSET: Physical AI — A Primer for Policymakers on AI-Robotics Convergence</a></li>
+<li><a href="https://www.nist.gov/el/robotics" rel="noopener noreferrer" target="_blank">NIST Robotics Program</a></li>
+<li><a href="https://www.nist.gov/programs-projects/measurement-science-robotics-and-autonomous-systems" rel="noopener noreferrer" target="_blank">NIST Measurement Science for Robotics and Autonomous Systems</a></li>
+<li><a href="https://www.ic3.gov/CSA/2025/251215.pdf" rel="noopener noreferrer" target="_blank">Principles for the Secure Integration of Artificial Intelligence in Operational Technology</a></li>
+<li><a href="https://www.enisa.europa.eu/sites/default/files/publications/ENISA-JRC%20Report%20-%20Cybersecurity%20Challenges%20in%20the%20Uptake%20of%20Artificial%20Intelligence%20in%20Autonomous%20Driving.pdf" rel="noopener noreferrer" target="_blank">ENISA-JRC: Cybersecurity Challenges in the Uptake of Artificial Intelligence in Autonomous Driving</a></li>
+<li><a href="https://www.enisa.europa.eu/sites/default/files/publications/Multilayer%20Framework%20for%20Good%20Cybersecurity%20Practices%20for%20AI.pdf" rel="noopener noreferrer" target="_blank">ENISA: Multilayer Framework for Good Cybersecurity Practices for AI</a></li>
+<li><a href="https://atlas.mitre.org/" rel="noopener noreferrer" target="_blank">MITRE ATLAS</a></li>
+<li><a href="https://csrc.nist.gov/pubs/ai/100/2/e2025/final" rel="noopener noreferrer" target="_blank">NIST AI 100-2: Adversarial Machine Learning Taxonomy and Terminology</a></li>
+</ul>
+<div class="callout">
+<strong>Best next step for this page:</strong> add one diagram showing the physical-AI loop—environment → sensing → fusion/perception → planning → control → actuation → changed environment—with timing, communication, and safety monitors drawn across the loop.
+              That figure will make the security story much clearer than text alone.
+            </div>
+</section>
+</div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>

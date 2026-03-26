@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trending Topics | Brojogopal Sapui</title>
+<meta content="Living AI-security notes that connect academic signals, industrial innovation, and company or product developments to the deeper research map." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+</head>
+<body class="subpage">
+<header class="site-header">
+<div class="container nav-wrap">
+<div class="brand-group"><a aria-label="Brojogopal Sapui Home" class="brand" href="index.html">B<span>S</span></a><a class="brand-hint" href="https://brojogopalsapui.github.io/AISecurityResearch_Mobileview/" target="_blank" rel="noopener noreferrer">Learning Portal</a></div>
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="research.html">Research</a>
+<a class="active trending-link" href="ongoing-work.html">Trending Topics</a>
+<a href="publications.html">Resources</a>
+<a href="contact.html">Contact</a>
+</nav>
+<button aria-expanded="false" aria-label="Toggle menu" class="menu-btn">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</header>
+<main>
+<section class="page-hero">
+<div class="container">
+<span class="eyebrow">AI Security Pulse • Living Research Notebook</span>
+<h1>Trending Topics</h1>
+<p class="lead">
+          This page is intentionally more note-like than the deeper section pages. It complements the Research hub by tracking three faster-moving streams:
+          academic signals, industry and innovation, and company or product developments that shape how secure AI systems are actually built and deployed.
+        </p>
+</div>
+</section>
+<section class="section pulse-overview-section">
+<div class="container">
+<span class="kicker">AI Security Pulse</span>
+<h2>Follow current AI security movement from three angles</h2>
+<p class="lead lead-measure">
+          The Research page remains the structured, evergreen map of the field. This page is the faster-moving layer on top of it: a place to watch papers,
+          implementation translation, and ecosystem shifts without turning the homepage into a second research taxonomy.
+        </p>
+<div class="pulse-grid-dark">
+<a class="pulse-card pulse-card--academic" href="#academic-signals">
+<span class="pulse-label">Academic</span>
+<h3>Academic Signals</h3>
+<p>Track new papers, benchmark gaps, conference directions, and research framing changes that may reshape the technical discussion.</p>
+<span class="pulse-link">Jump to stream</span>
+</a>
+<a class="pulse-card pulse-card--industry" href="#industry-innovation">
+<span class="pulse-label">Industry</span>
+<h3>Industry &amp; Innovation</h3>
+<p>Follow where research is turning into products, implementation practices, device realities, and engineering tradeoffs.</p>
+<span class="pulse-link">Jump to stream</span>
+</a>
+<a class="pulse-card pulse-card--companies" href="#companies-releases">
+<span class="pulse-label">Ecosystem</span>
+<h3>Companies &amp; Releases</h3>
+<p>Use this stream for new company moves, launches, and product-release signals that are worth linking back to technical security questions.</p>
+<span class="pulse-link">Jump to stream</span>
+</a>
+</div>
+        <!--
+          ======================================================================
+          INTERNAL MAINTENANCE GUIDE - AI SECURITY PULSE SECTION
+          ======================================================================
+
+          This top "AI Security Pulse" area is a stable gateway, not a weekly feed.
+          Do NOT change it every time a new paper appears.
+
+          NORMAL RULE
+          - Keep the three stream cards stable:
+            1. Academic Signals
+            2. Industry & Innovation
+            3. Companies & Releases
+          - Add your routine updates lower down in the watch-stack or in posts/.
+
+          WHEN TO EDIT THIS SECTION
+          - only when you want to rewrite the summary text of one stream
+          - or when you want to update the quick links inside one stream card
+
+          QUICK LINK TEMPLATE INSIDE A STREAM CARD
+          <div class="pulse-link-list">
+            <a href="posts/2026-04-your-post.html">Your newest detailed post</a>
+            <a href="research.html">Related evergreen research page</a>
+            <a href="#some-anchor">Jump to another note on this page</a>
+          </div>
+        -->
+<div class="pulse-anchor-stack">
+<article class="pulse-anchor-card" id="academic-signals">
+<span class="accordion-meta">Academic stream</span>
+<h3>Academic Signals</h3>
+<p>
+            This stream highlights papers, evaluation frameworks, and technical reframing that are moving quickly enough to deserve short notes before they are absorbed into a deeper survey page.
+            It is the right place for conference signals, paper-driven commentary, and benchmark or threat-model shifts.
+          </p>
+<div class="pulse-link-list">
+<a href="#2026-03-embodied-ai-security-governance">Embodied AI security and governance</a>
+<a href="#2026-03-stack-safeguard-pipelines">STACK and adaptive safeguard evaluation</a>
+<a href="#agentic-watch">Why agentic AI changes the security problem</a>
+</div>
+</article>
+<article class="pulse-anchor-card" id="industry-innovation">
+<span class="accordion-meta">Industry stream</span>
+<h3>Industry &amp; Innovation</h3>
+<p>
+            This stream is for implementation-facing movement: device deployment realities, lifecycle controls, secure platform design, accelerator or system integration, and the translation of ideas into engineering practice.
+            It keeps the portal grounded in how security is actually realized beyond conceptual models.
+          </p>
+<div class="pulse-link-list">
+<a href="#edge-watch">Edge AI implementation reality</a>
+<a href="#physical-watch">Physical AI and full-system resilience</a>
+<a href="research.html">Return to the evergreen research map</a>
+</div>
+</article>
+<article class="pulse-anchor-card" id="companies-releases">
+<span class="accordion-meta">Ecosystem stream</span>
+<h3>Companies &amp; Releases</h3>
+<p>
+            This stream is intended for company announcements, platform launches, product releases, and market-facing signals that deserve technical interpretation.
+            Instead of becoming a generic news feed, the goal here is to connect each external development back to attack surfaces, trust assumptions, deployment constraints, or countermeasure needs.
+          </p>
+<div class="pulse-link-list">
+<a href="posts/2026-03-embodied-ai-security-governance.html">Example full post format</a>
+<a href="publications.html">Curated resources and references</a>
+<a href="#industry-innovation">Bridge releases back to implementation questions</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<span class="kicker">Research Watch</span>
+<h2>Highlighted ongoing directions</h2>
+<p class="lead lead-measure">
+          These shorter research-watch notes are ideal for commenting on new papers, industry movement, benchmark gaps,
+          and emerging design tensions. The goal is not to summarize everything, but to make the key shift in the field clear
+          and explain why it matters for how AI systems are actually being built.
+        </p>
+        <!--
+          ======================================================================
+          INTERNAL MAINTENANCE GUIDE - WATCH STACK (MANUAL OR NOTEBOOK WORKFLOW)
+          ======================================================================
+
+          BEST PRACTICE
+          - For routine research-watch updates, use the DOCX template plus the
+            notebook update_ongoing_work_and_index_from_docx_posts.ipynb.
+          - The notebook inserts the newest note at the TOP of this watch-stack,
+            updates index.html, and creates/updates posts/YYYY-MM-topic-name.html.
+
+          NOTEBOOK FILES
+          - DOCX template:
+            _internal/weekly-research-watch-template.docx
+          - notebook reference copy:
+            _internal/update_ongoing_work_and_index_from_docx_posts_REFERENCE.ipynb
+
+          MANUAL FALLBACK
+          If you ever want to add a note manually, paste a new <article> ABOVE the
+          first existing watch-note block.
+
+          MINIMAL MANUAL TEMPLATE
+          <article class="watch-note accordion" id="2026-04-your-topic">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <span class="accordion-meta">Research Watch - Your Topic - 2026 signal</span>
+              <span class="accordion-title">Your note title</span>
+              <span class="accordion-preview">Write a 2-3 line preview here.</span>
+              <span class="accordion-cta">Read full note</span>
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+
+            <div class="accordion-panel" aria-hidden="true">
+              <div class="accordion-panel-inner">
+                <p>Full note paragraph 1.</p>
+                <p>Full note paragraph 2.</p>
+
+                <div class="watch-columns">
+                  <div class="watch-block">
+                    <h4>What is changing technically</h4>
+                    <ul>
+                      <li>Point 1</li>
+                      <li>Point 2</li>
+                      <li>Point 3</li>
+                      <li>Point 4</li>
+                    </ul>
+                  </div>
+
+                  <div class="watch-block">
+                    <h4>What reviewers should notice</h4>
+                    <ul>
+                      <li>Point 1</li>
+                      <li>Point 2</li>
+                      <li>Point 3</li>
+                      <li>Point 4</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="watch-bottom-note">
+                  <strong>Current research tension:</strong> Write one concluding line here.
+                </div>
+
+                <div class="watch-inline-links">
+                  <a href="posts/2026-04-your-topic.html">Read full post</a>
+                  <a href="research.html">Related page</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        -->
+<div class="watch-stack">
+<article class="watch-note accordion" id="2026-03-embodied-ai-security-governance">
+<button aria-expanded="false" class="accordion-trigger" type="button">
+<span class="accordion-meta">Research Watch • Embodied AI Security Governance • 2026 signal</span>
+<span class="accordion-title">Embodied AI Security Is No Longer Just a Model Problem</span>
+<span class="accordion-preview">
+      This paper reframes embodied AI security as a full cyber-physical-social problem, not just LLM robustness or robot safety in isolation. Once an agent can sense, decide, and act in the real world, security has to span algorithms, sensors, actuators, data, and deployment governance together.
+    </span>
+<span class="accordion-cta">Read full note</span>
+<span aria-hidden="true" class="accordion-icon"></span>
+</button>
+<div aria-hidden="true" class="accordion-panel">
+<div class="accordion-panel-inner">
+<p>
+        Embodied AI changes the security discussion because the model is no longer only producing text or labels - it is now coupled to sensors, actuators, power, communications, and physical environments. The paper's main contribution is to show that security must be understood across three connected layers: the agent itself, its interaction with people and objects, and the broader information, physical, and social domains in which it is deployed.
+      </p>
+<p>
+        Technically, this means older AI evaluation habits are too narrow. A system may look robust at the model level yet still fail through poisoned training data, prompt injection, sensor spoofing, actuator manipulation, or unsafe task planning. The useful framing here is that embodied AI inherits classical AI attacks and adds cross-domain failure paths, so security review must cover algorithm safety, sensing-control integrity, data privacy, interaction safety, supply-chain trust, runtime monitoring, and governance mechanisms such as logging, traceability, and emergency override.
+      </p>
+<div class="watch-columns">
+<div class="watch-block">
+<h4>What is changing technically</h4>
+<ul>
+<li>The security boundary shifts from model inference to the full perception-decision-actuation loop.</li>
+<li>Embodied systems inherit AI attacks such as poisoning and jailbreaks, then add physical attacks on sensors, actuators, power, and communications.</li>
+<li>Security claims now have to be tied to real-world consequence: human harm, object damage, unsafe motion, privacy leakage, or social misuse.</li>
+<li>Deployment requires stronger lifecycle controls, including evaluation standards, trusted supply chains, runtime logging, and minimum human override mechanisms.</li>
+</ul>
+</div>
+<div class="watch-block">
+<h4>What reviewers should notice</h4>
+<ul>
+<li>Whether the paper defines a realistic threat or deployment model across sensing, planning, action, and supervision.</li>
+<li>Whether the work measures downstream physical or operational consequence rather than only model error or attack success rate.</li>
+<li>Whether assumptions about trusted hardware, clean data, secure channels, or human-in-the-loop intervention are explicit.</li>
+<li>Whether the proposed security or governance direction can scale beyond one demo robot to heterogeneous deployed embodied systems.</li>
+</ul>
+</div>
+</div>
+<div class="watch-bottom-note">
+<strong>Current research tension:</strong> The real challenge is not making embodied AI more capable, but making cross-domain autonomy trustworthy when perception, reasoning, and physical action can all be exploited together.
+      </div>
+<div class="watch-inline-links">
+<a href="posts/2026-03-embodied-ai-security-governance.html">Read full post</a> <a href="https://doi.org/10.16418/j.issn.1000-3045.20250218002" rel="noopener noreferrer" target="_blank">Paper DOI</a> <a href="https://bulletinofcas.researchcommons.org/journal/vol40/iss3/4" rel="noopener noreferrer" target="_blank">Bulletin page</a>
+</div>
+</div>
+</div>
+</article>
+<article class="watch-note accordion" id="2026-03-stack-safeguard-pipelines">
+<button aria-expanded="false" class="accordion-trigger" type="button">
+<span class="accordion-meta">Research Watch • LLM Safeguards • 2025–2026 signal</span>
+<span class="accordion-title">STACK shows why layered LLM safeguards still need adaptive pipeline-level evaluation</span>
+<span class="accordion-preview">
+      This paper matters because it shifts evaluation from single jailbreak-resistant models to full safeguard pipelines. It shows that layered input/output classifier defenses can look strong under standard testing, yet still fail badly once the attacker is optimized against the pipeline as a system.
+    </span>
+<span class="accordion-cta">Read full note</span>
+<span aria-hidden="true" class="accordion-icon"></span>
+</button>
+<div aria-hidden="true" class="accordion-panel">
+<div class="accordion-panel-inner">
+<p>
+        A useful contribution of this paper is that it stops treating safeguard components in isolation and instead evaluates the full defense pipeline as the actual object of attack. The authors build an open-source pipeline around a target model with input and output classifiers, show that a few-shot-prompted classifier can outperform ShieldGemma across their benchmark setting, and report that this stronger pipeline drives the attack success rate on ClearHarm down to 0% under baseline attacks such as PAP, ReNeLLM, and Best-of-N.
+      </p>
+<p>
+        The core result is STACK, a staged attack procedure that develops jailbreaks against each component and then combines them to defeat the whole system. In the paper’s main evaluation, black-box STACK reaches 71% attack success rate on ClearHarm against the few-shot classifier pipeline, and transfer STACK still reaches 33%, which is important because it suggests that even layered defense-in-depth can become brittle once the attacker explicitly optimizes against the pipeline architecture rather than only the base model or a single guard.
+      </p>
+<div class="watch-columns">
+<div class="watch-block">
+<h4>What is changing technically</h4>
+<ul>
+<li>Evaluation is moving from single-model jailbreak testing to full pipeline-aware red teaming.</li>
+<li>Input and output classifiers may each look strong on their own, but staged attacks can exploit their interaction and ordering.</li>
+<li>A few-shot prompted safeguard classifier can significantly improve baseline robustness, yet this does not guarantee resilience to adaptive attacks.</li>
+<li>Transfer-style attacks show that even limited-access adversaries may be able to target safeguard pipelines without direct access to every component.</li>
+</ul>
+</div>
+<div class="watch-block">
+<h4>What reviewers should notice</h4>
+<ul>
+<li>Whether the paper evaluates the entire safeguard pipeline rather than only one moderation component.</li>
+<li>Whether the attack is adaptive to the defense architecture, not just reused from generic jailbreak benchmarks.</li>
+<li>Whether robustness is reported in realistic black-box and transfer settings, not only toy or fully white-box assumptions.</li>
+<li>Whether mitigation claims are framed as practical hardening guidance instead of proof that defense-in-depth alone is sufficient.</li>
+</ul>
+</div>
+</div>
+<div class="watch-bottom-note">
+<strong>Current research tension:</strong> Current research tension: layered safeguards are becoming operationally important for frontier models, but this paper shows that composition alone is not enough; once attackers optimize against the pipeline as a system, apparent robustness can collapse much faster than ordinary benchmark results suggest.
+      </div>
+<div class="watch-inline-links">
+<a href="posts/2026-03-stack-safeguard-pipelines.html">Read full post</a> <a href="ai-security/generative-ai.html">See full generative AI page</a> <a href="https://arxiv.org/pdf/2506.24068" rel="noopener noreferrer" target="_blank">STACK paper (arXiv PDF)</a> <a href="https://github.com/AlignmentResearch/defense-in-depth-demo" rel="noopener noreferrer" target="_blank">Open-source defense pipeline demo</a>
+</div>
+</div>
+</div>
+</article>
+<article class="watch-note accordion" id="agentic-watch">
+<button aria-expanded="false" class="accordion-trigger" type="button">
+<span class="accordion-meta">Research Watch • Agentic AI • 2025–2026 signal</span>
+<span class="accordion-title">Why agentic AI changes the security problem</span>
+<span class="accordion-preview">
+                Security is no longer only about whether a model produces a harmful answer. Once the system can plan, keep state,
+                read untrusted content, call tools, and act over multiple steps, the real problem becomes goal integrity under autonomy.
+              </span>
+<span class="accordion-cta">Read full note</span>
+<span aria-hidden="true" class="accordion-icon"></span>
+</button>
+<div aria-hidden="true" class="accordion-panel">
+<div class="accordion-panel-inner">
+<p>
+                  That shift is important because agentic systems do not fail in the same way as one-shot assistants. A normal chatbot may produce a bad answer,
+                  but a browser agent, coding agent, inbox agent, or workflow agent can convert that mistake into state changes, file access, data transfer,
+                  purchases, approvals, or multi-step action sequences. The attack surface therefore moves from isolated prompt safety to a larger loop involving
+                  memory, delegation, tool permissions, identity propagation, and recovery after partial compromise.
+                </p>
+<p>
+                  Recent guidance is converging on the same conclusion from different directions. OWASP now treats agentic applications as a distinct security class
+                  rather than a simple extension of LLM apps, and NIST's ongoing control-overlay work explicitly separates single-agent and multi-agent use cases.
+                  Industry guidance on prompt injection is also moving away from the idea of a perfect filter and toward architectural containment: assume some
+                  malicious instructions will get through, then design the system so they cannot easily trigger high-impact actions. In other words, the main
+                  question is no longer “can the model be tricked?” but “what is the maximum damage if it is tricked for one step, five steps, or fifty?”.
+                </p>
+<div class="watch-columns">
+<div class="watch-block">
+<h4>What is changing technically</h4>
+<ul>
+<li>Prompt injection becomes more dangerous when the model can browse, retrieve, and execute actions.</li>
+<li>Memory turns one-time manipulation into persistence if poisoned notes, summaries, or preferences survive into future tasks.</li>
+<li>Delegation and multi-agent composition introduce new trust boundaries between planner, executor, retriever, and sub-agent roles.</li>
+<li>Approval becomes part of the security architecture, not just a UX feature.</li>
+</ul>
+</div>
+<div class="watch-block">
+<h4>What reviewers should notice</h4>
+<ul>
+<li>Whether the paper or system defines explicit autonomy boundaries rather than only model safety prompts.</li>
+<li>Whether tool permissions are scoped per task, per identity, and per action type.</li>
+<li>Whether memory is treated as a governed state object or just a convenient persistence layer.</li>
+<li>Whether evaluation includes long-horizon and indirect attacks, not only single-turn jailbreaks.</li>
+</ul>
+</div>
+</div>
+<div class="watch-bottom-note">
+<strong>Current research tension:</strong> the field wants useful autonomy, but every increase in autonomy expands the blast radius of partial compromise.
+                  This is why the strongest current work is shifting toward capability bounding, authenticated workflows, explicit human approval for high-impact actions,
+                  and runtime tracing that makes agent behavior inspectable rather than magically autonomous.
+                </div>
+<div class="watch-inline-links">
+<a href="ai-security/agentic-ai.html">See full agentic AI page</a>
+<a href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/" rel="noopener noreferrer" target="_blank">OWASP Agentic Top 10</a>
+<a href="https://openai.com/index/designing-agents-to-resist-prompt-injection/" rel="noopener noreferrer" target="_blank">Prompt injection in agents</a>
+<a href="https://csrc.nist.gov/projects/cosais" rel="noopener noreferrer" target="_blank">NIST COSAiS</a>
+</div>
+</div>
+</div>
+</article>
+<article class="watch-note accordion" id="edge-watch">
+<button aria-expanded="false" class="accordion-trigger" type="button">
+<span class="accordion-meta">Research Watch • Edge AI • implementation reality</span>
+<span class="accordion-title">Edge AI makes implementation details matter</span>
+<span class="accordion-preview">
+                On-device deployment shifts the problem from purely software trust to physical, architectural, and side-channel-aware trust.
+                Once the model is local, the attacker is no longer only querying an API; they may probe the board, observe memory traffic, tamper with firmware,
+                spoof sensors, or exploit the update path.
+              </span>
+<span class="accordion-cta">Read full note</span>
+<span aria-hidden="true" class="accordion-icon"></span>
+</button>
+<div aria-hidden="true" class="accordion-panel">
+<div class="accordion-panel-inner">
+<p>
+                  This is why edge AI is not simply “cloud AI moved closer to the sensor.” The trust assumptions change at multiple levels. The device may be intermittently connected,
+                  power constrained, physically reachable, and expected to operate in hostile or uncontrolled environments. That means secure boot, hardware-backed identity,
+                  attestation, provisioning, rollback protection, OTA update integrity, protected model storage, and debug-port policy become central. Even the same model can look
+                  different from a security perspective after quantization, pruning, accelerator mapping, or local caching because those choices change leakage surfaces and runtime behavior.
+                </p>
+<p>
+                  Current device-security guidance increasingly emphasizes lifecycle assurance, not only runtime hardening. Trusted onboarding, identity binding, attestation tokens,
+                  and field lifecycle management are now treated as part of the operational security boundary. This is especially relevant for AI devices because a local compromise
+                  can expose not just the firmware and keys, but also model parameters, user data, embeddings, sensor traces, and downstream control logic. As edge inference expands,
+                  “implementation details” are no longer engineering footnotes; they are part of the threat model itself.
+                </p>
+<div class="watch-columns">
+<div class="watch-block">
+<h4>What is changing technically</h4>
+<ul>
+<li>Model confidentiality becomes a local storage and in-memory execution problem.</li>
+<li>Secure boot and attestation now matter for model trust, not only operating system trust.</li>
+<li>Sensor validity and firmware lifecycle have to be discussed together.</li>
+<li>Resource limits force lightweight security, so cloud-style defense stacks often do not translate directly.</li>
+</ul>
+</div>
+<div class="watch-block">
+<h4>What reviewers should notice</h4>
+<ul>
+<li>Whether the work defines a real device-level attacker and not just a software-only adversary.</li>
+<li>Whether provisioning, update, and recovery are part of the claimed security story.</li>
+<li>Whether hardware mapping choices such as quantization or accelerator scheduling alter leakage or FI exposure.</li>
+<li>Whether the paper explains how security scales across a fleet, not only on one prototype board.</li>
+</ul>
+</div>
+</div>
+<div class="watch-bottom-note">
+<strong>Current research tension:</strong> edge devices are expected to be private, fast, and low-power at the same time. But strong protection for storage,
+                  runtime state, sensor integrity, and update governance always consumes budget. This is why edge security increasingly rewards co-design across firmware,
+                  device architecture, model compression, and fleet management rather than one-layer fixes.
+                </div>
+<div class="watch-inline-links">
+<a href="ai-security/edge-security.html">See full edge AI page</a>
+<a href="https://www.nccoe.nist.gov/sites/default/files/2025-11/iot-onboarding-nist-sp-1800-36b-final.pdf" rel="noopener noreferrer" target="_blank">NIST trusted device lifecycle</a>
+<a href="https://nvlpubs.nist.gov/nistpubs/ir/2025/NIST.IR.8532.pdf" rel="noopener noreferrer" target="_blank">NIST device/component security</a>
+<a href="https://developer.arm.com/documentation/101892/latest/Security---Platform-Security-Architecture" rel="noopener noreferrer" target="_blank">Arm PSA overview</a>
+</div>
+</div>
+</div>
+</article>
+<article class="watch-note accordion" id="physical-watch">
+<button aria-expanded="false" class="accordion-trigger" type="button">
+<span class="accordion-meta">Research Watch • Physical AI • embodied systems</span>
+<span class="accordion-title">Physical AI needs security and safety together</span>
+<span class="accordion-preview">
+                When AI senses and acts in the world, latency, timing, reliability, security, and safety stop being separate checkboxes.
+                They become tightly coupled design goals across the full perception-to-action loop.
+              </span>
+<span class="accordion-cta">Read full note</span>
+<span aria-hidden="true" class="accordion-icon"></span>
+</button>
+<div aria-hidden="true" class="accordion-panel">
+<div class="accordion-panel-inner">
+<p>
+                  Physical AI is broader than robotics hype. It includes the convergence of AI with embodied or cyber-physical platforms such as robots,
+                  autonomous vehicles, drones, industrial automation, and other systems where perception, planning, communication, and actuation are linked.
+                  In these systems, security incidents do not remain abstract. A manipulated sensor stream, delayed control message, corrupted state estimate,
+                  or planner-controller mismatch can change physical behavior. That is why the evaluation lens must expand from “did the model output the wrong class?”
+                  to “how did the full system behave under uncertainty, disturbance, latency, or attack?”.
+                </p>
+<p>
+                  Recent policy and operational guidance also points in this direction. Physical AI is increasingly being discussed as the convergence of AI and robotics,
+                  while secure integration guidance for AI in operational technology emphasizes that availability, safety, and control integrity must remain primary even when AI is added.
+                  This creates a research demand for cross-layer evaluation: secure sensing, trusted compute, authenticated communication, bounded actuation, runtime anomaly detection,
+                  and safe fallback behavior all need to be analyzed together. In short, physical AI security cannot be reduced to adversarial examples or to firmware protection alone.
+                  It is a systems problem where cyber compromise and unsafe physical behavior can become the same event.
+                </p>
+<div class="watch-columns">
+<div class="watch-block">
+<h4>What is changing technically</h4>
+<ul>
+<li>Perception, control, communication, and actuation must be evaluated as one chain rather than separate modules.</li>
+<li>Timing and delay become security-relevant because stale or manipulated state can still drive action.</li>
+<li>Fail-safe degradation matters as much as attack prevention because some disturbances will always occur in the physical world.</li>
+<li>Sensor fusion, estimator trust, and controller bounds are becoming central research topics.</li>
+</ul>
+</div>
+<div class="watch-block">
+<h4>What reviewers should notice</h4>
+<ul>
+<li>Whether the work links model failure to system-level physical consequence.</li>
+<li>Whether safety fallback and bounded control are explicitly discussed.</li>
+<li>Whether communication delays, localization drift, spoofing, or jamming are part of the evaluation assumptions.</li>
+<li>Whether the paper distinguishes cyber robustness from true operational resilience.</li>
+</ul>
+</div>
+</div>
+<div class="watch-bottom-note">
+<strong>Current research tension:</strong> physical AI promises more autonomy in the real world, but the real world is messy, delayed, noisy, and adversarial.
+                  The strongest upcoming work will likely be the work that links secure perception, trustworthy control, runtime monitoring, and graceful fail-safe behavior,
+                  rather than optimizing any one module in isolation.
+                </div>
+<div class="watch-inline-links">
+<a href="ai-security/physical-ai.html">See full physical AI page</a>
+<a href="https://cset.georgetown.edu/publication/physical-ai/" rel="noopener noreferrer" target="_blank">CSET physical AI primer</a>
+<a href="https://www.cisa.gov/news-events/alerts/2025/12/03/cisa-australia-and-partners-author-joint-guidance-securely-integrating-artificial-intelligence" rel="noopener noreferrer" target="_blank">Joint AI in OT guidance</a>
+<a href="https://www.ic3.gov/CSA/2025/251215.pdf" rel="noopener noreferrer" target="_blank">AI integration principles for OT</a>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container footer-grid">
+<div>
+<h3>Brojogopal Sapui</h3>
+<p>AI Security• Hardware Trust • Edge/Physical AI</p>
+</div>
+<div>
+<h4>Main Pages</h4>
+<a href="research.html">Research</a>
+<a class="trending-link" href="ongoing-work.html">Trending Topics</a>
+<a href="publications.html">Resources</a>
+</div>
+<div>
+<h4>Experience</h4>
+<p>Wipro Technologies, NaMLab, KIT (Germany), IIT Kharagpur, ISI Kolkata.</p>
+</div>
+</div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

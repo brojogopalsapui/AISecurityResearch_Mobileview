@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -10,9 +9,27 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="assets/css/style.css" rel="stylesheet"/>
-<link href="assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="assets/js/site-shell.js"></script><script defer="True" src="assets/js/portal.js"></script></head>
-<body class="subpage portal-page" data-depth="0" data-nav="trending" data-page="trending">
-<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+</head>
+<body class="subpage">
+<header class="site-header">
+<div class="container nav-wrap">
+<div class="brand-group"><a aria-label="Brojogopal Sapui Home" class="brand" href="index.html">B<span>S</span></a><a class="brand-hint" href="https://brojogopalsapui.github.io/AISecurityResearch_Mobileview/" target="_blank" rel="noopener noreferrer">Learning Portal</a></div>
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="research.html">Research</a>
+<a class="active trending-link" href="ongoing-work.html">Trending Topics</a>
+<a href="publications.html">Resources</a>
+<a href="contact.html">Contact</a>
+</nav>
+<button aria-expanded="false" aria-label="Toggle menu" class="menu-btn">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</header>
+<main>
 <section class="page-hero">
 <div class="container">
 <span class="eyebrow">AI Security Pulse • Living Research Notebook</span>
@@ -51,32 +68,6 @@
 <span class="pulse-link">Jump to stream</span>
 </a>
 </div>
-<!--
-          ======================================================================
-          INTERNAL MAINTENANCE GUIDE - AI SECURITY PULSE SECTION
-          ======================================================================
-
-          This top "AI Security Pulse" area is a stable gateway, not a weekly feed.
-          Do NOT change it every time a new paper appears.
-
-          NORMAL RULE
-          - Keep the three stream cards stable:
-            1. Academic Signals
-            2. Industry & Innovation
-            3. Companies & Releases
-          - Add your routine updates lower down in the watch-stack or in posts/.
-
-          WHEN TO EDIT THIS SECTION
-          - only when you want to rewrite the summary text of one stream
-          - or when you want to update the quick links inside one stream card
-
-          QUICK LINK TEMPLATE INSIDE A STREAM CARD
-          <div class="pulse-link-list">
-            <a href="posts/2026-04-your-post.html">Your newest detailed post</a>
-            <a href="research.html">Related evergreen research page</a>
-            <a href="#some-anchor">Jump to another note on this page</a>
-          </div>
-        -->
 <div class="pulse-anchor-stack">
 <article class="pulse-anchor-card" id="academic-signals">
 <span class="accordion-meta">Academic stream</span>
@@ -129,76 +120,6 @@
           and emerging design tensions. The goal is not to summarize everything, but to make the key shift in the field clear
           and explain why it matters for how AI systems are actually being built.
         </p>
-<!--
-          ======================================================================
-          INTERNAL MAINTENANCE GUIDE - WATCH STACK (MANUAL OR NOTEBOOK WORKFLOW)
-          ======================================================================
-
-          BEST PRACTICE
-          - For routine research-watch updates, use the DOCX template plus the
-            notebook update_ongoing_work_and_index_from_docx_posts.ipynb.
-          - The notebook inserts the newest note at the TOP of this watch-stack,
-            updates index.html, and creates/updates posts/YYYY-MM-topic-name.html.
-
-          NOTEBOOK FILES
-          - DOCX template:
-            _internal/weekly-research-watch-template.docx
-          - notebook reference copy:
-            _internal/update_ongoing_work_and_index_from_docx_posts_REFERENCE.ipynb
-
-          MANUAL FALLBACK
-          If you ever want to add a note manually, paste a new <article> ABOVE the
-          first existing watch-note block.
-
-          MINIMAL MANUAL TEMPLATE
-          <article class="watch-note accordion" id="2026-04-your-topic">
-            <button class="accordion-trigger" type="button" aria-expanded="false">
-              <span class="accordion-meta">Research Watch - Your Topic - 2026 signal</span>
-              <span class="accordion-title">Your note title</span>
-              <span class="accordion-preview">Write a 2-3 line preview here.</span>
-              <span class="accordion-cta">Read full note</span>
-              <span class="accordion-icon" aria-hidden="true"></span>
-            </button>
-
-            <div class="accordion-panel" aria-hidden="true">
-              <div class="accordion-panel-inner">
-                <p>Full note paragraph 1.</p>
-                <p>Full note paragraph 2.</p>
-
-                <div class="watch-columns">
-                  <div class="watch-block">
-                    <h4>What is changing technically</h4>
-                    <ul>
-                      <li>Point 1</li>
-                      <li>Point 2</li>
-                      <li>Point 3</li>
-                      <li>Point 4</li>
-                    </ul>
-                  </div>
-
-                  <div class="watch-block">
-                    <h4>What reviewers should notice</h4>
-                    <ul>
-                      <li>Point 1</li>
-                      <li>Point 2</li>
-                      <li>Point 3</li>
-                      <li>Point 4</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="watch-bottom-note">
-                  <strong>Current research tension:</strong> Write one concluding line here.
-                </div>
-
-                <div class="watch-inline-links">
-                  <a href="posts/2026-04-your-topic.html">Read full post</a>
-                  <a href="research.html">Related page</a>
-                </div>
-              </div>
-            </div>
-          </article>
-        -->
 <div class="watch-stack">
 <article class="watch-note accordion" id="2026-03-embodied-ai-security-governance">
 <button aria-expanded="false" class="accordion-trigger" type="button">
@@ -478,6 +399,25 @@
 </div>
 </div>
 </section>
-</main><div id="site-shell-footer"></div>
+</main>
+<footer class="site-footer">
+<div class="container footer-grid">
+<div>
+<h3>Brojogopal Sapui</h3>
+<p>AI Security• Hardware Trust • Edge/Physical AI</p>
+</div>
+<div>
+<h4>Main Pages</h4>
+<a href="research.html">Research</a>
+<a class="trending-link" href="ongoing-work.html">Trending Topics</a>
+<a href="publications.html">Resources</a>
+</div>
+<div>
+<h4>Experience</h4>
+<p>Wipro Technologies, NaMLab, KIT (Germany), IIT Kharagpur, ISI Kolkata.</p>
+</div>
+</div>
+</footer>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern AI Hardware Knowledge Required for Security Analysis | Brojogopal Sapui</title>
+<meta content="Technical foundation page on modern AI hardware stacks, memory residency, tensor engines, runtimes, and security observation points needed for rigorous AI security analysis." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="../assets/js/site-shell.js"></script><script defer="True" src="../assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="1" data-nav="research" data-page="modern-ai-hardware-knowledge">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="hero" style="padding: 4.5rem 0 3rem;">
+<div class="container">
+<span class="eyebrow">AI Foundations • Modern Hardware Knowledge</span>
+<h1 style="max-width: 14ch;">Modern AI Hardware Knowledge</h1>
+<p class="lead" style="max-width: 86ch;">Rigorous AI security analysis requires more than knowing the model architecture. It requires understanding how host software, runtimes, memory hierarchies, tensor engines, interconnects, numeric precision, and scheduling policies shape actual execution on modern AI hardware.</p>
+</div>
+</section>
+<section class="section">
+<div class="container split">
+<div class="content-card">
+<span class="kicker">Overview</span>
+<h2>What this topic covers</h2>
+<p>Traditional platforms were designed for control-centric software, while modern AI hardware is built to sustain large volumes of structured tensor computation. That shift brings specialized matrix engines, deep memory hierarchies, compiler-driven kernel lowering, and heterogeneous execution across CPUs, GPUs, NPUs, or accelerators in the cloud.</p>
+<p>For security researchers, this changes the questions worth asking. It is no longer sufficient to ask whether the processor computes correctly. One must also ask where weights and activations live, how kernels are mapped, which firmware and drivers control the device, where trust boundaries lie, and what timing, memory, power, or communication artifacts become observable outside the ideal model graph.</p>
+</div>
+<div class="content-card">
+<span class="kicker">Why it matters</span>
+<h2>Security significance</h2>
+<ul class="check-list">
+<li>It connects model semantics to physical execution, which is essential for side-channel, fault, and isolation analysis.</li>
+<li>It clarifies where host/runtime control ends and where device-local state becomes security-relevant.</li>
+<li>It helps identify observation points such as DMA, memory traffic, firmware control paths, and on-die compute blocks.</li>
+<li>It turns abstract AI security concerns into measurable system and hardware questions.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="section alt">
+<div class="container">
+<figure class="page-figure compact-figure foundation-figure">
+<div class="img-frame">
+<img alt="Diagram of the AI hardware stack spanning host runtime, device memory, tensor compute, and security surfaces." class="zoom-img" src="../assets/img/foundations/modern-ai-hardware-stack.svg"/>
+</div>
+<figcaption>A concise stack view showing how runtime control, memory placement, compute engines, and security observation points interact on modern AI hardware.</figcaption>
+</figure>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Key concepts</span>
+<h2>Core technical layers</h2>
+<p>These layers are repeatedly involved when an AI workload is compiled, launched, executed, and measured on real hardware.</p>
+</div>
+<div class="card-grid three">
+<div class="section-card"><h3>Host and runtime control</h3><p>The host CPU, drivers, compiler, and runtime decide kernel launch order, buffer ownership, DMA setup, synchronization, and fallback behavior. These layers often define the first trust boundary around the accelerator.</p></div>
+<div class="section-card"><h3>Device memory and data residency</h3><p>Weights, activations, optimizer state, and KV-cache do not simply “exist on the chip.” They occupy specific memory tiers with different visibility, latency, and protection guarantees. Placement strongly affects leakage and integrity exposure.</p></div>
+<div class="section-card"><h3>Tensor compute and dataflow</h3><p>Matrix engines, tensor cores, vector units, and reduction paths implement AI kernels through tiling, blocking, reuse, and precision-aware scheduling. These choices shape the device behavior seen through timing, bandwidth, power, or faults.</p></div>
+</div>
+</div>
+</section>
+<section class="section alt">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Security lens</span>
+<h2>Security questions that follow</h2>
+<p>Once the hardware stack is visible, AI security analysis becomes more concrete and implementation-aware.</p>
+</div>
+<div class="card-grid three">
+<div class="section-card"><h3>Observation surface</h3><p>Which signals leave the ideal mathematical abstraction? Examples include memory bursts, service latency, scheduler activity, power traces, telemetry counters, or interconnect traffic.</p></div>
+<div class="section-card"><h3>Fault and integrity surface</h3><p>Where can disturbances change execution? Practical targets include firmware-controlled state, DMA descriptors, local memories, arithmetic datapaths, voltage rails, or timing assumptions in host-device coordination.</p></div>
+<div class="section-card"><h3>Isolation and trust boundaries</h3><p>Who controls buffers, firmware, and runtime policy? Multi-tenant accelerators, cloud deployment, or edge platforms often blur the boundary between user-visible software and hidden device-local mechanisms.</p></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="cta">
+<div>
+<span class="eyebrow">Next Step</span>
+<h2>Back to the research map</h2>
+<p>Return to the structured research overview or continue browsing the other AI foundations and AI security themes.</p>
+</div>
+<div class="cta-actions">
+<a class="btn btn-primary" href="../research.html">Research Map</a>
+<a class="btn btn-secondary" href="../publications.html">Resources</a>
+</div>
+</div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>

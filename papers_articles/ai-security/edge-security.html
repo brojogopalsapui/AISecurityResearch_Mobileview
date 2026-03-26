@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edge AI Security | Brojogopal Sapui</title>
+<meta content="Edge AI security spans on-device inference, sensor and firmware trust, model protection, physical access, side-channel leakage, fault injection, OTA updates, attestation, and resource-constrained secure deployment." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/portal-mobile.css" rel="stylesheet"/><script defer="True" src="../assets/js/site-shell.js"></script><script defer="True" src="../assets/js/portal.js"></script></head>
+<body class="subpage portal-page" data-depth="1" data-nav="research" data-page="edge-security">
+<div id="site-shell-top"></div><div id="site-shell-header"></div><main>
+<section class="page-hero">
+<div class="container">
+<span class="eyebrow">AI Security Section</span>
+<h1>Edge AI Security</h1>
+<p class="lead">
+          Edge AI changes the trust model because inference happens on devices that are physically reachable,
+          tightly coupled to sensors and sometimes actuators, intermittently connected, power constrained, and
+          often deployed in uncontrolled environments. Security therefore becomes a cross-layer problem spanning
+          firmware, model storage, runtime execution, sensor trust, update integrity, and lightweight hardware-software defenses.
+        </p>
+</div>
+</section>
+<section class="section">
+<div class="container page-grid">
+<aside class="toc">
+<h3>Navigate this section</h3>
+<a href="#overview">Overview</a>
+<a href="#threats">Threat model</a>
+<a href="#defenses">Countermeasures</a>
+<a href="#gaps">Open challenges</a>
+<a href="#readings">Selected readings</a>
+<hr style="border-color:rgba(32,58,87,.12)"/>
+<a href="software-security.html">Software</a>
+<a href="hardware-security.html">Hardware</a>
+<a href="cloud-security.html">Cloud</a>
+<a href="edge-security.html">Edge</a>
+<a href="predictive-ai.html">Predictive AI</a>
+<a href="generative-ai.html">Generative AI</a>
+<a href="agentic-ai.html">Agentic AI</a>
+<a href="physical-ai.html">Physical AI</a>
+<a href="countermeasures.html">Countermeasures</a>
+</aside>
+<div class="content-card">
+<section id="overview">
+<span class="kicker">Overview</span>
+<h2>Why edge deployment changes the security problem</h2>
+<p>
+              Edge AI places computation close to the data source. This reduces latency, lowers bandwidth demand,
+              and can improve privacy by avoiding continuous cloud upload. At the same time, it removes the protective
+              assumptions of centralized infrastructure. The device is now in the field, often in homes, factories, vehicles,
+              cameras, gateways, wearables, or mobile robots, where attackers may physically probe the board, tamper with sensors,
+              replace firmware, observe power and timing behavior, or extract model artifacts from local storage.
+            </p>
+<p>
+              A useful way to understand edge AI security is to think in terms of <strong>four trust boundaries</strong>.
+              First is the <strong>device boundary</strong>: boot state, firmware, credentials, debug interfaces, and physical tamper resistance.
+              Second is the <strong>model boundary</strong>: confidentiality and integrity of weights, quantized parameters, and runtime execution.
+              Third is the <strong>data boundary</strong>: the trustworthiness of sensor inputs, local preprocessing, caching, and memory.
+              Fourth is the <strong>lifecycle boundary</strong>: onboarding, provisioning, attestation, remote updates, and end-of-life handling.
+              A strong edge system must hold across all four.
+            </p>
+<h3>What counts as edge AI?</h3>
+<ul>
+<li><strong>Embedded inference:</strong> microcontrollers, NPUs, DSPs, FPGAs, and low-power SoCs running local models.</li>
+<li><strong>Smart sensing systems:</strong> cameras, microphones, radar, biosensors, industrial sensors, and multimodal gateways.</li>
+<li><strong>Connected products:</strong> IoT nodes, wearables, medical devices, smart-building devices, and consumer electronics.</li>
+<li><strong>Edge gateways:</strong> industrial gateways, vehicular units, telecom edge nodes, and local RAG/inference appliances.</li>
+<li><strong>Real-time systems:</strong> systems where latency, privacy, or resilience makes cloud-only inference impractical.</li>
+</ul>
+<h3>Why edge AI security is different from cloud AI security</h3>
+<ul>
+<li><strong>Physical access is realistic:</strong> the attacker may touch, open, probe, or replace the device.</li>
+<li><strong>Resources are tighter:</strong> strong security controls must fit power, area, cost, memory, and latency limits.</li>
+<li><strong>Sensor trust is central:</strong> the attack may target the model through the physical world or through local peripherals.</li>
+<li><strong>Offline operation matters:</strong> devices may need to make decisions even without continuous cloud supervision.</li>
+<li><strong>Update risk is high:</strong> the field lifecycle of secure provisioning, patching, rollback protection, and decommissioning becomes critical.</li>
+</ul>
+<h3>Core security goals at the edge</h3>
+<ul>
+<li><strong>Model integrity:</strong> ensure the deployed model and runtime have not been tampered with.</li>
+<li><strong>Model confidentiality:</strong> protect valuable weights, embeddings, prompts, and configuration data from extraction.</li>
+<li><strong>Sensor and data trust:</strong> ensure local inputs are authentic, bounded, and plausibly consistent.</li>
+<li><strong>Execution trust:</strong> verify that only authorized firmware and workloads run on the device.</li>
+<li><strong>Availability and safety:</strong> keep the device useful under fault, abuse, intermittent connectivity, and hostile environments.</li>
+<li><strong>Lifecycle assurance:</strong> provision, attest, update, and retire devices without breaking security guarantees.</li>
+</ul>
+<div class="callout">
+<strong>Research intuition:</strong> edge AI is where software security, hardware security, and deployment reality meet.
+              A model that looks secure in the cloud may fail very differently when it is quantized, stored locally, exposed through board-level interfaces,
+              and driven directly by noisy or adversarial sensors.
+            </div>
+</section>
+<figure class="page-figure">
+<img alt="Diagram showing edge AI security across trust chain, main threats, resource constraints, exposed assets, deployment risks, and research focus." src="../assets/img/diagrams/edge_ai_security_landscape.svg"/>
+<figcaption>Edge AI security across device trust, sensor exposure, model protection, and fleet lifecycle.</figcaption>
+</figure>
+<section id="threats">
+<span class="kicker">Threat model</span>
+<h2>Threat model and edge-specific attack surface</h2>
+<p>
+              An edge-AI threat model should not begin only from remote APIs. It should begin from what the attacker can do to the <strong>device</strong>,
+              the <strong>firmware</strong>, the <strong>sensor path</strong>, the <strong>local model storage</strong>, and the <strong>runtime execution context</strong>.
+              In many deployments, the attacker is local, patient, and adaptive. They may not need to break all protections. It is often enough to exploit
+              one weak interface such as an exposed debug port, a rollback-prone update path, a poorly protected weight file, or an unvalidated sensor channel.
+            </p>
+<h3>Attacker positions</h3>
+<ul>
+<li><strong>Physical attacker:</strong> can access the board, enclosure, connectors, storage, or debug interfaces.</li>
+<li><strong>Firmware attacker:</strong> can modify boot code, replace images, exploit update logic, or downgrade software.</li>
+<li><strong>Sensor attacker:</strong> perturbs the physical input through light, sound, RF, motion, spoofed signals, or injected data streams.</li>
+<li><strong>Local software attacker:</strong> compromises the host OS, trusted application boundary, or driver stack around the model runtime.</li>
+<li><strong>Supply-chain attacker:</strong> tampers with device components, provisioned credentials, counterfeit parts, or manufacturing-time configuration.</li>
+<li><strong>Remote fleet attacker:</strong> exploits onboarding, update orchestration, or management channels to reach many devices at once.</li>
+</ul>
+<h3>Attacker goals</h3>
+<ul>
+<li><strong>Extract:</strong> steal model parameters, firmware, credentials, configuration, or local user data.</li>
+<li><strong>Tamper:</strong> replace the model, modify thresholds, disable checks, or alter decision logic.</li>
+<li><strong>Evade:</strong> cause misclassification, alarm suppression, or false acceptance through local or physical perturbation.</li>
+<li><strong>Persist:</strong> implant backdoored firmware, malicious updates, or durable configuration changes.</li>
+<li><strong>Disrupt:</strong> induce resets, energy drain, denial of service, or degraded sensing and actuation.</li>
+<li><strong>Scale:</strong> use one compromised device or update channel to affect an entire deployment fleet.</li>
+</ul>
+<h3>Major threat classes</h3>
+<h3>1. Firmware tampering and insecure boot chains</h3>
+<p>
+              Edge security starts before inference. If boot ROM, first-stage bootloader, firmware image, or model package can be replaced,
+              then many higher-layer defenses become irrelevant. Unsigned updates, incomplete chain-of-trust verification, weak rollback protection,
+              or insecure provisioning can allow adversaries to install modified runtimes, bypass safety checks, or silently downgrade security features.
+            </p>
+<ul>
+<li>Common targets include bootloaders, OTA update agents, configuration partitions, and local model files.</li>
+<li>Downgrade and rollback attacks are especially dangerous in field devices because old but valid images may retain known weaknesses.</li>
+<li>Insecure boot is not only a device problem; it is also a fleet-management problem when update infrastructure is weak.</li>
+</ul>
+<h3>2. Model extraction and local artifact theft</h3>
+<p>
+              Unlike cloud-hosted models, edge models are physically present. Quantized weights, compiled binaries, accelerator graphs, tokenizer assets,
+              and runtime metadata may be stored in flash, DRAM, eMMC, or external memory. Attackers may copy these artifacts directly, infer them from side channels,
+              or reconstruct them through firmware analysis. This matters for both commercial IP protection and security, because extracted models enable offline study,
+              transfer attacks, and targeted reverse engineering.
+            </p>
+<ul>
+<li>Extraction can occur through storage reads, board-level probing, debug access, or memory-bus observation.</li>
+<li>Compressed or encrypted storage helps, but only if keys and decryption paths are protected too.</li>
+<li>Model confidentiality is especially important for custom accelerators, proprietary pipelines, and safety-sensitive decision systems.</li>
+</ul>
+<h3>3. Side-channel leakage and fault injection</h3>
+<p>
+              Edge devices are ideal targets for physical observation because they are nearby and resource constrained. Power traces, timing behavior,
+              EM emissions, and memory traffic can reveal properties of the model, inputs, control flow, or sensitive operations. Fault injection through voltage glitches,
+              clock glitches, laser/light disturbances, or electromagnetic interference can corrupt runtime execution, skip checks, or induce model errors.
+              In AI systems, these attacks may be used not only to extract secrets, but also to force misclassification or degrade trust.
+            </p>
+<ul>
+<li><strong>Passive leakage:</strong> power, EM, timing, cache, bus, and memory-access observation.</li>
+<li><strong>Active faults:</strong> voltage, clock, optical, thermal, or EM disturbance to disrupt execution.</li>
+<li><strong>Why edge matters:</strong> smaller devices often lack the area and power budget for strong physical countermeasures.</li>
+</ul>
+<h3>4. Sensor spoofing and physical-world manipulation</h3>
+<p>
+              Edge AI often sits directly on top of sensors. This means the attacker may never need to touch the weights or firmware if they can reliably manipulate
+              the sensed world. Camera-based systems can be misled by lighting or visual artifacts, microphones by acoustic injection, RF systems by spoofed signals,
+              and industrial sensors by carefully shaped physical disturbances. The attack is partly algorithmic, but the entry point is physical and local.
+            </p>
+<ul>
+<li>Sensor attacks can be transient, stealthy, and hard to replay later in a lab.</li>
+<li>They often exploit preprocessing assumptions before the model even sees the input.</li>
+<li>When the device controls physical actions, the consequence can move quickly from security to safety.</li>
+</ul>
+<h3>5. Debug-interface abuse and low-level hardware access</h3>
+<p>
+              JTAG, UART, SWD, test pads, boundary scan, factory modes, and vendor debug paths remain a classic weakness in deployed devices.
+              If these interfaces are left enabled, poorly protected, or recoverable after reset, an attacker may dump memory, bypass boot policy,
+              change configuration, or inspect secure-state transitions. This is a major risk for low-cost edge devices where manufacturing convenience often conflicts with secure deployment.
+            </p>
+<h3>6. Insecure provisioning, onboarding, and fleet management</h3>
+<p>
+              Edge devices must be provisioned with identities, keys, certificates, firmware, and sometimes model packages before they can be trusted in the field.
+              Weak onboarding processes allow counterfeit or cloned devices, unauthorized re-enrollment, credential theft, or misbinding of identity to hardware.
+              Once devices are deployed at scale, fleet orchestration itself becomes an attack surface because one compromised management path may affect thousands of nodes.
+            </p>
+<ul>
+<li>Device identity must be rooted in hardware or secure storage, not only in software-configurable values.</li>
+<li>Provisioning and update channels must preserve integrity and authenticity under intermittent connectivity.</li>
+<li>Continuous authorization and lifecycle management matter after onboarding, not only during first boot.</li>
+</ul>
+<h3>7. Runtime compromise and trusted-application boundary failure</h3>
+<p>
+              Many edge AI deployments sit inside larger software stacks: Linux gateways, Android devices, RTOS environments, middleware pipelines, and sensor services.
+              A local software compromise can expose model files, capture inputs and outputs, subvert attestation, or manipulate inference scheduling. This means that protecting the NPU or model binary alone is not enough.
+            </p>
+<h3>8. Privacy leakage through local caching and telemetry</h3>
+<p>
+              Edge AI is often marketed as privacy-preserving because raw data stays local. That promise is only partially true if the device stores cached inputs,
+              embeddings, feature maps, logs, or telemetry that later leave the device. Sensitive information may leak not only through the inference result,
+              but through diagnostic uploads, crash logs, local storage remnants, or poorly minimized fleet analytics.
+            </p>
+<h3>9. Resource exhaustion and denial of service</h3>
+<p>
+              Resource-constrained devices can be pushed into unstable behavior with comparatively small effort. Adversaries may flood inputs, trigger repeated wakeups,
+              induce expensive inference paths, drain batteries, exhaust SRAM, or cause thermal throttling and watchdog resets. These attacks are especially relevant for battery-powered sensors and always-on edge classifiers.
+            </p>
+<h3>10. Reliability-to-security crossover</h3>
+<p>
+              At the edge, reliability issues often become security issues. Aging, voltage droop, temperature variation, memory errors, and noisy sensors can interact with adversarial behavior.
+              An attacker may exploit known weak operating regions where the model or hardware becomes easier to fault, less calibrated, or more predictable.
+              This is one reason edge AI security is inseparable from robust hardware-aware design.
+            </p>
+</section>
+<section id="defenses">
+<span class="kicker">Countermeasures</span>
+<h2>Countermeasures and practical design principles</h2>
+<p>
+              Edge defense is about building a <strong>lightweight but trustworthy stack</strong>. Unlike datacenter systems, edge devices often cannot afford large software guards,
+              extensive telemetry, or heavy cryptographic overhead on every operation. The strongest designs therefore combine hardware roots of trust, secure lifecycle controls,
+              model-aware runtime protections, and simple but reliable fail-safe behaviors.
+            </p>
+<h3>1. Secure boot, measured boot, and rollback protection</h3>
+<ul>
+<li>Anchor trust in immutable ROM or hardware root-of-trust components.</li>
+<li>Verify every stage of the firmware and model-loading path before execution.</li>
+<li>Use anti-rollback counters or version binding so older vulnerable images cannot be reinstalled.</li>
+<li>Separate factory, development, and production boot policies.</li>
+<li>Protect recovery paths so they cannot be abused to bypass normal verification.</li>
+</ul>
+<h3>2. Hardware-backed identity, secure storage, and attestation</h3>
+<ul>
+<li>Store device credentials, keys, and critical secrets in secure hardware or protected enclaves.</li>
+<li>Bind identity to hardware-backed roots of trust rather than software-configurable IDs.</li>
+<li>Use attestation so remote services can verify device state before granting access or updates.</li>
+<li>Limit secrets exposure during onboarding and field servicing.</li>
+<li>Re-check device trust after major updates or suspicious state transitions.</li>
+</ul>
+<p>
+              Attestation is especially important for edge fleets because it gives operators a way to reason about whether a remote device is still in a trustworthy software and hardware state.
+            </p>
+<h3>3. Protect model artifacts at rest and in use</h3>
+<ul>
+<li>Encrypt stored model files, parameters, prompts, and configuration where feasible.</li>
+<li>Control key release so model decryption occurs only in verified device states.</li>
+<li>Use integrity checks for model packages and accelerator binaries.</li>
+<li>Minimize persistent storage of intermediate features, sensitive caches, and debug traces.</li>
+<li>Harden external memory paths and weight-transfer interfaces when model confidentiality matters.</li>
+</ul>
+<h3>4. Disable or lock down debug and test interfaces</h3>
+<ul>
+<li>Disable JTAG, UART, SWD, and factory test modes in production unless explicitly needed.</li>
+<li>Require authentication or physical service procedures for any remaining debug path.</li>
+<li>Remove or shield accessible test pads when threat models justify it.</li>
+<li>Audit manufacturing and service workflows so convenience settings do not remain enabled in the field.</li>
+</ul>
+<h3>5. Sensor and input validation</h3>
+<ul>
+<li>Check plausibility, rate-of-change, and cross-sensor consistency before inference.</li>
+<li>Fuse multiple sensing modalities when one sensor alone is easy to spoof.</li>
+<li>Use challenge-response, randomized sensing, or environmental sanity checks in high-risk applications.</li>
+<li>Separate low-confidence or anomalous sensor states from normal decision automation.</li>
+<li>Preserve raw evidence for debugging high-impact sensor anomalies where storage budgets allow.</li>
+</ul>
+<h3>6. Side-channel and fault-aware hardening</h3>
+<ul>
+<li>Apply masking, hiding, balancing, or randomized scheduling where physical leakage matters.</li>
+<li>Use clock, voltage, temperature, or tamper sensors to detect abnormal operating conditions.</li>
+<li>Protect critical checks and decision points against glitch-induced bypass.</li>
+<li>Use redundancy, consistency checks, or lightweight error detection for high-risk inference flows.</li>
+<li>Account for leakage and FI risk early in accelerator and memory-system design rather than adding patches late.</li>
+</ul>
+<h3>7. Secure updates and lifecycle management</h3>
+<ul>
+<li>Sign and verify firmware, model, and configuration updates end to end.</li>
+<li>Use staged rollout, version tracking, and rollback-safe recovery strategies.</li>
+<li>Maintain secure provisioning, ownership transfer, and decommissioning procedures.</li>
+<li>Separate the authority to build, sign, approve, and deploy updates.</li>
+<li>Design for intermittent connectivity so update integrity does not depend on constant cloud reachability.</li>
+</ul>
+<h3>8. Lightweight runtime monitoring and fail-safe behavior</h3>
+<ul>
+<li>Track abnormal reset patterns, power anomalies, unexpected confidence shifts, and sensor inconsistencies.</li>
+<li>Use watchdogs and health monitors, but ensure they do not themselves become denial-of-service amplifiers.</li>
+<li>Define what the device should do under uncertainty: degrade gracefully, pause, require confirmation, or switch to a safe mode.</li>
+<li>Keep logs compact, privacy-aware, and useful for field forensics.</li>
+</ul>
+<h3>9. Hardware-software co-design for realistic constraints</h3>
+<ul>
+<li>Choose protections that match the device budget instead of copying cloud-oriented security stacks blindly.</li>
+<li>Exploit hardware features such as secure elements, TEEs, MPUs, TrustZone, or secure accelerators when available.</li>
+<li>Coordinate model compression, quantization, memory layout, and security design because each changes the attack surface.</li>
+<li>Evaluate the interaction between robustness, energy, latency, area, and security rather than optimizing them independently.</li>
+</ul>
+<div class="callout">
+<strong>Practical takeaway:</strong> the strongest edge-AI defense is usually not one heavyweight protection.
+              It is a disciplined chain of trust: secure boot, hardware-backed identity, verified updates, protected model storage,
+              constrained runtime execution, validated sensors, and simple recovery behavior when something looks wrong.
+            </div>
+</section>
+<section id="gaps">
+<span class="kicker">Open challenges</span>
+<h2>Open research challenges and future directions</h2>
+<p>
+              Edge AI security is still shaped by a difficult trade-off: the device is exposed like hardware, expected to behave like dependable software,
+              and often evaluated like a machine-learning model. Real assurance demands all three views at once. The result is a field full of promising techniques,
+              but relatively few solutions that remain strong under field constraints and lifecycle complexity.
+            </p>
+<h3>1. Strong security under tight budgets remains difficult</h3>
+<p>
+              Many state-of-the-art defenses assume resources that low-cost edge nodes do not have. The field still needs methods that achieve meaningful trust improvements under strict power,
+              memory, latency, and silicon-area limits rather than relying on heavyweight general-purpose security stacks.
+            </p>
+<h3>2. Model protection at the edge is still incomplete</h3>
+<p>
+              Encrypting a model at rest is useful, but model confidentiality during runtime, weight movement, accelerator execution, and side-channel exposure remains a hard problem.
+              Stronger practical protection is needed for both IP-sensitive and safety-sensitive deployments.
+            </p>
+<h3>3. Sensor trust is still under-modeled</h3>
+<p>
+              Many evaluations focus on digital perturbations while real edge attacks often occur through cameras, microphones, RF front ends, industrial probes, or environmental manipulation.
+              Better frameworks are needed to connect adversarial ML with real sensor physics and deployment conditions.
+            </p>
+<h3>4. Fleet security and device security are often separated artificially</h3>
+<p>
+              A single device may look secure in isolation yet still be weak in provisioning, onboarding, revocation, ownership transfer, or update governance.
+              Future work should treat edge AI security as a lifecycle and fleet problem, not only a single-device hardening problem.
+            </p>
+<h3>5. Side-channel and fault models for AI workloads are still evolving</h3>
+<p>
+              AI accelerators, quantized operators, sparse execution, and memory-optimized runtimes introduce leakage patterns different from classic cryptographic circuits.
+              We still need better understanding of what information leaks, how faults propagate through models, and which countermeasures are cost-effective on real platforms.
+            </p>
+<h3>6. Privacy claims for on-device AI need sharper validation</h3>
+<p>
+              On-device inference is often described as private by default, but local caching, telemetry, cloud fallback, crash reporting, and federated updates can weaken that claim.
+              Future work should make privacy guarantees more precise and lifecycle-aware.
+            </p>
+<h3>7. Edge robustness and hardware reliability remain entangled</h3>
+<p>
+              Voltage noise, aging, thermal drift, radiation effects, and memory instability can all change AI behavior. In many cases the question is not whether a problem is “security” or “reliability,”
+              but how an attacker may exploit an already weak operating region. This is a key opportunity for cross-layer research.
+            </p>
+<h3>8. Benchmarks rarely match field reality</h3>
+<p>
+              Academic benchmarks often assume clean datasets and static digital attacks, while real deployments involve mounting constraints, sensor artifacts, update drift,
+              supply-chain differences, and user tampering. Better edge-realistic benchmarks are still needed.
+            </p>
+<h3>9. Future direction</h3>
+<ul>
+<li>Lightweight, hardware-rooted trust architectures for edge AI devices and fleets.</li>
+<li>Secure boot-to-model chains of trust that include weights, configurations, and accelerators.</li>
+<li>Sensor-aware adversarial defense grounded in physical deployment conditions.</li>
+<li>Practical attestation and confidential-execution methods for resource-constrained inference.</li>
+<li>Joint reliability-security analysis for low-power AI hardware in the field.</li>
+<li>Cross-layer work connecting edge risks with hardware leakage, cloud orchestration, and physical-world AI consequences.</li>
+</ul>
+</section>
+<section id="readings">
+<span class="kicker">Selected readings</span>
+<h2>Selected readings and frameworks</h2>
+<p>
+              The references below are strong starting points for connecting edge-device security, lifecycle management, and AI-specific deployment concerns.
+            </p>
+<ul>
+<li><a href="https://www.nccoe.nist.gov/sites/default/files/2025-11/iot-onboarding-nist-sp-1800-36b-final.pdf" rel="noopener noreferrer" target="_blank">NIST SP 1800-36B: Trusted IoT Device Network-Layer Onboarding and Lifecycle Management</a></li>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/ir/2025/NIST.IR.8532.pdf" rel="noopener noreferrer" target="_blank">NIST IR 8532: Workshop on Enhancing Security of Devices and Components</a></li>
+<li><a href="https://csrc.nist.gov/pubs/ai/100/2/e2025/final" rel="noopener noreferrer" target="_blank">NIST AI 100-2: Adversarial Machine Learning Taxonomy and Terminology</a></li>
+<li><a href="https://www.nist.gov/itl/ai-risk-management-framework" rel="noopener noreferrer" target="_blank">NIST AI Risk Management Framework (AI RMF)</a></li>
+<li><a href="https://www.enisa.europa.eu/sites/default/files/publications/Fog-and-Edge%20Computing%20in%205G.pdf" rel="noopener noreferrer" target="_blank">ENISA: Fog and Edge Computing in 5G — Security Opportunities and Challenges</a></li>
+<li><a href="https://developer.arm.com/documentation/101892/latest/Security---Platform-Security-Architecture" rel="noopener noreferrer" target="_blank">Arm Platform Security Architecture (PSA)</a></li>
+<li><a href="https://www.psacertified.org/blog/what-is-an-entity-attestation-token/" rel="noopener noreferrer" target="_blank">PSA Certified: Attestation and Entity Attestation Tokens</a></li>
+<li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf" rel="noopener noreferrer" target="_blank">OWASP Top 10 for LLM Applications 2025</a></li>
+<li><a href="https://www.enisa.europa.eu/sites/default/files/publications/ENISA-JRC%20Report%20-%20Cybersecurity%20Challenges%20in%20the%20Uptake%20of%20Artificial%20Intelligence%20in%20Autonomous%20Driving.pdf" rel="noopener noreferrer" target="_blank">ENISA-JRC: Cybersecurity Challenges in the Uptake of AI in Autonomous Driving</a></li>
+</ul>
+<div class="callout">
+<strong>Best next step for this page:</strong> add one figure showing the full edge trust chain—sensor → preprocessing → local model/accelerator → secure storage → boot and attestation → OTA update path → fleet management.
+              That figure will make the device-centric nature of edge-AI security immediately clear.
+            </div>
+</section>
+</div>
+</div>
+</section>
+</main><div id="site-shell-footer"></div>
+</body>
+</html>

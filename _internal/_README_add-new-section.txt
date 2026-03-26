@@ -181,16 +181,3 @@ If adding one new big section:
 If adding one new weekly post:
 - create post file
 - add accordion note in ongoing-work.html
-
-====================================================
-10. NEW INTERNAL MEMORY FILES
-====================================================
-
-Added for future reference:
-- _internal/research-template.html
-- _internal/ongoing-work-template.html
-- _internal/weekly-research-watch-template.docx
-- _internal/update_ongoing_work_and_index_from_docx_posts_REFERENCE.ipynb
-- _internal/site-update-workflow-guide.docx
-
-Use these as your internal documentation pack.

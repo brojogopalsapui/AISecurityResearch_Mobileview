@@ -1,0 +1,1398 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1800"
+   height="1100"
+   viewBox="0 0 1800 1100"
+   role="img"
+   aria-labelledby="title desc"
+   version="1.1"
+   id="svg353"
+   sodipodi:docname="highlight-generative.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata
+     id="metadata357">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview355"
+     showgrid="false"
+     inkscape:zoom="0.63"
+     inkscape:cx="751.5873"
+     inkscape:cy="550"
+     inkscape:window-x="5752"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg353"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <title
+     id="title">Cross-Layer Security Controls</title>
+  <desc
+     id="desc">Publication-style diagram showing prompt-level filtering and semantic latency analysis feeding a latent-space language model, model-parameter watermarking and signed model metadata, and downstream deepfake detection with provenance metadata.</desc>
+  <style
+     id="style4">
+    .title { font: 700 28px Arial, Helvetica, sans-serif; fill: #1F2937; }
+    .section { font: 700 24px Arial, Helvetica, sans-serif; fill: #1F2937; }
+    .header { font: 700 21px Arial, Helvetica, sans-serif; fill: #1F2937; }
+    .body { font: 400 18px Arial, Helvetica, sans-serif; fill: #1F2937; }
+    .small { font: 400 16px Arial, Helvetica, sans-serif; fill: #1F2937; }
+    .caption { font: 600 20px Arial, Helvetica, sans-serif; fill: #1F2937; }
+    .box { fill: white; stroke: #5E6B7A; stroke-width: 1.8; rx: 16; ry: 16; }
+    .dashbox { fill: white; stroke: #5E6B7A; stroke-width: 1.8; rx: 18; ry: 18; stroke-dasharray: 7 6; }
+    .hdrfill { fill: #EAF2FB; stroke: #5E6B7A; stroke-width: 1.8; rx: 16; ry: 16; }
+    .line { stroke: #5E6B7A; stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .dline { stroke: #5E6B7A; stroke-width: 1.6; fill: none; stroke-dasharray: 7 6; stroke-linecap: round; stroke-linejoin: round; }
+    .accent { fill: #3B6EA8; stroke: #5E6B7A; stroke-width: 1.6; }
+    .soft { fill: #EAF2FB; stroke: #5E6B7A; stroke-width: 1.6; }
+    .node { fill: white; stroke: #5E6B7A; stroke-width: 1.8; }
+</style>
+  <defs
+     id="defs9">
+    <marker
+       style="overflow:visible"
+       id="marker1"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="RoundedArrow"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path8" />
+    </marker>
+    <marker
+       id="arrow"
+       markerWidth="10"
+       markerHeight="10"
+       refX="8"
+       refY="3.5"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M0,0 L8,3.5 L0,7 z"
+         fill="#5E6B7A"
+         id="path6" />
+    </marker>
+    <marker
+       id="arrow-4"
+       markerWidth="10"
+       markerHeight="10"
+       refX="8"
+       refY="3.5"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M 0,0 8,3.5 0,7 Z"
+         fill="#5e6b7a"
+         id="path6-2" />
+    </marker>
+  </defs>
+  <rect
+     x="0"
+     y="0"
+     width="1800"
+     height="1100"
+     fill="white"
+     id="rect11" />
+  <rect
+     x="70"
+     y="35"
+     width="1660"
+     height="355"
+     class="dashbox"
+     id="rect13" />
+  <rect
+     x="110"
+     y="80"
+     width="420"
+     height="150"
+     class="box"
+     id="rect15" />
+  <rect
+     x="110"
+     y="80"
+     width="420"
+     height="50"
+     fill="#EAF2FB"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     rx="16"
+     ry="16"
+     id="rect17" />
+  <rect
+     x="110"
+     y="114"
+     width="420"
+     height="16"
+     fill="#EAF2FB"
+     stroke="none"
+     id="rect19" />
+  <line
+     x1="110"
+     y1="130"
+     x2="530"
+     y2="130"
+     class="line"
+     id="line21" />
+  <text
+     x="320.0"
+     y="108"
+     class="header"
+     text-anchor="middle"
+     id="text25"
+     style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+       x="320.0"
+       dy="0"
+       id="tspan23"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Prompt-Level Filtering</tspan></text>
+  <text
+     x="320.0"
+     y="170"
+     class="body"
+     text-anchor="middle"
+     id="text31"
+     style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Normal';font-family:Arial, Helvetica, sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+       x="320.0"
+       dy="0"
+       id="tspan27"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Normal';font-family:Arial, Helvetica, sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Prompt-level</tspan><tspan
+       x="320.0"
+       dy="24"
+       id="tspan29"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Normal';font-family:Arial, Helvetica, sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">prompt injection</tspan></text>
+  <rect
+     x="1230"
+     y="82"
+     width="460"
+     height="150"
+     class="box"
+     id="rect33" />
+  <rect
+     x="1230"
+     y="82"
+     width="460"
+     height="54"
+     fill="#EAF2FB"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     rx="16"
+     ry="16"
+     id="rect35" />
+  <rect
+     x="1230"
+     y="120"
+     width="460"
+     height="16"
+     fill="#EAF2FB"
+     stroke="none"
+     id="rect37" />
+  <line
+     x1="1230"
+     y1="136"
+     x2="1690"
+     y2="136"
+     class="line"
+     id="line39" />
+  <text
+     x="1460"
+     y="104"
+     class="header"
+     id="text45"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.33333333px;line-height:normal;font-family:Arial, Helvetica, sans-serif;text-anchor:middle;fill:#1f2937;-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+       x="1460"
+       dy="0"
+       id="tspan41"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Semantic Latency</tspan><tspan
+       x="1460"
+       dy="26"
+       id="tspan43"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Analysis</tspan></text>
+  <text
+     x="1460.0"
+     y="176"
+     class="body"
+     id="text51"
+     text-anchor="middle"
+     style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Normal';font-family:Arial, Helvetica, sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+       x="1460.0"
+       dy="0"
+       id="tspan47"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Normal';font-family:Arial, Helvetica, sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">BLEU-score</tspan><tspan
+       x="1460.0"
+       dy="24"
+       id="tspan49"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Normal';font-family:Arial, Helvetica, sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">degradation detection</tspan></text>
+  <line
+     x1="530"
+     y1="157"
+     x2="1200"
+     y2="157"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line53" />
+  <text
+     x="145"
+     y="270"
+     class="section"
+     text-anchor="middle"
+     id="text59"><tspan
+       x="145"
+       dy="0"
+       id="tspan55">Input</tspan><tspan
+       x="145"
+       dy="28"
+       id="tspan57">prompt</tspan></text>
+  <line
+     x1="205"
+     y1="290"
+     x2="235"
+     y2="290"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line61" />
+  <rect
+     x="290"
+     y="245"
+     width="86"
+     height="94"
+     fill="#EAF2FB"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="rect63" />
+  <line
+     x1="306"
+     y1="269"
+     x2="360"
+     y2="269"
+     class="line"
+     id="line65" />
+  <line
+     x1="306"
+     y1="287"
+     x2="360"
+     y2="287"
+     class="line"
+     id="line67" />
+  <line
+     x1="306"
+     y1="305"
+     x2="360"
+     y2="305"
+     class="line"
+     id="line69" />
+  <line
+     x1="376"
+     y1="292"
+     x2="455"
+     y2="292"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line71" />
+  <line
+     x1="800.0"
+     y1="252.0"
+     x2="870.0"
+     y2="232.0"
+     class="line"
+     opacity="0.95"
+     id="line73" />
+  <line
+     x1="800.0"
+     y1="252.0"
+     x2="870.0"
+     y2="297.0"
+     class="line"
+     opacity="0.95"
+     id="line75" />
+  <line
+     x1="800.0"
+     y1="252.0"
+     x2="870.0"
+     y2="362.0"
+     class="line"
+     opacity="0.95"
+     id="line77" />
+  <line
+     x1="800.0"
+     y1="282.0"
+     x2="870.0"
+     y2="232.0"
+     class="line"
+     opacity="0.95"
+     id="line79" />
+  <line
+     x1="800.0"
+     y1="282.0"
+     x2="870.0"
+     y2="297.0"
+     class="line"
+     opacity="0.95"
+     id="line81" />
+  <line
+     x1="800.0"
+     y1="282.0"
+     x2="870.0"
+     y2="362.0"
+     class="line"
+     opacity="0.95"
+     id="line83" />
+  <line
+     x1="800.0"
+     y1="312.0"
+     x2="870.0"
+     y2="232.0"
+     class="line"
+     opacity="0.95"
+     id="line85" />
+  <line
+     x1="800.0"
+     y1="312.0"
+     x2="870.0"
+     y2="297.0"
+     class="line"
+     opacity="0.95"
+     id="line87" />
+  <line
+     x1="800.0"
+     y1="312.0"
+     x2="870.0"
+     y2="362.0"
+     class="line"
+     opacity="0.95"
+     id="line89" />
+  <line
+     x1="800.0"
+     y1="342.0"
+     x2="870.0"
+     y2="232.0"
+     class="line"
+     opacity="0.95"
+     id="line91" />
+  <line
+     x1="800.0"
+     y1="342.0"
+     x2="870.0"
+     y2="297.0"
+     class="line"
+     opacity="0.95"
+     id="line93" />
+  <line
+     x1="800.0"
+     y1="342.0"
+     x2="870.0"
+     y2="362.0"
+     class="line"
+     opacity="0.95"
+     id="line95" />
+  <line
+     x1="870.0"
+     y1="232.0"
+     x2="970.0"
+     y2="272.0"
+     class="line"
+     opacity="0.95"
+     id="line97" />
+  <line
+     x1="870.0"
+     y1="232.0"
+     x2="970.0"
+     y2="327.0"
+     class="line"
+     opacity="0.95"
+     id="line99" />
+  <line
+     x1="870.0"
+     y1="297.0"
+     x2="970.0"
+     y2="272.0"
+     class="line"
+     opacity="0.95"
+     id="line101" />
+  <line
+     x1="870.0"
+     y1="297.0"
+     x2="970.0"
+     y2="327.0"
+     class="line"
+     opacity="0.95"
+     id="line103" />
+  <line
+     x1="870.0"
+     y1="362.0"
+     x2="970.0"
+     y2="272.0"
+     class="line"
+     opacity="0.95"
+     id="line105" />
+  <line
+     x1="870.0"
+     y1="362.0"
+     x2="970.0"
+     y2="327.0"
+     class="line"
+     opacity="0.95"
+     id="line107" />
+  <rect
+     x="875.0"
+     y="287.0"
+     width="30.0"
+     height="35.0"
+     rx="9.0"
+     ry="9.0"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="rect109" />
+  <circle
+     cx="800.0"
+     cy="252.0"
+     r="13.0"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle111" />
+  <circle
+     cx="800.0"
+     cy="282.0"
+     r="13.0"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle113" />
+  <circle
+     cx="800.0"
+     cy="312.0"
+     r="13.0"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle115" />
+  <circle
+     cx="800.0"
+     cy="342.0"
+     r="13.0"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle117" />
+  <circle
+     cx="870.0"
+     cy="232.0"
+     r="13.0"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle119" />
+  <circle
+     cx="870.0"
+     cy="297.0"
+     r="13.0"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle121" />
+  <circle
+     cx="870.0"
+     cy="362.0"
+     r="13.0"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle123" />
+  <circle
+     cx="970.0"
+     cy="272.0"
+     r="13.0"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle125" />
+  <circle
+     cx="970.0"
+     cy="327.0"
+     r="13.0"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle127" />
+  <text
+     x="890"
+     y="412.0"
+     class="section"
+     text-anchor="middle"
+     id="text131"
+     style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+       x="890"
+       dy="0"
+       id="tspan129"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Latent space</tspan></text>
+  <line
+     x1="973"
+     y1="292"
+     x2="1210"
+     y2="292"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line133" />
+  <path
+     d="M1245,246 L1317,246 L1333,262 L1333,340 L1245,340 Z"
+     fill="#EAF2FB"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="path135" />
+  <path
+     d="M1317,246 L1317,262 L1333,262"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.6"
+     id="path137" />
+  <line
+     x1="1261"
+     y1="270"
+     x2="1317"
+     y2="270"
+     class="line"
+     id="line139" />
+  <line
+     x1="1261"
+     y1="288"
+     x2="1317"
+     y2="288"
+     class="line"
+     id="line141" />
+  <line
+     x1="1261"
+     y1="306"
+     x2="1317"
+     y2="306"
+     class="line"
+     id="line143" />
+  <line
+     x1="1333"
+     y1="292"
+     x2="1410"
+     y2="292"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line145" />
+  <text
+     x="1535"
+     y="270"
+     class="section"
+     text-anchor="middle"
+     id="text151"
+     style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+       x="1535"
+       dy="0"
+       id="tspan147"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Output</tspan><tspan
+       x="1535"
+       dy="28"
+       id="tspan149"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">response</tspan></text>
+  <line
+     x1="320"
+     y1="230"
+     x2="320"
+     y2="245"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line153" />
+  <path
+     d="M1460,236 V255 H333"
+     class="line"
+     id="path155" />
+  <rect
+     x="90"
+     y="430"
+     width="1620"
+     height="315"
+     class="box"
+     id="rect157" />
+  <text
+     x="410"
+     y="485"
+     class="title"
+     text-anchor="middle"
+     id="text165"><tspan
+       x="410"
+       dy="0"
+       id="tspan159">Model Parameter</tspan><tspan
+       x="410"
+       dy="30"
+       id="tspan161">Watermarking</tspan><tspan
+       x="410"
+       dy="30"
+       id="tspan163">&amp; Steganography</tspan></text>
+  <line
+     x1="1030"
+     y1="470"
+     x2="1030"
+     y2="558"
+     class="line"
+     id="line167" />
+  <text
+     x="1186"
+     y="488"
+     class="section"
+     id="text173"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:24px;line-height:normal;font-family:Arial, Helvetica, sans-serif;-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#1f2937"><tspan
+       x="1186"
+       dy="0"
+       id="tspan169"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.66666603px;font-family:Arial, Helvetica, sans-serif;-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">Signed Model</tspan><tspan
+       x="1186"
+       dy="28"
+       id="tspan171"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.66666603px;font-family:Arial, Helvetica, sans-serif;-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">Steganography</tspan></text>
+  <rect
+     x="140"
+     y="585"
+     width="430"
+     height="92"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="rect175" />
+  <text
+     x="355"
+     y="622"
+     class="section"
+     text-anchor="middle"
+     id="text181"
+     style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+       x="355"
+       dy="0"
+       id="tspan177"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">BLEU-score</tspan><tspan
+       x="355"
+       dy="28"
+       id="tspan179"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">degradation detection</tspan></text>
+  <line
+     x1="819.5"
+     y1="582.0"
+     x2="886.0"
+     y2="563.0"
+     class="line"
+     opacity="0.95"
+     id="line183" />
+  <line
+     x1="819.5"
+     y1="582.0"
+     x2="886.0"
+     y2="624.75"
+     class="line"
+     opacity="0.95"
+     id="line185" />
+  <line
+     x1="819.5"
+     y1="582.0"
+     x2="886.0"
+     y2="686.5"
+     class="line"
+     opacity="0.95"
+     id="line187" />
+  <line
+     x1="819.5"
+     y1="610.5"
+     x2="886.0"
+     y2="563.0"
+     class="line"
+     opacity="0.95"
+     id="line189" />
+  <line
+     x1="819.5"
+     y1="610.5"
+     x2="886.0"
+     y2="624.75"
+     class="line"
+     opacity="0.95"
+     id="line191" />
+  <line
+     x1="819.5"
+     y1="610.5"
+     x2="886.0"
+     y2="686.5"
+     class="line"
+     opacity="0.95"
+     id="line193" />
+  <line
+     x1="819.5"
+     y1="639.0"
+     x2="886.0"
+     y2="563.0"
+     class="line"
+     opacity="0.95"
+     id="line195" />
+  <line
+     x1="819.5"
+     y1="639.0"
+     x2="886.0"
+     y2="624.75"
+     class="line"
+     opacity="0.95"
+     id="line197" />
+  <line
+     x1="819.5"
+     y1="639.0"
+     x2="886.0"
+     y2="686.5"
+     class="line"
+     opacity="0.95"
+     id="line199" />
+  <line
+     x1="819.5"
+     y1="667.5"
+     x2="886.0"
+     y2="563.0"
+     class="line"
+     opacity="0.95"
+     id="line201" />
+  <line
+     x1="819.5"
+     y1="667.5"
+     x2="886.0"
+     y2="624.75"
+     class="line"
+     opacity="0.95"
+     id="line203" />
+  <line
+     x1="819.5"
+     y1="667.5"
+     x2="886.0"
+     y2="686.5"
+     class="line"
+     opacity="0.95"
+     id="line205" />
+  <line
+     x1="886.0"
+     y1="563.0"
+     x2="981.0"
+     y2="601.0"
+     class="line"
+     opacity="0.95"
+     id="line207" />
+  <line
+     x1="886.0"
+     y1="563.0"
+     x2="981.0"
+     y2="653.25"
+     class="line"
+     opacity="0.95"
+     id="line209" />
+  <line
+     x1="886.0"
+     y1="624.75"
+     x2="981.0"
+     y2="601.0"
+     class="line"
+     opacity="0.95"
+     id="line211" />
+  <line
+     x1="886.0"
+     y1="624.75"
+     x2="981.0"
+     y2="653.25"
+     class="line"
+     opacity="0.95"
+     id="line213" />
+  <line
+     x1="886.0"
+     y1="686.5"
+     x2="981.0"
+     y2="601.0"
+     class="line"
+     opacity="0.95"
+     id="line215" />
+  <line
+     x1="886.0"
+     y1="686.5"
+     x2="981.0"
+     y2="653.25"
+     class="line"
+     opacity="0.95"
+     id="line217" />
+  <rect
+     x="890.75"
+     y="615.25"
+     width="28.5"
+     height="33.25"
+     rx="8.549999999999999"
+     ry="8.549999999999999"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="rect219" />
+  <circle
+     cx="819.5"
+     cy="582.0"
+     r="12.35"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle221" />
+  <circle
+     cx="819.5"
+     cy="610.5"
+     r="12.35"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle223" />
+  <circle
+     cx="819.5"
+     cy="639.0"
+     r="12.35"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle225" />
+  <circle
+     cx="819.5"
+     cy="667.5"
+     r="12.35"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle227" />
+  <circle
+     cx="886.0"
+     cy="563.0"
+     r="12.35"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle229" />
+  <circle
+     cx="886.0"
+     cy="624.75"
+     r="12.35"
+     fill="#CDE6D8"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle231" />
+  <circle
+     cx="886.0"
+     cy="686.5"
+     r="12.35"
+     fill="#CDE6D8"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle233" />
+  <circle
+     cx="981.0"
+     cy="601.0"
+     r="12.35"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle235" />
+  <circle
+     cx="981.0"
+     cy="653.25"
+     r="12.35"
+     fill="white"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="circle237" />
+  <text
+     x="905"
+     y="734.0"
+     class="section"
+     text-anchor="middle"
+     id="text241"
+     style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+       x="905"
+       dy="0"
+       id="tspan239"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Neural network</tspan></text>
+  <rect
+     x="1160"
+     y="555"
+     width="360"
+     height="150"
+     class="box"
+     id="rect243" />
+  <rect
+     x="1160"
+     y="555"
+     width="360"
+     height="52"
+     fill="#EAF2FB"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     rx="16"
+     ry="16"
+     id="rect245" />
+  <rect
+     x="1160"
+     y="591"
+     width="360"
+     height="16"
+     fill="#EAF2FB"
+     stroke="none"
+     id="rect247" />
+  <line
+     x1="1160"
+     y1="607"
+     x2="1520"
+     y2="607"
+     class="line"
+     id="line249" />
+  <text
+     x="1340"
+     y="587"
+     class="header"
+     text-anchor="middle"
+     id="text253"
+     style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+       x="1340"
+       dy="0"
+       id="tspan251"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Signed Model Metadata</tspan></text>
+  <line
+     x1="1215"
+     y1="637"
+     x2="1465"
+     y2="637"
+     class="line"
+     opacity="0.65"
+     id="line255" />
+  <line
+     x1="1215"
+     y1="658"
+     x2="1465"
+     y2="658"
+     class="line"
+     opacity="0.65"
+     id="line257" />
+  <line
+     x1="1215"
+     y1="679"
+     x2="1465"
+     y2="679"
+     class="line"
+     opacity="0.65"
+     id="line259" />
+  <line
+     x1="570"
+     y1="631"
+     x2="760"
+     y2="631"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line261" />
+  <line
+     x1="1018"
+     y1="631"
+     x2="1140"
+     y2="631"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line263" />
+  <line
+     x1="320"
+     y1="339"
+     x2="320"
+     y2="428"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line265" />
+  <line
+     x1="890"
+     y1="392"
+     x2="890"
+     y2="506"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line267" />
+  <line
+     x1="1289"
+     y1="340"
+     x2="1289"
+     y2="553"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line269" />
+  <rect
+     x="70"
+     y="790"
+     width="1660"
+     height="250"
+     class="dashbox"
+     id="rect271" />
+  <text
+     x="900"
+     y="835"
+     class="title"
+     text-anchor="middle"
+     id="text275"
+     style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+       x="900"
+       dy="0"
+       id="tspan273"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Deepfake Detection &amp; Provenance Metadata</tspan></text>
+  <ellipse
+     cx="249.80475"
+     cy="827.26398"
+     rx="27.573551"
+     ry="5.731133"
+     fill="#eaf2fb"
+     stroke="#5e6b7a"
+     stroke-width="1.19258"
+     id="ellipse277-9" />
+  <path
+     d="m 222.23121,827.26394 v 34.3868 c 0,3.43868 55.1471,3.43868 55.1471,0 v -34.3868"
+     fill="#eaf2fb"
+     stroke="#5e6b7a"
+     stroke-width="1.19258"
+     id="path279-4" />
+  <ellipse
+     cx="249.80475"
+     cy="861.65076"
+     rx="27.573551"
+     ry="5.731133"
+     fill="#eaf2fb"
+     stroke="#5e6b7a"
+     stroke-width="1.19258"
+     id="ellipse281-8" />
+  <ellipse
+     cx="249.80475"
+     cy="839.87244"
+     rx="27.573551"
+     ry="5.731133"
+     fill="none"
+     stroke="#5e6b7a"
+     stroke-width="0.927563"
+     id="ellipse283-8" />
+  <ellipse
+     cx="249.80475"
+     cy="853.05408"
+     rx="27.573551"
+     ry="5.731133"
+     fill="#eaf2fb"
+     stroke="#5e6b7a"
+     stroke-width="1.19258"
+     id="ellipse285-2" />
+  <path
+     d="m 222.23121,853.05404 v 34.3868 c 0,3.43868 55.1471,3.43868 55.1471,0 v -34.3868"
+     fill="#eaf2fb"
+     stroke="#5e6b7a"
+     stroke-width="1.19258"
+     id="path287-4" />
+  <ellipse
+     cx="249.80475"
+     cy="887.44086"
+     rx="27.573551"
+     ry="5.731133"
+     fill="#eaf2fb"
+     stroke="#5e6b7a"
+     stroke-width="1.19258"
+     id="ellipse289-5" />
+  <ellipse
+     cx="249.80475"
+     cy="865.66254"
+     rx="27.573551"
+     ry="5.731133"
+     fill="none"
+     stroke="#5e6b7a"
+     stroke-width="0.927563"
+     id="ellipse291-5" />
+  <ellipse
+     cx="250.70953"
+     cy="963.94647"
+     rx="27.573551"
+     ry="5.731133"
+     fill="#eaf2fb"
+     stroke="#5e6b7a"
+     stroke-width="1.19258"
+     id="ellipse277-9-7" />
+  <path
+     d="m 223.13598,963.94645 v 34.3868 c 0,3.43865 55.1471,3.43865 55.1471,0 v -34.3868"
+     fill="#eaf2fb"
+     stroke="#5e6b7a"
+     stroke-width="1.19258"
+     id="path279-4-1" />
+  <ellipse
+     cx="250.70953"
+     cy="998.33325"
+     rx="27.573551"
+     ry="5.731133"
+     fill="#eaf2fb"
+     stroke="#5e6b7a"
+     stroke-width="1.19258"
+     id="ellipse281-8-1" />
+  <ellipse
+     cx="250.70953"
+     cy="976.55493"
+     rx="27.573551"
+     ry="5.731133"
+     fill="none"
+     stroke="#5e6b7a"
+     stroke-width="0.927563"
+     id="ellipse283-8-5" />
+  <ellipse
+     cx="250.70953"
+     cy="989.73657"
+     rx="27.573551"
+     ry="5.731133"
+     fill="#eaf2fb"
+     stroke="#5e6b7a"
+     stroke-width="1.19258"
+     id="ellipse285-2-2" />
+  <path
+     d="m 223.13598,989.73655 v 34.38675 c 0,3.4387 55.1471,3.4387 55.1471,0 v -34.38675"
+     fill="#eaf2fb"
+     stroke="#5e6b7a"
+     stroke-width="1.19258"
+     id="path287-4-7" />
+  <ellipse
+     cx="250.70953"
+     cy="1024.1234"
+     rx="27.573551"
+     ry="5.731133"
+     fill="#eaf2fb"
+     stroke="#5e6b7a"
+     stroke-width="1.19258"
+     id="ellipse289-5-6" />
+  <ellipse
+     cx="250.70953"
+     cy="1002.345"
+     rx="27.573551"
+     ry="5.731133"
+     fill="none"
+     stroke="#5e6b7a"
+     stroke-width="0.927563"
+     id="ellipse291-5-1" />
+  <path
+     d="m 128,964 -6,-32 8,-16 h 28 l 8,16 -6,32 z"
+     fill="#eaf2fb"
+     stroke="#5e6b7a"
+     stroke-width="1.8"
+     id="path293" />
+  <path
+     d="m 382,962 -6,-32 8,-16 h 28 l 8,16 -6,32 z"
+     fill="#eaf2fb"
+     stroke="#5e6b7a"
+     stroke-width="1.8"
+     id="path295" />
+  <circle
+     cx="230.14285"
+     cy="934.4762"
+     r="12"
+     fill="#f9fbff"
+     stroke="#5e6b7a"
+     stroke-width="1.8"
+     id="circle297" />
+  <circle
+     cx="260.33334"
+     cy="933.5238"
+     r="12"
+     fill="#f9fbff"
+     stroke="#5e6b7a"
+     stroke-width="1.8"
+     id="circle299" />
+  <circle
+     cx="291"
+     cy="934"
+     r="12"
+     fill="#f9fbff"
+     stroke="#5e6b7a"
+     stroke-width="1.8"
+     id="circle301" />
+  <path
+     d="m 168.00335,898.52787 h -33.12296 v -33.54575 h 65.2422"
+     class="dline"
+     marker-end="url(#arrow)"
+     id="path305"
+     style="marker-start:url(#marker1)" />
+  <path
+     d="m 166,976 h -33 v 44 h 65"
+     class="dline"
+     marker-end="url(#arrow)"
+     id="path307"
+     style="marker-start:url(#RoundedArrow)" />
+  <path
+     d="m 356,860 h 42 v 42"
+     class="dline"
+     marker-end="url(#arrow)"
+     id="path309" />
+  <path
+     d="m 356,1020 h 42 v -44"
+     class="dline"
+     marker-end="url(#arrow)"
+     id="path311" />
+  <line
+     x1="168"
+     y1="934"
+     x2="215"
+     y2="934"
+     class="line"
+     id="line313" />
+  <line
+     x1="456.39124"
+     y1="944"
+     x2="608.32306"
+     y2="944"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line315" />
+  <path
+     d="M800.0,860 L940,894 L930,966 Q800.0,1040 670,966 L660,894 Z"
+     fill="#FCFDFF"
+     stroke="#5E6B7A"
+     stroke-width="1.8"
+     id="path317" />
+  <text
+     x="800"
+     y="898"
+     class="section"
+     id="text329"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.66666667px;line-height:normal;font-family:Arial, Helvetica, sans-serif;text-anchor:middle;fill:#1f2937;-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+       x="800"
+       dy="0"
+       id="tspan321"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Deepfake</tspan><tspan
+       x="800"
+       dy="30"
+       id="tspan323"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Detection &amp;</tspan><tspan
+       x="800"
+       dy="30"
+       id="tspan325"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Provenance</tspan><tspan
+       x="800"
+       dy="30"
+       id="tspan327"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Metadata</tspan></text>
+  <rect
+     x="1258"
+     y="884"
+     width="450"
+     height="120"
+     class="box"
+     id="rect331" />
+  <text
+     x="1483"
+     y="930"
+     class="section"
+     text-anchor="middle"
+     id="text339"
+     style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+       x="1483"
+       dy="0"
+       id="tspan333"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Deepfake Detection</tspan><tspan
+       x="1483"
+       dy="28"
+       id="tspan335"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">&amp; Provenance</tspan><tspan
+       x="1483"
+       dy="28"
+       id="tspan337"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Metadata</tspan></text>
+  <line
+     x1="940"
+     y1="944"
+     x2="1240"
+     y2="944"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line341" />
+  <line
+     x1="355"
+     y1="677"
+     x2="355"
+     y2="790"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line343" />
+  <line
+     x1="905"
+     y1="736"
+     x2="905"
+     y2="790"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line345" />
+  <line
+     x1="377.32651"
+     y1="934.70282"
+     x2="304.86084"
+     y2="934.27856"
+     class="line"
+     marker-end="url(#arrow-4)"
+     id="line345-2"
+     style="fill:none;stroke:#5e6b7a;stroke-width:2.08108;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow-4)" />
+  <line
+     x1="1340"
+     y1="706"
+     x2="1340"
+     y2="790"
+     class="line"
+     marker-end="url(#arrow)"
+     id="line347" />
+  <text
+     x="900.0"
+     y="1080"
+     class="caption"
+     text-anchor="middle"
+     id="text351"
+     style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+       x="900.0"
+       dy="0"
+       id="tspan349"
+       style="-inkscape-font-specification:'Arial, Helvetica, sans-serif, Bold';font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">Figure 1. Cross-Layer Security Controls</tspan></text>
+</svg>

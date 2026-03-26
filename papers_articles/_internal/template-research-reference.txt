@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Research | Brojogopal Sapui</title>
+  <meta
+    content="Structured research map for AI security themes across cloud, edge, software, hardware, and emerging AI paradigms."
+    name="description"
+  />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+
+<body class="subpage">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a aria-label="Brojogopal Sapui Home" class="brand" href="index.html">B<span>S</span></a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a class="active" href="research.html">Research</a>
+        <a href="ongoing-work.html" class="trending-link">Trending Topics</a>
+        <a href="publications.html">Resources</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button aria-expanded="false" aria-label="Toggle menu" class="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Research overview</span>
+        <h1>Structured map of AI security themes</h1>
+        <p class="lead">
+          This page is the central entry point into the survey-style sections of the website.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 1: DIRECT AI SECURITY TOPICS ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Core Security Domains</span>
+          <h2>Direct AI security topics</h2>
+          <p>
+            These pages focus directly on security problems, attack surfaces, countermeasures,
+            and cross-layer trust issues across modern AI systems.
+          </p>
+        </div>
+
+        <div class="card-grid three">
+          <a class="section-card" href="ai-security/software-security.html">
+            <h3>Software Security</h3>
+            <p>Adversarial attacks, poisoning, privacy leakage, model extraction, prompt-layer threats, and robust training.</p>
+          </a>
+
+          <a class="section-card" href="ai-security/hardware-security.html">
+            <h3>Hardware Security</h3>
+            <p>Side-channel analysis, fault injection, accelerator leakage, system exposure, and implementation-aware trust.</p>
+          </a>
+
+          <a class="section-card" href="ai-security/cloud-security.html">
+            <h3>Cloud AI Security</h3>
+            <p>Shared infrastructure, data exposure, API abuse, and secure model serving.</p>
+          </a>
+
+          <a class="section-card" href="ai-security/edge-security.html">
+            <h3>Edge AI Security</h3>
+            <p>Physical access, constrained devices, embedded accelerators, and device-side defenses.</p>
+          </a>
+
+          <a class="section-card" href="ai-security/predictive-ai.html">
+            <h3>Predictive AI Security</h3>
+            <p>Classifiers, detectors, ranking systems, and forecasting models under attack.</p>
+          </a>
+
+          <a class="section-card" href="ai-security/generative-ai.html">
+            <h3>Generative AI Security</h3>
+            <p>LLMs, multimodal generation, prompt injection, jailbreaks, and deployment misuse.</p>
+          </a>
+
+          <a class="section-card" href="ai-security/agentic-ai.html">
+            <h3>Agentic AI Security</h3>
+            <p>Planning loops, tools, memory, permissions, and autonomy boundaries.</p>
+          </a>
+
+          <a class="section-card" href="ai-security/physical-ai.html">
+            <h3>Physical AI Security</h3>
+            <p>Embodied intelligence, robotics, sensing, latency, control, and safety-aware trust.</p>
+          </a>
+
+          <a class="section-card" href="ai-security/countermeasures.html">
+            <h3>Countermeasures</h3>
+            <p>Cross-layer defenses spanning algorithms, runtimes, architectures, and hardware.</p>
+          </a>
+
+          <!--
+          TEMPLATE: ADD ONE NEW SECURITY TOPIC CARD HERE
+
+          <a class="section-card" href="ai-security/your-new-security-topic.html">
+            <h3>Your New Security Topic</h3>
+            <p>
+              Write a short 2-3 line description explaining what this security topic covers.
+            </p>
+          </a>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2: AI FOUNDATIONS FOR SECURITY ANALYSIS ===== -->
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">AI Foundations</span>
+          <h2>Technical foundations for rigorous AI security analysis</h2>
+          <p>
+            These pages are not direct security topics by themselves, but they provide the hardware,
+            systems, memory, runtime, and deployment knowledge required for meaningful AI security research.
+          </p>
+        </div>
+
+        <div class="card-grid three">
+          <a class="section-card" href="ai-foundations/modern-ai-hardware-knowledge.html">
+            <h3>Modern AI Hardware Knowledge</h3>
+            <p>
+              An intuitive but technically strong overview of tensor engines, memory hierarchy,
+              host-device execution, interconnects, reduced precision, and accelerator design choices
+              that shape AI security analysis.
+            </p>
+          </a>
+
+          <a class="section-card" href="ai-foundations/memory-hierarchy-for-ai.html">
+            <h3>Memory Hierarchy for AI</h3>
+            <p>
+              Why registers, on-chip SRAM, cache, HBM, host memory, and data movement patterns
+              matter for both AI performance and hardware-aware leakage analysis.
+            </p>
+          </a>
+
+          <a class="section-card" href="ai-foundations/ai-accelerator-basics.html">
+            <h3>AI Accelerator Basics</h3>
+            <p>
+              A practical introduction to matrix engines, dataflow, quantization, throughput,
+              and workload mapping on modern AI hardware platforms.
+            </p>
+          </a>
+
+          <a class="section-card" href="ai-foundations/llm-inference-systems.html">
+            <h3>LLM Inference Systems</h3>
+            <p>
+              Core concepts behind transformer inference, KV-cache behavior, latency bottlenecks,
+              batching, and serving-system design relevant to secure deployment.
+            </p>
+          </a>
+
+          <a class="section-card" href="ai-foundations/cpu-gpu-npu-partitioning.html">
+            <h3>CPU–GPU–NPU Partitioning</h3>
+            <p>
+              How heterogeneous execution is divided across processors in edge and client AI systems,
+              and why that matters for trust boundaries and security observation points.
+            </p>
+          </a>
+
+          <a class="section-card" href="ai-foundations/distributed-ai-interconnects.html">
+            <h3>Distributed AI and Interconnects</h3>
+            <p>
+              A systems-level view of scale-out AI, collective communication, interconnect fabrics,
+              and why distributed execution becomes part of the security model.
+            </p>
+          </a>
+
+          <!--
+          TEMPLATE: ADD ONE NEW FOUNDATION TOPIC CARD HERE
+
+          <a class="section-card" href="ai-foundations/your-new-foundation-topic.html">
+            <h3>Your New Foundation Topic</h3>
+            <p>
+              Write a short 2-3 line description explaining why this technical concept matters
+              for deeper AI security analysis.
+            </p>
+          </a>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TEMPLATE: ADD A COMPLETELY NEW RESEARCH SECTION BELOW THIS LINE ===== -->
+    <!--
+    HOW TO ADD A NEW BIG SECTION:
+    1. Copy the full <section> ... </section> block below
+    2. Paste it below this comment
+    3. Change the eyebrow, heading, paragraph, links, and card texts
+    4. Create a matching folder if needed, for example:
+       - ai-systems/
+       - deployment-foundations/
+       - ai-trust-basics/
+    5. Create the linked HTML files inside that folder
+
+    EXAMPLE TEMPLATE FOR A NEW BIG SECTION:
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Your New Section</span>
+          <h2>Your new section heading</h2>
+          <p>
+            Write 1 short paragraph explaining what kind of topics are grouped in this section
+            and why they matter for your research website.
+          </p>
+        </div>
+
+        <div class="card-grid three">
+          <a class="section-card" href="your-folder/topic-one.html">
+            <h3>Topic One</h3>
+            <p>
+              Write a short 2-3 line description of this topic.
+            </p>
+          </a>
+
+          <a class="section-card" href="your-folder/topic-two.html">
+            <h3>Topic Two</h3>
+            <p>
+              Write a short 2-3 line description of this topic.
+            </p>
+          </a>
+
+          <a class="section-card" href="your-folder/topic-three.html">
+            <h3>Topic Three</h3>
+            <p>
+              Write a short 2-3 line description of this topic.
+            </p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+    -->
+    <!-- ===== END TEMPLATE AREA ===== -->
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Brojogopal Sapui</h3>
+        <p>AI Security• Hardware Trust • Edge/Physical AI</p>
+      </div>
+
+      <div>
+        <h4>Main Pages</h4>
+        <a href="research.html">Research</a>
+        <a href="ongoing-work.html" class="trending-link">Trending Topics</a>
+        <a href="publications.html">Resources</a>
+      </div>
+
+      <div>
+        <h4>Experience</h4>
+        <p>Wipro Technologies, NaMLab, KIT (Germany), IIT Kharagpur, ISI Kolkata.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
