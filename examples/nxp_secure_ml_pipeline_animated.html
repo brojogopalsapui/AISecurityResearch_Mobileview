@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Artifact Monitoring - Animated Secure ML Workflow</title>
+  <style>
+    :root{
+      --bg:#060a13;--card:#0f1730;--card2:#121f3f;--line:#2f4678;--txt:#ebf2ff;--muted:#9fb2dc;
+      --ok:#32d583;--warn:#f5bf3b;--bad:#ff6b81;--accent:#5ca7ff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(circle at top,#14254d,var(--bg) 60%);color:var(--txt);font-family:Inter,Segoe UI,Arial,sans-serif}
+    .wrap{width:min(1200px,95vw);margin:20px auto 40px;display:grid;gap:14px}
+    .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:14px;padding:14px}
+    h1,h2,h3{margin:.1rem 0 .5rem}.sub{color:var(--muted);margin:0;line-height:1.4}
+    .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    button{background:#162a54;border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:8px 12px;cursor:pointer}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media(max-width:980px){.grid,.grid2{grid-template-columns:1fr}}
+
+    .pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    @media(max-width:850px){.pipeline{grid-template-columns:1fr 1fr}}
+    .stage{border:1px solid var(--line);border-radius:12px;padding:10px;min-height:130px;background:rgba(12,21,45,.72);position:relative;overflow:hidden}
+    .stage::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 25%,rgba(255,255,255,.08) 50%,transparent 75%);transform:translateX(-130%);animation:sheen 4s linear infinite}
+    @keyframes sheen{to{transform:translateX(140%)}}
+    .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#5d6f96;margin-right:6px}
+    .stage.active .dot{background:var(--accent);box-shadow:0 0 0 0 rgba(92,167,255,.7);animation:pulse 1s infinite}
+    .stage.pass .dot{background:var(--ok)} .stage.warn .dot{background:var(--warn)} .stage.fail .dot{background:var(--bad)}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(92,167,255,.7)}100%{box-shadow:0 0 0 12px rgba(92,167,255,0)}}
+
+    .lane{height:48px;margin-top:10px;border:1px dashed var(--line);border-radius:10px;position:relative;overflow:hidden;background:#081126}
+    .packet{position:absolute;left:-60px;top:50%;transform:translateY(-50%);padding:5px 9px;border-radius:999px;background:linear-gradient(180deg,#9ec9ff,#5ca7ff);color:#04122f;font-weight:700;font-size:.75rem;opacity:0}
+    .packet.fly{opacity:1;animation:fly 4.6s linear forwards}@keyframes fly{from{left:-70px}to{left:calc(100% + 40px)}}
+
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+    @media(max-width:850px){.metrics{grid-template-columns:1fr 1fr}}
+    .m{border:1px solid var(--line);border-radius:10px;padding:8px;background:rgba(8,14,30,.55)} .m .k{font-size:.75rem;color:var(--muted)} .m .v{font-size:1.1rem;font-weight:700}
+
+    .progress{height:9px;border-radius:999px;background:#0b1430;overflow:hidden;margin-top:10px;border:1px solid #22365e}
+    .bar{height:100%;width:0;background:linear-gradient(90deg,#3ce19c,#5ca7ff);transition:.35s width}
+
+    .log{max-height:370px;overflow:auto;background:#060d1e;border:1px solid var(--line);border-radius:10px;padding:10px;font-family:ui-monospace,monospace;font-size:.8rem;line-height:1.45}
+    .ok{color:#8effc0}.warn{color:#ffe187}.bad{color:#ff9fb0}
+
+    .mon-grid{display:grid;grid-template-columns:1fr .9fr;gap:10px}
+    @media(max-width:900px){.mon-grid{grid-template-columns:1fr}}
+    canvas{width:100%;height:220px;background:#070f22;border:1px solid var(--line);border-radius:10px}
+    .hash-box,.alerts{border:1px solid var(--line);border-radius:10px;padding:10px;background:rgba(8,14,30,.55)}
+    .pill{display:inline-block;padding:3px 8px;border-radius:999px;font-size:.75rem;font-weight:700}
+    .pill.ok{background:rgba(50,213,131,.2);border:1px solid #2da86a}.pill.bad{background:rgba(255,107,129,.2);border:1px solid #d54f66}
+    .small{font-size:.82rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <section class="card">
+    <h1>Visual Monitoring of AI Artifacts + Deployment Workflow</h1>
+    <p class="sub">This animation shows the <b>full secure ML process</b>: artifact scan ➜ deployment gate ➜ secure API ➜ runtime monitoring. The monitoring section visualizes model-hash integrity and anomaly detection from inference scores.</p>
+    <div class="btns">
+      <button id="start">▶ Start</button>
+      <button id="pause">⏸ Pause</button>
+      <button id="reset">↺ Reset</button>
+      <button id="tamper">⚠ Inject model tamper</button>
+      <button id="drift">📈 Inject output drift</button>
+    </div>
+  </section>
+
+  <section class="card grid">
+    <div>
+      <h2>Whole Process Animation</h2>
+      <div class="pipeline">
+        <div class="stage" data-s="scan"><h3><span class="dot"></span>1) Artifact Scan</h3><p class="sub">Checks hashes, file size, metadata leaks, unusual entropy.</p></div>
+        <div class="stage" data-s="gate"><h3><span class="dot"></span>2) Deployment Gate</h3><p class="sub">Secure boot policy + signed manifest validation.</p></div>
+        <div class="stage" data-s="api"><h3><span class="dot"></span>3) Secure API</h3><p class="sub">API key + timestamp + nonce + HMAC signature.</p></div>
+        <div class="stage" data-s="mon"><h3><span class="dot"></span>4) Monitoring</h3><p class="sub">Hash integrity + anomaly z-score detection.</p></div>
+      </div>
+      <div class="lane"><div class="packet" id="packet">AI_ARTIFACT</div></div>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div class="metrics">
+        <div class="m"><div class="k">Artifacts Scanned</div><div class="v" id="artifacts">0</div></div>
+        <div class="m"><div class="k">Policy Findings</div><div class="v" id="findings">0</div></div>
+        <div class="m"><div class="k">API Calls</div><div class="v" id="apiCalls">0</div></div>
+        <div class="m"><div class="k">Monitoring Alerts</div><div class="v" id="alerts">0</div></div>
+      </div>
+    </div>
+    <div>
+      <h2>Live Event Log</h2>
+      <div class="log" id="log"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>How Monitoring Works (Animated)</h2>
+    <div class="mon-grid">
+      <div>
+        <canvas id="scoreCanvas" width="760" height="220"></canvas>
+        <p class="small">Blue line = inference score stream. Dashed yellow line = anomaly threshold (z-score equivalent).</p>
+      </div>
+      <div class="grid2">
+        <div class="hash-box">
+          <h3>Model Integrity State</h3>
+          <div class="small">Expected SHA-256</div>
+          <div id="hashExpected">9afc...10d3</div>
+          <div class="small" style="margin-top:8px">Current SHA-256</div>
+          <div id="hashCurrent">9afc...10d3</div>
+          <div style="margin-top:8px">Status: <span id="hashStatus" class="pill ok">MATCH</span></div>
+        </div>
+        <div class="alerts">
+          <h3>Monitoring Decision</h3>
+          <div class="small">Latest score</div>
+          <div id="latestScore">0.000</div>
+          <div class="small" style="margin-top:8px">Rolling mean / std</div>
+          <div id="rollStats">0.000 / 0.000</div>
+          <div class="small" style="margin-top:8px">Z-score</div>
+          <div id="zscore">0.00</div>
+          <div style="margin-top:8px">Result: <span id="decision" class="pill ok">NORMAL</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  const stages = {
+    scan: document.querySelector('[data-s="scan"]'),
+    gate: document.querySelector('[data-s="gate"]'),
+    api: document.querySelector('[data-s="api"]'),
+    mon: document.querySelector('[data-s="mon"]')
+  };
+  const ids = id => document.getElementById(id);
+  const ui = {
+    artifacts: ids('artifacts'), findings: ids('findings'), apiCalls: ids('apiCalls'), alerts: ids('alerts'),
+    bar: ids('bar'), packet: ids('packet'), log: ids('log'),
+    hashExpected: ids('hashExpected'), hashCurrent: ids('hashCurrent'), hashStatus: ids('hashStatus'),
+    latestScore: ids('latestScore'), rollStats: ids('rollStats'), zscore: ids('zscore'), decision: ids('decision')
+  };
+  const canvas = ids('scoreCanvas');
+  const ctx = canvas.getContext('2d');
+
+  let running = false, paused = false, timer = null, step = 0;
+  let injectTamper = false, injectDrift = false;
+  const seq = ['scan','gate','api','mon'];
+
+  const state = {
+    artifacts:0, findings:0, api:0, alerts:0,
+    expectedHash: '9afc2f18...10d3', currentHash: '9afc2f18...10d3',
+    scores: [], mean:0, std:0, z:0
+  };
+
+  function log(msg, cls='') {
+    const d = document.createElement('div');
+    d.className = cls;
+    d.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+    ui.log.prepend(d);
+  }
+
+  function paintStage(active) {
+    Object.values(stages).forEach(s => s.classList.remove('active','pass','warn','fail'));
+    stages[active].classList.add('active');
+  }
+
+  function updateUI() {
+    ui.artifacts.textContent = state.artifacts;
+    ui.findings.textContent = state.findings;
+    ui.apiCalls.textContent = state.api;
+    ui.alerts.textContent = state.alerts;
+
+    ui.hashExpected.textContent = state.expectedHash;
+    ui.hashCurrent.textContent = state.currentHash;
+    const hashMatch = state.expectedHash === state.currentHash;
+    ui.hashStatus.textContent = hashMatch ? 'MATCH' : 'MISMATCH';
+    ui.hashStatus.className = `pill ${hashMatch ? 'ok' : 'bad'}`;
+
+    const last = state.scores[state.scores.length - 1] || 0;
+    ui.latestScore.textContent = last.toFixed(3);
+    ui.rollStats.textContent = `${state.mean.toFixed(3)} / ${state.std.toFixed(3)}`;
+    ui.zscore.textContent = state.z.toFixed(2);
+
+    const abnormal = state.z > 3.0 || !hashMatch;
+    ui.decision.textContent = abnormal ? 'ALERT' : 'NORMAL';
+    ui.decision.className = `pill ${abnormal ? 'bad' : 'ok'}`;
+
+    ui.bar.style.width = `${((step % 24) / 24) * 100}%`;
+  }
+
+  function drawScores() {
+    const w = canvas.width, h = canvas.height;
+    ctx.clearRect(0,0,w,h);
+    ctx.fillStyle = '#070f22'; ctx.fillRect(0,0,w,h);
+
+    // grid
+    ctx.strokeStyle = 'rgba(130,160,220,0.2)'; ctx.lineWidth = 1;
+    for (let i=1;i<6;i++){const y=(h/6)*i; ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke();}
+
+    // threshold line
+    const thr = 0.88;
+    const yThr = h - (thr*h);
+    ctx.setLineDash([6,6]);
+    ctx.strokeStyle = '#f5bf3b';
+    ctx.beginPath(); ctx.moveTo(0,yThr); ctx.lineTo(w,yThr); ctx.stroke();
+    ctx.setLineDash([]);
+
+    const data = state.scores.slice(-60);
+    if (!data.length) return;
+    const stepX = w / Math.max(data.length - 1, 1);
+
+    ctx.strokeStyle = '#5ca7ff'; ctx.lineWidth = 2;
+    ctx.beginPath();
+    data.forEach((v,i)=>{
+      const x=i*stepX, y=h-(Math.max(0,Math.min(1.1,v))/1.1)*h;
+      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    });
+    ctx.stroke();
+
+    const last = data[data.length-1];
+    const x=(data.length-1)*stepX, y=h-(Math.max(0,Math.min(1.1,last))/1.1)*h;
+    ctx.fillStyle = state.z>3 ? '#ff6b81' : '#32d583';
+    ctx.beginPath(); ctx.arc(x,y,4,0,Math.PI*2); ctx.fill();
+  }
+
+  function mean(arr){return arr.reduce((a,b)=>a+b,0)/arr.length;}
+  function std(arr,m){return Math.sqrt(arr.reduce((a,b)=>a+(b-m)*(b-m),0)/arr.length) || 1e-6;}
+
+  function monitorStep() {
+    let score = 0.55 + Math.random()*0.35;
+    if (injectDrift) {
+      score = 0.96 + Math.random()*0.1;
+      injectDrift = false;
+      log('Injected output drift: score distribution shifted upward.', 'warn');
+    }
+    state.scores.push(score);
+
+    const window = state.scores.slice(-30);
+    state.mean = mean(window);
+    state.std = std(window, state.mean);
+    state.z = Math.abs((score - state.mean) / state.std);
+
+    if (injectTamper) {
+      state.currentHash = '44be91e0...f90a';
+      injectTamper = false;
+      state.alerts += 1;
+      stages.mon.classList.add('fail');
+      log('CRITICAL: model artifact hash mismatch detected (possible tampering).', 'bad');
+    } else if (state.z > 3.0) {
+      state.alerts += 1;
+      stages.mon.classList.add('warn');
+      log(`Anomaly detected: score z=${state.z.toFixed(2)} above threshold.`, 'warn');
+    } else {
+      stages.mon.classList.add('pass');
+      log('Monitoring: hash intact and score within baseline.', 'ok');
+    }
+  }
+
+  function tick() {
+    if (!running || paused) return;
+    const current = seq[step % seq.length];
+    paintStage(current);
+
+    if (current === 'scan') {
+      const c = 2 + Math.floor(Math.random()*4);
+      state.artifacts += c;
+      if (Math.random() < 0.25) { state.findings += 1; stages.scan.classList.add('warn'); log(`Scanner found suspicious metadata in ${c} artifacts.`, 'warn'); }
+      else { stages.scan.classList.add('pass'); log(`Scanner verified ${c} artifacts (hash/entropy checks).`, 'ok'); }
+    }
+
+    if (current === 'gate') {
+      if (Math.random() < 0.12) { state.findings += 1; stages.gate.classList.add('fail'); log('Deployment gate blocked release: invalid signature.', 'bad'); }
+      else { stages.gate.classList.add('pass'); log('Deployment gate passed: secure boot + signed manifest verified.', 'ok'); }
+    }
+
+    if (current === 'api') {
+      const calls = 1 + Math.floor(Math.random()*5);
+      state.api += calls;
+      stages.api.classList.add('pass');
+      ui.packet.classList.remove('fly'); void ui.packet.offsetWidth; ui.packet.classList.add('fly');
+      log(`Secure API accepted ${calls} requests (key+nonce+HMAC).`, 'ok');
+    }
+
+    if (current === 'mon') {
+      monitorStep();
+    }
+
+    drawScores();
+    updateUI();
+    step += 1;
+    timer = setTimeout(tick, 1100);
+  }
+
+  function resetAll(){
+    running=false; paused=false; clearTimeout(timer); step=0;
+    Object.assign(state,{artifacts:0,findings:0,api:0,alerts:0,expectedHash:'9afc2f18...10d3',currentHash:'9afc2f18...10d3',scores:[],mean:0,std:0,z:0});
+    injectTamper=false; injectDrift=false;
+    Object.values(stages).forEach(s=>s.classList.remove('active','pass','warn','fail'));
+    ui.log.innerHTML='';
+    log('Reset complete. Start to replay full monitoring lifecycle.', 'ok');
+    drawScores(); updateUI();
+  }
+
+  ids('start').onclick=()=>{ if(running && !paused) return; running=true; paused=false; log('Simulation started.', 'ok'); tick(); };
+  ids('pause').onclick=()=>{ paused=true; clearTimeout(timer); log('Simulation paused.', 'warn'); };
+  ids('reset').onclick=resetAll;
+  ids('tamper').onclick=()=>{ injectTamper=true; log('Tamper event queued for next monitoring stage.', 'bad'); };
+  ids('drift').onclick=()=>{ injectDrift=true; log('Output drift event queued for next monitoring stage.', 'warn'); };
+
+  resetAll();
+</script>
+</body>
+</html>
