@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud-to-Edge ML Deployment and API Security Attack Animation | Brojogopal Sapui</title>
+  <meta name="description" content="Interactive research-level visualization of cloud training to edge deployment, ML API attack surfaces, IP theft paths, and layered countermeasures." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/portal-mobile.css" />
+  <script defer src="../assets/js/site-shell.js"></script>
+  <script defer src="../assets/js/portal.js"></script>
+  <style>
+    :root {
+      --bg-0: #070b14;
+      --bg-1: #0d1426;
+      --ink: #dfe9ff;
+      --muted: #9ab2d9;
+      --cyan: #34d8ff;
+      --violet: #7e7dff;
+      --danger: #ff5c8a;
+      --ok: #5cff9b;
+      --amber: #ffcf5c;
+      --grid: rgba(121, 170, 255, 0.14);
+      --panel: rgba(15, 23, 44, 0.78);
+      --stroke: rgba(130, 186, 255, 0.35);
+    }
+
+    .viz-wrap {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 1.2rem;
+    }
+
+    .viz-card {
+      background: radial-gradient(circle at top right, rgba(83, 108, 255, 0.2), transparent 45%), var(--panel);
+      border: 1px solid var(--stroke);
+      border-radius: 18px;
+      padding: 1rem;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .viz-stage {
+      position: relative;
+      height: 430px;
+      border-radius: 14px;
+      background:
+        linear-gradient(to right, var(--grid) 1px, transparent 1px) 0 0/40px 40px,
+        linear-gradient(to bottom, var(--grid) 1px, transparent 1px) 0 0/40px 40px,
+        linear-gradient(160deg, var(--bg-0), var(--bg-1));
+      overflow: hidden;
+    }
+
+    .node {
+      position: absolute;
+      width: 170px;
+      min-height: 82px;
+      border: 1px solid rgba(157, 201, 255, 0.5);
+      border-radius: 14px;
+      padding: 0.55rem;
+      color: var(--ink);
+      background: rgba(9, 16, 31, 0.72);
+      backdrop-filter: blur(2px);
+      font-size: 0.8rem;
+    }
+
+    .node b { display: block; color: #fff; margin-bottom: 0.2rem; }
+
+    .attack-node { border-color: rgba(255, 117, 163, 0.55); }
+    .defense-node { border-color: rgba(116, 255, 185, 0.55); }
+
+    .flow, .attack-flow, .defense-flow {
+      position: absolute;
+      height: 2px;
+      transform-origin: left center;
+      opacity: 0.85;
+    }
+
+    .flow { background: linear-gradient(90deg, rgba(72, 190, 255, 0.1), rgba(72, 190, 255, 0.9)); }
+    .attack-flow { background: linear-gradient(90deg, rgba(255, 98, 152, 0.1), rgba(255, 98, 152, 0.9)); }
+    .defense-flow { background: linear-gradient(90deg, rgba(124, 255, 187, 0.1), rgba(124, 255, 187, 0.95)); }
+
+    .packet {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 6px currentColor);
+      animation: travel 7s linear infinite;
+      opacity: 0;
+    }
+
+    .packet.flow-p { color: var(--cyan); background: var(--cyan); }
+    .packet.attack-p { color: var(--danger); background: var(--danger); }
+    .packet.defense-p { color: var(--ok); background: var(--ok); }
+
+    @keyframes travel {
+      0% { offset-distance: 0%; opacity: 0; }
+      8% { opacity: 1; }
+      92% { opacity: 1; }
+      100% { offset-distance: 100%; opacity: 0; }
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.9rem;
+    }
+
+    .metric {
+      border: 1px solid rgba(140, 176, 255, 0.34);
+      border-radius: 12px;
+      padding: 0.7rem;
+      background: rgba(7, 13, 25, 0.8);
+    }
+
+    .metric b { font-size: 1rem; color: #fff; }
+    .metric span { color: var(--muted); font-size: 0.75rem; display: block; }
+
+    .legend { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.7rem; }
+    .pill {
+      border: 1px solid rgba(173, 199, 255, 0.35);
+      border-radius: 999px;
+      padding: 0.28rem 0.65rem;
+      font-size: 0.72rem;
+      color: var(--ink);
+      background: rgba(6, 11, 21, 0.75);
+    }
+
+    .timeline {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .phase {
+      border-left: 3px solid var(--violet);
+      padding-left: 0.7rem;
+    }
+
+    .phase h4 { margin: 0.1rem 0 0.4rem; font-size: 0.9rem; }
+    .phase p { margin: 0; font-size: 0.8rem; color: var(--muted); }
+
+    @media (max-width: 760px) {
+      .viz-stage { height: 520px; }
+      .node { width: 150px; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body class="subpage portal-page" data-depth="1" data-nav="trending" data-page="2026-04-cloud-edge-api-security-visualization">
+  <div id="site-shell-top"></div>
+  <div id="site-shell-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Interactive Deep-Dive • April 2026</span>
+        <h1>Cloud-to-Edge ML Architecture, API Risk, and Security Countermeasures (Animated)</h1>
+        <p class="lead">
+          This page visualizes the end-to-end research stack: model training in cloud, model compression and attestation for edge deployment,
+          API mediation in production, and adaptive attacks against ML APIs. A second and third animation layer shows how model IP is extracted
+          and how multi-layer controls can reduce exfiltration and abuse.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Animation I</span>
+          <h2>Cloud training → edge packaging → deployment API fabric</h2>
+          <p>Blue packets represent gradients, artifacts, model shards, telemetry, and inference traffic across trust boundaries.</p>
+        </div>
+        <div class="viz-wrap">
+          <article class="viz-card">
+            <div class="viz-stage" id="archStage"></div>
+            <div class="metrics">
+              <div class="metric"><b>Cloud Train Cluster</b><span>Distributed training, distillation, robustness eval, watermark embed.</span></div>
+              <div class="metric"><b>Model Packaging</b><span>Quantization/pruning + SBOM + signed OCI artifact + policy bundle.</span></div>
+              <div class="metric"><b>Edge Runtime</b><span>TEE/secure boot, enclave key unwrap, on-device pre/post-processing.</span></div>
+              <div class="metric"><b>API Mesh</b><span>Gateway, authN/authZ, per-tenant quotas, provenance logs, drift monitor.</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Animation II</span>
+          <h2>Why API security is central: attack choreography on ML services</h2>
+          <p>Red packets show active attacks. The animation rotates through extraction, inversion, poisoning, and denial-of-wallet attacks.</p>
+        </div>
+        <article class="viz-card">
+          <div class="viz-stage" id="attackStage"></div>
+          <div class="legend">
+            <span class="pill">Stolen IP: logits, decision boundary, architecture hints</span>
+            <span class="pill">Stolen IP: surrogate model weights via query synthesis</span>
+            <span class="pill">Stolen data: training-member leakage / inversion artifacts</span>
+            <span class="pill">Abuse: API key theft, replay, quota exhaustion</span>
+          </div>
+          <div class="timeline">
+            <div class="phase"><h4>1) Recon & key abuse</h4><p>Credential stuffing, leaked key scraping, endpoint fingerprinting, version probing.</p></div>
+            <div class="phase"><h4>2) Adaptive querying</h4><p>Boundary search + active learning + confidence harvesting for extraction and inversion.</p></div>
+            <div class="phase"><h4>3) Feedback poisoning</h4><p>Malicious labels or reward signals manipulate continual-learning or ranking APIs.</p></div>
+            <div class="phase"><h4>4) Monetized disruption</h4><p>Token flooding and prompt bombs trigger cost amplification and SLA collapse.</p></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Animation III</span>
+          <h2>Promising countermeasure stack (defense-in-depth)</h2>
+          <p>Green packets represent verification and control paths that constrain attacks while preserving latency budgets.</p>
+        </div>
+        <article class="viz-card">
+          <div class="viz-stage" id="defenseStage"></div>
+          <div class="metrics">
+            <div class="metric"><b>Identity Plane</b><span>mTLS + hardware-backed identities + short-lived tokens + workload attestation.</span></div>
+            <div class="metric"><b>Inference Shield</b><span>Semantic firewalls, query similarity throttles, confidence clipping, canary prompts.</span></div>
+            <div class="metric"><b>IP Protection</b><span>Logit obfuscation, output perturbation, watermarking, extraction detectors.</span></div>
+            <div class="metric"><b>Recovery Loop</b><span>Forensics graph, policy rollback, key rotation, shadow-model validation.</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-shell-footer"></div>
+
+  <script>
+    function createNode(stage, label, text, x, y, type = '') {
+      const d = document.createElement('div');
+      d.className = `node ${type}`;
+      d.style.left = `${x}px`;
+      d.style.top = `${y}px`;
+      d.innerHTML = `<b>${label}</b>${text}`;
+      stage.appendChild(d);
+      return { x, y, w: 170, h: 82 };
+    }
+
+    function connect(stage, a, b, cls, delayBase = 0, count = 3) {
+      const x1 = a.x + a.w;
+      const y1 = a.y + a.h / 2;
+      const x2 = b.x;
+      const y2 = b.y + b.h / 2;
+      const dx = x2 - x1;
+      const dy = y2 - y1;
+      const len = Math.hypot(dx, dy);
+      const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+      const line = document.createElement('div');
+      line.className = cls;
+      line.style.left = `${x1}px`;
+      line.style.top = `${y1}px`;
+      line.style.width = `${len}px`;
+      line.style.transform = `rotate(${angle}deg)`;
+      stage.appendChild(line);
+
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.className = `packet ${cls === 'flow' ? 'flow-p' : cls === 'attack-flow' ? 'attack-p' : 'defense-p'}`;
+        p.style.offsetPath = `path('M ${x1} ${y1} L ${x2} ${y2}')`;
+        p.style.animationDelay = `${delayBase + i * 1.15}s`;
+        stage.appendChild(p);
+      }
+    }
+
+    function architectureScene() {
+      const s = document.getElementById('archStage');
+      const n1 = createNode(s, 'Cloud Trainer', 'Data lake, distributed optimization, adversarial training.', 20, 40);
+      const n2 = createNode(s, 'Model Forge', 'Distill + quantize + sign artifacts + policy checks.', 240, 40);
+      const n3 = createNode(s, 'Edge Fleet Ops', 'OTA rollout, staged canary, rollback-safe update graph.', 460, 40);
+      const n4 = createNode(s, 'Edge Device', 'NPU runtime, secure enclave, local feature extraction.', 460, 220);
+      const n5 = createNode(s, 'API Gateway', 'Token auth, request policy, tenant routing, metering.', 240, 220);
+      const n6 = createNode(s, 'Observability', 'Tracing, drift detection, lineage and audit chain.', 20, 220);
+
+      connect(s, n1, n2, 'flow', 0);
+      connect(s, n2, n3, 'flow', 0.8);
+      connect(s, n3, n4, 'flow', 1.6);
+      connect(s, n4, n5, 'flow', 2.2);
+      connect(s, n5, n6, 'flow', 3);
+      connect(s, n6, n1, 'flow', 4, 2);
+    }
+
+    function attackScene() {
+      const s = document.getElementById('attackStage');
+      const a1 = createNode(s, 'Adversary Botnet', 'Distributed query clients with key/identity rotation.', 20, 60, 'attack-node');
+      const a2 = createNode(s, 'ML API Endpoint', 'Prediction, embedding, ranking, and feedback APIs.', 250, 60);
+      const a3 = createNode(s, 'Model Oracle', 'Confidence/logits leak, side-channel timing signal.', 480, 60);
+      const a4 = createNode(s, 'IP Exfil Store', 'Surrogate model, decision boundary, prompt templates.', 480, 245, 'attack-node');
+      const a5 = createNode(s, 'Data Inversion Lab', 'Membership inference and gradient-free reconstruction.', 250, 245, 'attack-node');
+      const a6 = createNode(s, 'Billing/SLA Victim', 'Cost inflation and latency collapse from token floods.', 20, 245, 'attack-node');
+
+      connect(s, a1, a2, 'attack-flow', 0);
+      connect(s, a2, a3, 'attack-flow', 0.8);
+      connect(s, a3, a4, 'attack-flow', 1.6);
+      connect(s, a2, a5, 'attack-flow', 2.4);
+      connect(s, a5, a4, 'attack-flow', 3.3, 2);
+      connect(s, a1, a6, 'attack-flow', 4, 2);
+    }
+
+    function defenseScene() {
+      const s = document.getElementById('defenseStage');
+      const d1 = createNode(s, 'Identity Attestor', 'mTLS cert pinning + attested workload identity.', 20, 60, 'defense-node');
+      const d2 = createNode(s, 'Zero-Trust API Gate', 'Fine-grained authZ, per-intent limits, replay defense.', 240, 60, 'defense-node');
+      const d3 = createNode(s, 'Inference Firewall', 'Semantic anomaly model, extraction detector, canary policy.', 460, 60, 'defense-node');
+      const d4 = createNode(s, 'Watermark & IP Guard', 'Response watermarking + logit shaping + clone detection.', 460, 250, 'defense-node');
+      const d5 = createNode(s, 'Telemetry Correlator', 'Cross-layer traces, eBPF signals, graph forensics.', 240, 250, 'defense-node');
+      const d6 = createNode(s, 'Auto Response Loop', 'Key revoke, route quarantine, safe model fallback.', 20, 250, 'defense-node');
+
+      connect(s, d1, d2, 'defense-flow', 0);
+      connect(s, d2, d3, 'defense-flow', 0.8);
+      connect(s, d3, d4, 'defense-flow', 1.6);
+      connect(s, d4, d5, 'defense-flow', 2.4);
+      connect(s, d5, d6, 'defense-flow', 3.2);
+      connect(s, d6, d2, 'defense-flow', 4, 2);
+    }
+
+    architectureScene();
+    attackScene();
+    defenseScene();
+  </script>
+</body>
+</html>
